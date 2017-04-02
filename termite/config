@@ -1,0 +1,85 @@
+#   ██                              ██   ██          
+#  ░██                             ░░   ░██          
+# ██████  █████  ██████ ██████████  ██ ██████  █████ 
+#░░░██░  ██░░░██░░██░░█░░██░░██░░██░██░░░██░  ██░░░██
+#  ░██  ░███████ ░██ ░  ░██ ░██ ░██░██  ░██  ░███████
+#  ░██  ░██░░░░  ░██    ░██ ░██ ░██░██  ░██  ░██░░░░ 
+#  ░░██ ░░██████░███    ███ ░██ ░██░██  ░░██ ░░██████
+#   ░░   ░░░░░░ ░░░    ░░░  ░░  ░░ ░░    ░░   ░░░░░░ 
+#
+#
+
+[options]
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = envypn 8
+scrollback_lines = 10000
+search_wrap = true
+cursor_blink = on
+cursor_shape = block
+browser = google-chrome-stable
+filter_unmatched_urls = true
+
+
+
+[colors]
+
+# special
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = #0e1520
+
+# black
+color0  = #0e1520
+color8  = #244380
+
+# red
+color1  = #82a0a0
+color9  = #708fc8
+
+# green
+color2  = #6175a0
+color10 = #7590c8
+
+# yellow
+color3  = #5b71a0
+color11 = #c84f6e
+
+# blue
+color4  = #576ea0
+color12 = #3269c8
+
+# magenta
+color5  = #5871a0
+color13 = #7891c8
+
+# cyan
+color6  = #3c5da0
+color14 = #7790c8
+
+# white
+color7  = #5c74a0
+color15 = #a2aec8
+
+highlight = #2f2f2f
+
+
+[hints]
+#font = envypn 8
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3fpadding = 2
+#padding = 2
+#border = #3f3f3f
+#border_width = 1.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s
