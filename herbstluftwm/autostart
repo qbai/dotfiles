@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # this is a simple config for herbstluftwm
 #
-#                     ██                      ██                      ██  
-#                    ░██                     ░██                     ░██  
+#                     ██                      ██                      ██
+#                    ░██                     ░██                     ░██
 #  ██████   ██   ██ ██████  ██████   ██████ ██████  ██████   ██████ ██████
-# ░░░░░░██ ░██  ░██░░░██░  ██░░░░██ ██░░░░ ░░░██░  ░░░░░░██ ░░██░░█░░░██░ 
-#  ███████ ░██  ░██  ░██  ░██   ░██░░█████   ░██    ███████  ░██ ░   ░██  
-# ██░░░░██ ░██  ░██  ░██  ░██   ░██ ░░░░░██  ░██   ██░░░░██  ░██     ░██  
-#░░████████░░██████  ░░██ ░░██████  ██████   ░░██ ░░████████░███     ░░██ 
-# ░░░░░░░░  ░░░░░░    ░░   ░░░░░░  ░░░░░░     ░░   ░░░░░░░░ ░░░       ░░  
+# ░░░░░░██ ░██  ░██░░░██░  ██░░░░██ ██░░░░ ░░░██░  ░░░░░░██ ░░██░░█░░░██░
+#  ███████ ░██  ░██  ░██  ░██   ░██░░█████   ░██    ███████  ░██ ░   ░██
+# ██░░░░██ ░██  ░██  ░██  ░██   ░██ ░░░░░██  ░██   ██░░░░██  ░██     ░██
+#░░████████░░██████  ░░██ ░░██████  ██████   ░░██ ░░████████░███     ░░██
+# ░░░░░░░░  ░░░░░░    ░░   ░░░░░░  ░░░░░░     ░░   ░░░░░░░░ ░░░       ░░
 #
-                              
+
 
 
 
@@ -38,7 +38,7 @@ Mod=Mod4   # Use the super key as the main modifier
 hc spawn compton
 hc spawn nitrogen --restore
 hc spawn dunst
-hc spawn dropbox
+#hc spawn dropbox
 hc spawn nm-applet
 #hc spawn xfce4-panel
 
@@ -58,9 +58,9 @@ hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -wi
 
 # start some programs
 hc keybind $Mod-x spawn firefox
-hc keybind $Mod-Alt-g spawn gpick --pick 
+hc keybind $Mod-Alt-g spawn gpick --pick
 hc keybind $Mod-Shift-x spawn qutebrowser
-#hc keybind $Mod-d spawn dmenu_run -x 810 -y 540 -w 300 -h 25 -fn "tewi 9" 
+#hc keybind $Mod-d spawn dmenu_run -x 810 -y 540 -w 300 -h 25 -fn "tewi 9"
 hc keybind $Mod-Alt-m spawn termite -e ncmpcpp
 hc keybind $Mod-Ctrl-r spawn termite -e ranger
 hc keybind $Mod-Alt-h spawn termite -e hangups
@@ -70,9 +70,9 @@ hc keybind $Mod-Alt-t spawn termite -e tmux
 
 
 # volume control
-#hc keybind XF86AudioRaiseVolume spawn pulsemixer --id 2 --change-volume +5 
-#hc keybind XF86AudioLowerVolume spawn pulsemixer --id 2 --change-volume -5 
-#hc keybind XF86AudioMute        spawn pulsemixer --id 2 --toggle-mute 
+#hc keybind XF86AudioRaiseVolume spawn pulsemixer --id 2 --change-volume +5
+#hc keybind XF86AudioLowerVolume spawn pulsemixer --id 2 --change-volume -5
+#hc keybind XF86AudioMute        spawn pulsemixer --id 2 --toggle-mute
 
 # basic movement
 # focusing clients
@@ -171,30 +171,30 @@ hc keybind $Mod-Shift-u jumpto urgent
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#151515'
-             
-# panel color 
+
+# panel color
 
 hc set frame_bg_normal_color '#900900'
 hc set frame_border_normal_color '#111313'
 # blank window frame thing
 hc set frame_bg_active_color '#303030'
-hc set frame_border_width 0 
+hc set frame_border_width 0
 hc set always_show_frame 1
-hc set frame_bg_transparent 1 
+hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
-hc set frame_gap 1 
+hc set frame_gap 1
 
 #set selected 'window'and selected workspace through its attr
 hc attr theme.active.color '#5f8787'
 hc attr theme.normal.color  '#353535'
 hc attr theme.urgent.color '#ffffff'
-hc attr theme.inner_width 2 
+hc attr theme.inner_width 2
 hc attr theme.outer_width 2
 hc attr theme.inner_color '#252525'
-hc attr theme.border_width 6 
-hc attr theme.floating.border_width 8 
+hc attr theme.border_width 6
+hc attr theme.floating.border_width 8
 hc attr theme.floating.outer_width 2
-hc attr theme.floating.inner_width  2 
+hc attr theme.floating.inner_width  2
 hc attr theme.floating.outer_color '#252525'
 hc attr theme.floating.inner_color  '#252525'
 hc attr theme.active.inner_color '#252525'
@@ -202,9 +202,9 @@ hc attr theme.active.outer_color '#252525'
 hc attr theme.background_color '#202020'
 
 hc set window_gap 0
-hc set frame_padding 0 
-hc set smart_window_surroundings 0  
-hc set smart_frame_surroundings 1 
+hc set frame_padding 0
+hc set smart_window_surroundings 0
+hc set smart_frame_surroundings 1
 hc set focus_follows_mouse 1
 hc set mouse_recenter_gap 0
 

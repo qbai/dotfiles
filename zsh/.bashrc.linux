@@ -29,7 +29,6 @@ alias chmodx='chmod u+x'
 
 alias pg="pmset -g"
 alias rf='rm -rf'
-alias bi='brew install'
 alias pgr='ps -ef|grep -v grep|grep -i --color'
 alias t='tail -f'
 
@@ -202,9 +201,6 @@ alias -s asm='emacsclient -t'
 
 
 
-
-# mac for autojump
-[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
 
 # linux for autojump
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
