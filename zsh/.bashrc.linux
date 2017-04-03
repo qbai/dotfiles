@@ -213,3 +213,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
+########### archlinux ######################
+alias install='sudo pacman -S'
+alias remove='sudo pacman -Rs'
+alias yinstall='yaourt -S'
+alias yremove='yaourt -R'
