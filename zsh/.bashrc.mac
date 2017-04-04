@@ -179,40 +179,19 @@ cleartrash()
 
 ###################### trash ######################
 
-
-######################################### zsh #############
-alias -s gz='tar -xzvf'
-alias -s tgz='tar -xzvf'
-alias -s bz2='tar -xjvf'
-alias -s zip='unzip'
-
 export EDITOR="nano -w"
-
-alias -s txt='less'
-alias -s log='less'
-alias -s rtf='less'
-
-alias -s c='emacsclient -t'
-alias -s cpp='emacsclient -t'
-alias -s h='emacsclient -t'
-alias -s hpp='emacsclient -t'
-alias -s py='emacsclient -t'
-alias -s s='emacsclient -t'
-alias -s asm='emacsclient -t'
-
-
-
-
-# mac for autojump
-[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
-
-
-
-
-######################################### zsh ################
 
 
 export PATH="/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin"
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
+
+
+############# git #######################
+alias gpush='git push origin master'
+alias gpull='git pull origin master'
+alias gstatus='git status'
+alias gfetch='git fetch origin master'
+
+
 
 

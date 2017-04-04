@@ -69,6 +69,31 @@ plugins=(git autojump osx sudo cp)
 
 source ~/.bashrc
 
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s bz2='tar -xjvf'
+alias -s zip='unzip'
+
+alias -s txt='less'
+alias -s log='less'
+alias -s rtf='less'
+
+alias -s c='emacsclient -t'
+alias -s cpp='emacsclient -t'
+alias -s h='emacsclient -t'
+alias -s hpp='emacsclient -t'
+alias -s py='emacsclient -t'
+alias -s s='emacsclient -t'
+alias -s asm='emacsclient -t'
+
+
+
+
+# linux for autojump
+#[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
+
+
 #export PATH="/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
