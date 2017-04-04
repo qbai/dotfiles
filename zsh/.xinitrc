@@ -79,7 +79,7 @@ xset s 0 0 &
 xset s noexpose &
 
 compton --backend glx &
-feh --bg-fill $HOME/dotfiles/wallpaper/herst.png &
+feh --bg-fill ~/dotfiles/wallpaper/kwVWcZQ.jpg &
 
 
 # ░▒▓█ herbstluft █▓▒░
