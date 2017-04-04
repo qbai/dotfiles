@@ -25,7 +25,8 @@ xsetroot -solid '#5A8E3A'
 # remove all existing keybindings
 hc keyunbind --all
 
-
+killall dzen2 &
+killall conky &
 # close tray if reloading
 killall stalonetray
 
@@ -68,7 +69,8 @@ hc keybind $Mod-Alt-h spawn termite -e hangups
 hc keybind $Mod-Alt-r spawn termite -e rtv
 hc keybind $Mod-Alt-w spawn termite -e weechat
 hc keybind $Mod-Alt-t spawn termite -e tmux
-
+#Screenshot
+hc keybind Print spawn ~/.config/herbstluftwm/screenshot.sh
 
 # volume control
 #hc keybind XF86AudioRaiseVolume spawn pulsemixer --id 2 --change-volume +5
