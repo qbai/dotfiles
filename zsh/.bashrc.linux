@@ -197,7 +197,11 @@ alias gpush='git push origin master'
 alias gpull='git pull origin master'
 alias gstatus='git status'
 alias gfetch='git fetch origin master'
+#########################################
 
+
+# config thefuck
+eval $(thefuck --alias)
 
 
 
