@@ -294,8 +294,8 @@ This function is called at the very end of Spacemacs initialization after layers
 (global-set-key (kbd "M-n") (kbd "C-u 5 C-n"))
 (global-set-key (kbd "M-p") (kbd "C-u 5 C-p"))
 ;; move window 5 lines up/down
-(global-set-key (kbd "C-M-n") (kbd "C-u 5 C-v"))
-(global-set-key (kbd "C-M-p") (kbd "C-u 5 M-v"))
+(global-set-key (kbd "C-M-n") (kbd "C-u 10 C-v"))
+(global-set-key (kbd "C-M-p") (kbd "C-u 10 M-v"))
 ;;show in center
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 ;; locate begin or end of file
