@@ -193,10 +193,10 @@ alias yremove='yaourt -R'
 
 
 ############# git #######################
-alias gpush='git push origin master'
-alias gpull='git pull origin master'
-alias gstatus='git status'
-alias gfetch='git fetch origin master'
+#alias gpush='git push origin master'
+#alias gpull='git pull origin master'
+#alias gstatus='git status'
+#alias gfetch='git fetch origin master'
 #########################################
 
 
