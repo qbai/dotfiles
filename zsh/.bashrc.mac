@@ -187,10 +187,10 @@ export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_
 
 
 ############# git #######################
-alias gpush='git push origin master'
-alias gpull='git pull origin master'
-alias gstatus='git status'
-alias gfetch='git fetch origin master'
+#alias gpush='git push origin master'
+#alias gpull='git pull origin master'
+#alias gstatus='git status'
+#alias gfetch='git fetch origin master'
 #########################################
 
 
