@@ -280,6 +280,7 @@ This function is called at the very end of Spacemacs initialization after layers
 ;; next/previous buffer
 (global-set-key (kbd "C-b") 'next-buffer)
 (global-set-key (kbd "M-b") 'previous-buffer)
+;;(global-set-key (kbd "C-M-k") 'kill-this-buffer)
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
 
 
@@ -320,6 +321,11 @@ This function is called at the very end of Spacemacs initialization after layers
 
 ;; clear seach highlight result
 (global-set-key (kbd "C-M-h") 'spacemacs/evil-search-clear-highlight)
+
+
+
+
+
 
 
 
