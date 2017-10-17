@@ -46,7 +46,7 @@ alias lg="lsof -i|grep"
 
 #alias e='emacs -nw'
 alias ed="emacs --daemon"
-alias e='emacsclient -t'
+alias e='emacsclient -t -a'
 alias ek="emacsclient -e '(kill-emacs)'"
 alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
 
