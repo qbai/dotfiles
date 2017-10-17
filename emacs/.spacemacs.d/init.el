@@ -35,7 +35,8 @@
       shell
       syntax-checking
       ;;chinese
-     ;; spell-checking
+      ;; spell-checking
+      c-c++
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -215,6 +216,9 @@
 
  )
 
+ ;; magit status
+ (setq-default git-magit-status-fullscreen t)
+
 )
 
 (defun dotspacemacs/user-config ()
@@ -371,6 +375,9 @@ This function is called at the very end of Spacemacs initialization after layers
 (setq truncate-lines t)
 ;; configure ediff
 (setq ediff-split-window-function (quote split-window-horizontally))
+;; magit directory
+(setq magit-repository-directories '("~/project/unity"))
+(global-git-commit-mode t)
 
 )
 
