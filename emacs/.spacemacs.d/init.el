@@ -34,8 +34,8 @@
       ;;org
       shell
       syntax-checking
-      ;;chinese
-      ;; spell-checking
+      chinese
+      spell-checking
       c-c++
      )
    ;; List of additional packages that will be installed wihout being
