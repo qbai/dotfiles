@@ -179,6 +179,7 @@ cleartrash()
 
 ###################### trash ######################
 
+alias isemacs='git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d'
 
 export EDITOR="nano -w"
 

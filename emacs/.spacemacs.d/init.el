@@ -384,8 +384,7 @@ This function is called at the very end of Spacemacs initialization after layers
 
 ;; tab width
 (setq-default indent-tabs-mode nil)
-
-(setq-default default-tab-width 8)
+(setq-default tab-width 8)
 
 )
 
