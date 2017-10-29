@@ -30,7 +30,8 @@ alias chmodx='chmod u+x'
 alias pg="pmset -g"
 alias rf='rm -rf'
 alias bi='brew install'
-alias pgr='ps -ef|grep -v grep|grep -i --color'
+#alias pgr='ps -ef|grep -v grep|grep -i --color'
+alias p='ps -ef|grep -v grep|grep -i --color'
 alias t='tail -f'
 
 # CPU占用最多的前10个进程 linux
