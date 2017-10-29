@@ -34,7 +34,7 @@
       ;;org
       shell
       syntax-checking
-      chinese
+      ;;chinese
       spell-checking
       c-c++
      )
@@ -181,10 +181,10 @@
   ;;         ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
   ;; 163
-  ;; (setq configuration-layer--elpa-archives
-  ;;       '(("melpa-cn" . "http://mirrors.163.com/elpa/melpa/")
-  ;;         ("org-cn"   . "http://mirrors.163.com/elpa/org/")
-  ;;         ("gnu-cn"   . "http://mirrors.163.com/elpa/gnu/")))
+  (setq configuration-layer--elpa-archives
+        '(("melpa-cn" . "http://mirrors.163.com/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.163.com/elpa/org/")
+          ("gnu-cn"   . "http://mirrors.163.com/elpa/gnu/")))
 
   ;; emacs-china
  (setq configuration-layer--elpa-archives
@@ -272,13 +272,18 @@ This function is called at the very end of Spacemacs initialization after layers
 (define-key key-translation-map (kbd "M-u") (kbd "M-U"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-T"))
 (define-key key-translation-map (kbd "C-m") (kbd "C-M"))
+(define-key key-translation-map (kbd "C-w") (kbd "M-w"))
+(define-key key-translation-map (kbd "M-w") (kbd "C-w"))
 
-
-
-;; open file
+;;  file
 (global-set-key (kbd "M-f") 'spacemacs/helm-find-files)
 ;; save file
-(global-set-key (kbd "M-s") 'save-buffer)
+(global-set-key (kbd "C-s") 'save-buffer)
+;; save all file
+;;(global-set-key (kbd "C-M-s" 'save-some-buffers))
+;; suspend emacs
+;;(global-set-key (kbd "M-z" 'suspend-frame))
+
 
 
 ;; next/previous buffer
@@ -299,16 +304,15 @@ This function is called at the very end of Spacemacs initialization after layers
 (global-set-key (kbd "M-n") (kbd "C-u 5 C-n"))
 (global-set-key (kbd "M-p") (kbd "C-u 5 C-p"))
 ;; move window 5 lines up/down
-(global-set-key (kbd "C-M-n") (kbd "C-u 10 C-v"))
-(global-set-key (kbd "C-M-p") (kbd "C-u 10 M-v"))
+(global-set-key (kbd "C-M-n") (kbd "C-u 15 C-v"))
+(global-set-key (kbd "C-M-p") (kbd "C-u 15 M-v"))
 ;;show in center
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 ;; locate begin or end of file
 (global-set-key (kbd "M-a") 'beginning-of-buffer)
 (global-set-key (kbd "M-e") 'end-of-buffer)
 ;; page down
-(global-set-key (kbd "M-u") 'scroll-up-command)
-
+;;(global-set-key (kbd "M-u") 'scroll-up-command)
 
 
 ;;delete whole line
@@ -321,16 +325,10 @@ This function is called at the very end of Spacemacs initialization after layers
 ;;(global-set-key (kbd "M-SPC") 'set-mark-command)
 
 
-
-
+;; search forword
+(global-set-key (kbd "M-s") 'isearch-forward)
 ;; clear seach highlight result
 (global-set-key (kbd "C-M-h") 'spacemacs/evil-search-clear-highlight)
-
-
-
-
-
-
 
 
 ;; open configure file
@@ -341,6 +339,9 @@ This function is called at the very end of Spacemacs initialization after layers
 (global-set-key (kbd "C-c C-t") 'helm-themes)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; charset utf-8
 (set-language-environment "UTF-8")
@@ -378,6 +379,13 @@ This function is called at the very end of Spacemacs initialization after layers
 ;; magit directory
 (setq magit-repository-directories '("~/project/unity"))
 (global-git-commit-mode t)
+
+
+
+;; tab width
+(setq-default indent-tabs-mode nil)
+
+(setq-default default-tab-width 8)
 
 )
 
