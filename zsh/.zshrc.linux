@@ -85,7 +85,7 @@ alias -s hpp='emacsclient -t'
 alias -s py='emacsclient -t'
 alias -s s='emacsclient -t'
 alias -s asm='emacsclient -t'
-
+alias -s el='emacsclient -t'
 
 alias -s png='feh'
 alias -s jpg='feh'
