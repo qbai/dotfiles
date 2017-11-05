@@ -23,20 +23,27 @@
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-      themes-megapack
+
       ;;colors
+      ;;markdown
+      ;;org
+      ;;chinese
+
+      themes-megapack
       auto-completion
       better-defaults
       emacs-lisp
-      (git :variables
-           git-gutter-use-fringe t)
-      ;;markdown
-      ;;org
+      git
+
       shell
       syntax-checking
-      ;;chinese
       spell-checking
-      c-c++
+      (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
+      ;;python
+      gtags
+      cscope
+      ;;ycmd
+ 
      )
    ;; List of additional packages that will be installed wihout being
    ;; wrapped in a layer. If you need some configuration for these
@@ -164,21 +171,11 @@
 
 )
 
+
+
 (defun dotspacemacs/user-init ()
 "Initialization function for user code.It is called immediately after`dotspacemacs/init', before layer configuration executes.
   This function is mostly useful for variables that need to be set before packages are loaded. If you are unsure, you should try in setting them in`dotspacemacs/user-config' first."
-
- ;; zilongshanren
- ;; (setq configuration-layer--elpa-archives
- ;;       '(("melpa" . "elpa.zilongshanren.com/melpa/")
- ;;         ("org" . "elpa.zilongshanren.com/org/")
- ;;         ("gnu" . "elpa.zilongshanren.com/gnu/")))
-
-  ;; tsinghua
-  ;; (setq-default configuration-layer--elpa-archives
-  ;;  '(("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-  ;;    ("gnu-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-  ;;         ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
   ;; 163
   (setq configuration-layer--elpa-archives
@@ -191,6 +188,20 @@
        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
          ("org-cn"   . "http://elpa.emacs-china.org/org/")
          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+
+ ;; tsinghua
+ ;;(setq-default configuration-layer--elpa-archives
+ ;;              '(("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+ ;;                ("gnu-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+ ;;                ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+
+ ;; zilongshanren
+ ;; (setq configuration-layer--elpa-archives
+ ;;        '(("melpa" . "elpa.zilongshanren.com/melpa/")
+ ;;          ("org" . "elpa.zilongshanren.com/org/")
+ ;;          ("gnu" . "elpa.zilongshanren.com/gnu/")))
+
 
  ;; (colors :variables
  ;;               colors-enable-rainbow-identifiers t)
@@ -210,21 +221,19 @@
   ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
   ;; derivatives. If set to `relative', also turns on relative line numbers.
   ;; (default nil)
-  dotspacemacs-line-numbers 'nil
   powerline-default-separator 'arrow
   dotspacemacs-check-for-update t
 
- )
+  ;; magit status
+  git-magit-status-fullscreen t
 
- ;; magit status
- (setq-default git-magit-status-fullscreen t)
+ )
 
 )
 
 (defun dotspacemacs/user-config ()
 "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after layers configuration. This is the place where most of your configurations should be done. Unless it is explicitly specified that a variable should be set before a package is loaded, you should place you code here."
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -263,7 +272,7 @@ This function is called at the very end of Spacemacs initialization after layers
 
 
 
-
+;; key mapping
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
 (define-key key-translation-map (kbd "C-l") (kbd "C-L"))
 (define-key key-translation-map (kbd "M-k") (kbd "M-K"))
@@ -272,10 +281,15 @@ This function is called at the very end of Spacemacs initialization after layers
 (define-key key-translation-map (kbd "M-u") (kbd "M-U"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-T"))
 (define-key key-translation-map (kbd "C-m") (kbd "C-M"))
+;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
+(define-key key-translation-map (kbd "C-i") (kbd "C-I"))
+(define-key key-translation-map (kbd "C-o") (kbd "C-O"))
+
 
 ;;  file
+;; open & file & new file
 (global-set-key (kbd "M-f") 'spacemacs/helm-find-files)
 ;; save file
 (global-set-key (kbd "C-s") 'save-buffer)
@@ -285,7 +299,7 @@ This function is called at the very end of Spacemacs initialization after layers
 ;;(global-set-key (kbd "M-z" 'suspend-frame))
 
 
-
+;; buffer
 ;; next/previous buffer
 (global-set-key (kbd "C-b") 'next-buffer)
 (global-set-key (kbd "M-b") 'previous-buffer)
@@ -293,7 +307,7 @@ This function is called at the very end of Spacemacs initialization after layers
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
 
 
-
+;; moving
 ;; move-forward/back char
 (global-set-key (kbd "C-j") 'forward-char)
 (global-set-key (kbd "C-l") 'backward-char)
@@ -310,11 +324,14 @@ This function is called at the very end of Spacemacs initialization after layers
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 ;; locate begin or end of file
 (global-set-key (kbd "M-a") 'beginning-of-buffer)
-(global-set-key (kbd "M-e") 'end-of-buffer)
+(global-set-key (kbd "M-e") 'end-of-)
 ;; page down
-;;(global-set-key (kbd "M-u") 'scroll-up-command)
+(global-set-key (kbd "C-i") 'scroll-up-command)
+;; page up
+(global-set-key (kbd "C-o") 'scroll-down-command)
 
 
+;; editing
 ;;delete whole line
 (global-set-key (kbd "M-k") 'my-kill-whole-line)
 ;; quick copy whole line
@@ -324,7 +341,7 @@ This function is called at the very end of Spacemacs initialization after layers
 ;; set mark tag
 ;;(global-set-key (kbd "M-SPC") 'set-mark-command)
 
-
+;; search & replace
 ;; search forword
 (global-set-key (kbd "M-s") 'isearch-forward)
 ;; clear seach highlight result
@@ -341,7 +358,7 @@ This function is called at the very end of Spacemacs initialization after layers
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; charset utf-8
 (set-language-environment "UTF-8")
@@ -356,35 +373,57 @@ This function is called at the very end of Spacemacs initialization after layers
 (setq locale-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; replace yes with y
-(fset 'yes-or-no-p 'y-or-n-p)
-;; default tab char number
-(setq default-tab-width 8)
-;; not backup file
-(setq-default make-backup-files nil)
-;; auto save file
-(setq auto-save-mode t)
-;; enable emacs with other app to use clipboard
-(setq x-select-enable-clipboard t)
-
-(setq package-check-signature nil)
-;; set default file open location
-(setq default-directory "~/")
-;; close tag asking for big file
-(setq large-file-warning-threshold nil)
-;; set nowrap
-(setq truncate-lines t)
-;; configure ediff
-(setq ediff-split-window-function (quote split-window-horizontally))
-;; magit directory
-(setq magit-repository-directories '("~/project/unity"))
-(global-git-commit-mode t)
-
-
 
 ;; tab width
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
+(setq tab-width 4)
+(set c-basic-offset 8)
+
+;; line wrap
+(setq-default fill-column 80)
+;; set nowrap
+(setq truncate-lines nil)
+
+;; replace yes with y
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; not backup file
+(setq-default make-backup-files nil)
+
+;; auto save file
+;;(setq auto-save-mode t)
+
+;; enable emacs with other app to use clipboard
+;;(setq x-select-enable-clipboard t)
+
+;;(setq package-check-signature nil)
+
+;; set default file open location
+;;(setq default-directory "~/")
+
+;; close tag asking for big file
+;;(setq large-file-warning-threshold nil)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; configure ediff
+(setq ediff-split-window-function (quote split-window-horizontally))
+
+
+;; projectile
+(projectile-global-mode)
+(setq projectile-globally-ignored-directories (append '(".svn") projectile-globally-ignored-directories))
+
+;;c-c++
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 )
 
