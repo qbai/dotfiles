@@ -183,17 +183,17 @@
           ("org-cn"   . "http://mirrors.163.com/elpa/org/")
           ("gnu-cn"   . "http://mirrors.163.com/elpa/gnu/")))
 
-  ;; emacs-china
+  ;; tsinghua
+  ;; (setq-default configuration-layer--elpa-archives
+  ;;               '(("melpa-cn" . "mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+  ;;                 ("gnu-cn" . "mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+  ;;                 ("org-cn" . "mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+ ;; emacs-china
  (setq configuration-layer--elpa-archives
        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
          ("org-cn"   . "http://elpa.emacs-china.org/org/")
          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
-
- ;; tsinghua
- ;;(setq-default configuration-layer--elpa-archives
- ;;              '(("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
- ;;                ("gnu-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
- ;;                ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
 
  ;; zilongshanren
@@ -411,17 +411,17 @@ This function is called at the very end of Spacemacs initialization after layers
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; configure ediff
-(setq ediff-split-window-function (quote split-window-horizontally))
-
-
 ;; projectile
 (projectile-global-mode)
-(setq projectile-globally-ignored-directories (append '(".svn") projectile-globally-ignored-directories))
+(setq projectile-enable-caching t)
+;;(setq projectile-require-project-root nil)
+;;(projectile-discover-projects-in-directory "~/Project/github/db-6.1.19")
+;;(setq projectile-globally-ignored-directories (append '(".svn") projectile-globally-ignored-directories))
 
 ;;c-c++
 
-
+;; configure ediff
+(setq ediff-split-window-function (quote split-window-horizontally))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
