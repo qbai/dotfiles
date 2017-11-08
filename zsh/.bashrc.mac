@@ -78,9 +78,6 @@ alias ..="cl .."
 alias llock="light-locker --lock-on-suspend&"
 alias vncone="vncserver -alwaysshared :1 -geometry 1440×900"
 
-#export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
-
-
 tmux_init()
 {
     tmux new-session -s "qbai" -d -n "qbai"    # open new session
@@ -106,12 +103,9 @@ alias ppr="ps -ef|grep privoxy"
 ################################ Oracle  ####################################################
 
 #export http_proxy=www-proxy.us.oracle.com:80
-
 #MAVEN_HOME=/home/baqiang/apache-maven-3.2.5 export MAVEN_HOME
-
 #export JAVA_HOME=/tools/jdk1.8.0_60
 #export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-
 #export PATH=/home/baqiang/.emacs.d/plugins/global-6.5/bin/bin:/scratch/baqiang/qbai/autoconf-2.68/bin:/scratch/baqiang/qbai/automake-1.9/bin/bin:/usr/sbin:${MAVEN_HOME}/bin:$JAVA_HOME/bin:/scratch/baqiang/app/bin:/usr/local/bin:.:${PATH}
 
 #############oracle db config*********************
@@ -180,11 +174,12 @@ cleartrash()
 
 ###################### trash ######################
 
-alias isemacs='git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d'
+alias insemacs='git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d'
 
 export EDITOR="nano -w"
 
-export PATH="/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export 
+PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
