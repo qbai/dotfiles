@@ -22,6 +22,7 @@ alias m='more'
 alias k='kill -9'
 alias t='top'
 alias ht='htop'
+alias n='nano -w'
 
 umask 0000
 alias chmods='chmod u+s'
@@ -173,7 +174,7 @@ cleartrash()
 
 ###################### trash ######################
 
-alias insmacs='git clone https://github.com/syl20bnr/spacemacs 
+alias insemacs='git clone https://github.com/syl20bnr/spacemacs 
 ~/.emacs.d'
 
 export EDITOR="nano -w"
