@@ -34,10 +34,10 @@ alias rf='rm -rf'
 alias p='ps -ef|grep -v grep|grep -i --color'
 alias t='tail -f'
 
-# CPU占用最多的前10个进程 linux
+# CPU top 10 process in linux
 alias pg10="ps auxw|head -1;ps auxw|sort -rn -k3|head -10"
 
-# 内存消耗最多的前10个进程 linux
+# Top 10 consumed memory linux
 alias pm10="ps auxw|head -1;ps auxw|sort -rn -k4|head -10"
 
 
@@ -142,12 +142,12 @@ alias r='trash'
 alias ctra='cleartrash'
 
 
-#替换rm指令移动文件到~/.trash/中
+# Replace rm with mv, and move files into .trash folder
 trash()
 {
     mv $@  ~/.trash/
 }
-#显示回收站中垃圾清单
+# Show all trashlist files
 trashlist()
 {
     echo -e "Garbage Lists in ~/.trash/ "
@@ -156,12 +156,12 @@ trashlist()
     echo -e "Use 'ur' to mv the file in garbages to current dir!!"
     ls -al  ~/.trash
 }
-#找回回收站相应文件
+# Move back all files in trashlist
 undelfile()
 {
     mv -i ~/.trash/$@ ./
 }
-#清空回收站
+# Clear all trash files
 cleartrash()
 {
     echo -ne "Clear all garbages in ~/.trash, Sure?[y/n]"
