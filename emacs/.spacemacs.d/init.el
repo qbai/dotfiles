@@ -358,7 +358,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; derivatives. If set to `relative', also turns on relative line numbers.
   ;; (default nil)
   powerline-default-separator 'arrow
-  dotspacemacs-check-for-update t
+  dotspacemacs-check-for-update nil
 
   ;; magit status
   git-magit-status-fullscreen t
