@@ -93,7 +93,8 @@ alias -s jpg='feh'
 
 # linux for autojump
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-
+[[ -s /usr/local/etc/profile.d/autojump.sh ]] && source /usr/local/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
 
 
 #export PATH="/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
