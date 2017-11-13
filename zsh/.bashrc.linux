@@ -52,7 +52,7 @@ alias e='emacsclient -t'
 alias ek="emacsclient -e '(kill-emacs)'"
 alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
 
-alias soo='sudo !!'
+alias soo="sudo !!"
 alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
 alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
