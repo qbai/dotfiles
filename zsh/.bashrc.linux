@@ -25,6 +25,8 @@ alias t='top'
 alias ht='htop'
 alias n='nano -w'
 
+alias tea='2 >&1 |tea -a'
+
 umask 0000
 alias chmods='chmod u+s'
 alias chmodx='chmod u+x'

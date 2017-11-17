@@ -40,7 +40,9 @@ values."
      ;;colors
     ;;markdown
     ;;org
-    ;;chinese
+    (chinese :variables
+             chinese-enable-fcitx t)
+
 
     themes-megapack
     auto-completion
@@ -349,7 +351,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;;         ("http" . "127.0.0.1:8888") 
  ;;         ("https" . "127.0.0.1:8888")
  ;;         ))
- 
+
  (setq-default
   ;;http://themegallery.robdor.com/
   ;;dotspacemacs-themes '(darktooth)
