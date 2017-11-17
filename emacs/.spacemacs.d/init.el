@@ -342,6 +342,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;; (colors :variables
  ;;               colors-enable-rainbow-identifiers t)
 
+
+ ;; set proxy if necessary
+ ;; (setq url-proxy-services
+ ;;       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+ ;;         ("http" . "127.0.0.1:8888") 
+ ;;         ("https" . "127.0.0.1:8888")
+ ;;         ))
+ 
  (setq-default
   ;;http://themegallery.robdor.com/
   ;;dotspacemacs-themes '(darktooth)
