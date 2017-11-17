@@ -326,10 +326,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;;                 ("org-cn" . "mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
 
  ;; emacs-china
- ;;(setq configuration-layer--elpa-archives
-  ;;     '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-   ;;      ("org-cn"   . "http://elpa.emacs-china.org/org/")
-    ;;     ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+ (setq configuration-layer--elpa-archives
+      '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+        ("org-cn"   . "http://elpa.emacs-china.org/org/")
+        ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
 
  ;; zilongshanren

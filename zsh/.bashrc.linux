@@ -18,7 +18,8 @@ alias c='clear'
 alias s='source ~/.bashrc'
 alias h='history'
 alias r='rm -rfi'
-alias m='more'
+#alias m='more'
+alias m='less"
 alias k='kill -9'
 alias t='top'
 alias ht='htop'
@@ -71,7 +72,7 @@ alias txstart="tmux attach || tmux_init"
 alias wh="which"
 
 alias ai="sudo apt-get install"
-alias le="less"
+#alias le="less"
 
 cl() { cd "$@" && pwd ; ls -alF; }
 alias ..="cl .."
