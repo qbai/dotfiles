@@ -128,3 +128,12 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# click 2 esc to do sudo command ,that's cool
+sudo-command-line() {
+     [[ -z $BUFFER ]] && zle up-history
+     [[ $BUFFER != sudo\ * ]] && BUFFER="sudo $BUFFER"
+     zle end-of-line
+}
+zle -N sudo-command-line
+bindkey "\e\e" sudo-command-line
+
