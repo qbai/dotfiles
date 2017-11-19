@@ -375,6 +375,13 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
  )
 
+ ;; (custom-set-variables '(spacemacs-theme-custom-colors
+ ;;                         '((bg1 . "#272822"))))
+ (setq
+  monokai-background     "#272822"
+  monokai-highlight-line "#3E3D32"
+  )
+
   )
 
 (defun dotspacemacs/user-config ()
@@ -575,6 +582,7 @@ you should place your code here."
 (setq ediff-split-window-function (quote split-window-horizontally))
 
 ;; configure chinese font
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
