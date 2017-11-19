@@ -5,7 +5,7 @@
 
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/qbai/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -76,6 +76,7 @@ alias -s zip='unzip'
 alias -s txt='less'
 alias -s log='less'
 alias -s rtf='less'
+alias -s conf='less'
 
 alias -s c='emacsclient -t'
 alias -s cpp='emacsclient -t'
