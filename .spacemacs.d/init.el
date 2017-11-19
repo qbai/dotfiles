@@ -40,8 +40,8 @@ values."
      ;;colors
     ;;markdown
     ;;org
-    (chinese :variables
-             chinese-enable-fcitx t)
+    ;;(chinese :variables
+      ;;       chinese-enable-fcitx t)
 
 
     themes-megapack
@@ -136,7 +136,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(monokai
-			                   spacemacs-dark
+                         spacemacs-dark
                          spacemacs-light
                          solarized-dark
                          solarized-light
@@ -439,6 +439,7 @@ you should place your code here."
 (define-key key-translation-map (kbd "M-u") (kbd "M-U"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-T"))
 (define-key key-translation-map (kbd "C-m") (kbd "C-M"))
+
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
@@ -454,7 +455,7 @@ you should place your code here."
 ;; save all file
 ;;(global-set-key (kbd "C-M-s" 'save-some-buffers))
 ;; suspend emacs
-;;(global-set-key (kbd "M-z" 'suspend-frame))
+;;(global-set-key (kbd "C-z" 'suspend-frame))
 
 
 ;; buffer
