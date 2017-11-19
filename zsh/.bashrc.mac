@@ -18,12 +18,16 @@ alias c='clear'
 alias s='source ~/.bashrc'
 alias h='history'
 alias r='rm -rfi'
-alias m='more'
+#alias m='more'
+alias m='less'
 alias k='kill -9'
 alias t='top'
 alias ht='htop'
+alias n='nano -w'
 
-umask 0077
+alias tea='2 >&1 |tea -a'
+
+umask 0000
 alias chmods='chmod u+s'
 alias chmodx='chmod u+x'
 
@@ -34,10 +38,10 @@ alias bi='brew install'
 alias p='ps -ef|grep -v grep|grep -i --color'
 alias t='tail -f'
 
-# CPU占用最多的前10个进程 linux
+# CPU top 10 process in linux
 alias pg10="ps auxw|head -1;ps auxw|sort -rn -k3|head -10"
 
-# 内存消耗最多的前10个进程 linux
+# Top 10 consumed memory linux
 alias pm10="ps auxw|head -1;ps auxw|sort -rn -k4|head -10"
 
 
@@ -52,7 +56,7 @@ alias e='emacsclient -t'
 alias ek="emacsclient -e '(kill-emacs)'"
 alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
 
-alias soo='sudo !!'
+alias soo="sudo !!"
 alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
 alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
@@ -70,7 +74,7 @@ alias txstart="tmux attach || tmux_init"
 alias wh="which"
 
 alias ai="sudo apt-get install"
-alias le="less"
+#alias le="less"
 
 cl() { cd "$@" && pwd ; ls -alF; }
 alias ..="cl .."
@@ -142,12 +146,12 @@ alias r='trash'
 alias ctra='cleartrash'
 
 
-#替换rm指令移动文件到~/.trash/中
+# Replace rm with mv, and move files into .trash folder
 trash()
 {
     mv $@  ~/.trash/
 }
-#显示回收站中垃圾清单
+# Show all trashlist files
 trashlist()
 {
     echo -e "Garbage Lists in ~/.trash/ "
@@ -156,12 +160,12 @@ trashlist()
     echo -e "Use 'ur' to mv the file in garbages to current dir!!"
     ls -al  ~/.trash
 }
-#找回回收站相应文件
+# Move back all files in trashlist
 undelfile()
 {
     mv -i ~/.trash/$@ ./
 }
-#清空回收站
+# Clear all trash files
 cleartrash()
 {
     echo -ne "Clear all garbages in ~/.trash, Sure?[y/n]"
@@ -174,12 +178,12 @@ cleartrash()
 
 ###################### trash ######################
 
-alias insemacs='git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d'
+alias insemacs='git clone https://github.com/syl20bnr/spacemacs 
+~/.emacs.d'
 
 export EDITOR="nano -w"
 
-export 
-PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
