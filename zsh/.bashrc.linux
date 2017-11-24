@@ -66,8 +66,9 @@ alias fng="find . -name '*'|xargs grep"
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
 alias dl="df -lha"
-alias ds="du -sh"
-alias dam="du -ah --max-depth=1"
+alias dh="du -sh"
+#alias dum="du -ah --max-depth=1"
+alias dus='du -ah --max-depth=1 |sort -rn'
 
 alias gcg="gtags --gtagslabel ctags"
 alias txstart="tmux attach || tmux_init"
