@@ -12,10 +12,10 @@ export TERM=xterm-256color
 
 alias l='ls -l'
 alias la='ls -l -a'
-alias lt='ls -l -t -r'
+alias lt='ls -l -t -r -a'
 alias lf="ls -l -F"
 alias c='clear'
-alias s='source ~/.bashrc'
+alias s='source ~/.zshrc'
 alias h='history'
 alias r='rm -rfi'
 #alias m='more'
@@ -24,12 +24,12 @@ alias k='kill -9'
 alias t='top'
 alias ht='htop'
 alias n='nano -w'
-
-alias tea='2 >&1 |tea -a'
+#alias n='nano -$'
+#alias tea='2 >&1 |tee -a'
 
 umask 0000
-alias chmods='chmod u+s'
-alias chmodx='chmod u+x'
+alias chus='chmod u+s'
+alias chux='chmod u+x'
 
 alias pg="pmset -g"
 alias rf='rm -rf'
@@ -44,11 +44,12 @@ alias pg10="ps auxw|head -1;ps auxw|sort -rn -k3|head -10"
 # Top 10 consumed memory linux
 alias pm10="ps auxw|head -1;ps auxw|sort -rn -k4|head -10"
 
+alias mem="free -h"
 
 alias ng="netstat -an|grep"
 #alias ngk="netstat -an|grep $1|awk '{print $2}'|sudo xargs kill -9"
 alias lg="lsof -i|grep"
-
+#alias lgd='lsof +D'
 
 #alias e='emacs -nw'
 alias ed="emacs --daemon"
@@ -56,18 +57,19 @@ alias e='emacsclient -t'
 alias ek="emacsclient -e '(kill-emacs)'"
 alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
 
-alias soo="sudo !!"
+#alias soo="sudo !!"
 alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
 alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
 alias fname="find . -name"
 alias fng="find . -name '*'|xargs grep"
 
-alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
+#alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
-alias dl="df -lha"
-alias ds="du -sh"
-alias dam="du -ah --max-depth=1"
+#alias dl="df -lha"
+alias duh="du -sh"
+#alias dum="du -ah --max-depth=1"
+alias dus='du -ah --max-depth=1 |sort -rn'
 
 alias gcg="gtags --gtagslabel ctags"
 alias txstart="tmux attach || tmux_init"
@@ -182,6 +184,7 @@ alias insemacs='git clone https://github.com/syl20bnr/spacemacs
 ~/.emacs.d'
 
 export EDITOR="nano -w"
+#export EDITOR='nano -$'
 
 export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
@@ -199,7 +202,7 @@ export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_
 eval $(thefuck --alias)
 
 
-function ediff() {
+function edf() {
 	if [ "X${2}" = "X" ]; then
 		echo "USAGE: ediff <FILE 1> <FILE 2>"
 	else
