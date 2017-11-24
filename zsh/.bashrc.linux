@@ -24,11 +24,12 @@ alias k='kill -9'
 alias t='top'
 alias ht='htop'
 alias n='nano -w'
-#alias tea='2 >&1 |tea -a'
+#alias n='nano -$'
+#alias tea='2 >&1 |tee -a'
 
 umask 0000
-alias chmods='chmod u+s'
-alias chmodx='chmod u+x'
+alias chus='chmod u+s'
+alias chux='chmod u+x'
 
 alias pg="pmset -g"
 alias rf='rm -rf'
@@ -47,7 +48,7 @@ alias mem="free -h"
 alias ng="netstat -an|grep"
 #alias ngk="netstat -an|grep $1|awk '{print $2}'|sudo xargs kill -9"
 alias lg="lsof -i|grep"
-
+#alias lgd='lsof +D'
 
 #alias e='emacs -nw'
 alias ed="emacs --daemon"
@@ -62,7 +63,7 @@ alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 alias fname="find . -name"
 alias fng="find . -name '*'|xargs grep"
 
-alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
+#alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
 alias dl="df -lha"
 alias ds="du -sh"
@@ -181,6 +182,7 @@ alias insemacs='git clone https://github.com/syl20bnr/spacemacs
 ~/.emacs.d'
 
 export EDITOR="nano -w"
+#export EDITOR='nano -$'
 
 export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
@@ -205,10 +207,7 @@ alias yremove='yaourt -R'
 #eval $(thefuck --alias)
 
 
-
-
-
-function ediff() {
+function edf() {
 	if [ "X${2}" = "X" ]; then
 		echo "USAGE: ediff <FILE 1> <FILE 2>"
 	else

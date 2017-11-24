@@ -58,7 +58,7 @@ ZSH_THEME="gnzh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git tmux autojump osx sudo cp)
-plugins=(git autojump osx sudo cp)
+plugins=(git autojump sudo cp)
 
 # for linux
 #plugins=(git tmux autojump sudo cp)
@@ -73,6 +73,7 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s bz2='tar -xjvf'
 alias -s zip='unzip'
+alias -s xz='xz -d'
 
 alias -s txt='less'
 alias -s log='less'
