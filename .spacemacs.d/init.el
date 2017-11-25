@@ -451,11 +451,15 @@ you should place your code here."
 
 ;;  file
 ;; open & file & new file
-(global-set-key (kbd "M-f") 'spacemacs/helm-find-files)
+(global-set-key (kbd "M-f") 'counsel-find-file)
+;;(global-set-key (kbd "M-f") 'spacemacs/helm-find-files)
+
 ;; save file
 (global-set-key (kbd "C-s") 'save-buffer)
+
 ;; save all file
 ;;(global-set-key (kbd "C-M-s" 'save-some-buffers))
+
 ;; suspend emacs
 ;;(global-set-key (kbd "C-z" 'suspend-frame))
 
@@ -536,10 +540,16 @@ you should place your code here."
 
 
 ;; tab width
+;;(global-unset-key "<tab>")
+;;(unbind-key (kbd "<tab>") scroll-up-command)
+;;(global-set-key (kbd "<tab>") 'indent-for-tab-command)
+;;(define-key global-map (kbd "<tab>") 'indent-for-tab-command)
+(setq-default tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
-(setq tab-width 4)
-;;(set c-basic-offset 8)
+;;(setq tab-width 4)
+(setq c-basic-offset 8)
+
 
 ;; line wrap
 (setq-default fill-column 80)
@@ -553,10 +563,10 @@ you should place your code here."
 (setq-default make-backup-files nil)
 
 ;; auto save file
-;;(setq auto-save-mode t)
+(setq auto-save-mode nil)
 
 ;; enable emacs with other app to use clipboard
-;;(setq x-select-enable-clipboard t)
+(setq x-select-enable-clipboard t)
 
 ;;(setq package-check-signature nil)
 
@@ -564,8 +574,10 @@ you should place your code here."
 ;;(setq default-directory "~/")
 
 ;; close tag asking for big file
-;;(setq large-file-warning-threshold nil)
+(setq large-file-warning-threshold nil)
 
+;; diable local variables list
+(setq enable-local-variables nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -575,7 +587,9 @@ you should place your code here."
 ;; projectile
 (projectile-global-mode)
 (setq projectile-enable-caching t)
-(global-set-key (kbd "C-f") 'project-find-file)
+(global-set-key (kbd "C-f") 'counsel-projectile-find-file)
+;;(global-set-key (kbd "C-f") 'project-find-file)
+
 ;;(setq projectile-require-project-root nil)
 ;;(projectile-discover-projects-in-directory "~/Project/github/db-6.1.19")
 (setq projectile-globally-ignored-directories (append '(".git") projectile-globally-ignored-directories))
