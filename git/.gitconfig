@@ -2,7 +2,13 @@
 	name = qbai
 	email = civetw9s@gmail.com
 [credential]
-	helper = cache
+	#helper = cache
+
+	# touch ~/.git-credentials
+	# e ~/.git-credentials
+	# add https://[username]:[passwd]@github.com
+	# git config --global credential.helper store
+	#helper = store
 [alias]
 	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
 	stat = status -sb
@@ -14,10 +20,26 @@
 	ui = true
 	diff = auto
 	pager = true
+	editor = emacsclient -t -a=\\\"\\\"
+	#editor = emacsclient -t
 [diff]
-	tool = ediff
+	tool = diff
+	tool = ediffclient
+#[difftool "ediff"]
+#        cmd = emacs --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+[difftool "ediffclient"]
+        cmd = emacsclient -t --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
 [difftool]
 	prompt = false
+
+
+[merge]
+  tool = ediffclient
+[mergetool "ediffclient"]
+  cmd = emacsclient -t \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+  trustExitCode = true
+  #cmd = emacsclient -c -a \"\" --eval \"(my/emerge \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" \\\"$OUTPUT\\\")\"
+  prompt = false
 
 
 
