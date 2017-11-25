@@ -53,7 +53,7 @@ values."
 
     shell
     syntax-checking
-    spell-checking
+    ;;spell-checking
     (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
     ;;python
     gtags
@@ -489,7 +489,7 @@ you should place your code here."
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 ;; locate begin or end of file
 (global-set-key (kbd "M-a") 'beginning-of-buffer)
-(global-set-key (kbd "M-e") 'end-of-)
+(global-set-key (kbd "M-e") 'end-of-buffer)
 ;; page down
 (global-set-key (kbd "C-i") 'scroll-up-command)
 ;; page up
