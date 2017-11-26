@@ -45,3 +45,7 @@
 
 #core.compression = 0
 #http.postbuffer = 524288000
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

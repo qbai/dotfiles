@@ -185,6 +185,8 @@ alias insemacs='git clone https://github.com/syl20bnr/spacemacs
 export EDITOR="nano -w"
 #export EDITOR='nano -$'
 
+export GTAGSLABEL=pygments
+
 export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
