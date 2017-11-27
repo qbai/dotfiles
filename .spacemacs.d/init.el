@@ -480,7 +480,7 @@ you should place your code here."
 (global-set-key (kbd "M-b") 'previous-buffer)
 ;;(global-set-key (kbd "C-M-k") 'kill-this-buffer)
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
-
+;;(global-set-key (kbd "C-M-a-k") 'kill-some-buffers)
 
 ;; moving
 ;; move-forward/back char
