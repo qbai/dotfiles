@@ -618,7 +618,6 @@ you should place your code here."
 ;;             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
 ;;               (ggtags-mode 1))))
 
-
 ;; configure ediff
 (setq ediff-split-window-function (quote split-window-horizontally))
 

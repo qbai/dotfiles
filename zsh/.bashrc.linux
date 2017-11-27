@@ -23,13 +23,14 @@ alias m='less'
 alias k='kill -9'
 alias t='top'
 alias ht='htop'
-alias n='nano -w'
-#alias n='nano -$'
+#alias n='nano -w'
+alias n='nano -$'
 #alias tea='2 >&1 |tee -a'
 
 umask 0000
 alias chus='chmod u+s'
 alias chux='chmod u+x'
+alias chall='chmod -R 777'
 
 alias pg="pmset -g"
 alias rf='rm -rf'
@@ -60,7 +61,7 @@ alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
 alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
 alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
-alias fname="find . -name"
+alias fn="find . -name"
 alias fng="find . -name '*'|xargs grep"
 
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
