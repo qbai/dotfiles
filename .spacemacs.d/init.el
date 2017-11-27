@@ -325,7 +325,6 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-
   ;; emacs-china
   ;; (setq configuration-layer--elpa-archives
   ;;       '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
@@ -373,12 +372,14 @@ before packages are loaded. If you are unsure, you should try in setting them in
   ;; auto-save the file in-place, `cache' to auto-save the file to another
   ;; file stored in the cache directory and `nil' to disable auto-saving.
      ;; (default 'cache)
+  dotspacemacs-large-file-size 10
   dotspacemacs-auto-save-file-location 'original
   ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
   ;; derivatives. If set to `relative', also turns on relative line numbers.
   ;; (default nil)
   powerline-default-separator 'arrow
   dotspacemacs-check-for-update nil
+  dotspacemacs-elpa-https nil
 
   ;; magit status
   git-magit-status-fullscreen t
@@ -605,13 +606,18 @@ you should place your code here."
 
 ;;c-c++
 
-
 ;; gtags
 (spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
 (add-hook 'c-mode-common-hook
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
-              (helm-gtags-mode 1))))
+              (helm-gtags-mode 1)
+              (define-key c++-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
+              (define-key c-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
+              (define-key c++-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
+              (define-key c-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
+              (define-key c++-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
+              (define-key c-mode-map(kbd "C-c C-c") 'helm-cscope-find-calling-this-function))))
 
 ;; (add-hook 'c-mode-common-hook
 ;;           (lambda ()
