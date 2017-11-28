@@ -46,7 +46,7 @@ alias pm10="ps auxw|head -1;ps auxw|sort -rn -k4|head -10"
 
 alias mem="free -h"
 
-alias ng="netstat -an|grep"
+alias ng="netstat -antp|grep"
 #alias ngk="netstat -an|grep $1|awk '{print $2}'|sudo xargs kill -9"
 alias lg="lsof -i|grep"
 #alias lgd='lsof +D'
