@@ -606,7 +606,7 @@ you should place your code here."
 ;; disable lock file
 (setq create-lockfiles nil)
 ;; disable backup file
-(setq make-backup-files nil)
+;;(setq make-backup-files nil)
 ;; disable autosave file
 ;;(setq auto-save-default nil)
 
@@ -630,21 +630,21 @@ you should place your code here."
 ;; gtags
 (spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
 
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
-;;               (helm-gtags-mode 1)
-;;               (define-key c++-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
-;;               (define-key c-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
-;;               (define-key c++-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
-;;               (define-key c-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
-;;               (define-key c++-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
-;;               (define-key c-mode-map(kbd "C-c C-c") 'helm-cscope-find-calling-this-function))))
-
 (add-hook 'c-mode-common-hook
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
-              (ggtags-mode 1))))
+              (helm-gtags-mode 1)
+              (define-key c++-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
+              (define-key c-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
+              (define-key c++-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
+              (define-key c-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
+              (define-key c++-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
+              (define-key c-mode-map(kbd "C-c C-c") 'helm-cscope-find-calling-this-function))))
+
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
+;;               (ggtags-mode 1))))
 
 ;; configure ediff
 (setq ediff-split-window-function (quote split-window-horizontally))
