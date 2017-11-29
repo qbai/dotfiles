@@ -462,10 +462,10 @@ you should place your code here."
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
 
-(define-key key-translation-map (kbd "C-u") (kbd "C-v"))
-(define-key key-translation-map (kbd "C-v") (kbd "C-u"))
-(define-key key-translation-map (kbd "M-u") (kbd "M-v"))
-(define-key key-translation-map (kbd "M-v") (kbd "M-u"))
+;;(define-key key-translation-map (kbd "C-u") (kbd "C-v"))
+;;(define-key key-translation-map (kbd "C-v") (kbd "C-u"))
+;;(define-key key-translation-map (kbd "M-u") (kbd "M-v"))
+;;(define-key key-translation-map (kbd "M-v") (kbd "M-u"))
 
 
 ;;  file
@@ -510,9 +510,9 @@ you should place your code here."
 (global-set-key (kbd "M-a") 'beginning-of-buffer)
 (global-set-key (kbd "M-e") 'end-of-buffer)
 ;; page down
-(global-set-key (kbd "C-u") 'scroll-up-command)
+;;(global-set-key (kbd "C-u") 'scroll-up-command)
 ;; page up
-(global-set-key (kbd "M-u") 'scroll-down-command)
+;;(global-set-key (kbd "M-u") 'scroll-down-command)
 
 
 ;; editing
