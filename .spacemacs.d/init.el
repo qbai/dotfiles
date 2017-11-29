@@ -368,12 +368,15 @@ before packages are loaded. If you are unsure, you should try in setting them in
   dotspacemacs-fullscreen-use-non-native t
   dotspacemacs-maximized-at-startup t
   dotspacemacs-line-numbers nil
+  dotspacemacs-large-file-size 10
+
   ;; Location where to auto-save files. Possible values are `original' to
   ;; auto-save the file in-place, `cache' to auto-save the file to another
   ;; file stored in the cache directory and `nil' to disable auto-saving.
      ;; (default 'cache)
-  dotspacemacs-large-file-size 10
-  dotspacemacs-auto-save-file-location 'original
+  dotspacemacs-auto-save-file-location nil
+  ;;dotspacemacs-auto-save-file-location 'original
+
   ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
   ;; derivatives. If set to `relative', also turns on relative line numbers.
   ;; (default nil)
@@ -586,8 +589,20 @@ you should place your code here."
 ;; close tag asking for big file
 (setq large-file-warning-threshold nil)
 
-;; diable local variables list
+;; disable local variables list
 (setq enable-local-variables nil)
+
+;; disable shell warning
+(setq exec-path-from-shell-check-startup-files nil)
+;;(exec-path-from-shell-initialize)
+;;(setq exec-path (append exec-path '("/usr/local/bin")))
+
+;; disable lock file
+(setq create-lockfiles nil)
+;; disable backup file
+(setq make-backup-files nil)
+;; disable autosave file
+;;(setq auto-save-default nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
