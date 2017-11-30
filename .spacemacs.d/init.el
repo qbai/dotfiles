@@ -566,8 +566,12 @@ you should place your code here."
 (setq-default tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
-;;(setq tab-width 4)
 (setq c-basic-offset 8)
+
+;; (set-default tab-always-indent nil)
+;; (set-default tab-width 4)
+;; (setq-default c-basic-offset 8)
+;; (setq indent-line-function 'insert-tab)
 
 
 ;; line wrap
