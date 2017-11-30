@@ -563,15 +563,12 @@ you should place your code here."
 ;;(unbind-key (kbd "<tab>") scroll-up-command)
 ;;(global-set-key (kbd "<tab>") 'indent-for-tab-command)
 ;;(define-key global-map (kbd "<tab>") 'indent-for-tab-command)
+;; (setq indent-line-function 'insert-tab)
 (setq-default tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
 (setq c-basic-offset 8)
-
-;; (set-default tab-always-indent nil)
-;; (set-default tab-width 4)
-;; (setq-default c-basic-offset 8)
-;; (setq indent-line-function 'insert-tab)
+(global-set-key (kbd "TAB") 'self-insert-command)
 
 
 ;; line wrap
