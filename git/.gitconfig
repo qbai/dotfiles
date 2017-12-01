@@ -26,7 +26,7 @@
 	#editor = emacsclient -t
 [diff]
 	tool = diff
-	tool = ediffclient
+#	tool = ediffclient
 #[difftool "ediff"]
 #        cmd = emacs --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
 [difftool "ediffclient"]
@@ -36,7 +36,7 @@
 
 
 [merge]
-  tool = ediffclient
+  tool = emerge
 [mergetool "ediffclient"]
   cmd = emacsclient -t \"\"  --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
   trustExitCode = true
