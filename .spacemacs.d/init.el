@@ -71,6 +71,7 @@ values."
     ;;(gtags :variables gtags-enable-by-default t)
     cscope
     ;;ycmd
+    ;;semantic
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -652,6 +653,7 @@ you should place your code here."
 
 ;; configure chinese font
 
+;; gud-gdb
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
