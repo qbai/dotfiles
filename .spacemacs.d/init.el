@@ -568,7 +568,7 @@ you should place your code here."
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 8)
 (setq c-basic-offset 8)
-(global-set-key (kbd "TAB") 'self-insert-command)
+;;(global-set-key (kbd "TAB") 'self-insert-command)
 
 
 ;; line wrap
