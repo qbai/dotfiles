@@ -198,6 +198,7 @@ export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_
 alias gde='git difftool --tool=ediffclient --no-prompt'
 #alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
 alias gme='git mergetool --tool=ediffclient --no-prompt'
+alias gacp='gallpush(){git commit -a -m "$1" && git push};gallpush'
 #########################################
 
 
