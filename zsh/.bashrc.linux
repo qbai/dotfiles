@@ -204,6 +204,7 @@ alias yremove='yaourt -R'
 alias gde='git difftool --tool=ediffclient --no-prompt'
 #alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
 alias gme='git mergetool --tool=ediffclient --no-prompt'
+alias gacp='gallpush(){git commit -a -m "$1" && git push};gallpush'
 #########################################
 
 
