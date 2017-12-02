@@ -202,7 +202,9 @@ alias yremove='yaourt -R'
 
 
 ############# git #######################
-#alias gpull='git pull origin master'
+alias gde='git difftool --tool=ediffclient --no-prompt'
+#alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
+alias gme='git mergetool --tool=ediffclient --no-prompt'
 #########################################
 
 
