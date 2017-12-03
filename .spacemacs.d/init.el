@@ -39,10 +39,12 @@ values."
      helm
      ivy
      ;;colors
+     theming
     ;;markdown
     ;;org
-    ;;(chinese :variables
-      ;;       chinese-enable-fcitx t)
+    ;; (chinese :packages youdao-dictionary fcitx
+    ;;           :variables chinese-enable-fcitx nil
+    ;;           chinese-enable-youdao-dict t)
 
 
     themes-megapack
@@ -60,11 +62,15 @@ values."
     syntax-checking
     ;;spell-checking
     asm
+
     shell-scripts
     ;;sql
     (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
     ;;(c-c++ :variables c-c++-enable-clang-support t)
-    ;;python
+    ;; (python :variables
+    ;;     python-enable-yapf-format-on-save t ;; when saving, yapf
+    ;;     python-fill-column 80       ;; column 80
+    ;;     python-sort-imports-on-save t)    ;; sort package when saving
     ;;ruby
 
     gtags
@@ -361,9 +367,26 @@ before packages are loaded. If you are unsure, you should try in setting them in
  ;; set proxy if necessary
  ;; (setq url-proxy-services
  ;;       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
- ;;         ("http" . "127.0.0.1:8888") 
+ ;;         ("http" . "127.0.0.1:8888")
  ;;         ("https" . "127.0.0.1:8888")
  ;;         ))
+
+ ;; ss proxy. But it will cause anacond-mode failed.
+ ;;(setq socks-server '("Default server" "127.0.0.1" 1080 5))
+
+  ;;(setq byte-compile-warnings '(not obsolete))
+  (setq warning-minimum-level :error)
+
+  (setq purpose-mode nil)
+
+  ;; (purpose-mode 1)
+  ;;   (setq purpose-user-mode-purposes
+  ;;         '((term-mode . terminal)
+  ;;           (shell-mode . terminal)
+  ;;           (ansi-term-mode . terminal)
+  ;;           (tuareg-mode . coding)
+  ;;           (compilation-mode . messages)))
+  ;; (purpose-compile-user-configuration)
 
  (setq-default
   ;;http://themegallery.robdor.com/
@@ -387,18 +410,33 @@ before packages are loaded. If you are unsure, you should try in setting them in
   powerline-default-separator 'arrow
   dotspacemacs-check-for-update nil
   dotspacemacs-elpa-https nil
+  dotspacemacs-startup-banner nil
 
   ;; magit status
   git-magit-status-fullscreen t
 
  )
 
+ ;; configure background and highligh same with sublime text
  ;; (custom-set-variables '(spacemacs-theme-custom-colors
  ;;                         '((bg1 . "#272822"))))
- (setq
-  monokai-background     "#272822"
-  monokai-highlight-line "#3E3D32"
-  )
+
+ ;; (setq
+ ;;  ;;monokai-foreground     "#ABB2BF"
+ ;;  ;;monokai-highlight      "#FFB269"
+ ;;  ;;monokai-comments	 "#F8F8F0"
+ ;;  monokai-background     "#272822"
+ ;;  monokai-highlight-line "#3E3D32"
+ ;;  )
+
+ ;;(setq theming-modifications '((monokai (default :background "#272822" :highlight-line "#3E3D32"))))
+ ;;(setq theming-modifications '((monokai (default :background "#272822"
+ ;;                                        hl-line :background "#3E3D32"))))
+
+
+ ;; https://github.com/syl20bnr/spacemacs/issues/2705
+ ;; accelerate startup; by zilongshanren
+ (setq tramp-ssh-controlmaster-options "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
   )
 
@@ -412,7 +450,130 @@ you should place your code here."
 
 
 
+
+
+;; Setting Chinese Font
+  ;; (when (and (spacemacs/system-is-mswindows) window-system)
+  ;;   (setq ispell-program-name "aspell")
+  ;;   (setq w32-pass-alt-to-system nil)
+  ;;   (setq w32-apps-modifier 'super)
+  ;;   (dolist (charset '(kana han symbol cjk-misc bopomofo))
+  ;;     (set-fontset-font (frame-parameter nil 'font)
+  ;;                       charset
+  ;;                       (font-spec :family "Microsoft Yahei" :size 14))))
+
+
+
+  ;;(setq split-width-threshold 120)
+  ;; change vertical split to horizotal, or vice versa
+  (defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+       (next-win-buffer (window-buffer (next-window)))
+       (this-win-edges (window-edges (selected-window)))
+       (next-win-edges (window-edges (next-window)))
+       (this-win-2nd (not (and (<= (car this-win-edges)
+           (car next-win-edges))
+             (<= (cadr this-win-edges)
+           (cadr next-win-edges)))))
+       (splitter
+        (if (= (car this-win-edges)
+         (car (window-edges (next-window))))
+      'split-window-horizontally
+    'split-window-vertically)))
+  (delete-other-windows)
+  (let ((first-win (selected-window)))
+    (funcall splitter)
+    (if this-win-2nd (other-window 1))
+    (set-window-buffer (selected-window) this-win-buffer)
+    (set-window-buffer (next-window) next-win-buffer)
+    (select-window first-win)
+    (if this-win-2nd (other-window 1))))))
+
+  (global-set-key (kbd "C-x 5") 'toggle-window-split)
+
+
+  (linum-relative-on)
+  (global-hungry-delete-mode t)
+
+  ;; setting minor mode
+  ;; (spacemacs|add-company-backends :modes text-mode)
+  ;; (spacemacs|diminish helm-gtags-mode)
+  ;; (spacemacs|diminish ggtags-mode)
+  ;; (spacemacs|diminish which-key-mode)
+  ;; (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
+  ;; (spacemacs|diminish counsel-mode)
+
+  ;; setting backtab to remove 4 spaces
+  ;; (global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
+  ;; (defun un-indent-by-removing-4-spaces ()
+  ;;   "remove 4 spaces from beginning of of line"
+  ;;   (interactive)
+  ;;   (save-excursion
+  ;;     (save-match-data
+  ;;       (beginning-of-line)
+  ;;       ;; get rid of tabs at beginning of line
+  ;;       (when (looking-at "^\\s-+")
+  ;;         (untabify (match-beginning 0) (match-end 0)))
+  ;;       (when (looking-at (concat "^" (make-string tab-width ?\ )))
+  ;;         (replace-match "")))))
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; C-f5 setting compile; f5 save all buffer and compile current buffer
+;; (defun du-onekey-compile ()
+;;   "Save buffers and start compile"
+;;   (interactive)
+;;   (save-some-buffers t)
+;;   (switch-to-buffer-other-window "*compilation*")
+;;   (compile compile-command))
+;;   (global-set-key [C-f5] 'compile)
+;;   (global-set-key [f5] 'du-onekey-compile)
+
+
+;; use many window mode to dbug
+;; customize the window style
+;; (defadvice gdb-setup-windows (after my-setup-gdb-windows
+;;                                     activate)
+;;   "my gdb UI"
+;;   (gdb-get-buffer-create 'gdb-stack-buffer)
+;;   (set-window-dedicated-p (selected-window) nil)
+;;   (switch-to-buffer gud-comint-buffer)
+;;   (delete-other-windows)
+;;   (let ((win0 (selected-window))
+;;         (win1 (split-window nil nil 'left))
+;;                                         ;code and output
+;;                         (win2 (split-window-below (/ (*
+;;                                     (window-height) 2) 3)))
+;;                                         ;stack
+;;                         )
+;;     (select-window win2)
+;;     (gdb-set-window-buffer (gdb-stack-buffer-name))
+;;     (select-window win1)
+;;     (set-window-buffer
+;;      win1
+;;      (if gud-last-last-frame
+;;          (gud-find-file (car gud-last-last-frame))
+;;        (if gdb-main-file
+;;            (gud-find-file gdb-main-file)
+;;          ;; Put buffer list in window if we
+;;          ;; can't find a source file.
+;;          (list-buffers-noselect))))
+;;     (setq gdb-source-window (selected-window))
+;;         (let ((win3 (split-window nil (/ (* (window-height)
+;;                                             3) 4)))) ;io
+;;                 (gdb-set-window-buffer
+;;                                     (gdb-get-buffer-create
+;;                                     'gdb-inferior-io) nil
+;;                                     win3))
+;;         (select-window win0)
+;;         ))
+
+
+
 
 (defun my-kill-whole-line()
   (interactive)
@@ -445,7 +606,10 @@ you should place your code here."
       (progn
                 (goto-char (line-end-position arg)))))
 
-
+(defun nuke-all-buffers ()
+  (interactive)
+  (mapcar 'kill-buffer (buffer-list))
+  (delete-other-windows))
 
 
 ;; key mapping
@@ -481,6 +645,7 @@ you should place your code here."
 ;;(global-set-key (kbd "C-M-s" 'save-some-buffers))
 
 ;; suspend emacs
+;;(global-unset-key (kbd "C-z"))
 ;;(global-set-key (kbd "C-z" 'suspend-frame))
 
 
@@ -490,7 +655,9 @@ you should place your code here."
 (global-set-key (kbd "M-b") 'previous-buffer)
 ;;(global-set-key (kbd "C-M-k") 'kill-this-buffer)
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
+;; kill all buffers
 ;;(global-set-key (kbd "C-M-a-k") 'kill-some-buffers)
+(global-set-key (kbd "C-c K") 'nuke-all-buffers)
 
 ;; moving
 ;; move-forward/back char
@@ -520,7 +687,7 @@ you should place your code here."
 ;;delete whole line
 (global-set-key (kbd "M-k") 'my-kill-whole-line)
 ;; quick copy whole line
-(global-set-key (kbd "C-M-w") 'copy-lines)
+(global-set-key (kbd "C-c l") 'copy-lines)
 ;; quick choose one line
 (global-set-key (kbd "C-M-e") 'my-mark-line)
 ;; set mark tag
@@ -610,6 +777,26 @@ you should place your code here."
 ;; disable autosave file
 (setq auto-save-default nil)
 
+;; auto-rereading files
+(global-auto-revert-mode t)
+
+;; Use company mode instead of auto-complete
+;; (global-company-mode)
+;; (setq company-auto-complete t)
+;; (setq company-auto-complete-chars "")
+;; (setq company-idle-delay 0.4)
+;; (setq company-minimum-prefix-length 3)
+
+
+;; TAB to select a completion, not ENTER
+;; (add-hook 'company-mode-hook (lambda ()
+;;   (define-key company-active-map (kbd "TAB") 'company-complete-selection)
+;;   (define-key company-active-map [escape] 'company-abort)
+;;   (define-key company-active-map (kbd "RET") nil)))
+
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -641,7 +828,9 @@ you should place your code here."
               (define-key c++-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key c-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key c++-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
-              (define-key c-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history))))
+              (define-key c-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
+              (define-key c++-mode-map(kbd "<f5>") 'gdb)
+              (define-key c-mode-map(kbd "<f5>") 'gdb))))
 
 ;; (add-hook 'c-mode-common-hook
 ;;           (lambda ()
@@ -651,9 +840,40 @@ you should place your code here."
 ;; configure ediff
 (setq ediff-split-window-function (quote split-window-horizontally))
 
-;; configure chinese font
 
 ;; gud-gdb
+(setq gdb-many-windows t)
+;; jump to other window
+(global-set-key (kbd "<f7>") 'other-window)
+;;(global-set-key (kbd "C-<f8>") 'previous-error)
+;;(global-set-key (kbd "<f8>") 'next-error)
+
+(defvar all-gud-modes
+  '(gud-mode comint-mode gdb-locals-mode gdb-frames-mode  gdb-breakpoints-mode)
+  "A list of modes when using gdb")
+(defun kill-all-gud-buffers ()
+  "Kill all gud buffers including Debugger, Locals, Frames, Breakpoints.
+Do this after `q` in Debugger buffer."
+  (interactive)
+  (save-excursion
+        (let ((count 0))
+          (dolist (buffer (buffer-list))
+                (set-buffer buffer)
+                (when (member major-mode all-gud-modes)
+                  (setq count (1+ count))
+                  (kill-buffer buffer)
+                  (delete-other-windows))) ;; fix the remaining two windows issue
+          (message "Killed %i buffer(s)." count))))
+(global-set-key (kbd "<f8>") 'kill-all-gud-buffers)
+
+
+
+;; compilation
+(global-set-key (kbd "<f2>") 'compile)
+;; change Makefile in another directory (compared to root directory)
+;;((c++-mode (helm-make-build-dir . "build/")))
+;;(put 'helm-make-build-dir 'safe-local-variable 'stringp)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -670,7 +890,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company-quickhelp monokai-theme helm-themes helm-swoop helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-cscope helm-company helm-c-yasnippet helm-ag ace-jump-helm-line company-shell insert-shebang fish-mode x86-lookup nasm-mode zenburn-theme zen-and-art-theme xterm-color xcscope unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle shell-pop seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme orgit organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mwim mustang-theme multi-term monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme magit-gitflow madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags gandalf-theme fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme eshell-z eshell-prompt-extras esh-help dracula-theme django-theme disaster darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-statistics company-c-headers company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clang-format cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic youdao-dictionary names chinese-word-at-point company-quickhelp monokai-theme helm-themes helm-swoop helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-cscope helm-company helm-c-yasnippet helm-ag ace-jump-helm-line company-shell insert-shebang fish-mode x86-lookup nasm-mode zenburn-theme zen-and-art-theme xterm-color xcscope unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle shell-pop seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme orgit organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mwim mustang-theme multi-term monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme magit-gitflow madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags gandalf-theme fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme eshell-z eshell-prompt-extras esh-help dracula-theme django-theme disaster darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-statistics company-c-headers company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clang-format cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
