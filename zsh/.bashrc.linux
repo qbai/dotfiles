@@ -207,6 +207,15 @@ alias gme='git mergetool --tool=ediffclient --no-prompt'
 alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
 #########################################
 
+############## performance #############
+alias p_ios='iostat -xdm'
+#alias p_ios='iostat -xdm 1'
+alias p_pio='pidstat -d 1'
+alias p_cpu='mpstat -P ALL 3'
+alias p_vm='vmstat 3'
+alias p_cs='pidstat -w 2'
+#alias p_cs='pidstat -wt 2'
+########################################
 
 # config thefuck
 #eval $(thefuck --alias)
