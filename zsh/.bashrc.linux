@@ -220,8 +220,7 @@ alias p_cs='pidstat -w 2'
 
 ################### tricky_command  ################
 #alias f_g_s="find . -name rule.mk -exec grep 'Wall' {} \; -exec sed -i 's/-Wall //g' {} \;"
-#alias f_g_s_2="find . -name rule.mk | awk -F":" '{print $1}' |xargs sed -i's/-Werror//g'"
-#alias f_g_s_3="find . -name rule.mk|xargs grep 'TI_CXXFLAGS='|grep -v 'Werror'|sed -i 's/TI_CXXFLAGS=/TI_CXXFLAGS=-Wall -Werror/g'"
+#alias f_g_s_2="find . -name rule.mk|xargs grep 'TI_CXXFLAGS='|grep -v 'Wall'|awk -F ':' '{print $1}'|xargs sed -i 's/Werror/Werror -Wall/g'"
 
 ########################################
 
