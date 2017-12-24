@@ -30,47 +30,53 @@ filter_unmatched_urls = true
 
 
 [colors]
+# Base16 Monokai
+# Author: Wimer Hazenberg (http://www.monokai.nl)
 
-# special
-foreground      = #c5c8c6
-foreground_bold = #c5c8c6
-cursor          = #c5c8c6
-background      = #0e1520
+foreground      = #f8f8f2
+foreground_bold = #f5f4f1
+cursor          = #f5f4f1
+background      = #272822
 
-# black
-color0  = #0e1520
-color8  = #244380
+# 16 color space
 
-# red
-color1  = #82a0a0
-color9  = #708fc8
+# Black, Gray, Silver, White
+color0  = #272822
+color8  = #75715e
+color7  = #f8f8f2
+color15 = #f9f8f5
 
-# green
-color2  = #6175a0
-color10 = #7590c8
+# Red
+color1  = #f92672
+color9  = #f92672
 
-# yellow
-color3  = #5b71a0
-color11 = #c84f6e
+# Green
+color2  = #a6e22e
+color10 = #a6e22e
 
-# blue
-color4  = #576ea0
-color12 = #3269c8
+# Yellow
+color3  = #f4bf75
+color11 = #f4bf75
 
-# magenta
-color5  = #5871a0
-color13 = #7891c8
+# Blue
+color4  = #66d9ef
+color12 = #66d9ef
 
-# cyan
-color6  = #3c5da0
-color14 = #7790c8
+# Purple
+color5  = #ae81ff
+color13 = #ae81ff
 
-# white
-color7  = #5c74a0
-color15 = #a2aec8
+# Teal
+color6  = #a1efe4
+color14 = #a1efe4
 
-highlight = #2f2f2f
-
+# Extra colors
+color16 = #fd971f
+color17 = #cc6633
+color18 = #383830
+color19 = #49483e
+color20 = #a59f85
+color21 = #f5f4f1
 
 [hints]
 #font = envypn 8
