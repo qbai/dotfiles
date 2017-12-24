@@ -29,53 +29,54 @@ filter_unmatched_urls = true
 
 
 [colors]
-# Base16 Default Dark
-# Author: Chris Kempson (http://chriskempson.com)
+# Base16 Google Dark
+# Author: Seth Wright (http://sethawright.com)
 
-foreground      = #d8d8d8
-foreground_bold = #e8e8e8
-cursor          = #e8e8e8
-background      = #181818
+foreground      = #c5c8c6
+foreground_bold = #e0e0e0
+cursor          = #e0e0e0
+background      = #1d1f21
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #181818
-color8  = #585858
-color7  = #d8d8d8
-color15 = #f8f8f8
+color0  = #1d1f21
+color8  = #969896
+color7  = #c5c8c6
+color15 = #ffffff
 
 # Red
-color1  = #ab4642
-color9  = #ab4642
+color1  = #CC342B
+color9  = #CC342B
 
 # Green
-color2  = #a1b56c
-color10 = #a1b56c
+color2  = #198844
+color10 = #198844
 
 # Yellow
-color3  = #f7ca88
-color11 = #f7ca88
+color3  = #FBA922
+color11 = #FBA922
 
 # Blue
-color4  = #7cafc2
-color12 = #7cafc2
+color4  = #3971ED
+color12 = #3971ED
 
 # Purple
-color5  = #ba8baf
-color13 = #ba8baf
+color5  = #A36AC7
+color13 = #A36AC7
 
 # Teal
-color6  = #86c1b9
-color14 = #86c1b9
+color6  = #3971ED
+color14 = #3971ED
 
 # Extra colors
-color16 = #dc9656
-color17 = #a16946
-color18 = #282828
-color19 = #383838
-color20 = #b8b8b8
-color21 = #e8e8e8
+color16 = #F96A38
+color17 = #3971ED
+color18 = #282a2e
+color19 = #373b41
+color20 = #b4b7b4
+color21 = #e0e0e0
+
 
 
 
