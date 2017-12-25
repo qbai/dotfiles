@@ -195,8 +195,8 @@ export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_
 
 
 ########### archlinux ######################
-alias install='sudo pacman -S'
-alias remove='sudo pacman -Rs'
+alias pinstall='sudo pacman -S'
+alias premove='sudo pacman -Rs'
 alias yinstall='yaourt -S'
 alias yremove='yaourt -R'
 
