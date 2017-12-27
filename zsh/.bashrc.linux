@@ -86,8 +86,6 @@ alias ..="cl .."
 alias llock="light-locker --lock-on-suspend&"
 alias vncone="vncserver -alwaysshared :1 -geometry 1440×900"
 
-
-
 tmux_init()
 {
     tmux new-session -s "qbai" -d -n "qbai"    # open new session
@@ -226,8 +224,15 @@ alias p_cs='pidstat -w 2'
 #alias f_g_s_2="find . -name rule.mk|xargs grep 'TI_CXXFLAGS='|grep -v 'Wall'|awk -F ':' '{print $1}'|xargs sed -i 's/Werror/Werror -Wall/g'"
 # 
 #  pstree -p  		search parent process
-#  kill -TERM [ppid]	kill parent process and all child processes
+#  kill -TERM [ppid]	kill parent process and all child processes   or
 #alias k_a_p="ps -ef|grep 'build'|awk -F ' ' '{print $2}'|xargs sudo kill -9 {}"
+
+# quick delete large directory
+# mkdir -p /tmp/unity
+# rsync --delete-before -a -H -v --progress --stats /tmp/unity/ /c4_working/unity.test/
+# quick delete large file
+# touch /tmp/test
+# rsync --delete-before -d --progess --stats /tmp/test /root/data
 ####################################################
 
 # config thefuck
