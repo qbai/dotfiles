@@ -26,16 +26,16 @@ height   = 23
 offset-x = 0
 offset-y = 0
 
-locale     = zh_CN.UTF-8
+locale     = en_US.UTF-8
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0 = scientifica:size=8:antialias=true;-1
 font-1 = Wuncon Siji:size=9:;-1
 
-modules-right   = cpu memory volume date1 battery
+modules-right   = cpu memory volume date1
 modules-center = hlws
-modules-left  = powermenu wifi wired
+modules-left  = powermenu battery wifi wired
 
 tray-position    = off
 tray-padding     = 2
@@ -176,18 +176,18 @@ format-full-padding = 1
 format-full-background = ${colors.dorange}
 format-full-underline = ${colors.orange}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-framerate = 750
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 
 [module/wifi]
@@ -199,13 +199,13 @@ interval=1.0
 accumulate-stats=true
 
 format-disconnected = <label-disconnected>
-label-disconnected=   
+label-disconnected= 
 format-disconnected-padding=1
 format-disconnected-background=${colors.dpink}
 format-disconnected-underline=${colors.pink}
 
 format-connected=<label-connected>
-label-connected=    %downspeed:9:9%  %upspeed:9:9%
+label-connected=  %downspeed:9:9% %upspeed:9:9%
 format-connected-padding=1
 format-connected-background=${colors.dgreen}
 
@@ -219,13 +219,13 @@ interval=1.0
 accumulate-stats=true
 
 format-disconnected = <label-disconnected>
-label-disconnected=   
+label-disconnected= 
 format-disconnected-padding=1
 format-disconnected-background=${colors.dpink}
 format-disconnected-underline=${colors.pink}
 
 format-connected=<label-connected>
-label-connected=   %downspeed:9:9%  %upspeed:9:9%
+label-connected=  %downspeed:9:9% %upspeed:9:9%
 format-connected-padding=1
 format-connected-background=${colors.dcyan}
 format-connected-underline=${colors.cyan}
