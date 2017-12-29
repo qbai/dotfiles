@@ -33,7 +33,7 @@ foreground = ${colors.foreground}
 font-0 = scientifica:size=8:antialias=true;-1
 font-1 = Wuncon Siji:size=9:;-1
 
-modules-right   = cpu memory volume date1
+modules-right   = cpu memory volume date1 battery
 modules-center = hlws
 modules-left  = powermenu
 
@@ -163,3 +163,36 @@ label-occupied = "  -"
 label-urgent = "  #"
 label-empty = "  ·"
 
+[module/battery]
+type=internal/battery
+full-at=99
+battery=BAT0
+adapter=ADP1
+
+format-charging = <animation-charging> <label-charging>
+format-charging-padding = 1
+format-charging-background = ${colors.dorange}
+format-charging-underline = ${colors.orange}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 1
+format-discharging-background = ${colors.dorange}
+format-discharging-underline = ${colors.orange}
+
+format-full-prefix = " "
+format-full-padding = 1
+format-full-background = ${colors.dorange}
+format-full-underline = ${colors.orange}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
