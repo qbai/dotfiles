@@ -26,16 +26,16 @@ height   = 23
 offset-x = 0
 offset-y = 0
 
-locale     = de_DE.UTF-8
+locale     = zh_CN.UTF-8
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 font-0 = scientifica:size=8:antialias=true;-1
 font-1 = Wuncon Siji:size=9:;-1
 
-modules-left   = date1 volume cpu weather
+modules-right   = cpu memory volume date1
 modules-center = hlws
-modules-right  = spotipy previous playpause next powermenu
+modules-left  = powermenu
 
 tray-position    = off
 tray-padding     = 2
@@ -71,7 +71,7 @@ label-muted-background = ${colors.modb}
 [module/date1]
 type                     = internal/date
 interval                 = 1
-date                     = " %I:%M"
+date                     = "%Y-%m-%d %I:%M:%S"
 format-prefix            = 
 format-prefix-foreground = ${colors.red}
 format-background        = ${colors.modb}
@@ -123,64 +123,34 @@ format-foreground = ${colors.foreground}
 format-background = ${colors.modb2}
 format-padding    = 2
 
-[module/previous]
-type              = custom/script
-format-text       = <label>
-label             = 
-exec              = echo label
-click-left        = exec playerctl previous
-format-foreground = ${colors.magenta}
-format-background = ${colors.modb1}
-format-padding    = 1
-
-[module/next]
-type              = custom/script
-format-text       = <label>
-label             = 
-exec              = echo label
-click-left        = exec playerctl next
-format-foreground = ${colors.magenta}
-format-background = ${colors.modb1}
-format-padding    = 1
-
-[module/spotipy]
-type              = custom/script
-exec              = python3 ~/scripts/spoti.py
-exec-if           = pgrep spotify > /dev/null
-interval          = 0.01
-click-left        = playerctl -p spotify play-pause
-format-foreground = ${colors.foreground}
-format-background = ${colors.modb1}
-format-padding    = 1
-
-[module/playpause]
-type              = custom/script
-exec              = python3 ~/scripts/playpause.py
-interval          = 0.01
-click-left        = playerctl -p spotify play-pause
-format-foreground = ${colors.magenta}
-format-background = ${colors.modb1}
-format-padding    = 2
-
-
 [module/cpu]
 type                     = internal/cpu
-label                    = %percentage-core1%%
+label                    = CPU %percentage-core1%%
 format-prefix            = " "
 format-prefix-foreground = ${colors.green}
 format-background        = ${colors.modb}
 format-padding           = 2
 
-[module/weather]
-type                     = custom/script
-interval                 = 10
-format                   = <label>
-format-padding           = 2
-format-prefix            = " "
-format-suffix            = "°C"
-format-prefix-foreground = ${colors.blue}
-format-background        = ${colors.modb}
-exec                     = python2.7 ~/scripts/weather.py
+[module/memory]
+type			= internal/memory
+interval		= 3
+label			= RAM %gb_used%/%gb_free%
+
+[module/filesystem]
+type                    = internal/fs
+mount-0                 = /
+mount-1                 = /home
+interval                = 10
+fixed-values            = true
+spacing                 = 4
+
+[module/wired-network]
+type                    = internal/network
+interface               = enp0s31f6
+
+[module/wireless-network]
+type                    = internal/network
+interface               = wlp2s0
 
 [module/ewmh]
 type = internal/xworkspaces
@@ -192,3 +162,4 @@ label-active = "  #"
 label-occupied = "  -"
 label-urgent = "  #"
 label-empty = "  ·"
+
