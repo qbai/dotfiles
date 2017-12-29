@@ -193,7 +193,7 @@ ramp-capacity-4 = 
 [module/wifi]
 type=internal/network
 ;iwconfig to check
-interface=wlp5s0
+interface=wlp2s0
 interval=1.0
 
 accumulate-stats=true
@@ -213,7 +213,7 @@ format-connected-background=${colors.dgreen}
 [module/wired]
 type=internal/network
 ;iwconfig to check
-interface=enp4s0
+interface=enp0s31f6
 interval=1.0
 
 accumulate-stats=true
