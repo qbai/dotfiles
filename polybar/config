@@ -34,7 +34,7 @@ font-0 = scientifica:size=8:antialias=true;-1
 font-1 = Wuncon Siji:size=9:;-1
 
 modules-right   = cpu memory volume date1
-modules-center = hlws
+modules-center = ewmh
 modules-left  = powermenu battery wifi wired
 
 tray-position    = off
