@@ -233,7 +233,8 @@ alias p_cs='pidstat -w 2'
 # rsync --delete-before -a -H -v --progress --stats /tmp/unity/ /c4_working/unity.test/
 # quick delete large file
 # touch /tmp/test
-# rsync --delete-before -d --progess --stats /tmp/test /root/data
+# rsync --delete-before -d --progress --stats /tmp/test /root/data
+# rsync -a --delete-before --progress --stats /tmp/test /root/data
 ####################################################
 
 # config thefuck
