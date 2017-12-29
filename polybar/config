@@ -149,6 +149,13 @@ type = internal/xworkspaces
 enable-click = true
 enable-scroll = true
 pin-workspaces = true
+format-padding = 2
+format-foreground = ${colors.foreground}
+format-background = ${colors.modb}
+label-active = "  #"
+label-occupied = "  -"
+label-urgent = "  #"
+label-empty = "  ·"
 
 [module/battery]
 type=internal/battery
