@@ -38,6 +38,7 @@ killall redshift &
 
 compton &
 dunst -conf ~/.config/dunst/dunstrc &
+xrdb .Xresources
 polybar top &
 redshift -O 5500K
 
