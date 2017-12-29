@@ -20,8 +20,9 @@ hc() {
 
 hc emit_hook reload
 
-xsetroot -solid '#5A8E3A'
-
+#xsetroot -solid '#5A8E3A'
+xsetroot -solid '#222222'
+hc pad 0 23 0 0
 # remove all existing keybindings
 hc keyunbind --all
 
@@ -30,15 +31,25 @@ killall conky &
 # close tray if reloading
 killall stalonetray
 
+killall compton &
+killall dunst &
+killall polybar &
+killall redshift &
+
+compton &
+dunst -conf ~/.config/dunst/dunstrc &
+polybar top &
+redshift -O 5500K
+
 # keybindings
 # if you have a super key you will be much happier with Mod set to Mod4
 #Mod=Mod1    # Use alt as the main modifier
 Mod=Mod4   # Use the super key as the main modifier
 
 # autostart
-hc spawn compton
+#hc spawn compton
 hc spawn nitrogen --restore
-hc spawn dunst
+#hc spawn dunst
 #hc spawn dropbox
 hc spawn nm-applet
 #hc spawn xfce4-panel
@@ -48,6 +59,7 @@ hc keybind $Mod-Shift-q close
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c quit
 hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
+#hc keybind $Mod-Alt-l spawn i3lock -i ~/Pictures/Wallpapers/rocket.png -l c0c5ce -w bf616a -o a3be8c
 hc keybind Alt-b spawn herbstpaneltoogle
 
 # start favorite termnal
@@ -235,10 +247,11 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # hc detect_monitors
 
 # find the panel
-panel=~/.config/herbstluftwm/panel.sh
-[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
-for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
-    # start it on each monitor
-    "$panel" $monitor &
-done
+#panel=~/.config/herbstluftwm/panel.sh
+#[ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+#for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
+#      # start it on each monitor
+#     "$panel" $monitor &
+#done
+
 herbstclient chain $cmds&
