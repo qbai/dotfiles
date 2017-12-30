@@ -40,7 +40,9 @@ compton &
 dunst -conf ~/.config/dunst/dunstrc &
 xrdb .Xresources
 polybar top &
+
 #polybar example &
+
 redshift -O 5500K
 
 # keybindings
