@@ -124,7 +124,17 @@ format-padding           = 2
 [module/memory]
 type			= internal/memory
 interval		= 3
+format = <label> <bar-used>
 label			= RAM %gb_used%/%gb_free%
+bar-used-indicator =
+bar-used-width = 50
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
 
 [module/filesystem]
 type                    = internal/fs
