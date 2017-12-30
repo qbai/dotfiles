@@ -35,7 +35,7 @@ font-1 = Wuncon Siji:size=9:;-1
 
 modules-right   = cpu memory wired volume date1
 modules-left = ewmh
-modules-center  = 
+modules-center  = xtitle
 
 tray-position    = off
 tray-padding     = 2
@@ -247,5 +247,12 @@ animation-packetloss-0 = ⚠
 animation-packetloss-0-foreground = #ffa64c
 animation-packetloss-1 = 📶
 animation-packetloss-1-foreground = #000000
-
 animation-packetloss-framerate = 500
+
+[module/ztitle]
+type = internal/xwindow
+format-background = #f00
+format-foreground = #000
+format-padding = 4
+label = Window: %title%
+label-maxlen = 50
