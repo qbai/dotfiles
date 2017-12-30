@@ -249,7 +249,7 @@ animation-packetloss-1 = 📶
 animation-packetloss-1-foreground = #000000
 animation-packetloss-framerate = 500
 
-[module/ztitle]
+[module/xtitle]
 type = internal/xwindow
 format-background = #f00
 format-foreground = #000
