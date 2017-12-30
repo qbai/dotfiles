@@ -1,18 +1,18 @@
 [colors]
-foreground = #cecece
-background = #171717
-modb = #171717
-modb1 = #171717
-modb2 = #171717
+foreground = #b8c4bd
+background = #020c0d
+modb       = #020c0d
+modb1      = #020c0d
+modb2      = #020c0d
 
-red     = #cc6666
-orange  = #de935f
-yellow  = #f0c674
-green   = #b5bd68
-cyan    = #8abeb7
-blue    = #81a2be
-magenta = #b294bb
-white   = #acacac
+red     = #fb4934
+orange  = #fe8019
+yellow  = #fabd2f
+green   = #01c46a
+cyan    = #8ec07c
+blue    = #83a598
+magenta = #d3869b
+white   = #d65d0e
 
 
 [global/wm]
