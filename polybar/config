@@ -51,22 +51,21 @@ module-margin-right = 0
 
 [module/volume]
 type = internal/volume
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+master-mixer = Master
+headphone-id = 9
+mapped = true
 
-format-volume = <ramp-volume><label-volume>
-
-format-volume-background = ${colors.modb}
-format-volume-padding    = 2
-
-module-margin-right = 0
-ramp-volume-0       = 
-ramp-volume-1       = 
-ramp-volume-2       = 
-
-ramp-volume-foreground = ${colors.yellow}
-
-label-muted-padding    = 2
-label-muted            =  muted
-label-muted-background = ${colors.modb}
+format-volume = <ramp-volume> <label-volume>
+label-muted = 🔇 muted
+label-muted-foreground = #66
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+ramp-headphones-0 = 
+ramp-headphones-1 = 
 
 [module/date1]
 type                     = internal/date
