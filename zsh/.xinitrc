@@ -24,6 +24,11 @@ xrdb -merge "${HOME}/.Xdefaults" &
 # custom keymappings
 +xmodmap ~/.xmodmap
 
+#sogou pinyin
+export LC_ALL=zh_CN.UTF-8
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
 
 #export LANG=zh_CN.UTF-8
 #export LANGUAGE=zh_CN:en_US
@@ -73,7 +78,7 @@ xset r rate 250 25 &
 #xset b off &
 
 # start the rock
-mpd &
+#mpd &
 
 # setup fonts
 xset +fp ~/.fonts &
