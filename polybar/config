@@ -33,7 +33,7 @@ foreground = ${colors.foreground}
 font-0 = scientifica:size=8:antialias=true;-1
 font-1 = Wuncon Siji:size=9:;-1
 
-modules-right   = cpu memory wired wifi battery volume date1
+modules-right   = cpu memory wired volume date1
 modules-left = ewmh
 modules-center  = 
 
