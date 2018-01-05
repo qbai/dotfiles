@@ -66,7 +66,7 @@ alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
 alias fn="find . -name"
 #alias fng="find . -name '*'|xargs grep"
-alias fn2='find_in_file(){find . -name $1|xargs grep -i $2};find_in_file'
+alias fn2='find_in_file(){find . -name "$1"|xargs grep -i "$2"};find_in_file'
 
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
