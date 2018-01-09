@@ -17,9 +17,10 @@ alias lf="ls -l -F"
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
-alias r='rm -rfi'
 #alias m='more'
 alias m='less'
+alias grp='grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+#alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
 #alias k='kill -9'
 alias k='kill -TERM'
 alias t='top'
@@ -65,7 +66,8 @@ alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
 alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
 alias fn="find . -name"
-alias fng="find . -name '*'|xargs grep"
+#alias fng="find . -name '*'|xargs grep"
+alias fn2='find_in_file(){find . -name "$1"|xargs grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn} "$2"};find_in_file'
 
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
