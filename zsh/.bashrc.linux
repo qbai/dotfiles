@@ -224,7 +224,10 @@ alias p_cs='pidstat -w 2'
 ################### tricky_command  ################
 #alias f_g_s="find . -name rule.mk -exec grep 'Wall' {} \; -exec sed -i 's/-Wall //g' {} \;"
 #alias f_g_s_2="find . -name rule.mk|xargs grep 'TI_CXXFLAGS='|grep -v 'Wall'|awk -F ':' '{print $1}'|xargs sed -i 's/Werror/Werror -Wall/g'"
-# 
+#alias f_g_s_3='find . -type f|xargs file|grep -i "ELf"|cut -d":" -f1|xargs nm -A -D -a -l -C|grep -i "platformInit"'
+#alias f_g_s_4='find . -type f|xargs file|grep -i "ELf"|cut -d":" -f1|xargs objdump -x|grep -i "platformInit"'
+#									    readelf -ahW
+ 
 #  pstree -p  		search parent process
 #  kill -TERM [ppid]	kill parent process and all child processes   or
 #alias k_a_p="ps -ef|grep 'build'|awk -F ' ' '{print $2}'|xargs sudo kill -9 {}"
