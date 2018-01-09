@@ -6,8 +6,6 @@ export PS1="[\u@\h \w]\$ "
 #export CLICOLOR=1
 #export LSCOLORS=gxfxcxdxbxegedabagacad
 
-
-
 export TERM=xterm-256color
 
 alias l='ls -l'
@@ -17,9 +15,9 @@ alias lf="ls -l -F"
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
-alias r='rm -rfi'
 #alias m='more'
 alias m='less'
+alias grp='grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
 #alias k='kill -9'
 alias k='kill -TERM'
@@ -35,9 +33,9 @@ alias chux='chmod u+x'
 alias chall='chmod -R 777'
 
 alias pg="pmset -g"
-alias rf='rm -rf'
-#alias pgr='ps -ef|grep -v grep|grep -i --color'
-alias p='ps -ef|grep -v grep|grep -i --color'
+alias rf='rm -rfi'
+#alias pgr='ps -ef|grep -v grep|grep --color=always'
+alias p='ps -ef|grep -v grep|grep'
 alias t='tail -f'
 
 # CPU top 10 process in linux
@@ -66,7 +64,7 @@ alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
 alias fn="find . -name"
 #alias fng="find . -name '*'|xargs grep"
-alias fn2='find_in_file(){find . -name "$1"|xargs grep -i "$2"};find_in_file'
+alias fn2='find_in_file(){find . -name "$1"|xargs grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn} "$2"};find_in_file'
 
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
@@ -80,7 +78,7 @@ alias txstart="tmux attach || tmux_init"
 alias wh="which"
 
 alias ai="sudo apt-get install"
-#alias le="less"
+#alias le="less -r"
 
 cl() { cd "$@" && pwd ; ls -alF; }
 alias ..="cl .."
@@ -224,8 +222,8 @@ alias p_cs='pidstat -w 2'
 ################### tricky_command  ################
 #alias f_g_s="find . -name rule.mk -exec grep 'Wall' {} \; -exec sed -i 's/-Wall //g' {} \;"
 #alias f_g_s_2="find . -name rule.mk|xargs grep 'TI_CXXFLAGS='|grep -v 'Wall'|awk -F ':' '{print $1}'|xargs sed -i 's/Werror/Werror -Wall/g'"
-#alias f_g_s_3='find . -type f|xargs file|grep -i "ELf"|cut -d":" -f1|xargs nm -A -D -a -l -C|grep -i "platformInit"'
-#alias f_g_s_4='find . -type f|xargs file|grep -i "ELf"|cut -d":" -f1|xargs objdump -x|grep -i "platformInit"'
+#alias f_g_s_3='find . -type f|xargs file|grep "ELf"|cut -d":" -f1|xargs nm -A -D -a -l -C|grep "platformInit"'
+#alias f_g_s_4='find . -type f|xargs file|grep "ELf"|cut -d":" -f1|xargs objdump -x|grep "platformInit"'
 #									    readelf -ahW
  
 #  pstree -p  		search parent process
