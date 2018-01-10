@@ -19,7 +19,7 @@ alias h='history'
 alias m='less'
 alias grp='grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
-#alias k='kill -9'
+alias k9='kill -9'
 alias k='kill -TERM'
 alias t='top'
 alias ht='htop'
@@ -35,7 +35,15 @@ alias chall='chmod -R 777'
 alias pg="pmset -g"
 alias rf='rm -rfi'
 #alias pgr='ps -ef|grep -v grep|grep --color=always'
+
 alias p='ps -ef|grep -v grep|grep'
+# show all threads
+alias pt='ps -Lf'
+alias pt2='print_all_thr(){ps mp "$1" -o THREAD,tid};print_all_thr'
+#show all child process
+alias pp='pgrep -P'
+alias pp2='ps --ppid'
+
 alias t='tail -f'
 
 # CPU top 10 process in linux
