@@ -84,6 +84,7 @@ alias dus='du -ah --max-depth=1 |sort -rn'
 alias gcg="gtags --gtagslabel ctags"
 alias txstart="tmux attach || tmux_init"
 alias wh="which"
+alias watch='watch -n 2 -d'
 
 alias ai="sudo apt-get install"
 #alias le="less -r"
