@@ -33,7 +33,7 @@ alias chux='chmod u+x'
 alias chall='chmod -R 777'
 
 alias pg="pmset -g"
-alias rf='rm -rfi'
+alias rf='rm -rf'
 #alias pgr='ps -ef|grep -v grep|grep --color=always'
 
 alias p='ps -ef|grep -v grep|grep'
@@ -43,6 +43,7 @@ alias pt2='print_all_thr(){ps mp "$1" -o THREAD,tid};print_all_thr'
 #show all child process
 alias pp='pgrep -P'
 alias pp2='ps --ppid'
+alias ptree='pstree -p|grp'
 
 alias t='tail -f'
 
