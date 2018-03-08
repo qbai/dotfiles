@@ -687,9 +687,13 @@ you should place your code here."
 ;;delete whole line
 (global-set-key (kbd "M-k") 'my-kill-whole-line)
 ;; quick copy whole line
-(global-set-key (kbd "C-c l") 'copy-lines)
+(global-set-key (kbd "C-c c") 'copy-lines)
+;;(global-set-key (kbd "C-c l") 'copy-lines)
+
 ;; quick choose one line
-(global-set-key (kbd "C-M-e") 'my-mark-line)
+(global-set-key (kbd "C-c e") 'my-mark-line)
+;;(global-set-key (kbd "C-M-e") 'my-mark-line)
+
 ;; set mark tag
 ;;(global-set-key (kbd "M-SPC") 'set-mark-command)
 
