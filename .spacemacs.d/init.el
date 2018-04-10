@@ -67,10 +67,10 @@ values."
     ;;sql
     (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
     ;;(c-c++ :variables c-c++-enable-clang-support t)
-    ;; (python :variables
-    ;;     python-enable-yapf-format-on-save t ;; when saving, yapf
-    ;;     python-fill-column 80       ;; column 80
-    ;;     python-sort-imports-on-save t)    ;; sort package when saving
+    (python :variables
+        python-enable-yapf-format-on-save t ;; when saving, yapf
+        python-fill-column 80               ;; column 80
+        python-sort-imports-on-save t)      ;; sort package when saving
     ;;ruby
 
     gtags
