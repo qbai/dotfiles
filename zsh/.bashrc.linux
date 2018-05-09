@@ -16,7 +16,13 @@ alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
 #alias m='more'
-alias m='less'
+alias m='less -i -M'
+
+# linenum & no wrap
+#alias m='less -i -M -N -S'
+# linenum & with wrap
+#alias m='less -i -M -N -+S'
+
 alias grp='grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
 alias k9='kill -9'
