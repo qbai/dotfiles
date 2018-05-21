@@ -12,6 +12,7 @@ alias l='ls -l'
 alias la='ls -l -a'
 alias lt='ls -l -t -r -a'
 alias lf="ls -l -F"
+alias le="exa -bghHliS"
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
