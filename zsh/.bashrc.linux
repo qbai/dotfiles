@@ -9,10 +9,10 @@ export PS1="[\u@\h \w]\$ "
 export TERM=xterm-256color
 
 alias l='ls -l'
-alias la='ls -l -a'
+#alias la='ls -l -a'
+alias la='exa -bghHliS'
 alias lt='ls -l -t -r -a'
 alias lf="ls -l -F"
-alias le="exa -bghHliS"
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
