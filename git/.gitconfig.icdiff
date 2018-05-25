@@ -1,0 +1,21 @@
+[push]
+	default = simple
+[user]
+	name = baiq
+	email = qiang.bai@emc.com
+[alias]
+	diff = icdiff
+[icdiff]
+	options = --highlight --line-numbers
+
+[alias]
+	showtool = "!f() { git difftool $1^ $1; }; f"
+	added = difftool --cached
+[diff]
+	tool = icdiff
+[difftool]
+	prompt = false
+[difftool "icdiff"]
+	cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[pager]
+	difftool = true
