@@ -10,7 +10,7 @@ export TERM=xterm-256color
 
 alias l='ls -l'
 #alias la='ls -l -a'
-alias la='exa -bghHliS'
+alias le='exa -bghHliS'
 alias lt='ls -l -t -r -a'
 alias lf="ls -l -F"
 alias c='clear'
@@ -78,9 +78,9 @@ alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
 alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
 alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
-alias fn="find . -name"
+alias ff="find . -iname"
 #alias fng="find . -name '*'|xargs grep"
-alias fn2='find_in_file(){find . -name "$1"|xargs grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn} "$2"};find_in_file'
+alias ff2='find_in_file(){find . -iname "$1"|xargs grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn} "$2"};find_in_file'
 
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
@@ -211,8 +211,8 @@ alias insemacs='git clone https://github.com/syl20bnr/spacemacs
 ~/.emacs.d'
 
 #export EDITOR='nano -$'
-#export EDITOR="nano -w"
-export EDITOR='emacsclient -t'
+export EDITOR="nano -w"
+#export EDITOR='emacsclient -t'
 
 export GTAGSLABEL=pygments
 
@@ -228,6 +228,7 @@ alias yremove='yaourt -R'
 
 
 ############# git #######################
+alias gdd='git icdiff'
 alias gde='git difftool --tool=ediffclient --no-prompt'
 #alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
 alias gme='git mergetool --tool=ediffclient --no-prompt'
