@@ -229,6 +229,7 @@ alias yremove='yaourt -R'
 
 ############# git #######################
 alias gdd='git icdiff'
+alias gshow='git showtool'
 alias gde='git difftool --tool=ediffclient --no-prompt'
 #alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
 alias gme='git mergetool --tool=ediffclient --no-prompt'
