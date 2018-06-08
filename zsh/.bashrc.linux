@@ -93,6 +93,7 @@ alias gcg="gtags --gtagslabel ctags"
 alias txstart="tmux attach || tmux_init"
 alias wh="which"
 alias watch='watch -n 2 -d'
+alias xzz='xz -z -v --threads=0 -9 -e'
 
 alias ai="sudo apt-get install"
 #alias le="less -r"
