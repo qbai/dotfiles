@@ -34,7 +34,7 @@ alias k='kill -TERM'
 #alias n='nano -w'
 alias n='nano -$'
 #alias tea='2 >&1 |tee -a'
-
+#alias tenull='& > /dev/null |tee -a'
 umask 0000
 alias chus='chmod u+s'
 alias chux='chmod u+x'
