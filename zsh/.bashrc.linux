@@ -100,6 +100,11 @@ alias xzz='xz -z -v --threads=0 -9 -e'
 alias ai="sudo apt-get install"
 #alias le="less -r"
 
+# add rsync command
+#rsync -avzr --progress --delete cyc@10.207.140.18:/home/cyc/cyc_core ./cyc_core
+#rsync -avzr --progress cyc@10.207.140.18:/home/cyc/cyc_core ./cyc_core
+
+
 cl() { cd "$@" && pwd ; ls -alF; }
 alias ..="cl .."
 
