@@ -80,7 +80,7 @@ alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
 alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
 alias ff="find . -iname"
-alias fff='ag_fzf_file(){ag "$1" |fzf};ag_fzf_file'
+alias fff='ag_fzf_file(){ag "$1" |fzf > /tmp/fzf.log};ag_fzf_file'
 
 #alias fng="find . -name '*'|xargs grep"
 alias ff2='find_in_file(){find . -iname "$1"|xargs grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn} "$2"};find_in_file'
