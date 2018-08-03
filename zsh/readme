@@ -1,3 +1,6 @@
 # install icdiff and enable gdd
 sudo pip install --upgrade pip
 sudo pip install git+https://github.com/jeffkaufman/icdiff.git
+
+# install ag fzf ncdu
+wget https://dev.yorhel.nl/download/ncdu-1.9.tar.gz

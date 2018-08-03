@@ -91,9 +91,9 @@ alias ff2='find_in_file(){find . -iname "$1"|xargs grep -i -n -E --color=always 
 
 #alias dl="df -lha"
 alias dff='df -lhT'
-alias duh="du -sh"
+alias duu="du -sh"
 #alias dum="du -ah --max-depth=1"
-alias dus='du -ah --max-depth=1 |sort -rn'
+alias dul='du -ah --max-depth=1 |sort -rn'
 
 alias gcg="gtags --gtagslabel ctags"
 alias txstart="tmux attach || tmux_init"
