@@ -295,3 +295,4 @@ function edf() {
 
 
 ######################### new append at tail ################################
+alias os="lsb-release -a"
