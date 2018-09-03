@@ -139,3 +139,4 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey "\e\e" sudo-command-line
 
+alias l='ls -l -t -r -a -h'
