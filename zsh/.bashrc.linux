@@ -9,10 +9,11 @@ export PS1="[\u@\h \w]\$ "
 export TERM=xterm-256color
 
 #alias l='ls -l'
-alias l='ls -l -t -r -a'
+alias l='ls -l -t -r -a -h'
 #alias la='ls -l -a'
 alias le='exa -bghHliS'
-alias lt='ls -l -t -r -a'
+alias lt='ls -l -t -r -a -h'
+alias ldir='ls -dltrh */'
 alias lf="ls -l -F"
 alias c='clear'
 alias s='source ~/.zshrc'
@@ -109,7 +110,7 @@ alias ai="sudo apt-get install"
 #rsync -avzr --progress cyc@10.207.140.18:/home/cyc/cyc_core ./cyc_core
 
 
-cl() { cd "$@" && pwd ; ls -alFtr; }
+cl() { cd "$@" && pwd ; ls -alhFtr; }
 alias ..="cl .."
 
 alias llock="light-locker --lock-on-suspend&"
