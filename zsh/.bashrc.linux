@@ -109,7 +109,7 @@ alias ai="sudo apt-get install"
 #rsync -avzr --progress cyc@10.207.140.18:/home/cyc/cyc_core ./cyc_core
 
 
-cl() { cd "$@" && pwd ; ls -alF; }
+cl() { cd "$@" && pwd ; ls -alFtr; }
 alias ..="cl .."
 
 alias llock="light-locker --lock-on-suspend&"
