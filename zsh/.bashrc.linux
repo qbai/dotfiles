@@ -241,6 +241,7 @@ alias yremove='yaourt -R'
 
 
 ############# git #######################
+# git config --global icdiff.options '--highlight --line-numbers'
 alias gdd='git icdiff'
 alias gshow='git showtool'
 alias gde='git difftool --tool=ediffclient --no-prompt'
