@@ -83,6 +83,7 @@ alias -s properties='less -i -M -R'
 
 alias -s c='emacsclient -t'
 alias -s cpp='emacsclient -t'
+alias -s cxx='emacsclient -t'
 alias -s h='emacsclient -t'
 alias -s hpp='emacsclient -t'
 #alias -s py='emacsclient -t'
