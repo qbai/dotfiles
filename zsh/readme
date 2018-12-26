@@ -1,3 +1,14 @@
+ln -s .bashrc.linx ~/.bashrc
+ln -s .inputrc ~/.inputrc 
+ln -s .tmux.conf ~/.tmux.conf 
+ln -s .tmux.conf.local ~/.tmux.conf.local 
+ln -s .zshrc.linux ~/.zshrc
+
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+chsh -s /bin/zsh
+
+
+
 # install icdiff and enable gdd
 sudo pip install --upgrade pip
 sudo pip install git+https://github.com/jeffkaufman/icdiff.git
