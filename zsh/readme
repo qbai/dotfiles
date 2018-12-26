@@ -12,7 +12,7 @@ chsh -s /usr/bin/zsh
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ln -s ~/dotfiles/.spacemacs.d ~/.spacemacs.d
 
-install emacs
+install emacs.25.3
 install tmux.1.8
 install zsh
 ****************   manual installation *************************************
