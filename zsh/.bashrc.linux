@@ -167,15 +167,6 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 
-
-################################# EMC cyclone #####################################
-export DEVOPS_ARTIFACTORY_SERVER=afeoscyc-mw.cec.lab.emc.com
-export REPO_OVERRIDE=cyclone-integration
-#export CYC_CONFIG=/home/cyc/cyc_core/cyc_platform/src/package/cyc_configs/cyc-cfg.txt.qemu_host
-
-################################# EMC cyclone #####################################
-
-
 ###################### trash ######################
 
 if [ ! -d "~/.trash" ]; then
@@ -298,3 +289,16 @@ function edf() {
 
 ######################### new append at tail ################################
 alias os="lsb-release -a"
+
+
+################################# EMC cyclone #####################################
+export DEVOPS_ARTIFACTORY_SERVER=afeoscyc-mw.cec.lab.emc.com
+export REPO_OVERRIDE=cyclone-integration
+#export CYC_CONFIG=/home/cyc/cyc_core/cyc_platform/src/package/cyc_configs/cyc-cfg.txt.qemu_host
+
+################################# EMC cyclone #####################################
+
+################################# EMC unity #####################################
+alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R"
+
+################################# EMC unity #####################################
