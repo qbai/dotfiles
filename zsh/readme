@@ -13,7 +13,7 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ln -s ~/dotfiles/.spacemacs.d ~/.spacemacs.d
 
 install emacs
-install tmux
+install tmux.1.8
 install zsh
 ****************   manual installation *************************************
 
