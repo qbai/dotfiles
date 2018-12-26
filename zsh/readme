@@ -18,6 +18,9 @@ install zsh
 install nano
 ****************   manual installation *************************************
 
+# install pip
+curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
+sudo python /tmp/get-pip.py
 
 # install icdiff and enable gdd
 sudo pip install --upgrade pip
