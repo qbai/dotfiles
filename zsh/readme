@@ -1,12 +1,19 @@
+****************   manual installation *************************************
 ln -s .bashrc.linx ~/.bashrc
 ln -s .inputrc ~/.inputrc 
 ln -s .tmux.conf ~/.tmux.conf 
 ln -s .tmux.conf.local ~/.tmux.conf.local 
+
+
+wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 ln -s .zshrc.linux ~/.zshrc
+chsh -s /usr/bin/zsh
 
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-chsh -s /bin/zsh
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+ln -s ~/dotfiles/.spacemacs.d ~/.spacemacs.d
 
+install tmux
+****************   manual installation *************************************
 
 
 # install icdiff and enable gdd
