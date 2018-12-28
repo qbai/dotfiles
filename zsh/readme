@@ -27,4 +27,11 @@ sudo pip install --upgrade pip
 sudo pip install git+https://github.com/jeffkaufman/icdiff.git
 
 # install ag fzf ncdu
+zypper install the_silver_searcher
+git clone --depth 1 https://github.com/junegunn/fzf.git /tmp/.fzf
+/tmp/.fzf/install
+sudo cp /tmp/.fzf/bin/fzf /usr/local/bin
+
 wget https://dev.yorhel.nl/download/ncdu-1.9.tar.gz
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
