@@ -34,4 +34,4 @@ sudo cp /tmp/.fzf/bin/fzf /usr/local/bin
 
 wget https://dev.yorhel.nl/download/ncdu-1.9.tar.gz
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# install ctags pygments globals
