@@ -1,0 +1,21 @@
+
+;; ----- smex-history -----
+(
+ kill-all-gud-buffers
+ gdb
+ ediff
+ list-packages
+ package-install
+ cd
+ 5x5
+)
+
+;; ----- smex-data -----
+(
+ (gdb . 3)
+ (package-install . 2)
+ (list-packages . 1)
+ (ediff . 2)
+ (ediff-toggle-split . 1)
+ (kill-all-gud-buffers . 7)
+)

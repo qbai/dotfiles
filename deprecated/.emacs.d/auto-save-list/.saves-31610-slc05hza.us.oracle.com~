@@ -1,0 +1,8 @@
+/etc/sysconfig/network
+/etc/sysconfig/#network#
+/home/baqiang/.profile
+/home/baqiang/#.profile#
+/etc/environment
+/etc/#environment#
+/home/baqiang/.emacs.d/init.el
+/home/baqiang/.emacs.d/#init.el#

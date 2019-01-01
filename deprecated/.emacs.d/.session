@@ -1,0 +1,54 @@
+;;; Automatically generated on Sun Jan 10 20:20:50 2016
+;;; Invoked by qbai@ultimate using 24.5.1
+(setq-default kill-ring '("#[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autoj\\ump.sh
+" "# mac for autojump
+[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
+
+
+# linux for autojump
+#[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+" "#setting for autojump ,.zshrc
+[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/etc/autojump.sh
+" "########################################
+
+
+" "###################### trash ######################
+" "#MAVEN_HOME=/home/baqiang/apache-maven-3.2.5 export MAVEN_HOME
+
+#export JAVA_HOME=/tools/jdk1.8.0_60
+#export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+#export PATH=/home/baqiang/.emacs.d/plugins/global-6.5/bin/bin:/scratch/baqiang/qbai/autoconf-2.68/bin:/scratch/baqiang/qbai/automake-1.9/bin/bin:/usr/sbin:${MAVEN_HOME}/bin:$JAVA_HOME/bin:/scratch/baqiang/app/bin:/usr/local/bin:.:${PATH}
+
+
+#############oracle db config*********************
+#export ORACLE_BASE=/scratch/baqiang/app
+#export ORACLE_HOME=/scratch/baqiang/app/Oracle_Home
+#export ORACLE_SID=opss
+#export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
+#export PATH=$ORACLE_HOME/bin:$PATH
+#export LISTENER=$ORACLE_HOME/bin/lsnrctl
+#export TNS_ADMIN=$ORACLE_HOME/network/admin
+
+################################# Oracle #####################################################
+
+
+" "################################ Oracle  ####################################################
+
+" "[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+" "###################################### qbai zsh configuration #############
+source ~/.bashrc
+
+# mac autojump
+" "[[ -s $(brew --prefix)/etc/autojump.sh ]] && . $(brew --prefix)/et"))
+(setq-default session-file-alist '(("~/Project/github/.emacs.d/init.el" 1 3265 1 nil nil 3265 (overwrite-mode)) ("~/Project/github/.env/.bashrc" 536 1 1 nil nil 536 (overwrite-mode)) ("~/.zshrc" 1 798 1 nil nil 95 (overwrite-mode)) ("~/Project/.trash/test.c" 144 nil 1 nil nil 144 (overwrite-mode)) ("~/Project/opensource/db-6.1.19/src/btree/bt_open.c" 17718 nil 1 nil nil 17718 (overwrite-mode))))
+(setq-default file-name-history '("~/Project/github/.env/.zshrc" "~/Project/github/.env/.bashrc" "~/Project/.trash/test.c" "~/.emacs.d/init.el" "/Users/qbai/.emacs.d/init.el" "/Users/qbai/.emacs.d/README.md" "~/.zshrc" "/Users/qbai/.bashrc"))
+(setq-default search-ring '("theme" "smex" "cdl" "plug" "git" "monokai" "monolai" "monakai" "gdb " "gdb" "fringe" "gdb-many" "many-window"))
+(setq-default buffer-name-history '(".zshrc" "init.el" "*Messages*" "test.c" "README.md" "*shell*" " *Minibuf-1*" "*Warnings*" ".bashrc" "init.el2" "*Ibuffer*" "*scratch*" "*About GNU Emacs*" "bt_open.c"))
+(setq-default command-history '((find-file "/Users/qbai/.emacs.d/init.el") (switch-to-buffer ".zshrc") (kill-buffer "init.el") (switch-to-buffer "init.el") (switch-to-buffer "*Messages*") (switch-to-buffer "test.c") (kill-buffer "README.md") (find-file "/Users/qbai/.emacs.d/README.md") (kill-all-gud-buffers) (kill-buffer "*shell*") (kill-buffer " *Minibuf-1*") (switch-to-buffer " *Minibuf-1*") (kill-buffer "*Warnings*") (find-file "/Users/qbai/.bashrc") (kill-buffer ".bashrc") (switch-to-buffer ".bashrc") (find-file "/Users/qbai/.zshrc") (ibuffer-find-file "~/.bashrc" t) (kill-buffer ".zshrc") (kill-buffer "init.el2") (switch-to-buffer "init.el2") (switch-to-buffer "*Ibuffer*") (find-file "/Users/qbai/.emacs.d/init.el2") (ibuffer-find-file "~/Project/.trash/test.c" t) (kill-buffer "test.c") (find-file "/Users/qbai/Project/.trash/test.c") (kill-buffer "*scratch*") (kill-buffer "*Messages*") (kill-buffer "*About GNU Emacs*") (kill-buffer "bt_open.c") (switch-to-buffer "bt_open.c") (find-file "/Users/qbai/Project/opensource/db-6.1.19/src/btree/bt_open.c")))
+(setq-default extended-command-history '("kill-all-gud-buffers"))
+(setq-default ido-buffer-history '(".zshrc" "init.el" "*Messages*" "test.c" "README.md" "*shell*" " *Minibuf-1*" "*Warnings*" ".bashrc" "init.el2" "*Ibuffer*" "*scratch*" "*About GNU Emacs*" "bt_open.c"))
+(setq-default ido-file-history '("init.el" "README.md" ".bashrc" ".zshrc" "init.el2" "test.c" "bt_open.c"))
+(setq-default occur-collect-regexp-history '("\\1"))
+(setq-default smex-history '(kill-all-gud-buffers gdb ediff list-packages package-install cd 5x5))
