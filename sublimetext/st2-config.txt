@@ -1,0 +1,205 @@
+1. 下载并安装破解（refer to icloud document）
+	http://www.sublimetext.com/2
+
+2. 安装主题soda
+   直接拷贝Theme - Soda 到sublime text2 -> Preferences -> Browse Packages打开的目录
+
+  {
+	（http://blog.sina.com.cn/s/blog_788e5b7a0101bu7n.html）
+
+		1、soda皮肤下载地址：https://github.com/buymeasoda/soda-theme
+
+		2、安装打开sublime text2 -> Preferences -> Browse Packages，将从github上下载文件解压缩，并重命名Theme – Soda 放入文件夹。
+
+		3、重启sublime text2。
+
+		4、Preferences -> Settings – User中新增参数
+			白色皮肤 “theme”: “Soda Light.sublime-theme”
+			黑色皮肤 “theme”: “Soda Dark.sublime-theme”
+
+
+	 (http://blog.csdn.net/freshlover/article/details/29592407)
+    }
+
+
+3. 拷贝覆盖配置文件Preferences.sublime-settings
+
+
+4. 更改配色
+	菜单 - preference - color scheme，选择一个合适的配色,如果没有合适的，可以直接修改
+	确认你当前选择的是哪个配色方案，然后在对应的目录下
+	Packages\Color Scheme - Default (菜单preferences -> Browse package ->Color Scheme - Default -> 对应的theme文件)
+	找到该配色文件，用st2打开，查找 selection ，修改对应的颜色保存就行
+
+	<key>selection</key>
+	<string>#F75000</string>
+	
+{
+5. 更改sidebar字体 (已经更改，不需要做这一步)
+
+	~/Library/Application Support/Sublime Text 2/Packages/Theme - soda，修改 Soda Dark.sublime-theme 文件裡面加入font.size
+		// Sidebar entry
+	    {
+	        "class": "sidebar_label",
+	        "color": [125, 125, 125],
+	        "shadow_color": [0, 0, 0],
+	        "shadow_offset": [0, -1],
+	        "font.size": 15,
+	        "font.face": "Consolas"
+	    },
+	    // Sidebar folder entry
+}
+
+6. 安装package control
+		show console and 执行下列命令
+
+	import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
+
+7. 修改快捷键
+	open Preferences > Key Binding - User 
+	add the fowlling line 
+		{ "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} }
+		
+		
+
+插件配置 (删除已安装的插件 ctrl+shift+p，removepackage，选择要删除的package)
+
+		       ********************
+		       *  关于C/C++部分插件 *
+		       ********************
+
+[
+1> 安装 ctags	(一般操作系统安装ctags，但在sublime里边不用ctags插件，用gtags插件，所以sublime里边不用安装ctags插件）
+	下载ctags，加入path变量	http://ctags.sourceforge.net/
+	在project目录下执行ctags -R 生成.tags文件 或者 在sublime右鍵rebuild tags,重新生成tag文件
+	
+	{
+	package install ctags (ctrl+shift+p, input install or remove)
+	打开 Main menu -> Preferences -> Package Settings -> Ctags -> Settings -Users， 加入下列内容
+		{
+			"command": "C:\\qbai\\ctags58"
+		}
+		
+	用法：
+		跳转到函数定义	ctrl+t     ctrl+t
+		跳回		ctrl+t     ctrl+b
+	}
+
+]
+
+2> 安装SublimeGtags
+	package control 输入gtags安装
+	下载gtags from http://www.gnu.org/software/global/,并加入到path里 (win http://adoxa.altervista.org/global/)
+	{
+	source build by following command :
+		./configure --with-exuberant-ctags --prefix=[path]
+		当然前提是安装 ctags (Exuberant Ctags 5.8)
+	}
+	到源代码目录下运行gtags -v , 生成GPATH,GRTAGS,GTAGS
+
+	打开 Main menu -> Preferences -> Package Settings -> SublimeGtags -> Settings - Users,修改extra_tag_paths为刚才生成GTAGS的目录
+		{
+			"extra_tag_paths": "C:\\emc\\unity"
+		}
+	打开browse package, 找到gtags文件夹下边的Default.sublime-keymap文件，修改如下部分为下列内容
+		    {
+    			"command": "gtags_navigate_to_definition",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+t"]
+  		    },
+  		    {
+    			"command": "gtags_jump_back",
+    			"keys": ["ctrl+t", "ctrl+b"]
+  		    },
+                    {
+    			"command": "gtags_rebuild_tags",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+r"]
+                    },
+                    {
+   	 		"command": "gtags_find_references",
+    			"keys": ["alt+."]
+                    },
+[
+ 	使用gtags的方法：
+ 		alt+.	gtags_navigate_to_definition
+ 		alt+,	gtags_jump_back
+ 		ctrl+t, ctrl+t  	gtags_find_references
+]
+
+   NOTES:
+   	a> gtags 与 ctags发生冲突，不能同时在st2里边使用
+   	b> 可以参考 https://github.com/koko1000ban/SublimeGtags
+   	c> 完全可以用gtags插件替代ctags和cscope
+
+[
+3> 安装Cscope
+		package control 安装 cscope
+		下载cscope,並加入到path里边,https://code.google.com/archive/p/cscope-win32/downloads
+			(源码下载从http://cscope.sourceforge.net/)
+		进入代码目录，运行 cscope -Rbkv  (-Rbkq)，生成cscope.out等三个文件
+		进入preferences->browse packages->cscope->CscopeSublime.sublime-settings,修改以下项目
+				{
+					"executable": "C:\\qbai\\cscope15.8a\\cscope.exe",
+					"database_location": "C:\\emc\\unity\\cscope.out"
+				}
+		选中函数名，右键菜单选择cscope，查询所有调用此函数的文件 或者以下快捷命令
+
+		Ctrl/Super + \ 		      - Show Cscope options
+		Ctrl/Super + L Ctrl/Super + S - Look up symbol under cursor
+		Ctrl/Super + L Ctrl/Super + D - Look up definition under cursor
+		Ctrl/Super + L Ctrl/Super + E - Look up functions called by 				    the function under the cursor
+		Ctrl/Super + L Ctrl/Super + R - Look up functions calling the 				      function under the cursor
+		Ctrl/Super + Shift + [        - Jump back
+
+]
+
+4> 安装 Bracket Highlighter
+	package control 安装 Bracket Highlighter
+
+	按preferences-->package settings-->Bracket highlighter-->Bracket settings-Default,将"bracket_styles"中的style改为hightlight（其中hightlight为高亮显示，outline是外面有框，underline是有颜色的下划线）
+
+5> 安装 Function Name Display 显示当前光标在哪个函数, 打开配置，修改
+	{
+		"display_class": true
+	}
+
+6> 安装 SublimeLinter + cppcheck	(语法检查错误，cppcheck比编译器更严)
+
+7> 安装SublimeCodeIntel (自动补全，智能代码提示)
+	package control 安装
+8> 安装 alignment
+	package control 安装
+	打开key binding - users, 添加如下
+		[
+		{ "keys": ["super+alt+]"], "command": "alignment" }
+		]
+	按command+alt+], 对选中文本进行对齐
+
+
+9> 安装docblockr
+	package control安装；
+	输入/**，然后按Tab或者回车键就自动补全注释
+
+10> 安装coolformat
+	package control安装；
+	Ctrl+Shift+Alt+Q: Quick Format.
+	Ctrl+Shift+Alt+S: Selected Format.
+	or Open the command palette, input as CoolFormat: Quick Format
+
+11> 安装GBK Encoding Support
+
+
+12> 安装SublimeGDB
+	http://pythonic.zoomquiet.io/data/20121112224949/index.html
+
+13> 安装markdown preview
+
+14> 安装 c improved
+	view > syntax > c improved
+	
+15> 打开对应的头文件
+	ctrl+p 输入头文件名字
+	
+16> 安装restructuredTextImproved
+
