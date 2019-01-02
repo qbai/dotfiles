@@ -681,7 +681,10 @@ you should place your code here."
 ;;(global-set-key (kbd "C-u") 'scroll-up-command)
 ;; page up
 ;;(global-set-key (kbd "M-u") 'scroll-down-command)
-
+;; quickly move to char
+(global-set-key (kbd "C-c j") 'evil-avy-goto-char)
+;; quickly move to line
+(global-set-key (kbd "C-c l") 'evil-avy-goto-line)
 
 ;; editing
 ;;delete whole line
