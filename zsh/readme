@@ -26,7 +26,7 @@ sudo python /tmp/get-pip.py
 cd ~
 curl -sf -L https://static.rust-lang.org/rustup.sh | sh # install rust
 cargo install exa
-
+cargo install du-dust
 
 # install icdiff and enable gdd
 sudo pip install --upgrade pip
