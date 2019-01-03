@@ -22,6 +22,11 @@ install nano
 curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 sudo python /tmp/get-pip.py
 
+# install exa
+curl -sf -L https://static.rust-lang.org/rustup.sh | sh # install rust
+cargo install exa
+
+
 # install icdiff and enable gdd
 sudo pip install --upgrade pip
 sudo pip install git+https://github.com/jeffkaufman/icdiff.git
