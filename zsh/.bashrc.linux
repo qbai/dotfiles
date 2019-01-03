@@ -220,7 +220,7 @@ export EDITOR="nano -w"
 
 export GTAGSLABEL=pygments
 
-export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:~/.cargo/bin:$PATH
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
