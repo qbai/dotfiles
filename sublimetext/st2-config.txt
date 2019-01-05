@@ -187,8 +187,8 @@
 	Ctrl+Shift+Alt+S: Selected Format.
 	or Open the command palette, input as CoolFormat: Quick Format
 
-11> 安装GBK Encoding Support
-
+11> 安装ConvertToUTF8 或者 GBK Encoding Support
+	
 
 12> 安装SublimeGDB
 	http://pythonic.zoomquiet.io/data/20121112224949/index.html
