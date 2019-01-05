@@ -4,13 +4,13 @@
 	#name = qbai
 	#email = qbai.bj@gmail.com
 [credential]
-	#helper = cache
+	helper = cache --timeout 30000
 
 	# touch ~/.git-credentials
 	# e ~/.git-credentials
 	# add https://[username]:[passwd]@github.com
 	# git config --global credential.helper store
-	helper = store
+	#helper = store
 [alias]
 	graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
 	stat = status -sb
