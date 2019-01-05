@@ -25,8 +25,8 @@
 	editor = emacsclient -t -a=\\\"\\\"
 	#editor = emacsclient -t
 [diff]
-	tool = diff
-#	tool = ediffclient
+#	tool = diff
+#	external = emacsclient -t --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
 #[difftool "ediff"]
 #        cmd = emacs --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
 [difftool "ediffclient"]
