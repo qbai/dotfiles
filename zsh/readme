@@ -3,6 +3,7 @@ ln -s .bashrc.linx ~/.bashrc
 ln -s .inputrc ~/.inputrc 
 ln -s .tmux.conf ~/.tmux.conf 
 ln -s .tmux.conf.local ~/.tmux.conf.local 
+ln -s .gitconfig ~/.gitconfig
 
 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
