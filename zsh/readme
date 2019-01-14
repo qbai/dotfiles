@@ -17,7 +17,7 @@ install emacs.25.3
 install tmux.1.8
 install zsh
 install nano
-# install ctags pygments globals
+install ctags pygments globals
 
 ****************   manual installation *************************************
 # install python pip icdiff
