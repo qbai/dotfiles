@@ -17,11 +17,16 @@ install emacs.25.3
 install tmux.1.8
 install zsh
 install nano
+# install ctags pygments globals
 ****************   manual installation *************************************
 
-# install python pip
+# install python pip icdiff
 curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 sudo python /tmp/get-pip.py
+sudo pip install --upgrade pip
+sudo pip install git+https://github.com/jeffkaufman/icdiff.git
+sudo pip install pudb
+sudo pip install codespell
 
 # install rust exa du-dust
 cd ~
@@ -29,20 +34,10 @@ curl -sf -L https://static.rust-lang.org/rustup.sh | sh # install rust
 cargo install exa
 cargo install du-dust
 
-# install icdiff and enable gdd
-sudo pip install --upgrade pip
-sudo pip install git+https://github.com/jeffkaufman/icdiff.git
-
-# install ag fzf ncdu tig
+*****************************************************************************
+# install ag fzf ncdu tig tldr multitail bashdb thefuck cloc whowatch
 zypper install the_silver_searcher
 git clone --depth 1 https://github.com/junegunn/fzf.git /tmp/.fzf
 /tmp/.fzf/install
 sudo cp /tmp/.fzf/bin/fzf /usr/local/bin
-
 wget https://dev.yorhel.nl/download/ncdu-1.9.tar.gz
-
-# install ctags pygments globals
-
-
-
-# install whowatch
