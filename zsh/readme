@@ -18,8 +18,8 @@ install tmux.1.8
 install zsh
 install nano
 # install ctags pygments globals
-****************   manual installation *************************************
 
+****************   manual installation *************************************
 # install python pip icdiff
 curl https://bootstrap.pypa.io/get-pip.py -o /tmp/get-pip.py
 sudo python /tmp/get-pip.py
