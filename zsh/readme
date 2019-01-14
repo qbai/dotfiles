@@ -42,3 +42,7 @@ sudo cp /tmp/.fzf/bin/fzf /usr/local/bin
 wget https://dev.yorhel.nl/download/ncdu-1.9.tar.gz
 
 # install ctags pygments globals
+
+
+
+# install whowatch
