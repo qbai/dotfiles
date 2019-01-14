@@ -667,11 +667,11 @@ you should place your code here."
 (global-set-key (kbd "M-j") 'forward-word)
 (global-set-key (kbd "M-l") 'backward-word)
 ;; move cursor 5 lines up/down
-(global-set-key (kbd "M-n") (kbd "C-u 5 C-n"))
-(global-set-key (kbd "M-p") (kbd "C-u 5 C-p"))
+(global-set-key (kbd "C-M-n") (kbd "C-u 5 C-n"))
+(global-set-key (kbd "C-M-p") (kbd "C-u 5 C-p"))
 ;; move window 5 lines up/down
-(global-set-key (kbd "C-M-n") (kbd "C-u 15 C-v"))
-(global-set-key (kbd "C-M-p") (kbd "C-u 15 M-v"))
+(global-set-key (kbd "M-n") (kbd "C-u 15 C-v"))
+(global-set-key (kbd "M-p") (kbd "C-u 15 M-v"))
 ;;show in center
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 ;; locate begin or end of file
@@ -682,7 +682,7 @@ you should place your code here."
 ;; page up
 ;;(global-set-key (kbd "M-u") 'scroll-down-command)
 ;; quickly move to char
-(global-set-key (kbd "C-c j") 'evil-avy-goto-char)
+(global-set-key (kbd "C-c C-c") 'evil-avy-goto-char)
 ;; quickly move to line
 (global-set-key (kbd "C-c l") 'evil-avy-goto-line)
 
