@@ -657,7 +657,7 @@ you should place your code here."
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
 ;; kill all buffers
 ;;(global-set-key (kbd "C-M-a-k") 'kill-some-buffers)
-(global-set-key (kbd "C-c K") 'nuke-all-buffers)
+(global-set-key (kbd "C-c k") 'nuke-all-buffers)
 
 ;; moving
 ;; move-forward/back char
