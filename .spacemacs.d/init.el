@@ -58,7 +58,7 @@ values."
 
     (shell :variables shell-default-shell 'multi-term
            shell-default-position 'bottom
-           shell-default-height 40)
+           shell-default-height 80)
     syntax-checking
     ;;spell-checking
     asm
