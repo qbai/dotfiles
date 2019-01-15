@@ -694,7 +694,7 @@ you should place your code here."
 ;;(global-set-key (kbd "C-c l") 'copy-lines)
 
 ;; quick choose one line
-(global-set-key (kbd "C-c e") 'my-mark-line)
+(global-set-key (kbd "C-c m") 'my-mark-line)
 ;;(global-set-key (kbd "C-M-e") 'my-mark-line)
 
 ;; set mark tag
