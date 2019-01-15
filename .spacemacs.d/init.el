@@ -684,7 +684,7 @@ you should place your code here."
 ;; quickly move to char
 (global-set-key (kbd "C-c C-c") 'evil-avy-goto-char)
 ;; quickly move to line
-(global-set-key (kbd "C-c l") 'evil-avy-goto-line)
+(global-set-key (kbd "C-c C-l") 'evil-avy-goto-line)
 
 ;; editing
 ;;delete whole line
