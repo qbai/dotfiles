@@ -203,3 +203,8 @@
 	
 16> 安装restructuredTextImproved
 
+17> 快速查找项目文件
+	view->side bar -> show side bar
+	add project folder
+	save project (或者打开project文件）
+	ctrl-p 模糊输入文件名，快速打开文件
