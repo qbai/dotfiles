@@ -28,11 +28,12 @@ sudo pip install git+https://github.com/jeffkaufman/icdiff.git
 sudo pip install pudb
 sudo pip install codespell
 
-# install rust exa du-dust
+# install rust exa du-dust fd
 cd ~
 curl -sf -L https://static.rust-lang.org/rustup.sh | sh # install rust
 cargo install exa
 cargo install du-dust
+cargo install fd-find
 
 *****************************************************************************
 # install ag fzf ncdu tig tldr multitail bashdb thefuck cloc whowatch
