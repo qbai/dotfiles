@@ -208,3 +208,10 @@
 	add project folder
 	save project (或者打开project文件）
 	ctrl-p 模糊输入文件名，快速打开文件
+	
+18> 安装sftp
+	package install sftp
+	file->sftp->setup server
+		input ip username & password
+		save
+	file->sftp->brow sftp server
