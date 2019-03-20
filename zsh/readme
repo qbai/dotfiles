@@ -12,6 +12,10 @@ chsh -s /usr/bin/zsh
 
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ln -s ~/dotfiles/.spacemacs.d ~/.spacemacs.d
+(in spacemacs, alt-m pp select project
+               alt-m pf select file
+               M-x helm-gtags-create-tags   to create gtags for project
+)
 
 install emacs.25.3
 install tmux.1.8
