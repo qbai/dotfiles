@@ -705,11 +705,11 @@ you should place your code here."
 ;; quickly move to line
 (global-set-key (kbd "C-c C-l") 'evil-avy-goto-line)
 ;; quickly move region left
-;;(global-set-key (kbd "C-c C-m") (kbd "C-u -4 C-x TAB"))
+(global-set-key (kbd "C-c C-m") (kbd "C-u -4 C-x TAB"))
 ;;(global-set-key (kbd "C-c C-m") 'shift-left)
 ;; quickly move region right
+(global-set-key (kbd "C-c C-n") (kbd "C-u 4 C-x TAB"))
 ;;(global-set-key (kbd "C-right") 'shift-right)
-;;(global-set-key (kbd "C-c C-m") (kbd "C-u 4 C-x TAB"))
 
 ;; editing
 ;;delete whole line
