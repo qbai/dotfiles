@@ -611,6 +611,25 @@ you should place your code here."
   (mapcar 'kill-buffer (buffer-list))
   (delete-other-windows))
 
+;; Shift the selected region right if distance is postive, left if
+;; negative
+(defun shift-region (distance)
+  (let ((mark (mark)))
+    (save-excursion
+      (indent-rigidly (region-beginning) (region-end) distance)
+      (push-mark mark t t)
+      ;; Tell the command loop not to deactivate the mark
+      ;; for transient mark mode
+      (setq deactivate-mark nil))))
+
+(defun shift-right ()
+  (interactive)
+  (shift-region 2))
+
+(defun shift-left ()
+  (interactive)
+  (shift-region -2))
+
 
 ;; key mapping
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
@@ -685,6 +704,11 @@ you should place your code here."
 (global-set-key (kbd "C-c C-c") 'evil-avy-goto-char)
 ;; quickly move to line
 (global-set-key (kbd "C-c C-l") 'evil-avy-goto-line)
+;; quickly move region left
+;;(global-set-key (kbd "C-c C-m") (kbd "C-u -4 C-x TAB"))
+;;(global-set-key (kbd "C-c C-m") 'shift-left)
+;; quickly move region right
+;;(global-set-key (kbd "C-right") 'shift-right)
 
 ;; editing
 ;;delete whole line
