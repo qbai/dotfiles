@@ -709,6 +709,7 @@ you should place your code here."
 ;;(global-set-key (kbd "C-c C-m") 'shift-left)
 ;; quickly move region right
 ;;(global-set-key (kbd "C-right") 'shift-right)
+;;(global-set-key (kbd "C-c C-m") (kbd "C-u 4 C-x TAB"))
 
 ;; editing
 ;;delete whole line
