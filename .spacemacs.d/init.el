@@ -701,14 +701,14 @@ you should place your code here."
 ;; page up
 ;;(global-set-key (kbd "M-u") 'scroll-down-command)
 ;; quickly move to char
-(global-set-key (kbd "C-c C-c") 'evil-avy-goto-char)
+(global-set-key (kbd "C-c o") 'evil-avy-goto-char)
 ;; quickly move to line
-(global-set-key (kbd "C-c C-l") 'evil-avy-goto-line)
+(global-set-key (kbd "C-c l") 'evil-avy-goto-line)
 ;; quickly move region left
-(global-set-key (kbd "C-c C-m") (kbd "C-u -4 C-x TAB"))
+(global-set-key (kbd "C-c i") (kbd "C-u -4 C-x TAB"))
 ;;(global-set-key (kbd "C-c C-m") 'shift-left)
 ;; quickly move region right
-(global-set-key (kbd "C-c C-n") (kbd "C-u 4 C-x TAB"))
+(global-set-key (kbd "C-c u") (kbd "C-u 4 C-x TAB"))
 ;;(global-set-key (kbd "C-right") 'shift-right)
 
 ;; editing
@@ -733,7 +733,7 @@ you should place your code here."
 
 
 ;; open configure file
-(global-set-key (kbd "C-c C-o") 'spacemacs/find-dotfile)
+;;(global-set-key (kbd "C-c C-o") 'spacemacs/find-dotfile)
 ;; reload spacemacs configure file
 (global-set-key (kbd "C-c C-e") 'dotspacemacs/sync-configuration-layers)
 ;; choose theme
