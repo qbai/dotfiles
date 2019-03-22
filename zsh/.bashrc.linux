@@ -19,7 +19,7 @@ alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
 #alias m='more'
-alias m='less -i -M -R'
+alias m='less -i -M -R -j20'
 
 # linenum & no wrap
 #alias m='less -i -M -N -R -S'
@@ -104,6 +104,8 @@ alias xzz='xz -z -v --threads=0 -9 -e'
 
 alias ai="sudo apt-get install"
 #alias le="less -r"
+
+alias pstree='pstree -apnuh'
 
 # add rsync command
 #rsync -avzr --progress --delete cyc@10.207.140.18:/home/cyc/cyc_core ./cyc_core
@@ -299,6 +301,6 @@ export REPO_OVERRIDE=cyclone-integration
 ################################# EMC cyclone #####################################
 
 ################################# EMC unity #####################################
-alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R"
+alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R -j20"
 
 ################################# EMC unity #####################################
