@@ -15,6 +15,13 @@ ln -s ~/dotfiles/.spacemacs.d ~/.spacemacs.d
 (in spacemacs, alt-m pp select project
                alt-m pf select file
                M-x helm-gtags-create-tags   to create gtags for project
+               
+               M-x package-install RET smart-mode-line
+               M-x sml/setu
+               M-x package-install RET smart-mode-line-powerline-theme
+               M-x sml/apply-theme RET dark/light/powerline
+               M-x package-install RET smart-mode-line-atom-one-dark-theme
+               M-x sml/apply-theme RET atom-one-dark
 )
 
 install emacs.25.3
