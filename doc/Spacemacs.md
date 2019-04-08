@@ -1,15 +1,16 @@
 # Emacs & Spacemacs
 
-在 Linux 系统中，Meta 就是 Alt 键位
-在 Mac 系统中，Meta 是Esc键位， 需要调整， 对于系统自带的terminal.app, 打开 Terminal 的 Preferences -> Settings，选择你使用的 color scheme，在 keyboard 设置的最下面有个 “Use option as meta key”，选中就可以	了。对于Iterm2, 在 "Preferences" -> "Profiles" -> "your Profile" -> "Keys" -> 界面的右下角有关于 left/right option key 的映射配置，改成 +Esc 就可以了 
-Ctrl，CTL，C均表示为同一个功能键（普通键盘中的CTRL键）；
-META，EDIT，ALT，M均表示为同一个键（常用键盘中的ALT键）；
-SHITF，S均表示同一个键（键盘中的Shift键）；
-ESC表示键盘中的ESC键；
-SPC表示键盘中的Space键（键盘中最长的那根空格键）；
-Deletespace，Backspace意为同一个键（Backspace键）；
-RET，ENTER表示同一个键（回车）。
-************************************************************************************************************ ************************************************************************************************************
+在 Linux 系统中，Meta 就是 Alt 键位  
+在 Mac 系统中，Meta 是Esc键位， 需要调整， 对于系统自带的terminal.app, 打开 Terminal 的 Preferences -> Settings，选择你使用的 color scheme，在 keyboard 设置的最下面有个 “Use option as meta key”，选中就可以	了。对于Iterm2, 在 "Preferences" -> "Profiles" -> "your Profile" -> "Keys" -> 界面的右下角有关于 left/right option key 的映射配置，改成 +Esc 就可以了   
+Ctrl，CTL，C均表示为同一个功能键（普通键盘中的CTRL键）；  
+META，EDIT，ALT，M均表示为同一个键（常用键盘中的ALT键）；  
+SHITF，S均表示同一个键（键盘中的Shift键）；  
+ESC表示键盘中的ESC键；  
+SPC表示键盘中的Space键（键盘中最长的那根空格键）；  
+Deletespace，Backspace意为同一个键（Backspace键）；  
+RET，ENTER表示同一个键（回车）。  
+
+************************************************************************************************************ ************************************************************************************************************  
 emacs 安装 && spacemacs 配置
 手动安装emacs是最好的选择，最低24.4，最好的版本是24.5; 配置时候使用--without-x；
 下载tar.gz文件到/tmp, 解压到/usr/local/src
