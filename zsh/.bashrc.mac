@@ -222,6 +222,7 @@ function edf() {
 # if privoxy not running, start it up
 ps -fe|grep privoxy |grep -v grep > /dev/null
 if [ $? -ne 0 ];then
+	# if privoxy process not started, start it up
 	/usr/local/sbin/privoxy --no-daemon /usr/local/etc/privoxy/config > /dev/null 2>&1 &
 fi
 
