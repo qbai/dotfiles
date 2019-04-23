@@ -56,7 +56,7 @@ values."
     emacs-lisp
     git
 
-    (shell :variables shell-default-shell 'multi-term
+    (shell :variables shell-default-terminal-shell "/bin/bash"
            shell-default-position 'bottom
            shell-default-height 80)
     syntax-checking
