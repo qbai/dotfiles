@@ -56,8 +56,10 @@ values."
     emacs-lisp
     git
 
-    (shell :variables shell-default-terminal-shell "/bin/bash"
+    (shell :variables shell-default-shell 'ansi-term
+           shell-default-term-shell "/usr/bin/zsh"
            shell-default-position 'bottom
+           shell-default-full-span nil
            shell-default-height 80)
     syntax-checking
     ;;spell-checking
