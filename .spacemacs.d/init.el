@@ -647,6 +647,8 @@ you should place your code here."
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
+;; shell-pop for M-'
+(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
 
 ;;(define-key key-translation-map (kbd "C-u") (kbd "C-v"))
 ;;(define-key key-translation-map (kbd "C-v") (kbd "C-u"))
@@ -886,7 +888,7 @@ you should place your code here."
 
 
 ;; gud-gdb
-(setq gdb-many-windows t)
+(setq gdb-many-windows t) ;; <f5> start gud-gdb
 ;; jump to other window
 (global-set-key (kbd "<f7>") 'other-window)
 ;;(global-set-key (kbd "C-<f8>") 'previous-error)

@@ -19,6 +19,7 @@
         (heap)->size = (_size);                                 \
         _bytes = (heap)->size * sizeof(*(heap)->data);			\
         (heap)->data = (type *)calloc(1, _bytes);               \
+        BUG_ON((heap)->data == NULL);                           \
         (heap)->data;                                           \
     })
 
