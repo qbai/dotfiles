@@ -112,51 +112,47 @@ void test3()
     free_heap(&heap);
 }
 
-#define min_cmp4(l, r)  (l > r) /* minimum heap */
+
+int get_int2(struct foo *p)
+{
+    return p->val;
+}
+#define min_cmp4(l, r)  (get_int2(l) > get_int2(r)) /* minimum heap */
+
 struct foo {
     int val;
-}
+};
 
 void test4()
 {
+    struct foo *a, *b, *c, *d = NULL;
 
-    init_heap(&heap, 128, foo *);
+    a = (struct foo *) calloc(1, sizeof(struct foo));
+    b = (struct foo *) calloc(1, sizeof(struct foo));
+    c = (struct foo *) calloc(1, sizeof(struct foo));
+    a->val = 10;
+    b->val = 3;
+    c->val = 34;
 
-    /* for (i = 0; i < 10; i++) { */
-    /*     b = a + i; */
-    /*     heap_add(&heap, &b, min_cmp_p); */
-    /* } */
-    int a = 10;
-    int b = 3;
-    int c = 34;
-    int d = 0;
-    int *aa = &a;
-    int *bb = &b;
-    int *cc = &c;
-    int *dd = &d;
+    init_heap(&heap, 128, struct foo *);
 
-    /* heap_add(&heap, a, min_cmp_p); */
-    /* heap_add(&heap, b, min_cmp_p); */
-    /* heap_add(&heap, c, min_cmp_p); */
-
-    *dd = get_int(aa);
-    heap_add(&heap, aa, min_cmp3_p);
-    heap_add(&heap, bb, min_cmp3_p);
-    heap_add(&heap, cc, min_cmp3_p);
+    heap_add(&heap, a, min_cmp4);
+    heap_add(&heap, b, min_cmp4);
+    heap_add(&heap, c, min_cmp4);
 
     while (!heap_full(&heap)) {
-        if (!heap_pop(&heap, dd, min_cmp3_p)) {
-            //return -1;
+        if (!heap_pop(&heap, d, min_cmp4)) {
             break;
         }
-        //printf("%p:%d ", d, *d);
-        printf("%d ", *dd);
+        printf("%d ", d->val);
     }
 
     printf("\n");
 
     free_heap(&heap);
+    printf("\n");
 }
+
 int main()
 {
     //test1();

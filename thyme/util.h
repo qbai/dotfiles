@@ -18,4 +18,5 @@
  __roundup_pow_of_two(n)                                    \
 )
 
+
 #endif /* _UTIL_H */
