@@ -17,7 +17,7 @@
         size_t _bytes;                                          \
         (heap)->used = 0;                                       \
         (heap)->size = (_size);                                 \
-        _bytes = (heap)->size * sizeof(*(heap)->data);			\
+        _bytes = (heap)->size * sizeof(*(heap)->data);        \
         (heap)->data = (type *)calloc(1, _bytes);               \
         BUG_ON((heap)->data == NULL);                           \
         (heap)->data;                                           \
