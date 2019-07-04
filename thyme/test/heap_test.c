@@ -8,11 +8,12 @@ void test1()
 {
     int i, b = 0;
     int a[] = {10, 3, 34, 23, 1, 11, 84, 15, 38, 48};
+    int len = sizeof(a) / sizeof(int);
 
     DECLARE_HEAP(int, heap);
     init_heap(&heap, 128, int);
 
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < len; i++) {
         heap_add(&heap, a[i], min_cmp);
         //heap_add(&heap, *(a + i), min_cmp);
     }
@@ -106,7 +107,7 @@ void test3()
 int main()
 {
     //test1();
-    test2();
-    //test3();
+    //test2();
+    test3();
     return 0;
 }

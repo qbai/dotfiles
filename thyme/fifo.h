@@ -10,11 +10,11 @@
 	} name
 
 #define fifo_for_each(c, fifo, iter)					\
-	for (iter = (fifo)->front;                          \
-	     c = (fifo)->data[iter], iter != (fifo)->back;  \
-	     iter = (iter + 1) & (fifo)->mask)
+    for (iter = (fifo)->front;                          \
+	    c = (fifo)->data[iter], iter != (fifo)->back;  \
+	    iter = (iter + 1) & (fifo)->mask)
 
-#define __init_fifo(fifo, type)                                  \
+#define __init_fifo(fifo, type)                             \
 ({                                                          \
     size_t _allocated_size, _bytes;                         \
     BUG_ON(!(fifo)->size);                                  \
@@ -25,22 +25,23 @@
     (fifo)->mask = _allocated_size - 1;                     \
     (fifo)->front = (fifo)->back = 0;                       \
                                                             \
-    (fifo)->data = (type)calloc(1, _bytes);                  \
+    (fifo)->data = (type *)calloc(1, _bytes);                 \
+    BUG_ON((fifo)->data == NULL);                           \
     (fifo)->data;                                           \
 })
 
-#define init_fifo_exact(fifo, _size, gfp)       \
+#define init_fifo_exact(fifo, _size, type)  \
 ({                                          \
-  (fifo)->size = (_size);                   \
-  __init_fifo(fifo, gfp);                   \
+    (fifo)->size = (_size);                   \
+    __init_fifo(fifo, type);                  \
 })
 
-#define init_fifo(fifo, _size, type)                             \
+#define init_fifo(fifo, _size, type)                        \
 ({                                                          \
-  (fifo)->size = (_size);                                   \
-  if ((fifo)->size > 4)                                     \
-      (fifo)->size = roundup_pow_of_two((fifo)->size) - 1;	\
-  __init_fifo(fifo, type);                                   \
+    (fifo)->size = (_size);                                   \
+    if ((fifo)->size > 4)                                     \
+        (fifo)->size = roundup_pow_of_two((fifo)->size) - 1;	\
+    __init_fifo(fifo, type);                                  \
 })
 
 #define free_fifo(fifo)							\
@@ -63,22 +64,22 @@ do {                                        \
 
 #define fifo_push_back(fifo, i)                 \
 ({                                          \
-    bool _r = !fifo_full((fifo));           \
-    if (_r) {                               \
-        (fifo)->data[(fifo)->back++] = (i); \
-        (fifo)->back &= (fifo)->mask;       \
-    }                                       \
-    _r;                                     \
+     bool _r = !fifo_full((fifo));           \
+     if (_r) {                               \
+         (fifo)->data[(fifo)->back++] = (i); \
+         (fifo)->back &= (fifo)->mask;       \
+     }                                       \
+     _r;                                     \
 })
 
 #define fifo_pop_front(fifo, i)                 \
 ({                                          \
-  bool _r = !fifo_empty((fifo));            \
-  if (_r) {                                 \
-      (i) = (fifo)->data[(fifo)->front++];  \
-      (fifo)->front &= (fifo)->mask;        \
-  }                                         \
-  _r;                                       \
+    bool _r = !fifo_empty((fifo));            \
+    if (_r) {                                 \
+        (i) = (fifo)->data[(fifo)->front++];  \
+        (fifo)->front &= (fifo)->mask;        \
+    }                                         \
+    _r;                                       \
 })
 
 #define fifo_push_front(fifo, i)                \
@@ -117,10 +118,10 @@ do {                                        \
 
 #define fifo_move(dest, src)                    \
 do {                                        \
-    typeof(*((dest)->data)) _t;             \
-    while (!fifo_full(dest) &&              \
-           fifo_pop(src, _t))               \
-        fifo_push(dest, _t);                \
+     typeof(*((dest)->data)) _t;             \
+     while (!fifo_full(dest) &&              \
+            fifo_pop(src, _t))               \
+         fifo_push(dest, _t);                \
 } while (0)
 
 

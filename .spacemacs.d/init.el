@@ -715,6 +715,10 @@ you should place your code here."
 ;; quickly move region right
 (global-set-key (kbd "C-c u") (kbd "C-u 4 C-x TAB"))
 ;;(global-set-key (kbd "C-right") 'shift-right)
+;; scroll up screen one line scroll-up-line
+
+;; scroll down screen one line scroll-down-line
+
 
 ;; editing
 ;;delete whole line

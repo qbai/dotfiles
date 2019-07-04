@@ -1,9 +1,6 @@
 #ifndef _HEAP_H
 #define _HEAP_H
 
-#include <stdio.h>
-#include <stdbool.h>
-
 #include "util.h"
 
 #define DECLARE_HEAP(type, name)                \
