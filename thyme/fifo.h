@@ -30,10 +30,32 @@
     (fifo)->data;                                           \
 })
 
+#define __init_fifo_typeof(fifo)                                 \
+({                                                          \
+    size_t _allocated_size, _bytes;                           \
+    BUG_ON(!(fifo)->size);                                    \
+                                                            \
+    _allocated_size = roundup_pow_of_two((fifo)->size + 1);   \
+    _bytes = _allocated_size * sizeof(*(fifo)->data);         \
+                                                            \
+    (fifo)->mask = _allocated_size - 1;                       \
+    (fifo)->front = (fifo)->back = 0;                         \
+                                                            \
+    (fifo)->data = (typeof((fifo)->data))calloc(1, _bytes);  \
+    BUG_ON((fifo)->data == NULL);                             \
+    (fifo)->data;                                             \
+})
+
 #define init_fifo_exact(fifo, _size, type)  \
 ({                                          \
     (fifo)->size = (_size);                   \
     __init_fifo(fifo, type);                  \
+})
+
+#define init_fifo_typeof(fifo, _size)      \
+({                                          \
+    (fifo)->size = (_size);                   \
+    __init_fifo_typeof(fifo);                  \
 })
 
 #define init_fifo(fifo, _size, type)                        \
