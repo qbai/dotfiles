@@ -2,6 +2,7 @@
 #define _KINKY_H
 
 #include <stddef.h> // NULL definition
+#include "util.h"
 
 /* contracted style by one line */
 /* void test3() */
@@ -68,6 +69,14 @@ void test4()
 
     printf("void * : %d\n", sizeof(void *));
     printf("void : %d\n", sizeof(void));
+
+    long arr[] = {10, 3, 34, 23, 1, 11, 84, 111};
+    int len = ARRAY_SIZE(arr);
+    int len2 = ARRAY_SIZE2(arr);
+    printf("array's size: %d\n", len);
+    printf("array's size2: %d\n", len2);
+    //BUILD_BUG_ON_ZERO(0);
+    //BUILD_BUG_ON_ZERO(2); /* compilation error */
 }
 
 
