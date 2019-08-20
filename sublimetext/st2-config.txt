@@ -17,6 +17,14 @@
 			白色皮肤 “theme”: “Soda Light.sublime-theme”
 			黑色皮肤 “theme”: “Soda Dark.sublime-theme”
 
+		5. 修改状态栏高度和字体颜色
+			Soda Dark.sublime-theme找到 statusbar
+				Status bar container
+					"content_margin": [12, 6, 12, 6]
+				tatus bar label
+					"color": [255, 255, 255],
+					"font.size": 14,
+					
 
 	 (http://blog.csdn.net/freshlover/article/details/29592407)
     }
