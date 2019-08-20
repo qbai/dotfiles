@@ -430,7 +430,7 @@
         "layer0.texture": "Theme - Soda/Soda Dark/status-bar-background.png",
         "layer0.opacity": 1.0,
         "layer0.inner_margin": [2, 2],
-        "content_margin": [8, 4, 8, 4]
+        "content_margin": [12, 6, 12, 6]
     },
     // Status bar button
     {
@@ -441,8 +441,9 @@
     {
         "class": "label_control",
         "parents": [{"class": "status_bar"}],
-        "color": [150, 150, 150],
+        "color": [255, 255, 255],
         "shadow_color": [25, 25, 25],
+        "font.size": 14,
         "shadow_offset": [0, -1]
     },
 
