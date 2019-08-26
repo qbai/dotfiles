@@ -223,3 +223,5 @@
 		input ip username & password
 		save
 	file->sftp->brow sftp server
+
+19> 安装NASM x86 Assembly
