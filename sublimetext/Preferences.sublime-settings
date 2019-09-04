@@ -41,5 +41,6 @@
 	"update_check": false,
 	"fold_buttons": true,
 	"always_show_minimap_viewport": true,
+	"show_encoding" : true,
 	"fade_fold_buttons": false
 }
