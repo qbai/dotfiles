@@ -225,3 +225,10 @@
 	file->sftp->brow sftp server
 
 19> 安装NASM x86 Assembly
+20> 安装 Switch File Deluxe
+    add following into Default (Windows).sublime-keymap
+    	{ "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
+            "extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
+            "paths": ["../", "../include/linux"]
+        } }
+
