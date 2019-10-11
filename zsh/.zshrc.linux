@@ -80,6 +80,7 @@ alias -s log='less -i -M -R -j20'
 alias -s rtf='less -i -M -R -j20'
 alias -s conf='less -i -M -R -j20'
 alias -s properties='less -i -M -R -j20'
+alias -s csv='less -i -M -R -j20'
 
 alias -s c='emacsclient -t'
 alias -s cpp='emacsclient -t'
