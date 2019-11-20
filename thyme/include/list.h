@@ -7,9 +7,6 @@ struct list_head {
 	struct list_head *next, *prev;
 };
 
-#define LIST_POISON1  NULL
-#define LIST_POISON2  NULL
-
 
 #define LIST_HEAD_INIT(name) { &(name), &(name) }
 

@@ -52,6 +52,30 @@ typedef unsigned int __u32;
 typedef __signed__ long __s64;
 typedef unsigned long __u64;
 
+#define LIST_POISON1  NULL
+#define LIST_POISON2  NULL
+
+typedef __u8 u8;
+typedef __u32 u32;
+typedef __u64 u64;
+
+#define GOLDEN_RATIO_32 0x61C88647
+#define GOLDEN_RATIO_64 0x61C8864680B583EBull
+
+#define hash_32 hash_32_generic
+#define hash_64 hash_64_generic
+
+static inline u32 hash_32_generic(u32 val, unsigned int bits)
+{
+	return val * GOLDEN_RATIO_32  >> (32 - bits);
+}
+
+static inline u32 hash_64_generic(u64 val, unsigned int bits)
+{
+	return val * GOLDEN_RATIO_64 >> (64 - bits);
+}
+
+
 #include "log2.h"
 
 #include "compiler-gcc.h"
