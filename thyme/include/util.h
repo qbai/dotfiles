@@ -40,6 +40,14 @@
 #define __must_be_array(a)	BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
 #define ARRAY_SIZE2(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
 
+#undef NULL
+#if defined(__cplusplus)
+#define NULL 0
+#else
+#define NULL ((void *)0)
+#endif
+
+
 typedef __signed__ char __s8;
 typedef unsigned char __u8;
 

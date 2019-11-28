@@ -75,5 +75,9 @@ static __always_inline void __write_once_size(volatile void *p, void *res, int s
     __u.__val;                                                      \
 })
 
+# define __force    __attribute__((force))
+
+# define likely(x)	__builtin_expect(!!(x), 1)
+# define unlikely(x)	__builtin_expect(!!(x), 0)
 
 #endif /* _COMPILER-GCC_H */

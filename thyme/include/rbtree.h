@@ -1,68 +1,16 @@
-/* SPDX-License-Identifier: GPL-2.0-or-later */
-/*
-  Red Black Trees
-  (C) 1999  Andrea Arcangeli <andrea@suse.de>
-  
-
-  linux/include/linux/rbtree.h
-
-  To use rbtrees you'll have to implement your own insert and search cores.
-  This will avoid us to use callbacks and to drop drammatically performances.
-  I know it's not the cleaner way,  but in C (not in C++) to get
-  performances and genericity...
-
-  See Documentation/rbtree.txt for documentation and samples.
-*/
-
-#ifndef	_LINUX_RBTREE_H
-#define	_LINUX_RBTREE_H
-
-// #include <linux/kernel.h>
-// #include <linux/stddef.h>
-// #include <linux/rcupdate.h>
+#ifndef	_RBTREE_H
+#define	_RBTREE_H
 
 #include "util.h"
 
-#undef NULL
-#if defined(__cplusplus)
-#define NULL 0
-#else
-#define NULL ((void *)0)
-#endif
-
 #define	RB_RED		0
 #define	RB_BLACK	1
-
-# define __force	__attribute__((force))
-
-static __always_inline void __write_once_size(volatile void *p, void *res, int size)
-{
-	switch (size) {
-	case 1: *(volatile unsigned char *)p = *(unsigned char *)res; break;
-	case 2: *(volatile unsigned short *)p = *(unsigned short *)res; break;
-	case 4: *(volatile unsigned int *)p = *(unsigned int *)res; break;
-	case 8: *(volatile unsigned long long *)p = *(unsigned long long *)res; break;
-	default:
-		barrier();
-		__builtin_memcpy((void *)p, (const void *)res, size);
-		barrier();
-	}
-}
-
-#define WRITE_ONCE(x, val)                                          \
-({                                                                  \
-    union { typeof(x) __val; char __c[1]; } __u =                   \
-        { .__val = (__force typeof(x)) (val) };                     \
-    __write_once_size(&(x), __u.__c, sizeof(x));                    \
-    __u.__val;                                                      \
-})
 
 struct rb_node {
 	unsigned long  __rb_parent_color;
 	struct rb_node *rb_right;
 	struct rb_node *rb_left;
 } __attribute__((aligned(sizeof(long))));
-    /* The alignment might seem pointless, but allegedly CRIS needs it */
 
 struct rb_root {
 	struct rb_node *rb_node;
@@ -194,4 +142,4 @@ static inline void rb_replace_node_cached(struct rb_node *victim,
 	rb_replace_node(victim, new, &root->rb_root);
 }
 
-#endif	/* _LINUX_RBTREE_H */
+#endif	/* _RBTREE_H */

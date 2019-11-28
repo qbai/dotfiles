@@ -1,20 +1,5 @@
-/* SPDX-License-Identifier: GPL-2.0-or-later */
-/*
-  Red Black Trees
-  (C) 1999  Andrea Arcangeli <andrea@suse.de>
-  (C) 2002  David Woodhouse <dwmw2@infradead.org>
-  (C) 2012  Michel Lespinasse <walken@google.com>
-
-
-  linux/include/linux/rbtree_augmented.h
-*/
-
-#ifndef _LINUX_RBTREE_AUGMENTED_H
-#define _LINUX_RBTREE_AUGMENTED_H
-
-// #include <linux/compiler.h>
-// #include <linux/rbtree.h>
-// #include <linux/rcupdate.h>
+#ifndef _RBTREE_AUGMENTED_H
+#define _RBTREE_AUGMENTED_H
 
 #include "rbtree.h"
 
@@ -98,9 +83,6 @@ rbstatic const struct rb_augment_callbacks rbname = {			\
 };
 
 
-#define	RB_RED		0
-#define	RB_BLACK	1
-
 #define __rb_parent(pc)    ((struct rb_node *)(pc & ~3))
 
 #define __rb_color(pc)     ((pc) & 1)
@@ -138,13 +120,13 @@ static inline void
 __rb_change_child_rcu(struct rb_node *old, struct rb_node *new,
 		      struct rb_node *parent, struct rb_root *root)
 {
-	if (parent) {
-		if (parent->rb_left == old)
-			rcu_assign_pointer(parent->rb_left, new);
-		else
-			rcu_assign_pointer(parent->rb_right, new);
-	} else
-		rcu_assign_pointer(root->rb_node, new);
+	// if (parent) {
+	// 	if (parent->rb_left == old)
+	// 		rcu_assign_pointer(parent->rb_left, new);
+	// 	else
+	// 		rcu_assign_pointer(parent->rb_right, new);
+	// } else
+	// 	rcu_assign_pointer(root->rb_node, new);
 }
 
 extern void __rb_erase_color(struct rb_node *parent, struct rb_root *root,
@@ -272,4 +254,4 @@ rb_erase_augmented_cached(struct rb_node *node, struct rb_root_cached *root,
 	rb_erase_augmented(node, &root->rb_root, augment);
 }
 
-#endif	/* _LINUX_RBTREE_AUGMENTED_H */
+#endif	/* _RBTREE_AUGMENTED_H */
