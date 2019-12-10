@@ -777,8 +777,8 @@ you should place your code here."
 (setq-default indent-tabs-mode nil)
 ;; (setq-default tab-width 8)
 ;; (setq c-basic-offset 8)
-(setq-default tab-width 4)
-(setq c-basic-offset 4)
+(setq-default tab-width 8)
+(setq c-basic-offset 8)
 ;;(global-set-key (kbd "TAB") 'self-insert-command)
 
 
