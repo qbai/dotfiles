@@ -31,6 +31,7 @@
 	"smart_indent": false,
 	"soda_classic_tabs": true,
 	"tab_size": 8,
+	"translate_tabs_to_spaces": true,
 	"theme": "Soda Dark.sublime-theme",
 	"tree_animation_enabled": true,
 	"word_wrap": "false",
