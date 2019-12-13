@@ -47,6 +47,7 @@ cargo install exa
 cargo install du-dust
 cargo install fd-find
 cargo install ripgrep
+cargo install bat
 
 *****************************************************************************
 # install ag fzf ncdu tig tldr multitail bashdb thefuck cloc whowatch
