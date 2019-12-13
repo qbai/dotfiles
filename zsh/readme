@@ -42,6 +42,7 @@ sudo pip install codespell
 # install rust exa du-dust fd rg
 cd ~
 curl -sf -L https://static.rust-lang.org/rustup.sh | sh # install rust
+(rustup update stable  #update to latest versioin)
 cargo install exa
 cargo install du-dust
 cargo install fd-find
