@@ -20,12 +20,12 @@ alias s='source ~/.zshrc'
 alias h='history'
 #alias m='more'
 #alias m='less -i -M -R -j20 -J'
-alias m='less'
-
 # linenum & no wrap
 #alias m='less -i -M -N -R -S'
 # linenum & with wrap
 #alias m='less -i -M -N -R -+S'
+#alias m='less'
+alias m='bat'
 
 #alias grep='grep -i -E --color=always'
 alias grp='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
