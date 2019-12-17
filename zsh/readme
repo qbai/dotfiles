@@ -39,7 +39,7 @@ sudo pip install git+https://github.com/jeffkaufman/icdiff.git
 sudo pip install pudb
 sudo pip install codespell
 
-# install rust exa du-dust fd rg
+# install rust exa du-dust fd rg bat
 cd ~
 curl -sf -L https://static.rust-lang.org/rustup.sh | sh # install rust
 (rustup update stable  #update to latest versioin)
