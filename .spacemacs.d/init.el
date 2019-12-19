@@ -650,6 +650,8 @@ you should place your code here."
 ;; shell-pop for M-'
 (define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
 
+(define-key key-translation-map (kbd "C-o") (kbd "C-O"))
+
 ;;(define-key key-translation-map (kbd "C-u") (kbd "C-v"))
 ;;(define-key key-translation-map (kbd "C-v") (kbd "C-u"))
 ;;(define-key key-translation-map (kbd "M-u") (kbd "M-v"))
@@ -706,7 +708,7 @@ you should place your code here."
 ;; page up
 ;;(global-set-key (kbd "M-u") 'scroll-down-command)
 ;; quickly move to char
-(global-set-key (kbd "C-c o") 'evil-avy-goto-char)
+(global-set-key (kbd "C-o") 'evil-avy-goto-char)
 ;; quickly move to line
 (global-set-key (kbd "C-c l") 'evil-avy-goto-line)
 ;; quickly move region left
