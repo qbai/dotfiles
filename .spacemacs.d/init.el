@@ -643,14 +643,13 @@ you should place your code here."
 (define-key key-translation-map (kbd "M-t") (kbd "M-T"))
 (define-key key-translation-map (kbd "C-m") (kbd "C-M"))
 (define-key key-translation-map (kbd "C-f") (kbd "C-F"))
+(define-key key-translation-map (kbd "C-o") (kbd "C-O"))
 
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
 ;; shell-pop for M-'
 (define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
-
-(define-key key-translation-map (kbd "C-o") (kbd "C-O"))
 
 ;;(define-key key-translation-map (kbd "C-u") (kbd "C-v"))
 ;;(define-key key-translation-map (kbd "C-v") (kbd "C-u"))
@@ -749,7 +748,6 @@ you should place your code here."
 (global-set-key (kbd "C-c C-e") 'dotspacemacs/sync-configuration-layers)
 ;; choose theme
 (global-set-key (kbd "C-c C-t") 'helm-themes)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
