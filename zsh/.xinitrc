@@ -22,7 +22,9 @@ fi
 xrdb -merge "${HOME}/.Xdefaults" &
 
 # custom keymappings
-+xmodmap ~/.xmodmap
+if [ -f $HOME/.Xmodmap ]; then
+	xmodmap $HOME/.Xmodmap
+fi
 
 #sogou pinyin
 #export LC_ALL=zh_CN.UTF-8
