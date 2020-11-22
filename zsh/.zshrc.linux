@@ -58,7 +58,7 @@ ZSH_THEME="gnzh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git tmux autojump osx sudo cp)
-plugins=(git autojump sudo cp pip last-working-dir)
+plugins=(git autojump sudo cp pip last-working-dir thefuck)
 
 
 # User configuration

@@ -240,9 +240,9 @@ export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_
 
 
 ########### archlinux ######################
-if grep -Ei "Arch Linux" /etc/issue || grep -Ei "Arch Linux" /etc/*-release; then
+if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-release > /dev/null; then
 	alias reboot='sudo reboot'
-	alias halt='sudo halt'
+	alias poweroff='sudo poweroff'
 	alias ainstall='sudo pacman -Sy'
 	alias aremove='sudo pacman -Rs'
 	alias aupgrade='sudo pacman -Syu'
