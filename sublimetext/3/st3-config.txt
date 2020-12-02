@@ -1,34 +1,13 @@
-1. 下载并安装破解（refer to icloud document）
-	http://www.sublimetext.com/3
+1. 下载3并crack安装
 
 2. 安装主题soda
-   直接拷贝Theme - Soda 到sublime text2 -> Preferences -> Browse Packages打开的目录
+   直接拷贝Theme - Soda 到sublime text3 -> Preferences -> Browse Packages打开的目录
 
-  {
-	（http://blog.sina.com.cn/s/blog_788e5b7a0101bu7n.html）
-
-		1、soda皮肤下载地址：https://github.com/buymeasoda/soda-theme
-
-		2、安装打开sublime text2 -> Preferences -> Browse Packages，将从github上下载文件解压缩，并重命名Theme – Soda 放入文件夹。
-
-		3、重启sublime text2。
-
-		4、Preferences -> Settings – User中新增参数
-			白色皮肤 “theme”: “Soda Light.sublime-theme”
-			黑色皮肤 “theme”: “Soda Dark.sublime-theme”
-
-
-	 (http://blog.csdn.net/freshlover/article/details/29592407)
-    }
-
-
-3. 拷贝覆盖配置文件Preferences.sublime-settings
-
+3. 拷贝配置文件Preferences.sublime-settings 到sublime text3 -> Preferences -> Settings
 
 4. 更改配色
-	菜单 - preference - color scheme，选择一个合适的配色,如果没有合适的，可以直接修改
-	确认你当前选择的是哪个配色方案，然后在对应的目录下
-	Packages\Color Scheme - Default (菜单preferences -> Browse package ->Color Scheme - Default -> 对应的theme文件)
+	选择 菜单 - preference - color scheme - Monokai  
+	进入 菜单preferences -> Browse package ->Color Scheme - Default -> 对应的theme文件
 	找到该配色文件，用st2打开，查找 selection ，修改对应的颜色保存就行
 
 	<key>selection</key>
