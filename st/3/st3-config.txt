@@ -5,16 +5,16 @@
 
 3. 拷贝配置文件Preferences.sublime-settings 到sublime text3 -> Preferences -> Settings
 
-4. 更改配色
+4. 安装package control
+		show console and 执行下列命令
+
+	import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
+
+5. 更改配色
 	ctrl+shift+p, 输入 install package,输入 packageresourceview 
 	安装完packageresourceview后，ctrl + shift + p, 输入 packageresourceview : open resource 
 	输入color schema -default, 选择monokai 
 	查找 selection, 更新为 "selection": "var(orange)"
-
-5. 安装package control
-		show console and 执行下列命令
-
-	import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
 
 6. 修改快捷键
 	open Preferences > Key Binding
