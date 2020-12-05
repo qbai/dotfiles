@@ -29,16 +29,40 @@
 	<key>selection</key>
 	<string>#F75000</string>
 
-6. 安装package control
+5. 安装package control
 		show console and 执行下列命令
 
 	import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
 
-7. 修改快捷键
-	open Preferences > Key Binding - User 
-	add the fowlling line 
-		{ "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} }
-		
+6. 修改快捷键
+	open Preferences > Key Binding
+	add the fowlling line into []
+	
+		{ "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+		{ "keys": ["ctrl+1"], "command": "toggle_bookmark" },
+		{ "keys": ["ctrl+2"], "command": "next_bookmark" },
+		{ "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
+            			"extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
+            			"paths": ["../", "../include/linux"]
+        	} }
+		{
+    			"command": "gtags_navigate_to_definition",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+t"]
+  		    },
+  		    {
+    			"command": "gtags_jump_back",
+    			"keys": ["ctrl+t", "ctrl+b"]
+  		    },
+                    {
+    			"command": "gtags_rebuild_tags",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+r"]
+                    },
+                    {
+   	 		"command": "gtags_find_references",
+    			"keys": ["alt+."]
+                }
 		
 
 插件配置 (删除已安装的插件 ctrl+shift+p，removepackage，选择要删除的package)
@@ -47,26 +71,7 @@
 		       *  关于C/C++部分插件 *
 		       ********************
 
-[
-1> 安装 ctags	(一般操作系统安装ctags，但在sublime里边不用ctags插件，用gtags插件，所以sublime里边不用安装ctags插件）
-	下载ctags，加入path变量	http://ctags.sourceforge.net/
-	在project目录下执行ctags -R 生成.tags文件 或者 在sublime右鍵rebuild tags,重新生成tag文件
-	
-	{
-	package install ctags (ctrl+shift+p, input install or remove)
-	打开 Main menu -> Preferences -> Package Settings -> Ctags -> Settings -Users， 加入下列内容
-		{
-			"command": "C:\\qbai\\ctags58"
-		}
-		
-	用法：
-		跳转到函数定义	ctrl+t     ctrl+t
-		跳回		ctrl+t     ctrl+b
-	}
-
-]
-
-2> 安装SublimeGtags
+1> 安装SublimeGtags
 	package control 输入gtags安装
 	下载gtags from http://www.gnu.org/software/global/,并加入到path里 (win http://adoxa.altervista.org/global/)
 	{
