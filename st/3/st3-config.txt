@@ -22,12 +22,9 @@
 3. 拷贝配置文件Preferences.sublime-settings 到sublime text3 -> Preferences -> Settings
 
 4. 更改配色
-	选择 菜单 - preference - color scheme - Monokai  
-	进入 菜单preferences -> Browse package ->Color Scheme - Default -> 对应的theme文件
-	找到该配色文件，用st2打开，查找 selection ，修改对应的颜色保存就行
-
-	<key>selection</key>
-	<string>#F75000</string>
+	ctrl+shift+p, 输入 packageresourceview: open resource 
+	输入color schema -default, 选择monokai 
+	查找 selection, 更新为 "selection": "var(orange)"
 
 5. 安装package control
 		show console and 执行下列命令
