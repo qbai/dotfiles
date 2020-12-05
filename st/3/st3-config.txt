@@ -45,24 +45,20 @@
             			"extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
             			"paths": ["../", "../include/linux"]
         	} }
-		{
-    			"command": "gtags_navigate_to_definition",
+		    {
+    			"command": "navigate_to_definition",
     			"context": [],
     			"keys": ["ctrl+t", "ctrl+t"]
   		    },
   		    {
-    			"command": "gtags_jump_back",
+    			"command": "jump_prev",
     			"keys": ["ctrl+t", "ctrl+b"]
   		    },
                     {
-    			"command": "gtags_rebuild_tags",
+    			"command": "rebuild_tags",
     			"context": [],
     			"keys": ["ctrl+t", "ctrl+r"]
-                    },
-                    {
-   	 		"command": "gtags_find_references",
-    			"keys": ["alt+."]
-                }
+                    }
 		
 
 插件配置 (删除已安装的插件 ctrl+shift+p，removepackage，选择要删除的package)
@@ -71,53 +67,32 @@
 		       *  关于C/C++部分插件 *
 		       ********************
 
-1> 安装SublimeGtags
-	package control 输入gtags安装
-	下载gtags from http://www.gnu.org/software/global/,并加入到path里 (win http://adoxa.altervista.org/global/)
-	{
-	source build by following command :
-		./configure --with-exuberant-ctags --prefix=[path]
-		当然前提是安装 ctags (Exuberant Ctags 5.8)
-	}
+1> 安装ctags
+	package control 输入ctags安装
+	install ctags
 	到源代码目录下运行gtags -v , 生成GPATH,GRTAGS,GTAGS
 
-	打开 Main menu -> Preferences -> Package Settings -> SublimeGtags -> Settings - Users,修改extra_tag_paths为刚才生成GTAGS的目录
+	打开 Preferences -> Package Settings -> CTags -> Settings - Users, 加入以下
 		{
-			"extra_tag_paths": "C:\\emc\\unity"
+			"command": "/usr/local/bin/ctags"
 		}
-	打开browse package, 找到gtags文件夹下边的Default.sublime-keymap文件，修改如下部分为下列内容
+	打开Preferences -> Package Settings -> CTags -> Key Binding - User，修改如下部分为下列内容
 		    {
-    			"command": "gtags_navigate_to_definition",
+    			"command": "navigate_to_definition",
     			"context": [],
     			"keys": ["ctrl+t", "ctrl+t"]
   		    },
   		    {
-    			"command": "gtags_jump_back",
+    			"command": "jump_prev",
     			"keys": ["ctrl+t", "ctrl+b"]
   		    },
                     {
-    			"command": "gtags_rebuild_tags",
+    			"command": "rebuild_tags",
     			"context": [],
     			"keys": ["ctrl+t", "ctrl+r"]
-                    },
-                    {
-   	 		"command": "gtags_find_references",
-    			"keys": ["alt+."]
-                    },
-[
- 	使用gtags的方法：
- 		alt+.	gtags_navigate_to_definition
- 		alt+,	gtags_jump_back
- 		ctrl+t, ctrl+t  	gtags_find_references
-]
+                    }
 
-   NOTES:
-   	a> gtags 与 ctags发生冲突，不能同时在st2里边使用
-   	b> 可以参考 https://github.com/koko1000ban/SublimeGtags
-   	c> 完全可以用gtags插件替代ctags和cscope
-
-[
-3> 安装Cscope
+2> 安装Cscope
 		package control 安装 cscope
 		下载cscope,並加入到path里边,https://code.google.com/archive/p/cscope-win32/downloads
 			(源码下载从http://cscope.sourceforge.net/)
