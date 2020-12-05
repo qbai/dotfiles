@@ -69,8 +69,8 @@
 
 1> 安装ctags
 	package control 输入ctags安装
-	install ctags
-	到源代码目录下运行gtags -v , 生成GPATH,GRTAGS,GTAGS
+	install ctags 在系统上
+	到源代码目录下运行ctags -R -f .tags --exclude=some/path, 生成索引文件
 
 	打开 Preferences -> Package Settings -> CTags -> Settings - Users, 加入以下
 		{
