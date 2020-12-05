@@ -16,8 +16,9 @@
 {
 5. 更改sidebar字体 (已经更改，不需要做这一步)
 
-	~/Library/Application Support/Sublime Text 2/Packages/Theme - soda，修改 Soda Dark.sublime-theme 文件裡面加入font.size
-		// Sidebar entry
+	进入 菜单preferences -> Browse package -> Packages -> Theme - soda，修改 Soda Dark.sublime-theme 文件裡面加入font.size
+	    
+	    // Sidebar entry
 	    {
 	        "class": "sidebar_label",
 	        "color": [125, 125, 125],
