@@ -2,6 +2,22 @@
 
 2. 安装主题soda
    直接拷贝Theme - Soda 到sublime text3 -> Preferences -> Browse Packages打开的目录
+   
+          [
+	  	更改sidebar字体 (已经更改，不需要做这一步)
+		进入 菜单preferences -> Browse package -> Packages -> Theme - soda，修改 Soda Dark.sublime-theme 文件裡面加入font.size
+	    
+	    	// Sidebar entry
+	    	{
+	        	"class": "sidebar_label",
+	        	"color": [125, 125, 125],
+	        	"shadow_color": [0, 0, 0],
+	        	"shadow_offset": [0, -1],
+	        	"font.size": 15,
+	        	"font.face": "Consolas"
+	    	},
+	    	// Sidebar folder entry
+	  ]
 
 3. 拷贝配置文件Preferences.sublime-settings 到sublime text3 -> Preferences -> Settings
 
@@ -12,22 +28,6 @@
 
 	<key>selection</key>
 	<string>#F75000</string>
-	
-5. 更改sidebar字体 (已经更改，不需要做这一步)
-
-	进入 菜单preferences -> Browse package -> Packages -> Theme - soda，修改 Soda Dark.sublime-theme 文件裡面加入font.size
-	    
-	    // Sidebar entry
-	    {
-	        "class": "sidebar_label",
-	        "color": [125, 125, 125],
-	        "shadow_color": [0, 0, 0],
-	        "shadow_offset": [0, -1],
-	        "font.size": 15,
-	        "font.face": "Consolas"
-	    },
-	    // Sidebar folder entry
-}
 
 6. 安装package control
 		show console and 执行下列命令
