@@ -1,7 +1,7 @@
 1. 下载3并crack安装
 
 2. 安装主题soda
-   直接拷贝Theme - Soda 到sublime text3 -> Preferences -> Browse Packages打开的目录
+   直接拷贝Theme - Soda 到菜单 Preferences -> Browse Packages打开的目录
    
           [
 	  	更改sidebar字体 (已经更改，不需要做这一步)
