@@ -16,10 +16,15 @@
 	输入color schema -default, 选择monokai 
 	查找 selection, 更新为 "selection": "var(orange)"
 
-6. 修改快捷键
+6. 修改快捷键 
+	
+	拷贝 Default (OSX).sublime-keymap 到 ~/Library/Application Support/Sublime Text 3/Packages/User 或者
+	
 	open Preferences > Key Binding
 	add the fowlling line into []
 	
+		{ "keys": ["super+1"], "command": "next_view_in_stack" },
+   		{ "keys": ["super+2"], "command": "prev_view_in_stack" },
 		{ "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
 		{ "keys": ["ctrl+1"], "command": "toggle_bookmark" },
 		{ "keys": ["ctrl+2"], "command": "next_bookmark" },
