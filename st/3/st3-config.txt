@@ -108,8 +108,15 @@
 
 4> 安装 Bracket Highlighter
 	package control 安装 Bracket Highlighter
+	preferences-->package settings-->Bracket highlighter-->Bracket settings-Default, 加入以下
+	    (将"bracket_styles"中的style改为hightlight 其中hightlight为高亮显示，outline是外面有框，underline是有颜色的下划线）
+	
+	"bracket_styles": {
+                "default": {
+                        "style": "highlight"
+                }
+        }
 
-	按preferences-->package settings-->Bracket highlighter-->Bracket settings-Default,将"bracket_styles"中的style改为hightlight（其中hightlight为高亮显示，outline是外面有框，underline是有颜色的下划线）
 
 5> 安装 Function Name Display 显示当前光标在哪个函数, 打开配置，修改
 	{
