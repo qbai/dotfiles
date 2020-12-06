@@ -226,3 +226,6 @@ if [ $? -ne 0 ];then
 	/usr/local/sbin/privoxy --no-daemon /usr/local/etc/privoxy/config > /dev/null 2>&1 &
 fi
 
+
+export HOMEBREW_NO_AUTO_UPDATE=true
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
