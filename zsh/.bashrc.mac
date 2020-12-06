@@ -202,6 +202,7 @@ alias gde='git difftool --tool=ediffclient --no-prompt'
 #alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
 alias gme='git mergetool --tool=ediffclient --no-prompt'
 alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
+alias gdd='git icdiff'
 #########################################
 
 
