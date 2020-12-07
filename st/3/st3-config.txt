@@ -128,11 +128,13 @@
 		"display_class": true
 	}
 
-6> 安装 SublimeLinter + cppcheck	(语法检查错误，cppcheck比编译器更严)
+6> 安装tabnine
 
-7> 安装SublimeCodeIntel (自动补全，智能代码提示)
+7> 安装 SublimeLinter + cppcheck	(语法检查错误，cppcheck比编译器更严)
+
+8> 安装SublimeCodeIntel (自动补全，智能代码提示)
 	package control 安装
-8> 安装 alignment
+9> 安装 alignment
 	package control 安装
 	打开key binding - users, 添加如下
 		[
@@ -141,23 +143,23 @@
 	按command+alt+], 对选中文本进行对齐
 
 
-9> 安装docblockr
+10> 安装docblockr
 	package control安装；
 	输入/**，然后按Tab或者回车键就自动补全注释
 
-10> 安装coolformat
+11> 安装coolformat
 	package control安装；
 	Ctrl+Shift+Alt+Q: Quick Format.
 	Ctrl+Shift+Alt+S: Selected Format.
 	or Open the command palette, input as CoolFormat: Quick Format
 
-11> 安装GBK Encoding Support
+12> 安装GBK Encoding Support
 
 
-12> 安装SublimeGDB
+13> 安装SublimeGDB
 	http://pythonic.zoomquiet.io/data/20121112224949/index.html
 
-13> 安装markdown preview
+14> 安装markdown preview
 
 
 
