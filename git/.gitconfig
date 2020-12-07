@@ -42,7 +42,6 @@
 	prompt = false
 
 
-
 #core.compression = 0
 #http.postbuffer = 524288000
 
