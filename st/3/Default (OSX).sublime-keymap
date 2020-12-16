@@ -7,19 +7,5 @@
    { "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
             "extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
             "paths": ["../", "../include/linux"]
-        } },
-   {
-    			"command": "navigate_to_definition",
-    			"context": [],
-    			"keys": ["ctrl+t", "ctrl+t"]
-  	},
-  		    {
-    			"command": "jump_prev",
-    			"keys": ["ctrl+t", "ctrl+b"]
-  		    },
-                    {
-    			"command": "rebuild_tags",
-    			"context": [],
-    			"keys": ["ctrl+t", "ctrl+r"]
-                    }
+        } }
 ]
