@@ -75,7 +75,7 @@ hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -wi
 
 # start some programs
 #hc keybind $Mod-x spawn firefox
-hc keybind $Mod-x spawn chromium
+hc keybind $Mod-x spawn google-chrome-stable --proxy-server="socks5://127.0.0.1:7591"
 hc keybind $Mod-Alt-g spawn gpick --pick
 hc keybind $Mod-Shift-x spawn qutebrowser
 #hc keybind $Mod-d spawn dmenu_run -x 810 -y 540 -w 300 -h 25 -fn "tewi 9"
