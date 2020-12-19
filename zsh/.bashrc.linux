@@ -243,9 +243,9 @@ export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_
 if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-release > /dev/null; then
 	alias reboot='sudo reboot'
 	alias poweroff='sudo poweroff'
-	alias ainstall='sudo pacman -Sy'
-	alias aremove='sudo pacman -Rs'
-	alias aupgrade='sudo pacman -Syu'
+	alias ainstall='sudo pacman -Sy --noconfirm'
+	alias aremove='sudo pacman -Rs --noconfirm'
+	alias aupgrade='sudo pacman -Syu --noconfirm'
 	#alias yinstall='yaourt -S'
 	#alias yremove='yaourt -R'
 	alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
