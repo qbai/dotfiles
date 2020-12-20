@@ -30,10 +30,10 @@ locale     = en_US.UTF-8
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = scientifica:size=8:antialias=true;-1
+font-0 = scientifica:size=9:antialias=true;-1
 font-1 = Wuncon Siji:size=9:;-1
 
-modules-right   = cpu memory wired volume date1
+modules-right   = cpu memory battery wired wifi volume date1
 modules-left = ewmh
 modules-center  = xtitle
 
