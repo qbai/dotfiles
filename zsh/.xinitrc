@@ -94,6 +94,7 @@ xset s noexpose &
 compton --backend glx &
 feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
 
+#xrandr --output eDP-1 --off
 
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
