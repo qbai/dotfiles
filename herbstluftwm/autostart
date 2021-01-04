@@ -152,18 +152,6 @@ for i in ${!tag_names[@]} ; do
     fi
 done
 
-tag_names2=("Mon1" "Mon2" "Mon3")
-tag_keys2=( {11..13} )
-hc rename default "${tag_names2[0]}" || true
-for i in ${!tag_names2[@]} ; do
-    hc add "${tag_names2[$i]}"
-    key="${tag_keys2[$i]}"
-    if ! [ -z "$key" ] ; then
-        hc keybind "$Mod-$key" use_index "$i"
-        hc keybind "$Mod-Shift-$key" move_index "$i"
-    fi
-done
-
 
 # start all windows in floating mode
 #for attr in $(herbstclient complete 1 attr tags.by-name); do
@@ -274,7 +262,7 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
 	#"$panel" $monitor &
 
 	hc pad $monitor 16;
-	hc rename_monitor $monitor Mon$((i+1))			
+	#hc rename_monitor $monitor Mon$((i+1))			
 done
 
 for monitor in $(polybar --list-monitors |cut -d: -f1); do
