@@ -94,7 +94,16 @@ xset s noexpose &
 compton --backend glx &
 feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
 
+# diconnect macbook's screen at startup
 #xrandr --output eDP-1 --off
+
+# sogou pinyin configuration
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+if [ -x "$(which fcitx)" ]; then
+	fcitx &
+fi
 
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked

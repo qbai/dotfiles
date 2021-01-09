@@ -252,6 +252,9 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	#alias yinstall='yaourt -S'
 	#alias yremove='yaourt -R'
 	alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+
+	# connect home's stereo manually
+	#alias mystereo = "bluetoothctl connect 04\:FE\:A1\:C7\:3C\:67"
 fi
 
 ############# git #######################
