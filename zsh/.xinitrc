@@ -105,5 +105,8 @@ if [ -x "$(which fcitx)" ]; then
 	fcitx &
 fi
 
+# touchpad configuration
+#xinput set-prop bcm5974 'Trackpad Scroll Settings' 60 20 0
+
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
