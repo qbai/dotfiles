@@ -18,8 +18,8 @@ alias lf="ls -l -F"
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
-#alias m='less -i -M -R -j20 -J'
-alias m='bat'
+alias m='less -i -M -R -j20 -J'
+#alias m='bat'
 
 ## linenum & no wrap
 #alias m='less -i -M -N -R -S'
@@ -248,6 +248,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 
 	alias ainstall='sudo pacman -Sy --noconfirm'
 	alias aremove='sudo pacman -Rs --noconfirm'
+	# pacman -Qs    query installed package
 	alias aupgrade='sudo pacman -Syu --noconfirm'
 	#alias yinstall='yaourt -S'
 	#alias yremove='yaourt -R'
@@ -258,6 +259,14 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 
 	#export {http, ftp, https, rsync}_proxy='http://127.0.0.1:8118'
 	#export {HTTP, FTP, HTTPS, RSYNC}_PROXY=$http_proxy
+
+	# if imwheel was installed
+	if [ -x "$(command -v imwheel)" ]; then
+		imwheel >/dev/null 2>&1
+	fi	
+	
+	# start up ss manually
+	#(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&
 fi
 
 ############# git #######################
