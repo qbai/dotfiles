@@ -247,7 +247,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	#alias hibernate='sudo systemctl hibernate'
 
 	alias ainstall='sudo pacman -Sy --noconfirm'
-	alias aremove='sudo pacman -Rsc --noconfirm'
+	alias aremove='sudo pacman -Rs --noconfirm'
 	# pacman -Qs    query installed package
 	alias aupgrade='sudo pacman -Syu --noconfirm'
 	#alias yinstall='yaourt -S'
