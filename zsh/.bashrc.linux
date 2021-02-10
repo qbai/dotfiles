@@ -18,7 +18,7 @@ alias lf="ls -l -F"
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
-alias m='less -i -M -R -j20 -J'
+alias m='sudo less -i -M -R -j20 -J'
 #alias m='bat'
 
 ## linenum & no wrap
@@ -34,7 +34,7 @@ alias k='kill -TERM'
 #alias t='top'
 #alias ht='htop'
 #alias n='nano -w'
-alias n='nano -$'
+alias n='sudo nano -$'
 #alias tea='2 >&1 |tee -a'
 #alias tenull='& > /dev/null |tee -a'
 umask 022
@@ -55,6 +55,7 @@ alias pp='pgrep -P'
 alias pp2='ps --ppid'
 alias ptree='pstree -p|grp'
 
+alias tail='tail -n 100'
 alias t='tail -f'
 
 # CPU top 10 process in linux
@@ -230,7 +231,7 @@ alias insemacs='git clone https://github.com/syl20bnr/spacemacs
 ~/.emacs.d'
 
 #export EDITOR='nano -$'
-export EDITOR="nano -w"
+export EDITOR="sudo nano -w"
 #export EDITOR='emacsclient -t'
 
 export GTAGSLABEL=pygments
@@ -266,7 +267,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	fi	
 	
 	# start up ss manually
-	#(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&
+	alias start-ss='(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&'
 fi
 
 ############# git #######################

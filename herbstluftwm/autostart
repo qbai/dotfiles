@@ -62,7 +62,9 @@ hc spawn nm-applet
 hc keybind $Mod-Shift-q close
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c quit
-hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
+#hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
+hc keybind $Mod-Alt-l spawn xlock -mode blank
+
 #hc keybind $Mod-Alt-l spawn i3lock -i ~/Pictures/Wallpapers/rocket.png -l c0c5ce -w bf616a -o a3be8c
 
 #hc keybind Alt-b spawn herbstpaneltoogle
@@ -76,8 +78,9 @@ hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -wi
 
 # start some programs
 #hc keybind $Mod-x spawn firefox
-hc keybind $Mod-x spawn google-chrome-stable --proxy-server="socks5://127.0.0.1:7591"
-#--proxy-pac-url="file://~/dotfiles/privoxy/autoproxy.pac"
+
+#hc keybind $Mod-x spawn google-chrome-stable
+hc keybind $Mod-x spawn google-chrome-stable --proxy-server="socks5://127.0.0.1:7591" #--proxy-pac-url="file://~/dotfiles/privoxy/autoproxy.pac"
 
 hc keybind $Mod-Alt-g spawn gpick --pick
 hc keybind $Mod-Shift-x spawn qutebrowser
