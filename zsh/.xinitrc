@@ -113,7 +113,7 @@ fi
 #xset s 30 20
 #(xss-lock -n /usr/share/doc/xss-lock/dim-screen.sh -- lock -n >/dev/null 2>&1)&
 # 2. at home
-xset s 600
+xset s 500
 (xss-lock -- xlock -mode blank >/dev/null 2>&1)&
 
 # ░▒▓█ herbstluft █▓▒░

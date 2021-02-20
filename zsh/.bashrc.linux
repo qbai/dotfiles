@@ -22,12 +22,11 @@ alias m='sudo less -i -M -R -j20 -J'
 #alias m='bat'
 
 ## linenum & no wrap
-#alias m='less -i -M -N -R -S'
+#alias m='less -i -M -N -R -S +F'
 ## linenum & with wrap
-#alias m='less -i -M -N -R -+S'
+#alias m='less -i -M -N -R -+S +F'
 
-#alias grep='grep -i -E --color=always'
-alias grp='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias grep='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
 alias k9='kill -9'
 alias k='kill -TERM'
@@ -53,7 +52,7 @@ alias pt2='print_all_thr(){ps mp "$1" -o THREAD,tid};print_all_thr'
 #show all child process
 alias pp='pgrep -P'
 alias pp2='ps --ppid'
-alias ptree='pstree -p|grp'
+alias ptree='pstree -p|grep'
 
 alias tail='tail -n 100'
 alias t='tail -f'
@@ -115,7 +114,7 @@ alias pstree='pstree -apnuh'
 
 
 cl() { cd "$@" && pwd ; ls -alhFtr; }
-alias ..="cl .."
+#alias ..="cl .."
 
 alias llock="light-locker --lock-on-suspend&"
 alias vncone="vncserver -alwaysshared :1 -geometry 1440×900"
@@ -173,13 +172,18 @@ alias ppr="ps -ef|grep privoxy"
 ################################# Oracle #####################################################
 
 if [ -x /usr/bin/dircolors ]; then
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    # alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    #alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
     alias tree='tree -C'
+
+    # disable green background for o+w dir
+    dircolors -p > ~/.dircolors
+    eval "$(dircolors ~/.dircolors)"
+    LS_COLORS+=':ow=01;35'
 fi
 
 
@@ -231,7 +235,7 @@ alias insemacs='git clone https://github.com/syl20bnr/spacemacs
 ~/.emacs.d'
 
 #export EDITOR='nano -$'
-export EDITOR="sudo nano -w"
+export VISUAL='sudo nano -w'
 #export EDITOR='emacsclient -t'
 
 export GTAGSLABEL=pygments
@@ -253,7 +257,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias aupgrade='sudo pacman -Syu --noconfirm'
 	#alias yinstall='yaourt -S'
 	#alias yremove='yaourt -R'
-	alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 	# connect home's stereo manually
 	#alias mystereo = "bluetoothctl connect 04\:FE\:A1\:C7\:3C\:67"
@@ -329,17 +333,17 @@ function edf() {
 
 
 ######################### new append at tail ################################
-alias os="lsb-release -a"
+#alias os="lsb_release -a"
 
 
 ################################# EMC cyclone #####################################
-export DEVOPS_ARTIFACTORY_SERVER=afeoscyc-mw.cec.lab.emc.com
-export REPO_OVERRIDE=cyclone-integration
+#export DEVOPS_ARTIFACTORY_SERVER=afeoscyc-mw.cec.lab.emc.com
+#export REPO_OVERRIDE=cyclone-integration
 #export CYC_CONFIG=/home/cyc/cyc_core/cyc_platform/src/package/cyc_configs/cyc-cfg.txt.qemu_host
 
 ################################# EMC cyclone #####################################
 
 ################################# EMC unity #####################################
-alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R -j20"
+#alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R -j20"
 
 ################################# EMC unity #####################################

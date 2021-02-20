@@ -1,9 +1,3 @@
-###################################### qbai zsh configuration #############
-#source ~/.bashrc
-
-###################################### qbai zsh configuration #############
-
-
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -12,8 +6,8 @@ export ZSH=~/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 
-# bira gnzh ys muse
-ZSH_THEME="gnzh"
+# bira gnzh muse agnoster gentoo kolo miloshadzic
+ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -62,7 +56,6 @@ plugins=(git autojump sudo cp pip last-working-dir thefuck)
 
 
 # User configuration
-
 source ~/.bashrc
 
 alias -s gz='tar -xzvf'
@@ -145,3 +138,4 @@ zle -N sudo-command-line
 bindkey "\e\e" sudo-command-line
 
 alias l='ls -l -t -r -a -h -F'
+alias grep='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
