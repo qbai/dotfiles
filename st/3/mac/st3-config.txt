@@ -24,14 +24,32 @@
 	add the fowlling line into []
 	
 		{ "keys": ["super+1"], "command": "next_view_in_stack" },
-   		{ "keys": ["super+2"], "command": "prev_view_in_stack" },
-		{ "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
-		{ "keys": ["ctrl+1"], "command": "toggle_bookmark" },
-		{ "keys": ["ctrl+2"], "command": "next_bookmark" },
-		{ "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
-            			"extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
-            			"paths": ["../", "../include/linux"]
-        	} }		    
+   { "keys": ["super+2"], "command": "prev_view_in_stack" },
+   { "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+   { "keys": ["ctrl+1"], "command": "toggle_bookmark" },
+   { "keys": ["ctrl+2"], "command": "next_bookmark" },
+   { "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
+            "extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
+            "paths": ["../", "../include/linux"]
+        } },
+   {
+          "command": "gtags_navigate_to_definition",
+          "context": [],
+          "keys": ["ctrl+t", "ctrl+t"]
+          },
+          {
+          "command": "gtags_jump_back",
+          "keys": ["ctrl+t", "ctrl+b"]
+          },
+                    {
+          "command": "gtags_rebuild_tags",
+          "context": [],
+          "keys": ["ctrl+t", "ctrl+r"]
+                    },
+                    {
+        "command": "gtags_find_references",
+          "keys": ["alt+."]
+                    }	    
 
 
 7. 代理设置
