@@ -1,21 +1,19 @@
 1. 下载3并crack安装
 
-2. 安装主题soda
-   直接拷贝Theme - Soda 到菜单 Preferences -> Browse Packages打开的目录
+2. 拷贝配置文件Preferences.sublime-settings内容 到sublime text3 -> Preferences -> Settings
 
-3. 拷贝配置文件Preferences.sublime-settings 到sublime text3 -> Preferences -> Settings
-
-4. 安装package control
+3. 安装package control
 		show console and 执行下列命令
 
-	import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
+		
+import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 
-5. 更改配色
-	ctrl+shift+p, 输入 install package,输入 packageresourceview 
-	安装完packageresourceview后，ctrl + shift + p, 输入 packageresourceview : open resource 
-	输入color schema -default, 选择monokai 
-	查找 selection, 更新为 "selection": "var(orange)"
-
+4. 安装theme soda
+	 打开command pallette
+	 输入install package
+	 选择theme :  soda-dark
+	 选择color theme : monakai   
+	 
 6. 修改快捷键 
 	
 	拷贝 Default (OSX).sublime-keymap 到 ~/Library/Application Support/Sublime Text 3/Packages/User 或者
@@ -33,6 +31,12 @@
             			"paths": ["../", "../include/linux"]
         	} }		    
 
+
+5. 更改配色
+	ctrl+shift+p, 输入 install package,输入 packageresourceview 
+	安装完packageresourceview后，ctrl + shift + p, 输入 packageresourceview : open resource 
+	输入color schema -default, 选择monokai 
+	查找 selection, 更新为 "selection": "var(orange)"
 
 7. 代理设置
 	选择菜单 Preferences -> Package Settings -> package control -> settings - user 打开配置文件， 加入
