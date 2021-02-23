@@ -62,8 +62,8 @@ hc spawn nm-applet
 hc keybind $Mod-Shift-q close
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c quit
-#hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
-hc keybind $Mod-Alt-l spawn xlock -mode blank
+hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
+#hc keybind $Mod-Alt-l spawn xlock -mode blank
 
 #hc keybind $Mod-Alt-l spawn i3lock -i ~/Pictures/Wallpapers/rocket.png -l c0c5ce -w bf616a -o a3be8c
 
