@@ -110,15 +110,19 @@ fi
 
 #screen lock, off and suspend time
 # 1. in the office
-xset dpms 0 0 600
-xset s 300
-(xss-lock -- lock -n >/dev/null 2>&1)&
-#xset s 30 20
-#(xss-lock -n /usr/share/doc/xss-lock/dim-screen.sh -- lock -n >/dev/null 2>&1)&
+#xset dpms 0 0 600
+#xset s 300
+#(xss-lock -- lock -n >/dev/null 2>&1)&
+
+####xset s 30 20
+####(xss-lock -n /usr/share/doc/xss-lock/dim-screen.sh -- lock -n >/dev/null 2>&1)&
+
 # 2. at home
-#xset s 600
-#(xss-lock -- xset dpms force off >/dev/null 2>&1)&
-#(xss-lock -- xlock -mode blank >/dev/null 2>&1)&
+xset dpms 0 0 1200
+
+####xset s 600
+####(xss-lock -- xset dpms force off >/dev/null 2>&1)&
+####(xss-lock -- xlock -mode blank >/dev/null 2>&1)&
 
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
