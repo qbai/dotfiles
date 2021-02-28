@@ -26,7 +26,7 @@ alias m='sudo less -i -M -R -j20 -J'
 ## linenum & with wrap
 #alias m='less -i -M -N -R -+S +F'
 
-alias grep='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+#alias grep='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
 alias k9='kill -9'
 alias k='kill -TERM'
@@ -153,25 +153,6 @@ alias spr="/usr/local/sbin/privoxy --no-daemon /usr/local/etc/privoxy/config &"
 alias npr="netstat -an|grep 8118"
 alias ppr="ps -ef|grep privoxy"
 
-################################ Oracle  ####################################################
-
-#export http_proxy=www-proxy.us.oracle.com:80
-#MAVEN_HOME=/home/baqiang/apache-maven-3.2.5 export MAVEN_HOME
-#export JAVA_HOME=/tools/jdk1.8.0_60
-#export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
-#export PATH=/home/baqiang/.emacs.d/plugins/global-6.5/bin/bin:/scratch/baqiang/qbai/autoconf-2.68/bin:/scratch/baqiang/qbai/automake-1.9/bin/bin:/usr/sbin:${MAVEN_HOME}/bin:$JAVA_HOME/bin:/scratch/baqiang/app/bin:/usr/local/bin:.:${PATH}
-
-#############oracle db config*********************
-#export ORACLE_BASE=/scratch/baqiang/app
-#export ORACLE_HOME=/scratch/baqiang/app/Oracle_Home
-#export ORACLE_SID=opss
-#export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
-#export PATH=$ORACLE_HOME/bin:$PATH
-#export LISTENER=$ORACLE_HOME/bin/lsnrctl
-#export TNS_ADMIN=$ORACLE_HOME/network/admin
-
-################################# Oracle #####################################################
-
 if [ -x /usr/bin/dircolors ]; then
     #alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
@@ -245,7 +226,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/s
 export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
-########### archlinux ######################
+########### oh-my-linux ######################
 if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-release > /dev/null; then
 	alias reboot='sudo systemctl reboot'
 	alias poweroff='sudo systemctl poweroff'
@@ -302,6 +283,8 @@ alias p_cs='pidstat -w 2'
 #alias p_cs='pidstat -wt 2'
 ########################################
 
+#alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R -j20"
+
 ################### tricky_command  ################
 #alias f_g_s="find . -name rule.mk -exec grep 'Wall' {} \; -exec sed -i 's/-Wall //g' {} \;"
 #alias f_g_s_2="find . -name rule.mk|xargs grep 'TI_CXXFLAGS='|grep -v 'Wall'|awk -F ':' '{print $1}'|xargs sed -i 's/Werror/Werror -Wall/g'"
@@ -341,15 +324,7 @@ function edf() {
 ######################### new append at tail ################################
 #alias os="lsb_release -a"
 
-
-################################# EMC cyclone #####################################
-#export DEVOPS_ARTIFACTORY_SERVER=afeoscyc-mw.cec.lab.emc.com
-#export REPO_OVERRIDE=cyclone-integration
-#export CYC_CONFIG=/home/cyc/cyc_core/cyc_platform/src/package/cyc_configs/cyc-cfg.txt.qemu_host
-
-################################# EMC cyclone #####################################
-
-################################# EMC unity #####################################
-#alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R -j20"
-
-################################# EMC unity #####################################
+# if emacs was installed
+#if [ -x "$(command -v emacs)" ]; then
+#        emacs --daemon >/dev/null 2>&1
+#fi

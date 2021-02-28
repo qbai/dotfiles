@@ -74,7 +74,7 @@ hc keybind $Mod-Return spawn termite
 hc keybind $Mod-Shift-Return spawn urxvt
 
 # start rofi
-hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -width 100 -padding 450 -opacity "80" -font "SourceCodePro 12"
+hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -width 40 -padding 450 -opacity "80" -font "SourceCodePro 12"
 
 # start some programs
 #hc keybind $Mod-x spawn firefox

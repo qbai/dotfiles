@@ -496,7 +496,9 @@ you should place your code here."
   (global-set-key (kbd "C-x 5") 'toggle-window-split)
 
 
-  (linum-relative-on)
+  ;;(linum-relative-on)
+  (with-eval-after-load 'linum
+    (linum-relative-toggle))
   (global-hungry-delete-mode t)
 
   ;; setting minor mode
