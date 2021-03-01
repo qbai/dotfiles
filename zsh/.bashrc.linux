@@ -281,7 +281,6 @@ alias p_cpu='mpstat -P ALL 3'
 alias p_vm='vmstat 3'
 alias p_cs='pidstat -w 2'
 #alias p_cs='pidstat -wt 2'
-
 ########################################
 #alias klog="ls -1tr c4_safe_ktrace.log.*.gz|awk '{print $9}'|xargs zcat|less -i -M -R -j20"
 ################### tricky_command  ################
