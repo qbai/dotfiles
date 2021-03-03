@@ -750,6 +750,10 @@ you should place your code here."
 (global-set-key (kbd "C-c C-e") 'dotspacemacs/sync-configuration-layers)
 ;; choose theme
 (global-set-key (kbd "C-c C-t") 'helm-themes)
+
+;; mouse scroll
+(global-set-key [mouse-4] 'scroll-down-line)
+(global-set-key [mouse-5] 'scroll-up-line)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -873,10 +877,10 @@ you should place your code here."
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
               (helm-gtags-mode 1)
-              (define-key c++-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
-              (define-key c-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
-              (define-key c++-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
-              (define-key c-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
+              (define-key c++-mode-map(kbd "C-t C-t") 'counsel-gtags-find-tag)
+              (define-key c-mode-map(kbd "C-t C-t") 'counsel-gtags-find-tag)
+              (define-key c++-mode-map(kbd "C-t C-r") 'counsel-gtags-find-rtag)
+              (define-key c-mode-map(kbd "C-t C-r") 'counsel-gtags-find-rtag)
               (define-key c++-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key c-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key c++-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)

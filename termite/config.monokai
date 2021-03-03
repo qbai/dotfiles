@@ -18,7 +18,6 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-#font = envypn 15
 font = Courier New 22
 scrollback_lines = 10000
 search_wrap = true

@@ -212,13 +212,9 @@ cleartrash()
 }
 
 ###################### trash ######################
-
-alias insemacs='git clone https://github.com/syl20bnr/spacemacs 
-~/.emacs.d'
-
-#export EDITOR='nano -$'
+#export EDITOR='sudo nano -w'
 export VISUAL='sudo nano -w'
-#export EDITOR='emacsclient -t'
+# if VISUAL does not work, uninstall or rename vi then link nano as vi 
 
 export GTAGSLABEL=pygments
 
