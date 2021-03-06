@@ -94,8 +94,10 @@ xset s noexpose &
 compton --backend glx &
 feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
 
-# diconnect macbook's screen at startup
+## diconnect macbook's screen at startup
 #xrandr --output eDP-1 --off
+## rotate monitor as long direction
+#xrandr --output DP-2 --rotate left
 
 # sogou pinyin configuration
 export GTK_IM_MODULE=fcitx
