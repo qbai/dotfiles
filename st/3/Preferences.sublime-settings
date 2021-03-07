@@ -34,7 +34,7 @@
 	"translate_tabs_to_spaces": true,
 	"theme": "Soda Dark.sublime-theme",
 	"tree_animation_enabled": true,
-	"word_wrap": "false",
+	"word_wrap": "true",
 	"wrap_width": 80,
 	"rulers": [80],
 	"trim_trailing_white_space_on_save": true,
