@@ -97,13 +97,13 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 
 ]]
 
-1> 安装SublimeGtags
+1> 手工安装SublimeGtags
 	git clone https://github.com/qbai/SublimeGtags.git
 	cd SublimeGtags/
 	zip -r SublimeGtags.zip *	## 打包文件一定要直接包含所有文件，不能带文件夹，否则插件disable
 	mv SublimeGtags.zip SublimeGtags.sublime-package
 	copy SublimeGtags.sublime-package into Installed Packages folder 
-       （linux下package folder是~/.config/sublime-text-3/Installed Packages/ 
+       （linux下package folder是 ~/.config/sublime-text-3/Installed Packages/ 
             or /opt/sublime_text/Packages）
 	reboot sublimetext3
 	
