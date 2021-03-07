@@ -99,13 +99,15 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 
 1> 安装SublimeGtags
 	git clone https://github.com/qbai/SublimeGtags.git
-	zip -r SublimeGtags/* ./SublimeGtags.zip or zip -r SublimeGtags.zip SublimeGtags/*
+	or zip -r SublimeGtags.zip SublimeGtags/*
 	mv SublimeGtags.zip SublimeGtags.sublime-package
 	copy SublimeGtags.sublime-package into Installed Packages folder 
-       （linux下package folder是/opt/sublime_text/Packages）
+       （linux下package folder是~/.config/sublime-text-3/Installed Packages/ 
+            or /opt/sublime_text/Packages）
 	reboot sublimetext3
 	
-	下载gtags from http://www.gnu.org/software/global/,并加入到path里 (win http://adoxa.altervista.org/global/)
+	下载gtags from http://www.gnu.org/software/global/,并加入到path里 
+	    (win http://adoxa.altervista.org/global/)
 	{
 	source build by following command :
 		./configure --with-exuberant-ctags --prefix=[path]
