@@ -4,24 +4,21 @@
 
 3. 安装package control
 		show console and 执行下列命令
-
 		
 import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
 
 4. 安装theme soda
 	 打开command pallette
-	 输入install package
+	 输入install package    Theme - Soda
 	 选择theme :  soda-dark
 	 选择color theme : monakai   
 	 
-6. 修改快捷键 
+5. 修改快捷键 
 	
-	拷贝 Default (OSX).sublime-keymap 到 ~/Library/Application Support/Sublime Text 3/Packages/User 或者
-	
-	open Preferences > Key Binding
+	拷贝下列到 Preferences > Key Binding
 	add the fowlling line into []
 	
-		{ "keys": ["super+1"], "command": "next_view_in_stack" },
+   { "keys": ["super+1"], "command": "next_view_in_stack" },
    { "keys": ["super+2"], "command": "prev_view_in_stack" },
    { "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
    { "keys": ["ctrl+1"], "command": "toggle_bookmark" },
@@ -49,7 +46,7 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
           "keys": ["alt+."]
                     }
 
-5. 更改配色
+6. 更改配色
 	ctrl+shift+p, 输入 install package,输入 packageresourceview 
 	安装完packageresourceview后，ctrl + shift + p, 输入 packageresourceview : open resource 
 	输入color schema -default, 选择monokai 
@@ -59,6 +56,7 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 	选择菜单 Preferences -> Package Settings -> package control -> settings - user 打开配置文件， 加入
 		"http_proxy": "http://10.0.0.10:8118",
     		"https_proxy": "https://10.0.0.10:8118",
+		
 8. package channel 设置
 	选择菜单 Preferences -> Package Settings -> package control -> settings - user 打开配置文件， 加入
 		"channels": [
@@ -101,7 +99,7 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 
 1> 安装SublimeGtags
 	git clone https://github.com/qbai/SublimeGtags.git
-	zip -r SublimeGtags/* ./SublimeGtags.zip
+	zip -r SublimeGtags/* ./SublimeGtags.zip or zip -r SublimeGtags.zip SublimeGtags/*
 	mv SublimeGtags.zip SublimeGtags.sublime-package
 	copy SublimeGtags.sublime-package into Installed Packages folder
 	reboot sublimetext3
