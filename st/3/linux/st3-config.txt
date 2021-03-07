@@ -101,7 +101,8 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 	git clone https://github.com/qbai/SublimeGtags.git
 	zip -r SublimeGtags/* ./SublimeGtags.zip or zip -r SublimeGtags.zip SublimeGtags/*
 	mv SublimeGtags.zip SublimeGtags.sublime-package
-	copy SublimeGtags.sublime-package into Installed Packages folder
+	copy SublimeGtags.sublime-package into Installed Packages folder 
+       （linux下package folder是/opt/sublime_text/Packages）
 	reboot sublimetext3
 	
 	下载gtags from http://www.gnu.org/software/global/,并加入到path里 (win http://adoxa.altervista.org/global/)
@@ -115,9 +116,11 @@ import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d
 
 	打开 Main menu -> Preferences -> Package Settings -> SublimeGtags -> Settings - Users,修改extra_tag_paths为刚才生成GTAGS的目录
 		{
-			"extra_tag_paths": "C:\\emc\\unity"
+			"extra_tag_paths": "/home/ghost/repo/linux"
 		}
 	打开browse package, 找到gtags文件夹下边的Default.sublime-keymap文件，修改如下部分为下列内容
+	(在linux下browse package路径是 ~/.config/sublime-text-3）
+	
 		    {
     			"command": "gtags_navigate_to_definition",
     			"context": [],
