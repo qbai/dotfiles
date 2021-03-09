@@ -5,7 +5,6 @@ export PS1="[\u@\h \w]\$ "
 #PS1="[\e[32;1m\u@\h \W]\\$"
 #export CLICOLOR=1
 #export LSCOLORS=gxfxcxdxbxegedabagacad
-
 export TERM=xterm-256color
 
 #alias l='ls -l'
@@ -28,11 +27,8 @@ alias m='sudo less -i -M -R -j20 -J'
 
 #alias grep='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
-alias k9='kill -9'
-alias k='kill -TERM'
-#alias t='top'
-#alias ht='htop'
-#alias n='nano -w'
+alias k='kill -9'
+#alias k='kill -TERM'
 alias n='sudo nano -$'
 #alias tea='2 >&1 |tee -a'
 #alias tenull='& > /dev/null |tee -a'
@@ -42,10 +38,12 @@ alias chux='chmod u+x'
 alias chall='chmod -R 777'
 
 alias pg="pmset -g"
-alias rf='rm -rf'
+alias rf='sudo rm -rf'
+alias cp='sudo cp -r'
 #alias pgr='ps -ef|grep -v grep|grep --color=always'
 
 alias p='ps -ef|grep -v grep|grep'
+
 # show all threads
 alias pt='ps -Lf'
 alias pt2='print_all_thr(){ps mp "$1" -o THREAD,tid};print_all_thr'
@@ -54,7 +52,7 @@ alias pp='pgrep -P'
 alias pp2='ps --ppid'
 alias ptree='pstree -p|grep'
 
-alias tail='tail -n 100'
+alias tail='tail -n 200'
 alias t='tail -f'
 
 # CPU top 10 process in linux
@@ -103,9 +101,6 @@ alias wh="which"
 alias watch='watch -n 2 -d'
 alias xzz='xz -z -v --threads=0 -9 -e'
 
-alias ai="sudo apt-get install"
-#alias le="less -r"
-
 alias pstree='pstree -apnuh'
 
 # add rsync command
@@ -114,11 +109,12 @@ alias pstree='pstree -apnuh'
 
 alias curl='curl -O'
 
-cl() { cd "$@" && pwd ; ls -alhFtr; }
+#cl() { cd "$@" && pwd ; ls -ltrahF; }
+cl() { cd "$@" && ls -ltrahF; }
 #alias ..="cl .."
 
-alias llock="light-locker --lock-on-suspend&"
-alias vncone="vncserver -alwaysshared :1 -geometry 1440×900"
+#alias llock="light-locker --lock-on-suspend&"
+#alias vncone="vncserver -alwaysshared :1 -geometry 1440×900"
 
 tmux_init()
 {
@@ -219,7 +215,7 @@ export VISUAL='sudo nano -w'
 export GTAGSLABEL=pygments
 
 export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin:$PATH
-export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
 ########### oh-my-linux ######################
@@ -232,7 +228,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias ainstall='sudo pacman -Sy --noconfirm'
 	alias aremove='sudo pacman -Rs --noconfirm'
 	# pacman -Qs    query installed package
-	alias aupgrade='sudo pacman -Syu --noconfirm'
+	#alias aupgrade='sudo pacman -Syu --noconfirm'
 	#alias yinstall='yaourt -S'
 	#alias yremove='yaourt -R'
 	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
