@@ -34,7 +34,7 @@ foreground = ${colors.foreground}
 font-0 = scientifica:size=9:antialias=true;-1
 font-1 = Wuncon Siji:size=9:;-1
 
-modules-right   = cpu memory battery wired wifi volume date1
+modules-right   = cpu memory wired wifi pulseaudio battery date1
 modules-left = ewmh
 modules-center  = xtitle
 
@@ -76,6 +76,7 @@ format-prefix            = 
 format-prefix-foreground = ${colors.red}
 format-background        = ${colors.modb}
 format-padding           = 2
+label-foreground = ${colors.red}
 
 [module/powermenu]
 type = custom/menu
@@ -119,9 +120,10 @@ interval                 = 0.5
 format                   = <label> <ramp-coreload>
 label                    = CPU %percentage%%
 format-prefix            = " "
-format-prefix-foreground = ${colors.green}
+format-prefix-foreground = ${colors.magenta}
 format-background        = ${colors.modb}
 format-padding           = 2
+label-foreground = ${colors.cyan}
 
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
@@ -146,6 +148,7 @@ bar-used-foreground-3 = #ff5555
 bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
+label-foreground = ${colors.magenta}
 
 [module/filesystem]
 type                    = internal/fs
@@ -159,7 +162,7 @@ spacing                 = 4
 type = internal/xworkspaces
 enable-scroll = true
 format-padding = 2
-format-foreground = ${colors.foreground}
+format-foreground = #FFFF00
 format-background = ${colors.modb}
 label-active = "  #"
 label-occupied = "  -"
@@ -186,6 +189,10 @@ format-full-prefix = " "
 format-full-padding = 1
 format-full-background = ${colors.dorange}
 format-full-underline = ${colors.orange}
+
+label-discharging-foreground = ${colors.green}
+label-charging-foreground = ${colors.green}
+label-full-foreground = ${colors.green}
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -216,7 +223,7 @@ format-disconnected-background=${colors.dpink}
 format-disconnected-underline=${colors.pink}
 
 format-connected=<label-connected>
-label-connected=  %downspeed:9:9% %upspeed:9:9%
+label-connected= Wifi %downspeed:9:9% %upspeed:9:9%
 format-connected-padding=1
 format-connected-background=${colors.dgreen}
 
@@ -232,8 +239,8 @@ accumulate-stats=true
 format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <animation-packetloss> <label-connected>
-label-connected = %essid% %downspeed:9%
-label-connected-foreground = #eefafafa
+label-connected = Net %downspeed:9%
+label-connected-foreground = ${colors.orange}
 label-disconnected = not connected
 label-disconnected-foreground = #66ffffff
 
@@ -252,6 +259,89 @@ animation-packetloss-framerate = 500
 
 [module/xtitle]
 type = internal/xwindow
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.cyan}
 format-padding = 4
 label = %title%
 label-maxlen = 50
+
+[module/pulseaudio1]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume> <label-volume>
+;label-volume =
+label-volume-foreground = ${colors.yellow}
+
+label-muted = 婢
+label-muted-foreground = ${colors.foreground}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+ramp-volume-0 =
+ramp-volume-1 =
+ramp-volume-2 =
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+; sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
+
+label-volume-foreground = ${colors.yellow}
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels% (unreleased)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+;   %decibels% (unreleased)
+label-muted = %{T1}  muted%{T-}
+label-muted-foreground = #666
+
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = %{T4} %{T-}
+ramp-volume-1 = %{T4}墳%{T-}
+ramp-volume-2 = %{T4} %{T-}
+ramp-volume-foreground = ${colors.yellow}
+
+; Right and Middle click (unreleased)
+click-right = pavucontrol &
+; click-middle =

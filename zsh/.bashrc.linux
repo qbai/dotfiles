@@ -223,7 +223,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias reboot='sudo systemctl reboot'
 	alias poweroff='sudo systemctl poweroff'
 	alias suspend='sudo systemctl suspend'
-	#alias hibernate='sudo systemctl hibernate'
+	alias hibernate='sudo systemctl hibernate'
 
 	alias ainstall='sudo pacman -Sy --noconfirm'
 	alias aremove='sudo pacman -Rs --noconfirm'
@@ -318,3 +318,6 @@ function edf() {
 #if [ -x "$(command -v emacs)" ]; then
 #        emacs --daemon >/dev/null 2>&1
 #fi
+
+alias croc="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
+

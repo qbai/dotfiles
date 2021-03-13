@@ -1,8 +1,8 @@
 # Set the theme to "TwoDark"
-#--theme="Monokai Extended Origin"
+--theme="Monokai Extended Origin"
 #--theme="zenburn"
 #--theme="ansi-dark"
---theme="OneHalfDark"
+#--theme="OneHalfDark"
 
 # Show line numbers, Git modifications and file header (but no grid)
 #--style="numbers,changes,header"
