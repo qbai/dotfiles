@@ -252,6 +252,9 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	# start up ss manually
 	alias start-ss='(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&'
 fi
+	## xmodmap -pke  => print current keymapping table
+	# exchange tilde and grave for my filco keyboard
+	xmodmap -e "keycode 49 = asciitilde grave"
 
 ############# git #######################
 # git config --global icdiff.options '--highlight --line-numbers'
