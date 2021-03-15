@@ -126,8 +126,5 @@ xset dpms 0 0 1200
 ####(xss-lock -- xset dpms force off >/dev/null 2>&1)&
 ####(xss-lock -- xlock -mode blank >/dev/null 2>&1)&
 
-## exchange tilda & grave for filco keyboard
-xmodmap -e "keycode 49 = asciitilde grave"
-
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
