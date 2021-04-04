@@ -52,8 +52,8 @@ alias pp='pgrep -P'
 alias pp2='ps --ppid'
 alias ptree='pstree -p|grep'
 
-alias tail='tail -n 200'
-alias t='tail -f'
+#alias tail='tail -f'
+alias t='tail -n 200'
 
 # CPU top 10 process in linux
 alias pg10="ps auxw|head -1;ps auxw|sort -rn -k3|head -10"
@@ -70,7 +70,7 @@ alias lg="lsof -i|grep"
 #alias lgd='lsof +D'
 
 #alias e='emacs -nw'
-alias ed="emacs --daemon"
+alias edn="emacs --daemon"
 alias e='emacsclient -t'
 alias ek="emacsclient -e '(kill-emacs)'"
 alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
@@ -323,4 +323,5 @@ function edf() {
 #fi
 
 alias croc="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
-
+alias rg='rg -i -e'
+#alias rg='rg_with_colors(){rg -i -e "$1" --color always};rg_with_colors'

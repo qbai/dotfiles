@@ -635,56 +635,44 @@ you should place your code here."
   (shift-region -2))
 
 
-;; key mapping
+;; key remap
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
 (define-key key-translation-map (kbd "C-l") (kbd "C-L"))
 (define-key key-translation-map (kbd "M-k") (kbd "M-K"))
 (define-key key-translation-map (kbd "M-a") (kbd "M-A"))
 (define-key key-translation-map (kbd "M-e") (kbd "M-E"))
-;;(define-key key-translation-map (kbd "M-u") (kbd "M-U"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-T"))
 (define-key key-translation-map (kbd "C-m") (kbd "C-M"))
 (define-key key-translation-map (kbd "C-f") (kbd "C-F"))
 (define-key key-translation-map (kbd "C-o") (kbd "C-O"))
-
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
 ;; shell-pop for M-'
 (define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
-
-;;(define-key key-translation-map (kbd "C-u") (kbd "C-v"))
-;;(define-key key-translation-map (kbd "C-v") (kbd "C-u"))
-;;(define-key key-translation-map (kbd "M-u") (kbd "M-v"))
-;;(define-key key-translation-map (kbd "M-v") (kbd "M-u"))
-
 ;; key unset
 
-;;  file
-;; open & file & new file
-(global-set-key (kbd "M-f") 'counsel-find-file)
-;;(global-set-key (kbd "M-f") 'spacemacs/helm-find-files)
 
+;;  file
+;; open & new file
+(global-set-key (kbd "M-f") 'counsel-find-file)
+;;; C-f    ->   counsel-projectile-find-file
+;;;(global-set-key (kbd "M-f") 'spacemacs/helm-find-files)
 ;; save file
 (global-set-key (kbd "C-s") 'save-buffer)
-
 ;; save all file
 ;;(global-set-key (kbd "C-M-s" 'save-some-buffers))
-
-;; suspend emacs
-;;(global-unset-key (kbd "C-z"))
-;;(global-set-key (kbd "C-z" 'suspend-frame))
 
 
 ;; buffer
 ;; next/previous buffer
 (global-set-key (kbd "C-b") 'next-buffer)
 (global-set-key (kbd "M-b") 'previous-buffer)
-;;(global-set-key (kbd "C-M-k") 'kill-this-buffer)
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
 ;; kill all buffers
-;;(global-set-key (kbd "C-M-a-k") 'kill-some-buffers)
-(global-set-key (kbd "C-c k") 'nuke-all-buffers)
+;;;(global-set-key (kbd "C-M-a-k") 'nuke-all-buffers)
+(global-set-key (kbd "C-c k") 'kill-some-buffers)
+
 
 ;; moving
 ;; move-forward/back char
@@ -704,10 +692,6 @@ you should place your code here."
 ;; locate begin or end of file
 (global-set-key (kbd "M-a") 'beginning-of-buffer)
 (global-set-key (kbd "M-e") 'end-of-buffer)
-;; page down
-;;(global-set-key (kbd "C-u") 'scroll-up-command)
-;; page up
-;;(global-set-key (kbd "M-u") 'scroll-down-command)
 ;; quickly move to char
 (global-set-key (kbd "C-o") 'evil-avy-goto-char)
 ;; quickly move to line
@@ -719,8 +703,11 @@ you should place your code here."
 (global-set-key (kbd "C-c u") (kbd "C-u 4 C-x TAB"))
 ;;(global-set-key (kbd "C-right") 'shift-right)
 ;; scroll up screen one line scroll-up-line
-
 ;; scroll down screen one line scroll-down-line
+;; page down
+;;(global-set-key (kbd "C-u") 'scroll-up-command)
+;; page up
+;;(global-set-key (kbd "M-u") 'scroll-down-command)
 
 
 ;; editing
@@ -804,6 +791,22 @@ you should place your code here."
 
 ;; enable emacs with other app to use clipboard
 (setq x-select-enable-clipboard t)
+;;(setq select-enable-clipboard t)
+;; use xsel to copy/paste in emacs-nox
+(unless window-system
+  (when (getenv "DISPLAY")
+    (defun xsel-cut-function (text &optional push)
+      (with-temp-buffer
+        (insert text)
+        (call-process-region (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")))
+    (defun xsel-paste-function()
+      (let ((xsel-output (shell-command-to-string "xsel --clipboard --output")))
+        (unless (string= (car kill-ring) xsel-output)
+          xsel-output )))
+    (setq interprogram-cut-function 'xsel-cut-function)
+    (setq interprogram-paste-function 'xsel-paste-function)
+    ))
+
 
 ;;(setq package-check-signature nil)
 
