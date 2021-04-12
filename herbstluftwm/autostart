@@ -193,6 +193,9 @@ hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
 hc keybind $Mod-Shift-u jumpto urgent
 
+# for emacs unbind C-M-p
+#hc keyunbind Control-Alt-p
+
 # theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1

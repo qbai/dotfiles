@@ -36,8 +36,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     ;;ivy
      helm
-     ivy
      ;;colors
      theming
     ;;markdown
@@ -63,8 +63,8 @@ values."
            shell-default-height 80)
     syntax-checking
     ;;spell-checking
-    asm
 
+    asm
     shell-scripts
     ;;sql
     (c-c++ :variables c-c++-default-mode-for-headers 'c++-mode)
@@ -73,7 +73,7 @@ values."
         python-enable-yapf-format-on-save t ;; when saving, yapf
         python-fill-column 80               ;; column 80
         python-sort-imports-on-save t)      ;; sort package when saving
-    ;;ruby
+    ;;rust
 
     gtags
     ;;(gtags :variables gtags-enable-by-default t)
@@ -164,6 +164,14 @@ values."
                          solarized-light
                          zenburn
                          leuven)
+   ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
+   ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
+   ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
+   ;; `vanilla' is default Emacs mode-line. `custom' is a user defined themes,
+   ;; refer to the DOCUMENTATION.org for more info on how to create your own
+   ;; spaceline theme. Value can be a symbol or list with additional properties.
+   ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -635,7 +643,7 @@ you should place your code here."
   (shift-region -2))
 
 
-;; key remap
+;; KEY REMAP
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
 (define-key key-translation-map (kbd "C-l") (kbd "C-L"))
 (define-key key-translation-map (kbd "M-k") (kbd "M-K"))
@@ -645,26 +653,27 @@ you should place your code here."
 (define-key key-translation-map (kbd "C-m") (kbd "C-M"))
 (define-key key-translation-map (kbd "C-f") (kbd "C-F"))
 (define-key key-translation-map (kbd "C-o") (kbd "C-O"))
+
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
 ;; shell-pop for M-'
 (define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
 ;; key unset
+;;(global-unset-key (kbd "C-M-p"))
 
 
-;;  file
+;;  FILE
 ;; open & new file
-(global-set-key (kbd "M-f") 'counsel-find-file)
-;;; C-f    ->   counsel-projectile-find-file
-;;;(global-set-key (kbd "M-f") 'spacemacs/helm-find-files)
+;;(global-set-key (kbd "C-f") 'counsel-find-file)
+(global-set-key (kbd "C-f") 'spacemacs/helm-find-files)
 ;; save file
 (global-set-key (kbd "C-s") 'save-buffer)
 ;; save all file
 ;;(global-set-key (kbd "C-M-s" 'save-some-buffers))
 
 
-;; buffer
+;; BUFFER
 ;; next/previous buffer
 (global-set-key (kbd "C-b") 'next-buffer)
 (global-set-key (kbd "M-b") 'previous-buffer)
@@ -674,7 +683,7 @@ you should place your code here."
 (global-set-key (kbd "C-c k") 'kill-some-buffers)
 
 
-;; moving
+;; MOVING
 ;; move-forward/back char
 (global-set-key (kbd "C-j") 'forward-char)
 (global-set-key (kbd "C-l") 'backward-char)
@@ -682,6 +691,8 @@ you should place your code here."
 (global-set-key (kbd "M-j") 'forward-word)
 (global-set-key (kbd "M-l") 'backward-word)
 ;; move cursor 5 lines up/down
+;;(global-set-key (kbd "C-M-n") (lambda () (interactive) (next 5)))
+;;(global-set-key (kbd "C-M-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-M-n") (kbd "C-u 5 C-n"))
 (global-set-key (kbd "C-M-p") (kbd "C-u 5 C-p"))
 ;; move window 5 lines up/down
@@ -690,8 +701,10 @@ you should place your code here."
 ;;show in center
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 ;; locate begin or end of file
-(global-set-key (kbd "M-a") 'beginning-of-buffer)
-(global-set-key (kbd "M-e") 'end-of-buffer)
+(define-key key-translation-map (kbd "M-a") (kbd "M-<"))
+(define-key key-translation-map (kbd "M-e") (kbd "M->"))
+;;(global-set-key (kbd "M-a") 'beginning-of-buffer)
+;;(global-set-key (kbd "M-e") 'end-of-buffer)
 ;; quickly move to char
 (global-set-key (kbd "C-o") 'evil-avy-goto-char)
 ;; quickly move to line
@@ -701,46 +714,46 @@ you should place your code here."
 ;;(global-set-key (kbd "C-c C-m") 'shift-left)
 ;; quickly move region right
 (global-set-key (kbd "C-c u") (kbd "C-u 4 C-x TAB"))
-;;(global-set-key (kbd "C-right") 'shift-right)
-;; scroll up screen one line scroll-up-line
-;; scroll down screen one line scroll-down-line
 ;; page down
 ;;(global-set-key (kbd "C-u") 'scroll-up-command)
 ;; page up
 ;;(global-set-key (kbd "M-u") 'scroll-down-command)
 
 
-;; editing
+;; EDIT
 ;;delete whole line
 (global-set-key (kbd "M-k") 'my-kill-whole-line)
 ;; quick copy whole line
 (global-set-key (kbd "C-c c") 'copy-lines)
 ;;(global-set-key (kbd "C-c l") 'copy-lines)
-
 ;; quick choose one line
 (global-set-key (kbd "C-c m") 'my-mark-line)
-;;(global-set-key (kbd "C-M-e") 'my-mark-line)
-
+;; quick choose whole buffer
+(global-set-key (kbd "C-c n") 'mark-whole-buffer)
 ;; set mark tag
 ;;(global-set-key (kbd "M-SPC") 'set-mark-command)
 
-;; search & replace
+
+;; SEARCH
 ;; search forword
 (global-set-key (kbd "M-s") 'isearch-forward)
 ;; clear seach highlight result
 (global-set-key (kbd "C-M-h") 'spacemacs/evil-search-clear-highlight)
 
 
-;; open configure file
-;;(global-set-key (kbd "C-c C-o") 'spacemacs/find-dotfile)
+;; MOUSE
+(global-set-key [mouse-4] 'scroll-down-line)
+(global-set-key [mouse-5] 'scroll-up-line)
+
+
+;; OTHER CONFIG
 ;; reload spacemacs configure file
 (global-set-key (kbd "C-c C-e") 'dotspacemacs/sync-configuration-layers)
 ;; choose theme
-(global-set-key (kbd "C-c C-t") 'helm-themes)
+;;(global-set-key (kbd "C-c C-t") 'helm-themes)
+;; bind escape to cancel
+;;(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-;; mouse scroll
-(global-set-key [mouse-4] 'scroll-down-line)
-(global-set-key [mouse-5] 'scroll-up-line)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -839,6 +852,9 @@ you should place your code here."
 ;; auto-rereading files
 (global-auto-revert-mode t)
 
+;; enable desktop save mode
+;;(desktop-save-mode 1)
+
 ;; Use company mode instead of auto-complete
 ;; (global-company-mode)
 ;; (setq company-auto-complete t)
@@ -861,17 +877,14 @@ you should place your code here."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; projectile
+;; projectile (M-m p p switch project)
 (projectile-global-mode)
 (setq projectile-enable-caching t)
-(global-set-key (kbd "C-f") 'counsel-projectile-find-file)
-;;(global-set-key (kbd "C-f") 'project-find-file)
+;;(global-set-key (kbd "M-f") 'counsel-projectile-find-file)
+(global-set-key (kbd "M-f") 'helm-projectile-find-file)
 ;;(setq projectile-require-project-root nil)
 ;;(projectile-discover-projects-in-directory "~/Project/github/db-6.1.19")
 (setq projectile-globally-ignored-directories (append '(".git") projectile-globally-ignored-directories))
-
-
-;;c-c++
 
 ;; gtags
 (spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
@@ -880,14 +893,19 @@ you should place your code here."
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
               (helm-gtags-mode 1)
-              (define-key c++-mode-map(kbd "C-t C-t") 'counsel-gtags-find-tag)
-              (define-key c-mode-map(kbd "C-t C-t") 'counsel-gtags-find-tag)
-              (define-key c++-mode-map(kbd "C-t C-r") 'counsel-gtags-find-rtag)
-              (define-key c-mode-map(kbd "C-t C-r") 'counsel-gtags-find-rtag)
+              ;;(counsel-gtags-mode 1)
+              (define-key c++-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
+              ;;(define-key c++-mode-map(kbd "C-t C-t") 'counsel-gtags-find-definition)
+              (define-key c-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
+              ;;(define-key c-mode-map(kbd "C-t C-t") 'counsel-gtags-find-definition)
+              (define-key c++-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
+              (define-key c-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
               (define-key c++-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key c-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key c++-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
+              ;;(define-key c++-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
               (define-key c-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
+              ;;(define-key c-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
               (define-key c++-mode-map(kbd "<f5>") 'gdb)
               (define-key c-mode-map(kbd "<f5>") 'gdb))))
 
@@ -896,17 +914,12 @@ you should place your code here."
 ;;             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
 ;;               (ggtags-mode 1))))
 
-;; configure ediff
-(setq ediff-split-window-function (quote split-window-horizontally))
-
-
 ;; gud-gdb
 (setq gdb-many-windows t) ;; <f5> start gud-gdb
 ;; jump to other window
 (global-set-key (kbd "<f7>") 'other-window)
 ;;(global-set-key (kbd "C-<f8>") 'previous-error)
 ;;(global-set-key (kbd "<f8>") 'next-error)
-
 (defvar all-gud-modes
   '(gud-mode comint-mode gdb-locals-mode gdb-frames-mode  gdb-breakpoints-mode)
   "A list of modes when using gdb")
@@ -933,6 +946,8 @@ Do this after `q` in Debugger buffer."
 ;;((c++-mode (helm-make-build-dir . "build/")))
 ;;(put 'helm-make-build-dir 'safe-local-variable 'stringp)
 
+;;  ediff
+(setq ediff-split-window-function (quote split-window-horizontally))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
