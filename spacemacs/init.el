@@ -36,7 +36,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;;ivy
+     ivy
      helm
      ;;colors
      theming
@@ -52,6 +52,7 @@ values."
                      auto-completion-tab-key-behavior 'nil
                      auto-completion-enable-snippets-in-popup t
                      auto-completion-enable-help-tooltip t)
+    ;;tabnine
     better-defaults
     emacs-lisp
     git
@@ -691,7 +692,7 @@ you should place your code here."
 (global-set-key (kbd "M-j") 'forward-word)
 (global-set-key (kbd "M-l") 'backward-word)
 ;; move cursor 5 lines up/down
-;;(global-set-key (kbd "C-M-n") (lambda () (interactive) (next 5)))
+;;(global-set-key (kbd "C-M-n") (lambda () (interactive) (next-line 5)))
 ;;(global-set-key (kbd "C-M-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-M-n") (kbd "C-u 5 C-n"))
 (global-set-key (kbd "C-M-p") (kbd "C-u 5 C-p"))
@@ -852,8 +853,8 @@ you should place your code here."
 ;; auto-rereading files
 (global-auto-revert-mode t)
 
-;; enable desktop save mode
-;;(desktop-save-mode 1)
+;; enable auto-completion non-sensitive
+(setq ac-ignore-case t)
 
 ;; Use company mode instead of auto-complete
 ;; (global-company-mode)
@@ -862,7 +863,6 @@ you should place your code here."
 ;; (setq company-idle-delay 0.4)
 ;; (setq company-minimum-prefix-length 3)
 
-
 ;; TAB to select a completion, not ENTER
 ;; (add-hook 'company-mode-hook (lambda ()
 ;;   (define-key company-active-map (kbd "TAB") 'company-complete-selection)
@@ -870,7 +870,26 @@ you should place your code here."
 ;;   (define-key company-active-map (kbd "RET") nil)))
 
 
+;; enable desktop save mode
+;;(desktop-save-mode 1)
 
+;; enable sublimity minimap
+ ;; (require 'sublimity)
+ ;; (require 'sublimity-scroll)
+ ;; (require 'sublimity-map)
+ ;; (require 'sublimity-attractive)
+ ;; (sublimity-mode 1)
+ ;; (sublimity-map-set-delay nil)
+ ;; (setq sublimity-map-size 10)
+ ;; (setq sublimity-map-fraction 0.3)
+ ;; (setq sublimity-map-text-scale -8)
+
+;; enable hightlight for all selected
+;; (global-highlight-thing-mode t)
+;; (setq highlight-thing-what-thing 'symbol)
+;; (setq highlight-thing-delay-seconds 0.1)
+;; (setq highlight-thing-limit-to-defun t)
+;; (setq highlight-thing-case-sensitive-p t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -948,6 +967,7 @@ Do this after `q` in Debugger buffer."
 
 ;;  ediff
 (setq ediff-split-window-function (quote split-window-horizontally))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

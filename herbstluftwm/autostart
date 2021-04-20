@@ -38,11 +38,10 @@ killall redshift &
 
 compton &
 dunst -conf ~/.config/dunst/dunstrc &
+feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
+
 xrdb .Xresources
 #polybar top &
-
-#polybar example &
-
 redshift -O 5500K
 
 # keybindings

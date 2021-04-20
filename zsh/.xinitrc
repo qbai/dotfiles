@@ -92,7 +92,7 @@ xset s 0 0 &
 xset s noexpose &
 
 compton --backend glx &
-feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
+#feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
 
 ## diconnect macbook's screen at startup
 #xrandr --output eDP-1 --off

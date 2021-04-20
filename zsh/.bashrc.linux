@@ -227,6 +227,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 
 	alias ainstall='sudo pacman -Sy --noconfirm'
 	alias aremove='sudo pacman -Rs --noconfirm'
+	alias aremove2='sudo pacman -Rdd --noconfirm'
 	# pacman -Qs    query installed package
 	#alias aupgrade='sudo pacman -Syu --noconfirm'
 	#alias yinstall='yaourt -S'
