@@ -29,7 +29,7 @@ alias m='sudo less -i -M -R -j20 -J'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
 alias k='kill -9'
 #alias k='kill -TERM'
-alias n='sudo nano -$'
+alias n='sudo nano -m -$'
 #alias tea='2 >&1 |tee -a'
 #alias tenull='& > /dev/null |tee -a'
 umask 022

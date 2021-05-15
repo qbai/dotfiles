@@ -86,7 +86,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(smart-mode-line smart-mode-line-powerline-theme smart-mode-line-atom-one-dark-theme)
+   dotspacemacs-additional-packages '(smart-mode-line smart-mode-line-powerline-theme smart-mode-line-atom-one-dark-theme helm-rg highlight-symbol good-scroll idle-highlight-mode)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -325,7 +325,7 @@ values."
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
-   dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
+   dotspacemacs-search-tools '("rg" "ag" "pt" "ack" "grep")
    ;; The default package repository used if no explicit repository has been
    ;; specified with an installed package.
    ;; Not used for now. (default nil)
@@ -643,6 +643,14 @@ you should place your code here."
   (interactive)
   (shift-region -2))
 
+(defun smooth-scroll (increment)
+  (scroll-up increment) (sit-for 0.05)
+  (scroll-up increment) (sit-for 0.02)
+  (scroll-up increment) (sit-for 0.02)
+  (scroll-up increment) (sit-for 0.05)
+  (scroll-up increment) (sit-for 0.06)
+  (scroll-up increment))
+
 
 ;; KEY REMAP
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
@@ -658,8 +666,7 @@ you should place your code here."
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
-;; shell-pop for M-'
-(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
+
 ;; key unset
 ;;(global-unset-key (kbd "C-M-p"))
 
@@ -709,7 +716,7 @@ you should place your code here."
 ;; quickly move to char
 (global-set-key (kbd "C-o") 'evil-avy-goto-char)
 ;; quickly move to line
-(global-set-key (kbd "C-c l") 'evil-avy-goto-line)
+(global-set-key (kbd "C-c g") 'evil-avy-goto-line)
 ;; quickly move region left
 (global-set-key (kbd "C-c i") (kbd "C-u -4 C-x TAB"))
 ;;(global-set-key (kbd "C-c C-m") 'shift-left)
@@ -725,8 +732,7 @@ you should place your code here."
 ;;delete whole line
 (global-set-key (kbd "M-k") 'my-kill-whole-line)
 ;; quick copy whole line
-(global-set-key (kbd "C-c c") 'copy-lines)
-;;(global-set-key (kbd "C-c l") 'copy-lines)
+(global-set-key (kbd "C-c l") 'copy-lines)
 ;; quick choose one line
 (global-set-key (kbd "C-c m") 'my-mark-line)
 ;; quick choose whole buffer
@@ -743,17 +749,28 @@ you should place your code here."
 
 
 ;; MOUSE
-(global-set-key [mouse-4] 'scroll-down-line)
-(global-set-key [mouse-5] 'scroll-up-line)
-
+;;(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
+;;(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
+(global-set-key [(mouse-5)] '(lambda () (interactive) (scroll-up-line 3)))
+(global-set-key [(mouse-4)] '(lambda () (interactive) (scroll-down-line 3)))
+;;(global-set-key [mouse-4] 'good-scroll-down)
+;;(global-set-key [mouse-5] 'good-scroll-up)
+;;(pixel-scroll-mode 1)
+(good-scroll-mode 1)
 
 ;; OTHER CONFIG
+;; open spacemacs configure file
+(global-set-key (kbd "C-c C-f") 'spacemacs/find-dotfile)
 ;; reload spacemacs configure file
-(global-set-key (kbd "C-c C-e") 'dotspacemacs/sync-configuration-layers)
+(global-set-key (kbd "C-c C-r") 'dotspacemacs/sync-configuration-layers)
 ;; choose theme
 ;;(global-set-key (kbd "C-c C-t") 'helm-themes)
 ;; bind escape to cancel
 ;;(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+
+;; shell-pop for M-'
+(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -874,11 +891,11 @@ you should place your code here."
 ;;(desktop-save-mode 1)
 
 ;; enable sublimity minimap
- ;; (require 'sublimity)
- ;; (require 'sublimity-scroll)
+;; (require 'sublimity)
+;;(require 'sublimity-scroll)
  ;; (require 'sublimity-map)
  ;; (require 'sublimity-attractive)
- ;; (sublimity-mode 1)
+;;(sublimity-mode 1)
  ;; (sublimity-map-set-delay nil)
  ;; (setq sublimity-map-size 10)
  ;; (setq sublimity-map-fraction 0.3)
@@ -887,9 +904,22 @@ you should place your code here."
 ;; enable hightlight for all selected
 ;; (global-highlight-thing-mode t)
 ;; (setq highlight-thing-what-thing 'symbol)
-;; (setq highlight-thing-delay-seconds 0.1)
+;; (setq highlight-thing-delay-seconds 1.5)
 ;; (setq highlight-thing-limit-to-defun t)
 ;; (setq highlight-thing-case-sensitive-p t)
+
+
+;; hightlight symbol config
+(global-set-key (kbd "C-c c") 'highlight-symbol-at-point)
+;;(global-set-key [f4] (lambda () (interactive) (unhighlight-regexp t)))
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [f4] 'highlight-symbol-prev)
+(global-set-key (kbd "C-c x") 'highlight-symbol-remove-all)
+
+;;(idle-highlight-mode)
+
+;; beacon config
+;;(beacon-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -925,6 +955,8 @@ you should place your code here."
               ;;(define-key c++-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
               (define-key c-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
               ;;(define-key c-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
+              (define-key c-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
+              (define-key c++-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
               (define-key c++-mode-map(kbd "<f5>") 'gdb)
               (define-key c-mode-map(kbd "<f5>") 'gdb))))
 
@@ -1063,3 +1095,81 @@ Do this after `q` in Debugger buffer."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil)))))
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+;; -*- mode: emacs-lisp -*-
+;; This file is where Emacs writes custom variables.
+;; Spacemacs will copy its content to your dotfile automatically in the
+;; function `dotspacemacs/emacs-custom-settings'.
+;; Do not alter this file, use Emacs customize interface instead.
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("bc75dfb513af404a26260b3420d1f3e4131df752c19ab2984a7c85def9a2917e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+ '(evil-want-Y-yank-to-eol nil)
+ '(package-selected-packages
+   '(idle-highlight-mode rich-minority smart-mode-line-atom-one-dark-theme smart-mode-line smart-mode-line-powerline-theme spaceline-all-the-icons all-the-icons memoize yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic youdao-dictionary names chinese-word-at-point company-quickhelp monokai-theme helm-themes helm-swoop helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-cscope helm-company helm-c-yasnippet helm-ag ace-jump-helm-line company-shell insert-shebang fish-mode x86-lookup nasm-mode zenburn-theme zen-and-art-theme xterm-color xcscope unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle shell-pop seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme orgit organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mwim mustang-theme multi-term monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme magit-gitflow madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags gandalf-theme fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme eshell-z eshell-prompt-extras esh-help dracula-theme django-theme disaster darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-statistics company-c-headers company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clang-format cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))
+ '(sml/mode-width (if (eq (powerline-current-separator) 'arrow) 'right 'full))
+ '(sml/pos-id-separator
+   '(""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " " 'display
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (car powerline-default-separator-dir)))
+                   'powerline-active1 'powerline-active2)))
+     (:propertize " " face powerline-active2)))
+ '(sml/pos-minor-modes-separator
+   '(""
+     (:propertize " " face powerline-active1)
+     (:eval
+      (propertize " " 'display
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (cdr powerline-default-separator-dir)))
+                   'powerline-active1 'sml/global)))
+     (:propertize " " face sml/global)))
+ '(sml/pre-id-separator
+   '(""
+     (:propertize " " face sml/global)
+     (:eval
+      (propertize " " 'display
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (car powerline-default-separator-dir)))
+                   'sml/global 'powerline-active1)))
+     (:propertize " " face powerline-active1)))
+ '(sml/pre-minor-modes-separator
+   '(""
+     (:propertize " " face powerline-active2)
+     (:eval
+      (propertize " " 'display
+                  (funcall
+                   (intern
+                    (format "powerline-%s-%s"
+                            (powerline-current-separator)
+                            (cdr powerline-default-separator-dir)))
+                   'powerline-active2 'powerline-active1)))
+     (:propertize " " face powerline-active1)))
+ '(sml/pre-modes-separator (propertize " " 'face 'sml/modes)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background nil)))))
+)
