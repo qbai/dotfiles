@@ -873,6 +873,25 @@ you should place your code here."
 ;; enable auto-completion non-sensitive
 (setq ac-ignore-case t)
 
+;; hightlight symbol config
+(global-set-key (kbd "C-c C-c") 'highlight-symbol-at-point)
+;;(global-set-key [f4] (lambda () (interactive) (unhighlight-regexp t)))
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [f4] 'highlight-symbol-prev)
+(global-set-key (kbd "C-c c") 'highlight-symbol-remove-all)
+(add-hook 'c-mode-hook
+          (lambda ()
+            (define-key c-mode-map(kbd "C-c C-c") 'highlight-symbol-at-point)
+            (define-key c-mode-map(kbd "C-c c") 'highlight-symbol-remove-all)))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c-mode))
+
+
+;;(global-set-key (kbd "C-c C-e") '(lambda () (interactive) (point-to-register "e")))
+
+
+
+;;(idle-highlight-mode)
+
 ;; Use company mode instead of auto-complete
 ;; (global-company-mode)
 ;; (setq company-auto-complete t)
@@ -908,15 +927,6 @@ you should place your code here."
 ;; (setq highlight-thing-limit-to-defun t)
 ;; (setq highlight-thing-case-sensitive-p t)
 
-
-;; hightlight symbol config
-(global-set-key (kbd "C-c c") 'highlight-symbol-at-point)
-;;(global-set-key [f4] (lambda () (interactive) (unhighlight-regexp t)))
-(global-set-key [f3] 'highlight-symbol-next)
-(global-set-key [f4] 'highlight-symbol-prev)
-(global-set-key (kbd "C-c x") 'highlight-symbol-remove-all)
-
-;;(idle-highlight-mode)
 
 ;; beacon config
 ;;(beacon-mode 1)
@@ -964,6 +974,8 @@ you should place your code here."
 ;;           (lambda ()
 ;;             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
 ;;               (ggtags-mode 1))))
+
+
 
 ;; gud-gdb
 (setq gdb-many-windows t) ;; <f5> start gud-gdb
