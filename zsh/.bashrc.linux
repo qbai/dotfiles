@@ -327,3 +327,8 @@ alias croc="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
 alias rg='rg -i -e'
 #alias rg='rg_with_colors(){rg -i -e "$1" --color always};rg_with_colors'
 alias emacs='emacs -nw'
+alias screenoff='sudo xset dpms force off'
+
+pc4() {
+      proxychains4 "$@"
+  }
