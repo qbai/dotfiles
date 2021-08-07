@@ -61,7 +61,7 @@ values."
            shell-default-term-shell "/usr/bin/zsh"
            shell-default-position 'bottom
            shell-default-full-span nil
-           shell-default-height 80)
+           shell-default-height 100)
     syntax-checking
     ;;spell-checking
 
