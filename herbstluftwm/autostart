@@ -137,6 +137,9 @@ hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
+# horizontal split by default ( version > 0.9.3)
+hc attr settings.default_frame_layout horizontal
+
 # tags
 #tag_names=("  " "  " "  " "  " "  " "   " "   " "  " "  " "  " )
 #tag_names=("WEB" "TERM" "FILE" "MEDIA" "GIMP": "MISC" "CODE" "RRENT" "REDDIT" "CHAT")
@@ -155,6 +158,8 @@ for i in ${!tag_names[@]} ; do
     fi
 done
 
+# horizontal split by default ( version > 0.9.3)
+hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr ATTR horizontal
 
 # start all windows in floating mode
 #for attr in $(herbstclient complete 1 attr tags.by-name); do
