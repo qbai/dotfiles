@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# this is a simple config for herbstluftwm
+#
 #
 #                     ██                      ██                      ██
 #                    ░██                     ░██                     ░██
@@ -41,7 +41,6 @@ dunst -conf ~/.config/dunst/dunstrc &
 feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
 
 xrdb .Xresources
-#polybar top &
 redshift -O 5500K
 
 # keybindings
@@ -65,12 +64,11 @@ hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
 #hc keybind $Mod-Shift-l spawn screenoff
 
 #hc keybind $Mod-Alt-l spawn i3lock -i ~/Pictures/Wallpapers/rocket.png -l c0c5ce -w bf616a -o a3be8c
-
 #hc keybind Alt-b spawn herbstpaneltoogle
 
 # start favorite termnal
 hc keybind $Mod-Return spawn termite
-hc keybind $Mod-Shift-Return spawn urxvt
+hc keybind $Mod-Shift-Return spawn tilda
 
 # start rofi
 hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -width 40 -padding 450 -opacity "80" -font "SourceCodePro 12"
@@ -164,7 +162,7 @@ hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr AT
 # start all windows in floating mode
 #for attr in $(herbstclient complete 1 attr tags.by-name); do
 #	    herbstclient attr "$attr.floating" true
-#    done
+#done
 
 
 # cycle through tags
