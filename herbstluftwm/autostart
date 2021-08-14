@@ -29,7 +29,7 @@ hc keyunbind --all
 killall dzen2 &
 killall conky &
 # close tray if reloading
-killall stalonetray
+killall stalonetray &
 
 killall compton &
 killall dunst &
@@ -53,7 +53,7 @@ Mod=Mod4   # Use the super key as the main modifier
 hc spawn nitrogen --restore
 #hc spawn dunst
 #hc spawn dropbox
-hc spawn nm-applet
+#hc spawn nm-applet
 #hc spawn xfce4-panel
 
 
@@ -76,11 +76,12 @@ hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -wi
 # start some programs
 #hc keybind $Mod-x spawn firefox
 
+# start google chrome
 hc keybind $Mod-x spawn google-chrome-stable
 #hc keybind $Mod-x spawn google-chrome-stable --proxy-server="socks5://127.0.0.1:7591" #--proxy-pac-url="file://~/dotfiles/privoxy/autoproxy.pac"
 
 hc keybind $Mod-Alt-g spawn gpick --pick
-hc keybind $Mod-Shift-x spawn qutebrowser
+#hc keybind $Mod-Shift-x spawn qutebrowser
 #hc keybind $Mod-d spawn dmenu_run -x 810 -y 540 -w 300 -h 25 -fn "tewi 9"
 hc keybind $Mod-Alt-m spawn termite -e ncmpcpp
 hc keybind $Mod-Ctrl-r spawn termite -e ranger
@@ -88,7 +89,7 @@ hc keybind $Mod-Alt-h spawn termite -e hangups
 hc keybind $Mod-Alt-r spawn termite -e rtv
 hc keybind $Mod-Alt-w spawn termite -e weechat
 hc keybind $Mod-Alt-t spawn termite -e tmux
-#Screenshot
+# Screenshot
 hc keybind Print spawn ~/.config/herbstluftwm/screenshot.sh
 
 # volume control
@@ -105,7 +106,7 @@ hc keybind $Mod-Right focus right
 hc keybind $Mod-j     focus left
 hc keybind $Mod-k     focus down
 hc keybind $Mod-i     focus up
-hc keybind $Mod-l   focus right
+hc keybind $Mod-l     focus right
 
 # moving clients
 hc keybind $Mod-Shift-Left  shift left
@@ -258,7 +259,7 @@ hc unlock
 herbstclient set tree_style '╾│ ├└╼─┐'
 
 # do multi monitor setup here, e.g.:
-# config for home
+# config manually
 #hc set_monitors 2560x1600+0+0 3440x1440+2560+0
 # or simply:
 hc detect_monitors
