@@ -194,7 +194,11 @@ hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab         cycle_all +1
 hc keybind $Mod-Shift-Tab   cycle_all -1
 hc keybind $Mod-c cycle
-hc keybind $Mod-Shift-u jumpto urgent
+
+#hc keybind $Mod-Shift-u jumpto urgent
+# unminimize the client
+hc keybind $Mod-Shift-u jumpto last-minimized
+#hc jumpto longest-minimized
 
 # for emacs unbind C-M-p
 #hc keyunbind Control-Alt-p
