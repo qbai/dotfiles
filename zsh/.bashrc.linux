@@ -64,7 +64,7 @@ alias pm10="ps auxw|head -1;ps auxw|sort -rn -k4|head -10"
 alias mem="free -h"
 #alias memp='mep(){grep Pss /proc/"$1"/smaps| awk "{total+=$2}; END {print total}"};mep'
 
-alias ng="netstat -antp|grep"
+alias ng="netstat -antp|grep 'listen'"
 #alias ngk="netstat -an|grep $1|awk '{print $2}'|sudo xargs kill -9"
 alias lg="lsof -i|grep"
 #alias lgd='lsof +D'
