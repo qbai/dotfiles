@@ -230,8 +230,9 @@ format-disconnected-underline=${colors.pink}
 
 format-connected=<label-connected>
 label-connected= Wifi%downspeed:9:9% %upspeed:9:9%
+label-connected-foreground = ${colors.magenta}
 format-connected-padding=1
-format-connected-background=${colors.magenta}
+format-connected-background=${colors.modb}
 
 
 [module/wired]
