@@ -67,7 +67,8 @@ hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
 #hc keybind Alt-b spawn herbstpaneltoogle
 
 # start favorite termnal
-hc keybind $Mod-Return spawn termite
+#hc keybind $Mod-Return spawn termite
+hc keybind $Mod-Return spawn alacritty
 hc keybind $Mod-Shift-Return spawn tilda
 
 # start rofi
