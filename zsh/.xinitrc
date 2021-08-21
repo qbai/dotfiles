@@ -139,5 +139,10 @@ xset dpms 0 0 1200
 ####(xss-lock -- xlock -mode blank >/dev/null 2>&1)&
 ################################################
 
+
+# enable ss-local
+#sudo systemctl enable --now shadowsocks-libev@jp.service
+ss-local -c /etc/shadowsocks/jp.json &
+
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
