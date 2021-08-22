@@ -128,7 +128,7 @@ selection:
   save_to_clipboard: true
 
 mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
+  - { mouse: Right, action: PasteSelection }
 
 mouse:
   double_click: { threshold: 300 }
