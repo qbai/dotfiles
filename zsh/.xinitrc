@@ -140,7 +140,7 @@ xset dpms 0 0 1200
 ################################################
 
 # enable ss-local
-sudo systemctl enable --now shadowsocks-libev@jp.service
+sudo systemctl start shadowsocks-libev@jp.service
 #ss-local -c /etc/shadowsocks/jp.json &
 
 # ░▒▓█ herbstluft █▓▒░
