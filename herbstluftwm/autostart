@@ -210,7 +210,6 @@ hc attr theme.floating.reset 1
 hc set frame_border_active_color '#151515'
 
 # panel color
-
 hc set frame_bg_normal_color '#900900'
 hc set frame_border_normal_color '#111313'
 # blank window frame thing
