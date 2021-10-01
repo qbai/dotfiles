@@ -251,7 +251,10 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	fi	
 	
 	# start up ss manually
-	alias start-ss='(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&'
+	alias start-ss='sudo systemctl start shadowsocks-libev@jp.service'
+	#alias start-ss='(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&'
+
+	#alias start-wifi='sudo netctl start wlan0-NewLan'
 fi
 	## xmodmap -pke  => print current keymapping table
 	# exchange tilde and grave for my filco keyboard
