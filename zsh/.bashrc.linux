@@ -225,11 +225,12 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias suspend='sudo systemctl suspend'
 	alias hibernate='sudo systemctl hibernate'
 
-	alias ainstall='sudo pacman -Sy --noconfirm'
-	alias aremove='sudo pacman -Rs --noconfirm'
-	alias aremove2='sudo pacman -Rdd --noconfirm'
+	alias pacin='sudo pacman -Sy --noconfirm'
+	alias pacre='sudo pacman -Rs --noconfirm'
+	alias pacupg='sudo pacman -Syu --noconfirm'
+
+	# alias aremove2='sudo pacman -Rdd --noconfirm'
 	# pacman -Qs    query installed package
-	alias aupgrade='sudo pacman -Syu --noconfirm'
 	#alias yinstall='yaourt -S'
 	#alias yremove='yaourt -R'
 	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'

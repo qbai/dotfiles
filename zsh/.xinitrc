@@ -122,7 +122,6 @@ fi
 #xset s 7200 600
 #(xss-lock -n hibernate -- lock -n >/dev/null 2>&1)& # lock screen after 10 min 
 						     # hibernate after 2 hours
-
 ####(xss-lock -- lock -n >/dev/null 2>&1)&
 ####xset s 30 20
 ####(xss-lock -n /usr/share/doc/xss-lock/dim-screen.sh -- lock -n >/dev/null 2>&1)&
@@ -130,9 +129,9 @@ fi
 # 2. at home
 # shutdown screen after 20min
 xset dpms 0 0 1200
-# hibernate after 2 hours
-#xset s 7200
-#(xss-lock -- hibernate >/dev/null 2>&1)&
+# hibernate after 1 hours
+xset s 3600
+(xss-lock -- hibernate >/dev/null 2>&1)&
 
 ####xset s 600
 ####(xss-lock -- xset dpms force off >/dev/null 2>&1)&
