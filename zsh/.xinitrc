@@ -128,9 +128,9 @@ fi
 
 # 2. at home
 # shutdown screen after 20min
-xset dpms 0 0 1200
-# hibernate after 1 hours
-xset s 3600
+#xset dpms 0 0 1200
+# hibernate after half hour
+xset s 1800
 (xss-lock -- hibernate >/dev/null 2>&1)&
 
 ####xset s 600
