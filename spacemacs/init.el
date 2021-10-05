@@ -870,6 +870,9 @@ you should place your code here."
 ;; auto-rereading files
 (global-auto-revert-mode t)
 
+;; which-function-mode enable
+(which-function-mode t)
+
 ;; enable auto-completion non-sensitive
 (setq ac-ignore-case t)
 
