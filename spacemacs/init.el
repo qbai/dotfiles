@@ -873,6 +873,9 @@ you should place your code here."
 ;; which-function-mode enable
 (which-function-mode t)
 
+;; enable ruler for column 80
+(display-fill-column-indicator-mode t)
+
 ;; enable auto-completion non-sensitive
 (setq ac-ignore-case t)
 
