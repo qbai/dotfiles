@@ -73,7 +73,7 @@ ramp-headphones-1 = 
 [module/date1]
 type                     = internal/date
 interval                 = 1
-date                     = "%Y-%m-%d %I:%M:%S"
+date                     = "%Y-%m-%d %H:%M:%S"
 format-prefix            = 
 format-prefix-foreground = ${colors.red}
 format-background        = ${colors.modb}
