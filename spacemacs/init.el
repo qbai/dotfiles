@@ -223,7 +223,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -651,6 +651,10 @@ you should place your code here."
   (scroll-up increment) (sit-for 0.06)
   (scroll-up increment))
 
+(defun kill-all-buffer ()
+  "Kill all buffer."
+  (interactive)
+  (dolist (buffer (buffer-list)) (kill-buffer buffer)))
 
 ;; KEY REMAP
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
@@ -688,7 +692,8 @@ you should place your code here."
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
 ;; kill all buffers
 ;;;(global-set-key (kbd "C-M-a-k") 'nuke-all-buffers)
-(global-set-key (kbd "C-c k") 'kill-some-buffers)
+;;(global-set-key (kbd "C-c k") 'kill-some-buffers)
+(global-set-key (kbd "C-c k") 'kill-all-buffer)
 
 
 ;; MOVING
@@ -770,8 +775,8 @@ you should place your code here."
 
 
 ;; shell-pop for M-'
-(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
-
+(global-set-key (kbd "M-'") 'dotspacemacs/shell-pop-ansi-term)
+;;(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -874,7 +879,7 @@ you should place your code here."
 (which-function-mode t)
 
 ;; enable ruler for column 80
-(display-fill-column-indicator-mode t)
+;;(display-fill-column-indicator-mode t)
 
 ;; enable auto-completion non-sensitive
 (setq ac-ignore-case t)
@@ -953,7 +958,6 @@ you should place your code here."
 
 ;; gtags
 (spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
-
 (add-hook 'c-mode-common-hook
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
@@ -1010,7 +1014,27 @@ Do this after `q` in Debugger buffer."
 
 
 ;; compilation
-(global-set-key (kbd "<f2>") 'compile)
+;; C-f2 config compile command; f2 save current file and run compile
+;; make -k -C <Makefile directory> 
+(defun du-onekey-compile ()
+  "Save buffers and start compile"
+  (interactive)
+  (save-some-buffers t)
+  (switch-to-buffer-other-window "*compilation*")
+  (compile compile-command))
+(global-set-key [C-f2] 'compile)
+(global-set-key [f2] 'du-onekey-compile)
+
+;; manually config compile command and run it 
+(defun quick-compile ()
+  "A quick compile funciton for C"
+  (interactive)
+  (compile (concat "gcc " (buffer-name (current-buffer)) " -g -Wall -pg -o "
+                   (file-name-sans-extension (buffer-name (current-buffer))) )))
+;;bind F3
+(global-set-key [(f3)] 'quick-compile)
+
+;;(global-set-key (kbd "<f2>") 'compile)
 ;; change Makefile in another directory (compared to root directory)
 ;;((c++-mode (helm-make-build-dir . "build/")))
 ;;(put 'helm-make-build-dir 'safe-local-variable 'stringp)
