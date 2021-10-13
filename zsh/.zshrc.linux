@@ -78,6 +78,8 @@ alias -s properties='bat'
 alias -s csv='bat'
 alias -s yml='sudo less -i -M -R -j20 -J'
 
+alias -s md='mdless'
+
 alias -s c='emacsclient -t'
 alias -s cpp='emacsclient -t'
 alias -s cxx='emacsclient -t'
