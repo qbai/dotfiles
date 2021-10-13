@@ -57,7 +57,6 @@
 	proxy = https://127.0.0.1:8118
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = /home/ghost/.gitignore
 
 [sendemail]
         smtpencryption = tls
