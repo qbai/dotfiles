@@ -273,6 +273,7 @@ alias gde='git difftool --tool=ediffclient --no-prompt'
 alias gme='git mergetool --tool=ediffclient --no-prompt'
 alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
 alias gst2='git status -uno'
+#alias greset-'git reset --hard HEAD^'
 #########################################
 
 ############## performance #############
