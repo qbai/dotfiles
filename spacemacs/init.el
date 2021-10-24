@@ -1032,7 +1032,7 @@ Do this after `q` in Debugger buffer."
   (compile (concat "gcc " (buffer-name (current-buffer)) " -g -Wall -pg -o "
                    (file-name-sans-extension (buffer-name (current-buffer))) )))
 ;;bind F3
-(global-set-key [(f3)] 'quick-compile)
+(global-set-key [(C-f3)] 'quick-compile)
 
 ;;(global-set-key (kbd "<f2>") 'compile)
 ;; change Makefile in another directory (compared to root directory)
