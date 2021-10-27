@@ -339,3 +339,5 @@ alias screenoff='sudo xset dpms force off'
 pc4() {
       proxychains4 "$@"
   }
+
+alias procs='procs --sortd cpu -W 1'
