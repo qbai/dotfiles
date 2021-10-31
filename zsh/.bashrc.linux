@@ -208,7 +208,7 @@ cleartrash()
 }
 
 ###################### trash ######################
-#export EDITOR='sudo nano -w'
+export EDITOR='sudo less -i -M -R -j20 -J' # for ranger preview
 export VISUAL='sudo nano -w -m'
 # if VISUAL does not work, uninstall or rename vi then link nano as vi 
 
