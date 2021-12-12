@@ -209,7 +209,7 @@ cleartrash()
 
 ###################### trash ######################
 export EDITOR='sudo less -i -M -R -j20 -J' # for ranger preview
-export VISUAL='sudo nano -w -m'
+export VISUAL='sudo nano -w -m -$'
 # if VISUAL does not work, uninstall or rename vi then link nano as vi 
 
 export GTAGSLABEL=pygments
@@ -320,6 +320,11 @@ function edf() {
 	fi
 }
 
+
+
+## herbstluftwm
+alias herb-config="less -i -M -R -j20 -J ~/dotfiles/herbstluftwm/autostart"
+alias herb-keys="herbstclient list_keybinds"
 
 
 ######################### new append at tail ################################
