@@ -346,3 +346,4 @@ pc4() {
   }
 
 alias procs='procs --sortd cpu -W 1'
+alias gdb='gdb -q'
