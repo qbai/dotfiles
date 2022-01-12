@@ -81,6 +81,7 @@ values."
     cscope
     ;;ycmd
     ;;semantic
+    ;;debug
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -976,25 +977,72 @@ you should place your code here."
               (define-key c-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
               ;;(define-key c-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
               (define-key c-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
-              (define-key c++-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
-              (define-key c++-mode-map(kbd "<f5>") 'gdb)
-              (define-key c-mode-map(kbd "<f5>") 'gdb))))
-
+              (define-key c++-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
 ;; (add-hook 'c-mode-common-hook
 ;;           (lambda ()
 ;;             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
 ;;               (ggtags-mode 1))))
 
-
-
 ;; gud-gdb
-(setq gdb-many-windows t) ;; <f5> start gud-gdb
-;; jump to other window
-(global-set-key (kbd "<f7>") 'other-window)
+;; GDB layout
+(defadvice gdb-setup-windows (after activate)
+  (gdb-setup-my-windows))
+
+(defun gdb-setup-my-windows ()
+  (set-window-dedicated-p (selected-window) nil)
+  (switch-to-buffer gud-comint-buffer)
+  (delete-other-windows)
+  (let
+    ((win0 (selected-window))             ; breakpoints
+     (win1 (split-window-horizontally
+         (floor (* 0.5 (window-width)))))   ; source + i/o
+     (win2 (split-window-vertically
+         (floor (* 0.5 (window-body-height))))) ; gdb
+     (win3 (split-window-vertically
+        (floor (* 0.5 (window-body-height))))) ; locals
+     (win4 (split-window-vertically
+         (floor (* 0.6 (window-body-height))))) ; stack
+    )
+    (select-window win1)
+    ; configurating right window
+    (let
+    ((winSrc (selected-window)) ; source
+     (winIO (split-window-vertically (floor (* 0.9 (window-body-height))))) ; I/O
+     )
+      (set-window-buffer winIO (gdb-get-buffer-create 'gdb-inferior-io))
+      (set-window-buffer
+    winSrc
+    (if gud-last-last-frame
+     (gud-find-file (car gud-last-last-frame))
+      (if gdb-main-file
+       (gud-find-file gdb-main-file)
+     (list-buffers-noselect))))
+      (setq gdb-source-window winSrc)
+      (set-window-dedicated-p winIO t)
+   )
+
+    (set-window-buffer win0 (gdb-get-buffer-create 'gdb-breakpoints-buffer))
+    (set-window-buffer win3 (gdb-get-buffer-create 'gdb-locals-buffer))
+    (set-window-buffer win4 (gdb-get-buffer-create 'gdb-stack-buffer))
+    (select-window win2)
+  ))
+
+(setq gdb-many-windows t)
+;; C-c C-g start gud-gdb
+(global-set-key (kbd "C-c C-g") 'gdb)
+(global-set-key (kbd "<f5>") 'gud-run)
+(global-set-key (kbd "S-<f5>") 'gud-cont)
+(global-set-key (kbd "<f6>") 'gud-next)
+(global-set-key (kbd "<f7>") 'gud-step)
+(global-set-key (kbd "<f8>") 'gud-finish)
+(global-set-key (kbd "<f10>") 'gud-break)
+(global-set-key (kbd "C-<f10>") 'gud-remove)
+;; C-<f7> jump to other window
+(global-set-key (kbd "C-<f7>") 'other-window)
 ;;(global-set-key (kbd "C-<f8>") 'previous-error)
 ;;(global-set-key (kbd "<f8>") 'next-error)
 (defvar all-gud-modes
-  '(gud-mode comint-mode gdb-locals-mode gdb-frames-mode  gdb-breakpoints-mode)
+  '(gud-mode comint-mode gdb-locals-mode gdb-frames-mode gdb-breakpoints-mode)
   "A list of modes when using gdb")
 (defun kill-all-gud-buffers ()
   "Kill all gud buffers including Debugger, Locals, Frames, Breakpoints.
@@ -1009,9 +1057,7 @@ Do this after `q` in Debugger buffer."
                   (kill-buffer buffer)
                   (delete-other-windows))) ;; fix the remaining two windows issue
           (message "Killed %i buffer(s)." count))))
-(global-set-key (kbd "<f8>") 'kill-all-gud-buffers)
-
-
+(global-set-key (kbd "C-<f5>") 'kill-all-gud-buffers)
 
 ;; compilation
 ;; C-f2 config compile command; f2 save current file and run compile
@@ -1024,7 +1070,6 @@ Do this after `q` in Debugger buffer."
   (compile compile-command))
 (global-set-key [C-f2] 'compile)
 (global-set-key [f2] 'du-onekey-compile)
-
 ;; manually config compile command and run it 
 (defun quick-compile ()
   "A quick compile funciton for C"
