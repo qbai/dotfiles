@@ -320,6 +320,7 @@ function edf() {
 	fi
 }
 
+function gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 
 
 ## herbstluftwm

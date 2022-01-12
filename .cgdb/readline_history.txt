@@ -1,0 +1,35 @@
+q
+q
+q 
+q
+b 42
+r
+gef config context.layout
+gef config context.layout "legend -stack regs threads args code memory trace extr-a source"
+gef config context.layout "legend -stack regs threads args cod-e memory trace extr-a source"
+b 42
+r
+q
+b 42
+r
+q
+b 42
+r
+b 42
+r
+n
+p ring
+x ring
+p ring.sq
+p ring.sq.ring_sz
+u 65
+p mask
+p ktail
+p to_submit 
+p to_submit
+b 42
+r
+context args
+context regs
+context stack
+q

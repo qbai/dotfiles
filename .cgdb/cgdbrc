@@ -1,0 +1,7 @@
+set wso=vertical
+set arrowstyle=highlight
+## F9 to jump out from loop
+map <F9> :until<cr>
+set autosourcereload
+set ignorecase
+set tabstop=4

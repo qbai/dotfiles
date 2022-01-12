@@ -1,0 +1,360 @@
+2022-01-08 14:09:04 fork_util.cpp:237() INFO:Invoking program:
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[0]=gdb 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[1]=--nw 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[2]=-ex 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[3]=set annotate 2 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[4]=-ex 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[5]=set height 0 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[6]=--annotate=2 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[7]=-q 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[8]=--args 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[9]=io_uring-test 
+
+2022-01-08 14:09:04 fork_util.cpp:239() INFO:  argv[10]=Makefile 
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[32mGEF(\033)[0m for linux ready, type `(\033)[4m(\033)[33mgef(\033)[24m(\033)[0m' to start, `(\033)[4m(\033)[35mgef config(\033)[24m(\033)[0m' to configure(\r)(\n)(\033)[1m(\033)[32m96(\033)[0m commands loaded for GDB (\033)[1m(\033)[33m11.1(\033)[0m using Python engine (\033)[1m(\033)[31m3.9(\033)[0m(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[1m(\033)[32m[+](\033)[0m Configuration from '(\033)[1m(\033)[34m/home/ghost/.gef.rc(\033)[0m' restored(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:Reading symbols from (\033)[32mio_uring-test(\033)[m...(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;31mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:05 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-data-disassemble -s 0 -e 0 -- 4"(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:^done,asm_insns=[](\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;31mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:05 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-break-info"(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004l(\r)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:~"\n\032\032breakpoints-table-end\n"(\r)(\n)^done,BreakpointTable={nr_rows="0",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="10",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[]}(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;31mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:05 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-stack-info-frame"(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004l(\r)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:^error,msg="No registers."(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;31mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:05 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-inferior-tty-set /dev/pts/9"(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:^done(\r)(\n)
+
+2022-01-08 14:09:05 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;31mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:07 tgdb.cpp:521() DEBUG:b 42(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:Breakpoint 1 at (\033)[34m0x11af(\033)[m: file (\033)[32mio_uring-test.c(\033)[m, line 42.(\r)(\n)(\r)(\n)(\032)(\032)breakpoints-invalid(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;31mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:07 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-break-info"(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032breakpoints-headers\n"(\r)(\n)~"\n\032\032field "(\r)(\n)~"0\n"(\r)(\n)~"\n\032\032field "(\r)(\n)~"1\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"2\n"(\r)(\n)~"\n\032\032field "(\r)(\n)~"3\n"(\r)(\n)~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"4\n"(\r)(\n)~"\n\032\032field "(\r)(\n)~"5\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032breakpoints-table\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032record\n"(\r)(\n)~"\n\032\032field "(\r)(\n)~"0\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"1\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"2\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"3\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"4\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"5\n"(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:~"\n\032\032breakpoints-table-end\n"(\r)(\n)^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x00000000000011af",func="main",file="io_uring-test.c",fullname="/home/ghost/repo/liburing/examples/io_uring-test.c",line="42",thread-groups=["i1"],times="0",original-location="/home/ghost/repo/liburing/examples/io_uring-test.c:42"}]}(\r)(\n)
+
+2022-01-08 14:09:07 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;31mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:08 tgdb.cpp:521() DEBUG:r(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\032)(\032)post-prompt(\r)(\n)Starting program: /home/ghost/repo/liburing/examples/io_uring-test Makefile(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)breakpoints-invalid(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)starting(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)breakpoints-invalid(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)breakpoint 1(\r)(\n)(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:Breakpoint 1, (\r)(\n)(\032)(\032)frame-begin 0 0x5555555551af(\r)(\n)(\r)(\n)(\032)(\032)frame-function-name(\r)(\n)(\033)[33mmain(\033)[m(\r)(\n)(\032)(\032)frame-args(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG: ((\r)(\n)(\032)(\032)arg-begin(\r)(\n)(\033)[36margc(\033)[m(\r)(\n)(\032)(\032)arg-name-end(\r)(\n)=(\r)(\n)(\032)(\032)arg-value -(\r)(\n)<optimized out>(\r)(\n)(\032)(\032)arg-end(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:, (\r)(\n)(\032)(\032)arg-begin(\r)(\n)(\033)[36margv(\033)[m(\r)(\n)(\032)(\032)arg-name-end(\r)(\n)=(\r)(\n)(\032)(\032)arg-value *(\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:0x7fffffffe058(\r)(\n)(\032)(\032)arg-end(\r)(\n))(\r)(\n)(\032)(\032)frame-source-begin(\r)(\n) at (\r)(\n)
+
+2022-01-08 14:09:08 io.cpp:136() DEBUG:(\032)(\032)frame-source-file(\r)(\n)(\033)[32mio_uring-test.c(\033)[m(\r)(\n)(\032)(\032)frame-source-file-end(\r)(\n):(\r)(\n)(\032)(\032)frame-source-line(\r)(\n)42(\r)(\n)(\032)(\032)frame-source-end(\r)(\n)(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)source /home/ghost/repo/liburing/examples/io_uring-test.c:42:849:beg:0x5555555551af(\r)(\n)(\r)(\n)(\032)(\032)frame-end(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:[ Legend: (\033)[1m(\033)[31mModified register(\033)[0m | (\033)[31mCode(\033)[0m | (\033)[32mHeap(\033)[0m | (\033)[35mStack(\033)[0m | (\033)[33mString(\033)[0m ](\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mregisters(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)(\033)[34m$rax   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$rbx   (\033)[0m: (\033)[35m0x00007fffffffe058(\033)[0m  →  (\033)[35m0x00007fffffffe3ac(\033)[0m  →  (\033)[33m"/home/ghost/repo/liburing/examples/io_uring-test"(\033)[0m(\r)(\n)(\033)[1m(\033)[31m$rcx   (\033)[0m: 0x118             (\r)(\n)(\033)[34m$rdx   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$rsp   (\033)[0m: (\033)[35m0x00007fffffffdda0(\033)[0m  →  0x0000000000000000(\r)(\n)(\033)[1m(\033)[31m$rbp   (\033)[0m: (\033)[35m0x00007fffffffde50(\033)[0m  →  0x00007ffff7fc6000  →  0x00007ffff7fc6000(\r)(\n)(\033)[1m(\033)[31m$rsi   (\033)[0m: 0x100             (\r)(\n)(\033)[34m$rdi   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$rip   (\033)[0m: (\033)[31m0x00005555555551af(\033)[0m  →  (\033)[1;38;5;240m<main+79> mov rdi, QWORD PTR [rbx+0x8](\033)[0m(\r)(\n)(\033)[1m(\033)[31m$r8    (\033)[0m: 0x8               (\r)(\n)(\033)[1m(\033)[31m$r9    (\033)[0m: 0x10000000        (\r)(\n)(\033)[1m(\033)[31m$r10   (\033)[0m: 0x8001            (\r)(\n)(\033)[1m(\033)[31m$r11   (\033)[0m: 0x246             (\r)(\n)(\033)[1m(\033)[31m$r12   (\033)[0m: (\033)[31m0x00005555555554c0(\033)[0m  →  (\033)[1;38;5;240m<_start+0> endbr64 (\033)[0m(\r)(\n)(\033)[34m$r13   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r14   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r15   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$eflags(\033)[0m: [(\033)[1mZERO(\033)[0m carry (\033)[1mPARITY(\033)[0m adjust sign trap (\033)[1mINTERRUPT(\033)[0m direction overflow resume virtualx86 identification](\r)(\n)(\033)[34m$cs(\033)[0m: 0x0033 (\033)[34m$ss(\033)[0m: 0x002b (\033)[34m$ds(\033)[0m: 0x0000 (\033)[34m$es(\033)[0m: 0x0000 (\033)[34m$fs(\033)[0m: 0x0000 (\033)[34m$gs(\033)[0m: 0x0000 (\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mthreads(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] Id 1, Name: "io_uring-test", (\033)[1m(\033)[31mstopped(\033)[0m (\033)[34m0x5555555551af(\033)[0m in (\033)[1m(\033)[33mmain(\033)[0m (), reason: (\033)[1m(\033)[35mBREAKPOINT(\033)[0m(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mcode:x86:64(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551a2 <main+66>        call   0x555555555a40 <io_uring_queue_init>(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551a7 <main+71>        test   eax, eax(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551a9 <main+73>        js     0x55555555540f <main+687>(\033)[0m(\r)(\n) (\033)[32m→ 0x5555555551af <main+79>        mov    rdi, QWORD PTR [rbx+0x8](\033)[0m(\r)(\n)   0x5555555551b3 <main+83>        mov    esi, 0x4000(\r)(\n)   0x5555555551b8 <main+88>        xor    eax, eax(\r)(\n)   0x5555555551ba <main+90>        call   0x5555555550f0 <open@plt>(\r)(\n)   0x5555555551bf <main+95>        mov    r13d, eax(\r)(\n)   0x5555555551c2 <main+98>        test   eax, eax(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mtrace(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] 0x5555555551af → (\033)[32mmain(\033)[0m((\033)[33margc(\033)[0m=<optimized out>, (\033)[33margv(\033)[0m=0x7fffffffe058)(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36msource:io_uring-test.c+42(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n) (\033)[1;38;5;240m    37(\t) (\t)if (ret < 0) {(\033)[0m(\r)(\n) (\033)[1;38;5;240m    38(\t) (\t)(\t)fprintf(stderr, "queue_init: %s\n", strerror(-ret));(\033)[0m(\r)(\n) (\033)[1;38;5;240m    39(\t) (\t)(\t)return 1;(\033)[0m(\r)(\n) (\033)[1;38;5;240m    40(\t) (\t)}(\033)[0m(\r)(\n) (\033)[1;38;5;240m    41(\t) (\033)[0m(\r)(\n)(\033)[32m(\033)[31m●(\033)[0m→   42(\t) (\t)fd = open(argv[1], O_RDONLY | O_DIRECT);(\033)[0m(\r)(\n)     43(\t) (\t)if (fd < 0) {(\r)(\n)     44(\t) (\t)(\t)perror("open");(\r)(\n)     45(\t) (\t)(\t)return 1;(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:     46(\t) (\t)}(\r)(\n)     47(\t) (\r)(\n)(\033)[1;38;5;240m(\033)[0m(\r)(\n)(\r)(\n)(\032)(\032)stopped(\r)(\n)(\033)[?2004h(\033)[?2004l(\r)(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:09 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-stack-info-frame"(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\033)[?2004l(\r)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032frame-begin "(\r)(\n)~"0 0x5555555551af\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032frame-address\n"(\r)(\n)~"\n\032\032frame-address-end\n"(\r)(\n)~"\n\032\032frame-function-name\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032frame-args\n"(\r)(\n)~"\n\032\032frame-source-begin\n"(\r)(\n)~"\n\032\032frame-source-file\n"(\r)(\n)~"\n\032\032frame-source-file-end\n"(\r)(\n)~"\n\032\032frame-source-line\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032frame-source-end\n"(\r)(\n)~"\n\032\032frame-end\n"(\r)(\n)^done,frame={level="0",addr="0x00005555555551af",func="main",file="io_uring-test.c",fullname="/home/ghost/repo/liburing/examples/io_uring-test.c",line="42",arch="i386:x86-64"}(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\033)[?2004h
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:09 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-break-info"(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\033)[?2004l(\r)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032breakpoints-headers\n"(\r)(\n)~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"0\n"(\r)(\n)~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"1\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"2\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"3\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"4\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"5\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032breakpoints-table\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032record\n"(\r)(\n)~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"0\n"(\r)(\n)~"\n\032\032field "(\r)(\n)~"1\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"2\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)~"3\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"4\n"(\r)(\n)~"\n\032\032field "(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"5\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:~"\n\032\032breakpoints-table-end\n"(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:^done,BreakpointTable={nr_rows="1",nr_cols="6",hdr=[{width="7",alignment="-1",col_name="number",colhdr="Num"},{width="14",alignment="-1",col_name="type",colhdr="Type"},{width="4",alignment="-1",col_name="disp",colhdr="Disp"},{width="3",alignment="-1",col_name="enabled",colhdr="Enb"},{width="18",alignment="-1",col_name="addr",colhdr="Address"},{width="40",alignment="2",col_name="what",colhdr="What"}],body=[bkpt={number="1",type="breakpoint",disp="keep",enabled="y",addr="0x00005555555551af",func="main",file="io_uring-test.c",fullname="/home/ghost/repo/liburing/examples/io_uring-test.c",line="42",thread-groups=["i1"],times="1",original-location="/home/ghost/repo/liburing/examples/io_uring-test.c:42"}]}(\r)(\n)
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\033)[?2004h
+
+2022-01-08 14:09:09 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:21 tgdb.cpp:521() DEBUG:context args(\n)
+
+2022-01-08 14:09:21 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:21 io.cpp:136() DEBUG:(\033)[1;38;5;240m(\033)[0m(\r)(\n)(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:25 tgdb.cpp:521() DEBUG:context regs(\n)
+
+2022-01-08 14:09:25 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:25 io.cpp:136() DEBUG:(\033)[1;38;5;240m (\033)[0m(\033)[36mregisters(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)(\033)[34m$rax   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$rbx   (\033)[0m: (\033)[35m0x00007fffffffe058(\033)[0m  →  (\033)[35m0x00007fffffffe3ac(\033)[0m  →  (\033)[33m"/home/ghost/repo/liburing/examples/io_uring-test"(\033)[0m(\r)(\n)(\033)[1m(\033)[31m$rcx   (\033)[0m: 0x118             (\r)(\n)(\033)[34m$rdx   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$rsp   (\033)[0m: (\033)[35m0x00007fffffffdda0(\033)[0m  →  0x0000000000000000(\r)(\n)(\033)[1m(\033)[31m$rbp   (\033)[0m: (\033)[35m0x00007fffffffde50(\033)[0m  →  0x00007ffff7fc6000  →  0x00007ffff7fc6000(\r)(\n)(\033)[1m(\033)[31m$rsi   (\033)[0m: 0x100             (\r)(\n)(\033)[34m$rdi   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$rip   (\033)[0m: (\033)[31m0x00005555555551af(\033)[0m  →  (\033)[1;38;5;240m<main+79> mov rdi, QWORD PTR [rbx+0x8](\033)[0m(\r)(\n)(\033)[1m(\033)[31m$r8    (\033)[0m: 0x8               (\r)(\n)(\033)[1m(\033)[31m$r9    (\033)[0m: 0x10000000        (\r)(\n)(\033)[1m(\033)[31m$r10   (\033)[0m: 0x8001            (\r)(\n)(\033)[1m(\033)[31m$r11   (\033)[0m: 0x246             (\r)(\n)(\033)[1m(\033)[31m$r12   (\033)[0m: (\033)[31m0x00005555555554c0(\033)[0m  →  (\033)[1;38;5;240m<_start+0> endbr64 (\033)[0m(\r)(\n)(\033)[34m$r13   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r14   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r15   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$eflags(\033)[0m: [(\033)[1mZERO(\033)[0m carry (\033)[1mPARITY(\033)[0m adjust sign trap (\033)[1mINTERRUPT(\033)[0m direction overflow resume virtualx86 identification](\r)(\n)(\033)[34m$cs(\033)[0m: 0x0033 (\033)[34m$ss(\033)[0m: 0x002b (\033)[34m$ds(\033)[0m: 0x0000 (\033)[34m$es(\033)[0m: 0x0000 (\033)[34m$fs(\033)[0m: 0x0000 (\033)[34m$gs(\033)[0m: 0x0000 (\r)(\n)(\033)[1;38;5;240m(\033)[0m
+
+2022-01-08 14:09:25 io.cpp:136() DEBUG:(\r)(\n)(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:35 tgdb.cpp:521() DEBUG:context stack(\n)
+
+2022-01-08 14:09:35 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:35 io.cpp:136() DEBUG:(\033)[1;38;5;240m (\033)[0m(\033)[36mstack(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)(\033)[36m0x00007fffffffdda0(\033)[0m│+0x0000: 0x0000000000000000(\033)[1m(\033)[34m(\t) ← $rsp(\033)[0m(\r)(\n)(\033)[36m0x00007fffffffdda8(\033)[0m│+0x0008: 0x0000000000000000(\r)(\n)(\033)[36m0x00007fffffffddb0(\033)[0m│+0x0010: 0x0000000000000000(\r)(\n)(\033)[36m0x00007fffffffddb8(\033)[0m│+0x0018: 0x0000000000000000(\r)(\n)(\033)[36m0x00007fffffffddc0(\033)[0m│+0x0020: 0x0000000000000000(\r)(\n)(\033)[36m0x00007fffffffddc8(\033)[0m│+0x0028: 0x0000000000000000(\r)(\n)(\033)[36m0x00007fffffffddd0(\033)[0m│+0x0030: 0x0000000000000000(\r)(\n)(\033)[36m0x00007fffffffddd8(\033)[0m│+0x0038: 0x0000000000000000(\r)(\n)(\033)[1;38;5;240m(\033)[0m(\r)(\n)
+
+2022-01-08 14:09:35 io.cpp:136() DEBUG:(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:54 tgdb.cpp:521() DEBUG:next(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)(\r)(\n)(\032)(\032)starting(\r)(\n)(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\032)(\032)source /home/ghost/repo/liburing/examples/io_uring-test.c:43:891:beg:0x5555555551c2(\r)(\n)(\r)(\n)(\032)(\032)frame-end(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\033)[H(\033)[2J
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:[ Legend: (\033)[1m(\033)[31mModified register(\033)[0m | (\033)[31mCode(\033)[0m | (\033)[32mHeap(\033)[0m | (\033)[35mStack(\033)[0m | (\033)[33mString(\033)[0m ](\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mregisters(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)(\033)[1m(\033)[31m$rax   (\033)[0m: 0x9               (\r)(\n)(\033)[34m$rbx   (\033)[0m: (\033)[35m0x00007fffffffe058(\033)[0m  →  (\033)[35m0x00007fffffffe3ac(\033)[0m  →  (\033)[33m"/home/ghost/repo/liburing/examples/io_uring-test"(\033)[0m(\r)(\n)(\033)[1m(\033)[31m$rcx   (\033)[0m: (\033)[31m0x00007ffff7ed55bb(\033)[0m  →  0x870ffffff0003d48 ("(\033)[33mH=(\033)[0m"?)(\r)(\n)(\033)[34m$rdx   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$rsp   (\033)[0m: (\033)[35m0x00007fffffffdda0(\033)[0m  →  0x0000000000000000(\r)(\n)(\033)[34m$rbp   (\033)[0m: (\033)[35m0x00007fffffffde50(\033)[0m  →  0x00007ffff7fc6000  →  0x00007ffff7fc6000(\r)(\n)(\033)[1m(\033)[31m$rsi   (\033)[0m: (\033)[35m0x00007fffffffe3dd(\033)[0m  →  (\033)[33m"Makefile"(\033)[0m(\r)(\n)(\033)[1m(\033)[31m$rdi   (\033)[0m: 0xffffff9c        (\r)(\n)(\033)[1m(\033)[31m$rip   (\033)[0m: (\033)[31m0x00005555555551c2(\033)[0m  →  (\033)[1;38;5;240m<main+98> test eax, eax(\033)[0m(\r)(\n)(\033)[34m$r8    (\033)[0m: 0x8               (\r)(\n)(\033)[34m$r9    (\033)[0m: 0x10000000        (\r)(\n)(\033)[1m(\033)[31m$r10   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r11   (\033)[0m: 0x246             (\r)(\n)(\033)[34m$r12   (\033)[0m: (\033)[31m0x00005555555554c0(\033)[0m  →  (\033)[1;38;5;240m<_start+0> endbr64 (\033)[0m(\r)(\n)(\033)[1m(\033)[31m$r13   (\033)[0m: 0x9               (\r)(\n)(\033)[34m$r14   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r15   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$eflags(\033)[0m: [zero carry (\033)[1mPARITY(\033)[0m adjust sign trap (\033)[1mINTERRUPT(\033)[0m direction overflow resume virtualx86 identification](\r)(\n)(\033)[34m$cs(\033)[0m: 0x0033 (\033)[34m$ss(\033)[0m: 0x002b (\033)[34m$ds(\033)[0m: 0x0000 (\033)[34m$es(\033)[0m: 0x0000 (\033)[34m$fs(\033)[0m: 0x0000 (\033)[34m$gs(\033)[0m: 0x0000 (\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mthreads(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] Id 1, Name: "io_uring-test", (\033)[1m(\033)[31mstopped(\033)[0m (\033)[34m0x5555555551c2(\033)[0m in (\033)[1m(\033)[33mmain(\033)[0m (), reason: (\033)[1m(\033)[35mSINGLE STEP(\033)[0m(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mcode:x86:64(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551b8 <main+88>        xor    eax, eax(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551ba <main+90>        call   0x5555555550f0 <open@plt>(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551bf <main+95>        mov    r13d, eax(\033)[0m(\r)(\n) (\033)[32m→ 0x5555555551c2 <main+98>        test   eax, eax(\033)[0m(\r)(\n)   0x5555555551c4 <main+100>       js     0x5555555553d4 <main+628>(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:   0x5555555551ca <main+106>       lea    rsi, [rsp+0x20](\r)(\n)   0x5555555551cf <main+111>       mov    edi, eax(\r)(\n)   0x5555555551d1 <main+113>       call   0x555555555150 <fstat@plt>(\r)(\n)   0x5555555551d6 <main+118>       test   eax, eax(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mtrace(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] 0x5555555551c2 → (\033)[32mmain(\033)[0m((\033)[33margc(\033)[0m=<optimized out>, (\033)[33margv(\033)[0m=0x7fffffffe058)(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36msource:io_uring-test.c+43(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n) (\033)[1;38;5;240m    38(\t) (\t)(\t)fprintf(stderr, "queue_init: %s\n", strerror(-ret));(\033)[0m(\r)(\n) (\033)[1;38;5;240m    39(\t) (\t)(\t)return 1;(\033)[0m(\r)(\n) (\033)[1;38;5;240m    40(\t) (\t)}(\033)[0m(\r)(\n) (\033)[1;38;5;240m    41(\t) (\033)[0m(\r)(\n)(\033)[31m●(\033)[0m(\033)[1;38;5;240m    42(\t) (\t)fd = open(argv[1], O_RDONLY | O_DIRECT);(\033)[0m(\r)(\n)          // (\033)[33mfd(\033)[0m=0x9(\r)(\n)(\033)[32m →   43(\t) (\t)if (fd < 0) {(\033)[0m(\r)(\n)     44(\t) (\t)(\t)perror("open");(\r)(\n)     45(\t) (\t)(\t)return 1;(\r)(\n)     46(\t) (\t)}(\r)(\n)     47(\t) (\r)(\n)     48(\t) (\t)if (fstat(fd, &sb) < 0) {(\r)(\n)(\033)[1;38;5;240m(\033)[0m(\r)(\n)(\r)(\n)(\032)(\032)stopped(\r)(\n)(\033)[?2004h(\033)[?2004l(\r)(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:09:54 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-stack-info-frame"(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\033)[?2004l(\r)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:~"\n\032\032frame-begin "(\r)(\n)~"0 0x5555555551c2\n"(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:~"\n\032\032frame-address\n"(\r)(\n)~"\n\032\032frame-address-end\n"(\r)(\n)~"\n\032\032frame-function-name\n"(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:~"\n\032\032frame-args\n"(\r)(\n)~"\n\032\032frame-source-begin\n"(\r)(\n)~"\n\032\032frame-source-file\n"(\r)(\n)~"\n\032\032frame-source-file-end\n"(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:~"\n\032\032frame-source-line\n"(\r)(\n)~"\n\032\032frame-source-end\n"(\r)(\n)~"\n\032\032frame-end\n"(\r)(\n)^done,frame={level="0",addr="0x00005555555551c2",func="main",file="io_uring-test.c",fullname="/home/ghost/repo/liburing/examples/io_uring-test.c",line="43",arch="i386:x86-64"}(\r)(\n)
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\033)[?2004h
+
+2022-01-08 14:09:54 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:10:07 tgdb.cpp:521() DEBUG:(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)starting(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\032)(\032)source /home/ghost/repo/liburing/examples/io_uring-test.c:48:940:beg:0x5555555551ca(\r)(\n)(\r)(\n)(\032)(\032)frame-end(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[H(\033)[2J
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:[ Legend: (\033)[1m(\033)[31mModified register(\033)[0m | (\033)[31mCode(\033)[0m | (\033)[32mHeap(\033)[0m | (\033)[35mStack(\033)[0m | (\033)[33mString(\033)[0m ](\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mregisters(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)(\033)[34m$rax   (\033)[0m: 0x9               (\r)(\n)(\033)[34m$rbx   (\033)[0m: (\033)[35m0x00007fffffffe058(\033)[0m  →  (\033)[35m0x00007fffffffe3ac(\033)[0m  →  (\033)[33m"/home/ghost/repo/liburing/examples/io_uring-test"(\033)[0m(\r)(\n)(\033)[34m$rcx   (\033)[0m: (\033)[31m0x00007ffff7ed55bb(\033)[0m  →  0x870ffffff0003d48 ("(\033)[33mH=(\033)[0m"?)(\r)(\n)(\033)[34m$rdx   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$rsp   (\033)[0m: (\033)[35m0x00007fffffffdda0(\033)[0m  →  0x0000000000000000(\r)(\n)(\033)[34m$rbp   (\033)[0m: (\033)[35m0x00007fffffffde50(\033)[0m  →  0x00007ffff7fc6000  →  0x00007ffff7fc6000(\r)(\n)(\033)[34m$rsi   (\033)[0m: (\033)[35m0x00007fffffffe3dd(\033)[0m  →  (\033)[33m"Makefile"(\033)[0m(\r)(\n)(\033)[34m$rdi   (\033)[0m: 0xffffff9c        (\r)(\n)(\033)[1m(\033)[31m$rip   (\033)[0m: (\033)[31m0x00005555555551ca(\033)[0m  →  (\033)[1;38;5;240m<main+106> lea rsi, [rsp+0x20](\033)[0m(\r)(\n)(\033)[34m$r8    (\033)[0m: 0x8               (\r)(\n)(\033)[34m$r9    (\033)[0m: 0x10000000        (\r)(\n)(\033)[34m$r10   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r11   (\033)[0m: 0x246             (\r)(\n)(\033)[34m$r12   (\033)[0m: (\033)[31m0x00005555555554c0(\033)[0m  →  (\033)[1;38;5;240m<_start+0> endbr64 (\033)[0m(\r)(\n)(\033)[34m$r13   (\033)[0m: 0x9               (\r)(\n)(\033)[34m$r14   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r15   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$eflags(\033)[0m: [zero carry (\033)[1mPARITY(\033)[0m adjust sign trap (\033)[1mINTERRUPT(\033)[0m direction overflow resume virtualx86 identification](\r)(\n)(\033)[34m$cs(\033)[0m: 0x0033 (\033)[34m$ss(\033)[0m: 0x002b (\033)[34m$ds(\033)[0m: 0x0000 (\033)[34m$es(\033)[0m: 0x0000 (\033)[34m$fs(\033)[0m: 0x0000 (\033)[34m$gs(\033)[0m: 0x0000 (\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mthreads(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] Id 1, Name: "io_uring-test", (\033)[1m(\033)[31mstopped(\033)[0m (\033)[34m0x5555555551ca(\033)[0m in (\033)[1m(\033)[33mmain(\033)[0m (), reason: (\033)[1m(\033)[35mSINGLE STEP(\033)[0m(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mcode:x86:64(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551bf <main+95>        mov    r13d, eax(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551c2 <main+98>        test   eax, eax(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551c4 <main+100>       js     0x5555555553d4 <main+628>(\033)[0m(\r)(\n) (\033)[32m→ 0x5555555551ca <main+106>       lea    rsi, [rsp+0x20](\033)[0m(\r)(\n)   0x5555555551cf <main+111>       mov    edi, eax(\r)(\n)   0x5555555551d1 <main+113>       call   0x555555555150 <fstat@plt>(\r)(\n)   0x5555555551d6 <main+118>       test   eax, eax(\r)(\n)   0x5555555551d8 <main+120>       js     0x55555555543b <main+731>(\r)(\n)   0x5555555551de <main+126>       mov    esi, 0x10(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mtrace(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] 0x5555555551ca → (\033)[32mmain(\033)[0m((\033)[33margc(\033)[0m=<optimized out>, (\033)[33margv(\033)[0m=0x7fffffffe058)(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36msource:io_uring-test.c+48(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n) (\033)[1;38;5;240m    43(\t) (\t)if (fd < 0) {(\033)[0m(\r)(\n) (\033)[1;38;5;240m    44(\t) (\t)(\t)perror("open");(\033)[0m(\r)(\n) (\033)[1;38;5;240m    45(\t) (\t)(\t)return 1;(\033)[0m(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG: (\033)[1;38;5;240m    46(\t) (\t)}(\033)[0m(\r)(\n) (\033)[1;38;5;240m    47(\t) (\033)[0m(\r)(\n)          // (\033)[33mfd(\033)[0m=0x9(\r)(\n)(\033)[32m →   48(\t) (\t)if (fstat(fd, &sb) < 0) {(\033)[0m(\r)(\n)     49(\t) (\t)(\t)perror("fstat");(\r)(\n)     50(\t) (\t)(\t)return 1;(\r)(\n)     51(\t) (\t)}(\r)(\n)     52(\t) (\r)(\n)     53(\t) (\t)fsize = 0;(\r)(\n)(\033)[1;38;5;240m(\033)[0m(\r)(\n)(\r)(\n)(\032)(\032)stopped(\r)(\n)(\033)[?2004h(\033)[?2004l(\r)(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:10:07 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-stack-info-frame"(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[?2004l(\r)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-begin "(\r)(\n)~"0 0x5555555551ca\n"(\r)(\n)~"\n\032\032frame-address\n"(\r)(\n)~"\n\032\032frame-address-end\n"(\r)(\n)~"\n\032\032frame-function-name\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-args\n"(\r)(\n)~"\n\032\032frame-source-begin\n"(\r)(\n)~"\n\032\032frame-source-file\n"(\r)(\n)~"\n\032\032frame-source-file-end\n"(\r)(\n)~"\n\032\032frame-source-line\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-source-end\n"(\r)(\n)~"\n\032\032frame-end\n"(\r)(\n)^done,frame={level="0",addr="0x00005555555551ca",func="main",file="io_uring-test.c",fullname="/home/ghost/repo/liburing/examples/io_uring-test.c",line="48",arch="i386:x86-64"}(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[?2004h
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:10:07 tgdb.cpp:521() DEBUG:(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)starting(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\032)(\032)source /home/ghost/repo/liburing/examples/io_uring-test.c:54:1014:beg:0x5555555551de(\r)(\n)(\r)(\n)(\032)(\032)frame-end(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[H(\033)[2J
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:[ Legend: (\033)[1m(\033)[31mModified register(\033)[0m | (\033)[31mCode(\033)[0m | (\033)[32mHeap(\033)[0m | (\033)[35mStack(\033)[0m | (\033)[33mString(\033)[0m ](\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mregisters(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)(\033)[1m(\033)[31m$rax   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$rbx   (\033)[0m: (\033)[35m0x00007fffffffe058(\033)[0m  →  (\033)[35m0x00007fffffffe3ac(\033)[0m  →  (\033)[33m"/home/ghost/repo/liburing/examples/io_uring-test"(\033)[0m(\r)(\n)(\033)[1m(\033)[31m$rcx   (\033)[0m: (\033)[31m0x00007ffff7ed4d8e(\033)[0m  →  0x310b77fffff0003d ("(\033)[33m=(\033)[0m"?)(\r)(\n)(\033)[1m(\033)[31m$rdx   (\033)[0m: (\033)[35m0x00007fffffffddc0(\033)[0m  →  0x0000000000000805(\r)(\n)(\033)[34m$rsp   (\033)[0m: (\033)[35m0x00007fffffffdda0(\033)[0m  →  0x0000000000000000(\r)(\n)(\033)[34m$rbp   (\033)[0m: (\033)[35m0x00007fffffffde50(\033)[0m  →  0x00007ffff7fc6000  →  0x00007ffff7fc6000(\r)(\n)(\033)[1m(\033)[31m$rsi   (\033)[0m: 0x00007ffff7f7195a  →  0x6225206125000200(\r)(\n)(\033)[1m(\033)[31m$rdi   (\033)[0m: 0x9               (\r)(\n)(\033)[1m(\033)[31m$rip   (\033)[0m: (\033)[31m0x00005555555551de(\033)[0m  →  (\033)[1;38;5;240m<main+126> mov esi, 0x10(\033)[0m(\r)(\n)(\033)[34m$r8    (\033)[0m: 0x8               (\r)(\n)(\033)[34m$r9    (\033)[0m: 0x10000000        (\r)(\n)(\033)[1m(\033)[31m$r10   (\033)[0m: 0x1000            (\r)(\n)(\033)[1m(\033)[3
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:1m$r11   (\033)[0m: 0x202             (\r)(\n)(\033)[34m$r12   (\033)[0m: (\033)[31m0x00005555555554c0(\033)[0m  →  (\033)[1;38;5;240m<_start+0> endbr64 (\033)[0m(\r)(\n)(\033)[34m$r13   (\033)[0m: 0x9               (\r)(\n)(\033)[34m$r14   (\033)[0m: 0x0               (\r)(\n)(\033)[34m$r15   (\033)[0m: 0x0               (\r)(\n)(\033)[1m(\033)[31m$eflags(\033)[0m: [(\033)[1mZERO(\033)[0m carry (\033)[1mPARITY(\033)[0m adjust sign trap (\033)[1mINTERRUPT(\033)[0m direction overflow resume virtualx86 identification](\r)(\n)(\033)[34m$cs(\033)[0m: 0x0033 (\033)[34m$ss(\033)[0m: 0x002b (\033)[34m$ds(\033)[0m: 0x0000 (\033)[34m$es(\033)[0m: 0x0000 (\033)[34m$fs(\033)[0m: 0x0000 (\033)[34m$gs(\033)[0m: 0x0000 (\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mthreads(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] Id 1, Name: "io_uring-test", (\033)[1m(\033)[31mstopped(\033)[0m (\033)[34m0x5555555551de(\033)[0m in (\033)[1m(\033)[33mmain(\033)[0m (), reason: (\033)[1m(\033)[35mSINGLE STEP(\033)[0m(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mcode:x86:64(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551d1 <main+113>       call   0x555555555150 <fstat@plt>(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551d6 <main+118>       test   eax, eax(\033)[0m(\r)(\n)   (\033)[1;38;5;240m0x5555555551d8 <main+120>       js     0x55555555543b <main+731>(\033)[0m(\r)(\n) (\033)[32m→ 0x5555555551de <main+126>       mov    esi, 0x10(\033)[0m(\r)(\n)   0x5555555551e3 <main+131>       mov    edi, 0x4(\r)(\n)   0x5555555551e8 <main+136>       lea    rbx, [rsp+0x18](\r)(\n)   0x5555555551ed <main+141>       call   0x555555555090 <calloc@plt>(\r)(\n)   0x5555555551f2 <main+146>       mov    r14, rax(\r)(\n)   0x5555555551f5 <main+149>       lea    rax, [rax+0x40](\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36mtrace(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n)[(\033)[1m(\033)[32m#0(\033)[0m] 0x5555555551de → (\033)[32mmain(\033)[0m((\033)[33margc(\033)[0m=<optimized out>, (\033)[33margv(\033)[0m=0x7fffffffe058)(\r)(\n)(\033)[1;38;5;240m (\033)[0m(\033)[36msource:io_uring-test.c+54(\033)[0m(\033)[1;38;5;240m ────(\033)[0m(\r)(\n) (\033)[1;38;5;240m    49(\t) (\t)(\t)perror("fstat");(\033)[0m(\r)(\n) (\033)[1;38;5;240m    50(\t) (\t)(\t)return 1;(\033)[0m(\r)(\n) (\033)[1;38;5;240m    51(\t) (\t)}(\033)[0m(\r)(\n) (\033)[1;38;5;240m    52(\t) (\033)[0m(\r)(\n) (\033)[1;38;5;240m    53(\t) (\t)fsize = 0;(\033)[0m(\r)(\n)(\033)[32m →   54(\t) (\t)iovecs = calloc(QD, sizeof(struct iovec));(\033)[0m(\r)(\n)     55(\t) (\t)for (i = 0; i < QD; i++) {(\r)(\n)     56(\t) (\t)(\t)if (posix_memalign(&buf, 4096, 4096))(\r)(\n)     57(\t) (\t)(\t)(\t)return 1;(\r)(\n)     58(\t) (\t)(\t)iovecs[i].iov_base = buf;(\r)(\n)     59(\t) (\t)(\t)iovecs[i].iov_len = 4096;(\r)(\n)(\033)[1;38;5;240m(\033)[0m(\r)(\n)(\r)(\n)(\032)(\032)stopped(\r)(\n)(\033)[?2004h(\033)[?2004l(\r)(\033)[?2004h(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:10:07 tgdb.cpp:521() DEBUG:server interpreter-exec mi "-stack-info-frame"(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[?2004l(\r)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-begin "(\r)(\n)~"0 0x5555555551de\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-address\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-address-end\n"(\r)(\n)~"\n\032\032frame-function-name\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-args\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-source-begin\n"(\r)(\n)~"\n\032\032frame-source-file\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-source-file-end\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-source-line\n"(\r)(\n)~"\n\032\032frame-source-end\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:~"\n\032\032frame-end\n"(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:^done,frame={level="0",addr="0x00005555555551de",func="main",file="io_uring-test.c",fullname="/home/ghost/repo/liburing/examples/io_uring-test.c",line="54",arch="i386:x86-64"}(\r)(\n)
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\033)[?2004h
+
+2022-01-08 14:10:07 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)pre-prompt(\r)(\n)(\033)[1;32mgef➤  (\033)[0m(\r)(\n)(\032)(\032)prompt(\r)(\n)
+
+2022-01-08 14:10:33 tgdb.cpp:521() DEBUG:q(\n)
+
+2022-01-08 14:10:33 io.cpp:136() DEBUG:(\033)[?2004l(\r)(\r)(\n)
+
+2022-01-08 14:10:33 io.cpp:136() DEBUG:(\032)(\032)post-prompt(\r)(\n)
+
+2022-01-08 14:10:33 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)frames-invalid(\r)(\n)
+
+2022-01-08 14:10:33 io.cpp:136() DEBUG:(\r)(\n)(\032)(\032)thread-exited,id="1",group-id="i1"(\r)(\n)
+
+2022-01-08 14:10:33 tgdb.cpp:667() INFO:read EOF from GDB, closing down
+
+2022-01-08 14:10:33 tgdb.cpp:391() INFO:Closing logfile.
+
