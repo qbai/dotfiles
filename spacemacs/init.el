@@ -997,11 +997,13 @@ you should place your code here."
      (win1 (split-window-horizontally
          (floor (* 0.5 (window-width)))))   ; source + i/o
      (win2 (split-window-vertically
-         (floor (* 0.5 (window-body-height))))) ; gdb
+            (floor (* 0.8 (window-body-height))))) ; gdb
+     (win5 (split-window-vertically
+            (floor (* 0.8 (window-body-height))))) ; disassembly
      (win3 (split-window-vertically
-        (floor (* 0.5 (window-body-height))))) ; locals
+            (floor (* 0.5 (window-body-height))))) ; locals
      (win4 (split-window-vertically
-         (floor (* 0.6 (window-body-height))))) ; stack
+            (floor (* 0.6 (window-body-height))))) ; stack
     )
     (select-window win1)
     ; configurating right window
@@ -1009,7 +1011,7 @@ you should place your code here."
     ((winSrc (selected-window)) ; source
      (winIO (split-window-vertically (floor (* 0.9 (window-body-height))))) ; I/O
      )
-      (set-window-buffer winIO (gdb-get-buffer-create 'gdb-inferior-io))
+    (set-window-buffer winIO (gdb-get-buffer-create 'gdb-inferior-io))
       (set-window-buffer
     winSrc
     (if gud-last-last-frame
@@ -1024,19 +1026,27 @@ you should place your code here."
     (set-window-buffer win0 (gdb-get-buffer-create 'gdb-breakpoints-buffer))
     (set-window-buffer win3 (gdb-get-buffer-create 'gdb-locals-buffer))
     (set-window-buffer win4 (gdb-get-buffer-create 'gdb-stack-buffer))
+    (set-window-buffer win5 (gdb-get-buffer-create 'gdb-disassembly-buffer))
     (select-window win2)
   ))
 
+;; GDB variables
 (setq gdb-many-windows t)
+(setq gdb-show-main t)
+(setq gdb-show-changed-values t)
+(setq gdb-use-colon-colon-notation t)
+(setq gdb-use-separate-io-buffer nil)
+(setq gdb-delete-out-of-scope t)
+(setq gdb-speedbar-auto-raise t)
 ;; C-c C-g start gud-gdb
 (global-set-key (kbd "C-c C-g") 'gdb)
 (global-set-key (kbd "<f5>") 'gud-run)
-(global-set-key (kbd "S-<f5>") 'gud-cont)
+(global-set-key (kbd "C-<f5>") 'gud-cont)
 (global-set-key (kbd "<f6>") 'gud-next)
 (global-set-key (kbd "<f7>") 'gud-step)
 (global-set-key (kbd "<f8>") 'gud-finish)
-(global-set-key (kbd "<f10>") 'gud-break)
-(global-set-key (kbd "C-<f10>") 'gud-remove)
+(global-set-key (kbd "<f9>") 'gud-break)
+(global-set-key (kbd "S-<f9>") 'gud-remove)
 ;; C-<f7> jump to other window
 (global-set-key (kbd "C-<f7>") 'other-window)
 ;;(global-set-key (kbd "C-<f8>") 'previous-error)
@@ -1057,7 +1067,9 @@ Do this after `q` in Debugger buffer."
                   (kill-buffer buffer)
                   (delete-other-windows))) ;; fix the remaining two windows issue
           (message "Killed %i buffer(s)." count))))
-(global-set-key (kbd "C-<f5>") 'kill-all-gud-buffers)
+(global-set-key (kbd "<f10>") 'kill-all-gud-buffers)
+;; kill buffer without prompt
+(setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
 
 ;; compilation
 ;; C-f2 config compile command; f2 save current file and run compile
