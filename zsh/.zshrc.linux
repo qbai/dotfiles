@@ -142,3 +142,4 @@ bindkey "\e\e" sudo-command-line
 
 alias l='ls -l -t -r -a -h -F'
 alias grep='grep -i -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias ls='ls --color=tty -a'
