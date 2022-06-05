@@ -943,6 +943,13 @@ you should place your code here."
 ;; beacon config
 ;;(beacon-mode 1)
 
+;; gas-mode
+;;(require 'gas-mode)
+;;(add-to-list 'auto-mode-alist '("\\.S\\'" . gas-mode))
+;;(gas-mode 1)
+
+;;(add-to-list 'auto-mode-alist '("\\.S\\'" . asm-mode))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
