@@ -23,9 +23,6 @@ hc emit_hook reload
 #xsetroot -solid '#5A8E3A'
 xsetroot -solid '#222222'
 
-# setup LG dualup monitor
-xrandr -s 2560x2880
-
 hc pad 0 23 0 0
 # remove all existing keybindings
 hc keyunbind --all
