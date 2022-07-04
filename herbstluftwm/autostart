@@ -22,6 +22,10 @@ hc emit_hook reload
 
 #xsetroot -solid '#5A8E3A'
 xsetroot -solid '#222222'
+
+# setup LG dualup monitor
+xrandr -s 2560x2880
+
 hc pad 0 23 0 0
 # remove all existing keybindings
 hc keyunbind --all
@@ -137,8 +141,8 @@ hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
-# horizontal split by default ( version > 0.9.3)
-hc attr settings.default_frame_layout horizontal
+# horizontal or vertical split by default ( version > 0.9.3)
+hc attr settings.default_frame_layout vertical
 
 # tags
 #tag_names=("  " "  " "  " "  " "  " "   " "   " "  " "  " "  " )
@@ -158,8 +162,8 @@ for i in ${!tag_names[@]} ; do
     fi
 done
 
-# horizontal split by default ( version > 0.9.3)
-hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr ATTR horizontal
+# horizontal or vertical split by default ( version > 0.9.3)
+hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr ATTR vertical
 
 # start all windows in floating mode
 #for attr in $(herbstclient complete 1 attr tags.by-name); do
