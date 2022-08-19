@@ -90,7 +90,7 @@ colors:
       white: "#f9f8f5"
   selection:
     text: '0xf8f8f2'
-    background: '0x44475a'
+    background: '#F75000'
     #background: "#F75000"
 
 
