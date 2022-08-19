@@ -179,7 +179,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 18
+                               :size 20
                                :weight bold
                                :width normal
                                :powerline-scale 1.1)
@@ -757,12 +757,13 @@ you should place your code here."
 ;; MOUSE
 ;;(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
 ;;(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
-(global-set-key [(mouse-5)] '(lambda () (interactive) (scroll-up-line 3)))
-(global-set-key [(mouse-4)] '(lambda () (interactive) (scroll-down-line 3)))
+(global-set-key [(mouse-5)] '(lambda () (interactive) (scroll-up-line 2)))
+(global-set-key [(mouse-4)] '(lambda () (interactive) (scroll-down-line 2)))
 ;;(global-set-key [mouse-4] 'good-scroll-down)
 ;;(global-set-key [mouse-5] 'good-scroll-up)
 ;;(pixel-scroll-mode 1)
 (good-scroll-mode 1)
+
 
 ;; OTHER CONFIG
 ;; open spacemacs configure file
@@ -949,6 +950,10 @@ you should place your code here."
 ;;(gas-mode 1)
 
 ;;(add-to-list 'auto-mode-alist '("\\.S\\'" . asm-mode))
+
+;; emacs scrollbar speed
+;;(setq mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . nil)))
+;;(setq mouse-wheel-progressive-speed nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
