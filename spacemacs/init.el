@@ -40,7 +40,7 @@ values."
      helm
      ;;colors
      theming
-    ;;markdown
+     ;;markdown
     ;;org
     ;; (chinese :packages youdao-dictionary fcitx
     ;;           :variables chinese-enable-fcitx nil
@@ -74,7 +74,7 @@ values."
         python-enable-yapf-format-on-save t ;; when saving, yapf
         python-fill-column 80               ;; column 80
         python-sort-imports-on-save t)      ;; sort package when saving
-    ;;rust
+    rust
 
     gtags
     ;;(gtags :variables gtags-enable-by-default t)
@@ -179,7 +179,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 20
+                               :size 22
                                :weight bold
                                :width normal
                                :powerline-scale 1.1)
@@ -377,11 +377,11 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
 
  ;; set proxy if necessary
- ;; (setq url-proxy-services
- ;;       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
- ;;         ("http" . "127.0.0.1:8888")
- ;;         ("https" . "127.0.0.1:8888")
- ;;         ))
+ (setq url-proxy-services
+       '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+         ("http" . "127.0.0.1:8118")
+         ("https" . "127.0.0.1:8118")
+         ))
 
  ;; ss proxy. But it will cause anacond-mode failed.
  ;;(setq socks-server '("Default server" "127.0.0.1" 1080 5))
@@ -944,7 +944,7 @@ you should place your code here."
 ;; beacon config
 ;;(beacon-mode 1)
 
-;; gas-mode
+;; enable gas-mode
 ;;(require 'gas-mode)
 ;;(add-to-list 'auto-mode-alist '("\\.S\\'" . gas-mode))
 ;;(gas-mode 1)
