@@ -659,6 +659,12 @@ you should place your code here."
   (interactive)
   (dolist (buffer (buffer-list)) (kill-buffer buffer)))
 
+;; (defun occur-selection ()
+;;   (interactive)
+;;   (when (region-active-p)
+;;     (let (deactivate-mark)
+;;       (occur (regexp-quote (buffer-substring (region-beginning) (region-end)))))))
+
 ;; KEY REMAP
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
 (define-key key-translation-map (kbd "C-l") (kbd "C-L"))
@@ -781,6 +787,8 @@ you should place your code here."
 ;; shell-pop for M-'
 (global-set-key (kbd "M-'") 'dotspacemacs/shell-pop-ansi-term)
 ;;(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
+
+;;(global-set-key (kbd "C-c o") 'occur-selection)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -956,6 +964,16 @@ you should place your code here."
 ;; emacs scrollbar speed
 ;;(setq mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . nil)))
 ;;(setq mouse-wheel-progressive-speed nil)
+
+
+;; config for helm-projectile-rg
+;; (defun my-helm-projectile-rg--region-selection (old-fn &rest arguments)
+;;   (let ((thing (thing-at-point 'symbol)))
+;;     (if (null thing)
+;;         (apply old-fn arguments)
+;;       thing)))
+;; (advice-add #'helm-projectile-rg--region-selection
+;;             :around #'my-helm-projectile-rg--region-selection)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
