@@ -77,7 +77,9 @@ values."
     rust
 
     gtags
-    ;;(gtags :variables gtags-enable-by-default t)
+    ;; (gtags :variables
+    ;;        gtags-enabled-for (c-mode c++-mode asm-mode)
+    ;;        gtags-enable-by-default t)
     cscope
     ;;ycmd
     ;;semantic
@@ -949,7 +951,7 @@ you should place your code here."
 ;;(add-to-list 'auto-mode-alist '("\\.S\\'" . gas-mode))
 ;;(gas-mode 1)
 
-;;(add-to-list 'auto-mode-alist '("\\.S\\'" . asm-mode))
+(add-to-list 'auto-mode-alist '("\\.S\\'" . asm-mode))
 
 ;; emacs scrollbar speed
 ;;(setq mouse-wheel-scroll-amount '(2 ((shift) . 4) ((control) . nil)))
@@ -973,7 +975,7 @@ you should place your code here."
 (spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
 (add-hook 'c-mode-common-hook
           (lambda ()
-            (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
+            (when (derived-mode-p 'c-mode 'c++-mode)
               (helm-gtags-mode 1)
               ;;(counsel-gtags-mode 1)
               (define-key c++-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
@@ -990,10 +992,16 @@ you should place your code here."
               ;;(define-key c-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
               (define-key c-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
               (define-key c++-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (when (derived-mode-p 'c-mode 'c++-mode 'asm-mode)
-;;               (ggtags-mode 1))))
+
+(add-hook 'asm-mode-hook
+          (lambda ()
+            (when (derived-mode-p 'asm-mode)
+              (helm-gtags-mode 1)
+              (define-key asm-mode-map(kbd "C-t C-t") 'helm-gtags-find-tag)
+              (define-key asm-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
+              (define-key asm-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
+              (define-key asm-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
+              (define-key asm-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
 
 ;; gud-gdb
 ;; GDB layout

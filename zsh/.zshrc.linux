@@ -93,7 +93,7 @@ alias -s el='emacsclient -t'
 
 alias -s png='feh'
 alias -s jpg='feh'
-
+alias -s pdf='evince'
 
 # linux for autojump
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
