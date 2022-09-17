@@ -95,6 +95,9 @@ alias -s png='feh'
 alias -s jpg='feh'
 alias -s pdf='evince'
 
+alias -s mkv='mpv'
+alias -s mp4='mpv'
+
 # linux for autojump
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 [[ -s /usr/local/etc/profile.d/autojump.sh ]] && source /usr/local/etc/profile.d/autojump.sh
