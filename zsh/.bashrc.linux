@@ -19,7 +19,7 @@ alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
 alias m='sudo less -i -M -R -j20 -J'
-#alias m='bat'
+alias bat='sudo bat'
 
 ## linenum & no wrap
 #alias m='less -i -M -N -R -S +F'
