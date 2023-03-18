@@ -89,7 +89,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(smart-mode-line smart-mode-line-powerline-theme smart-mode-line-atom-one-dark-theme helm-rg highlight-symbol good-scroll idle-highlight-mode)
+   dotspacemacs-additional-packages '(smart-mode-line smart-mode-line-powerline-theme smart-mode-line-atom-one-dark-theme helm-rg highlight-symbol good-scroll idle-highlight-mode deadgrep)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -181,7 +181,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 24
+                               :size 28
                                :weight bold
                                :width normal
                                :powerline-scale 1.1)
@@ -975,6 +975,16 @@ you should place your code here."
 ;; (advice-add #'helm-projectile-rg--region-selection
 ;;             :around #'my-helm-projectile-rg--region-selection)
 
+
+;; config for deadgrep
+;;(global-set-key (kbd "<f1>") #'deadgrep)
+;;(setq deadgrep-max-buffers nil)
+(setq deadgrep-max-buffers 20)
+(setq deadgrep-display-buffer-function 'switch-to-buffer-other-frame)
+;;(global-set-key (kbd "<double-mouse-1>") #'deadgrep-visit-result)
+(add-hook 'deadgrep-mode-hook
+          (lambda ()
+            (define-key deadgrep-mode-map(kbd "<double-mouse-1>") 'deadgrep-visit-result)))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -1008,8 +1018,10 @@ you should place your code here."
               ;;(define-key c++-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
               (define-key c-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
               ;;(define-key c-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
-              (define-key c-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
-              (define-key c++-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
+              ;;(define-key c-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
+              (define-key c-mode-map(kbd "C-t C-e") 'deadgrep)
+              ;;(define-key c++-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
+              (define-key c++-mode-map(kbd "C-t C-e") 'deadgrep))))
 
 (add-hook 'asm-mode-hook
           (lambda ()
@@ -1019,7 +1031,8 @@ you should place your code here."
               (define-key asm-mode-map(kbd "C-t C-r") 'helm-gtags-find-rtag)
               (define-key asm-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key asm-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
-              (define-key asm-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
+              ;;(define-key asm-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
+              (define-key asm-mode-map(kbd "C-t C-e") 'deadgrep))))
 
 ;; gud-gdb
 ;; GDB layout
