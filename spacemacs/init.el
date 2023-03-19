@@ -687,7 +687,7 @@ you should place your code here."
 ;;  FILE
 ;; open & new file
 ;;(global-set-key (kbd "C-f") 'counsel-find-file)
-(global-set-key (kbd "C-f") 'spacemacs/helm-find-files)
+(global-set-key (kbd "C-M-f") 'spacemacs/helm-find-files)
 ;; save file
 (global-set-key (kbd "C-s") 'save-buffer)
 ;; save all file
@@ -980,6 +980,7 @@ you should place your code here."
 ;;(global-set-key (kbd "<f1>") #'deadgrep)
 ;;(setq deadgrep-max-buffers nil)
 (setq deadgrep-max-buffers 20)
+;;(setq deadgrep-executable "/usr/bin/rg -i --color always -C 2 -e")
 (setq deadgrep-display-buffer-function 'switch-to-buffer-other-frame)
 ;;(global-set-key (kbd "<double-mouse-1>") #'deadgrep-visit-result)
 (add-hook 'deadgrep-mode-hook
@@ -994,7 +995,7 @@ you should place your code here."
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 ;;(global-set-key (kbd "M-f") 'counsel-projectile-find-file)
-(global-set-key (kbd "M-f") 'helm-projectile-find-file)
+(global-set-key (kbd "C-f") 'helm-projectile-find-file)
 ;;(setq projectile-require-project-root nil)
 ;;(projectile-discover-projects-in-directory "~/Project/github/db-6.1.19")
 (setq projectile-globally-ignored-directories (append '(".git") projectile-globally-ignored-directories))
@@ -1019,9 +1020,9 @@ you should place your code here."
               (define-key c-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
               ;;(define-key c-mode-map(kbd "C-t C-b") 'counsel-gtags-go-backward)
               ;;(define-key c-mode-map(kbd "C-t C-e") 'helm-projectile-rg)
-              (define-key c-mode-map(kbd "C-t C-e") 'deadgrep)
+              (define-key c-mode-map(kbd "M-f") 'deadgrep)
               ;;(define-key c++-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
-              (define-key c++-mode-map(kbd "C-t C-e") 'deadgrep))))
+              (define-key c++-mode-map(kbd "M-f") 'deadgrep))))
 
 (add-hook 'asm-mode-hook
           (lambda ()
@@ -1032,7 +1033,7 @@ you should place your code here."
               (define-key asm-mode-map(kbd "C-t C-c") 'helm-cscope-find-calling-this-function)
               (define-key asm-mode-map(kbd "C-t C-b") 'helm-gtags-previous-history)
               ;;(define-key asm-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
-              (define-key asm-mode-map(kbd "C-t C-e") 'deadgrep))))
+              (define-key asm-mode-map(kbd "M-f") 'deadgrep))))
 
 ;; gud-gdb
 ;; GDB layout

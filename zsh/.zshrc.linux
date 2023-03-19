@@ -79,6 +79,7 @@ alias -s csv='bat'
 alias -s yml='sudo less -i -M -R -j20 -J'
 
 alias -s md='glow -p'
+alias -s rst='glow -p'
 
 alias -s c='emacsclient -t'
 alias -s cpp='emacsclient -t'

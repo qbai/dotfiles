@@ -72,9 +72,9 @@ alias lg="lsof -i|grep"
 
 #alias e='emacs -nw'
 alias edn="emacs --daemon"
+alias edk="emacsclient -e '(kill-emacs)'"
+alias edr="emacsclient -e '(kill-emacs)' && emacs --daemon"
 alias e='emacsclient -t'
-alias ek="emacsclient -e '(kill-emacs)'"
-alias er="emacsclient -e '(kill-emacs)' && emacs --daemon"
 
 #alias soo="sudo !!"
 alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
@@ -266,7 +266,7 @@ fi
 
 ############# git #######################
 # git config --global icdiff.options '--highlight --line-numbers'
-alias gdd='git icdiff | less -i -M -R -j20 -J'
+#alias gdd='git icdiff | less -i -M -R -j20 -J'
 alias gshow='git showtool'
 alias gcmm='git commit -m'
 alias gde='git difftool --tool=ediffclient --no-prompt'
@@ -339,7 +339,7 @@ alias herb-keys="herbstclient list_keybinds"
 
 alias croc="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
 #alias rg='rg -i -e'
-alias rg='rg_with_colors(){rg -i -e "$1" --color always};rg_with_colors'
+alias rg='rg_with_colors(){rg -i -e "$1" --color always -C 2};rg_with_colors'
 alias emacs='emacs -nw'
 alias screenoff='sudo xset dpms force off'
 
