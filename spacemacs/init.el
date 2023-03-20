@@ -437,7 +437,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
  ;; (setq
  ;;  ;;monokai-foreground     "#ABB2BF"
- ;;  ;;monokai-highlight      "#FFB269"
+ ;;  monokai-highlight      "#FFB269"
  ;;  ;;monokai-comments	 "#F8F8F0"
  ;;  monokai-background     "#272822"
  ;;  monokai-highlight-line "#3E3D32"
@@ -535,9 +535,6 @@ you should place your code here."
   ;;       (when (looking-at (concat "^" (make-string tab-width ?\ )))
   ;;         (replace-match "")))))
 
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; C-f5 setting compile; f5 save all buffer and compile current buffer
 ;; (defun du-onekey-compile ()
@@ -665,7 +662,11 @@ you should place your code here."
 ;;     (let (deactivate-mark)
 ;;       (occur (regexp-quote (buffer-substring (region-beginning) (region-end)))))))
 
-;; KEY REMAP
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; key remap
 (define-key key-translation-map (kbd "C-j") (kbd "C-J"))
 (define-key key-translation-map (kbd "C-l") (kbd "C-L"))
 (define-key key-translation-map (kbd "M-k") (kbd "M-K"))
@@ -679,10 +680,13 @@ you should place your code here."
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
+;;(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
+;;(global-set-key [escape] 'keyboard-quit)
 
 ;; key unset
-;;(global-unset-key (kbd "C-M-p"))
-
+;;(global-unset-key (kbd "C-x C-b"))
+(define-key winum-keymap (kbd "M-1") nil)
+(define-key winum-keymap (kbd "M-2") nil)
 
 ;;  FILE
 ;; open & new file
@@ -695,9 +699,13 @@ you should place your code here."
 
 
 ;; BUFFER
+(global-set-key (kbd "C-x C-b") 'helm-buffers-list)   ;;same as C-x b
 ;; next/previous buffer
-(global-set-key (kbd "C-b") 'next-buffer)
-(global-set-key (kbd "M-b") 'previous-buffer)
+;;(global-set-key (kbd "C-b") 'next-buffer)
+;;(global-set-key (kbd "M-b") 'previous-buffer)
+(global-set-key (kbd "M-1") 'previous-buffer)
+(global-set-key (kbd "M-2") 'next-buffer)
+
 (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
 ;; kill all buffers
 ;;;(global-set-key (kbd "C-M-a-k") 'nuke-all-buffers)
@@ -715,11 +723,11 @@ you should place your code here."
 ;; move cursor 5 lines up/down
 ;;(global-set-key (kbd "C-M-n") (lambda () (interactive) (next-line 5)))
 ;;(global-set-key (kbd "C-M-p") (lambda () (interactive) (previous-line 5)))
-(global-set-key (kbd "C-M-n") (kbd "C-u 5 C-n"))
-(global-set-key (kbd "C-M-p") (kbd "C-u 5 C-p"))
+(global-set-key (kbd "M-n") (kbd "C-u 5 C-n"))
+(global-set-key (kbd "M-p") (kbd "C-u 5 C-p"))
 ;; move window 5 lines up/down
-(global-set-key (kbd "M-n") (kbd "C-u 15 C-v"))
-(global-set-key (kbd "M-p") (kbd "C-u 15 M-v"))
+(global-set-key (kbd "C-M-n") (kbd "C-u 15 C-v"))
+(global-set-key (kbd "C-M-p") (kbd "C-u 15 M-v"))
 ;;show in center
 (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
 ;; locate begin or end of file
@@ -789,10 +797,11 @@ you should place your code here."
 ;;(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
 
 ;;(global-set-key (kbd "C-c o") 'occur-selection)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; keybindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; charset utf-8
 (set-language-environment "UTF-8")
@@ -986,10 +995,11 @@ you should place your code here."
 (add-hook 'deadgrep-mode-hook
           (lambda ()
             (define-key deadgrep-mode-map(kbd "<double-mouse-1>") 'deadgrep-visit-result)))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; basic configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; projectile (M-m p p switch project)
 (projectile-global-mode)
@@ -1125,7 +1135,7 @@ Do this after `q` in Debugger buffer."
 
 ;; compilation
 ;; C-f2 config compile command; f2 save current file and run compile
-;; make -k -C <Makefile directory> 
+;; make -k -C <Makefile directory>
 (defun du-onekey-compile ()
   "Save buffers and start compile"
   (interactive)
@@ -1134,7 +1144,7 @@ Do this after `q` in Debugger buffer."
   (compile compile-command))
 (global-set-key [C-f2] 'compile)
 (global-set-key [f2] 'du-onekey-compile)
-;; manually config compile command and run it 
+;; manually config compile command and run it
 (defun quick-compile ()
   "A quick compile funciton for C"
   (interactive)
@@ -1152,9 +1162,7 @@ Do this after `q` in Debugger buffer."
 (setq ediff-split-window-function (quote split-window-horizontally))
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; plugin configuration  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 )
 
@@ -1266,7 +1274,7 @@ This function is called at the very end of Spacemacs initialization."
    '("bc75dfb513af404a26260b3420d1f3e4131df752c19ab2984a7c85def9a2917e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
-   '(idle-highlight-mode rich-minority smart-mode-line-atom-one-dark-theme smart-mode-line smart-mode-line-powerline-theme spaceline-all-the-icons all-the-icons memoize yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic youdao-dictionary names chinese-word-at-point company-quickhelp monokai-theme helm-themes helm-swoop helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-cscope helm-company helm-c-yasnippet helm-ag ace-jump-helm-line company-shell insert-shebang fish-mode x86-lookup nasm-mode zenburn-theme zen-and-art-theme xterm-color xcscope unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle shell-pop seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme orgit organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mwim mustang-theme multi-term monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme magit-gitflow madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags gandalf-theme fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme eshell-z eshell-prompt-extras esh-help dracula-theme django-theme disaster darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-statistics company-c-headers company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clang-format cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))
+   '(rich-minority smart-mode-line-atom-one-dark-theme smart-mode-line smart-mode-line-powerline-theme spaceline-all-the-icons all-the-icons memoize yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic youdao-dictionary names chinese-word-at-point company-quickhelp monokai-theme helm-themes helm-swoop helm-projectile helm-mode-manager helm-gtags helm-gitignore helm-flx helm-descbinds helm-cscope helm-company helm-c-yasnippet helm-ag ace-jump-helm-line company-shell insert-shebang fish-mode x86-lookup nasm-mode zenburn-theme zen-and-art-theme xterm-color xcscope unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme sunny-day-theme sublime-themes subatomic256-theme subatomic-theme spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smeargle shell-pop seti-theme reverse-theme railscasts-theme purple-haze-theme professional-theme planet-theme phoenix-dark-pink-theme phoenix-dark-mono-theme orgit organic-green-theme omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme noctilux-theme naquadah-theme mwim mustang-theme multi-term monochrome-theme molokai-theme moe-theme minimal-theme material-theme majapahit-theme magit-gitflow madhat2r-theme lush-theme light-soap-theme jbeans-theme jazz-theme ir-black-theme inkpot-theme heroku-theme hemisu-theme hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme gotham-theme gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags gandalf-theme fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck flatui-theme flatland-theme farmhouse-theme evil-magit magit magit-popup git-commit with-editor espresso-theme eshell-z eshell-prompt-extras esh-help dracula-theme django-theme disaster darktooth-theme autothemer darkokai-theme darkmine-theme darkburn-theme dakrone-theme cyberpunk-theme company-statistics company-c-headers company color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode clues-theme clang-format cherry-blossom-theme busybee-theme bubbleberry-theme birds-of-paradise-plus-theme badwolf-theme auto-yasnippet yasnippet auto-dictionary apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes afternoon-theme ac-ispell auto-complete ws-butler which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f dash s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy))
  '(sml/mode-width (if (eq (powerline-current-separator) 'arrow) 'right 'full))
  '(sml/pos-id-separator
    '(""
@@ -1322,5 +1330,6 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil))))
+ '(highlight-parentheses-highlight ((nil (:weight ultra-bold))) t))
 )
