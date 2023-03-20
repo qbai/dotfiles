@@ -684,7 +684,8 @@ you should place your code here."
 ;;(global-set-key [escape] 'keyboard-quit)
 
 ;; key unset
-;;(global-unset-key (kbd "C-x C-b"))
+(global-unset-key (kbd "C-x C-b"))
+(global-unset-key (kbd "C-x b"))
 (define-key winum-keymap (kbd "M-1") nil)
 (define-key winum-keymap (kbd "M-2") nil)
 
@@ -699,10 +700,12 @@ you should place your code here."
 
 
 ;; BUFFER
-(global-set-key (kbd "C-x C-b") 'helm-buffers-list)   ;;same as C-x b
+;;(global-set-key (kbd "C-x C-b") 'helm-buffers-list)   ;;same as C-x b
+
 ;; next/previous buffer
 ;;(global-set-key (kbd "C-b") 'next-buffer)
 ;;(global-set-key (kbd "M-b") 'previous-buffer)
+(global-set-key (kbd "C-b") 'helm-buffers-list)
 (global-set-key (kbd "M-1") 'previous-buffer)
 (global-set-key (kbd "M-2") 'next-buffer)
 
