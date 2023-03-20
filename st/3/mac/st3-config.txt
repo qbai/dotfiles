@@ -23,8 +23,8 @@
 	open Preferences > Key Binding
 	add the fowlling line into []
 	
-   { "keys": ["super+1"], "command": "next_view_in_stack" },
-   { "keys": ["super+2"], "command": "prev_view_in_stack" },
+   { "keys": ["super+1"], "command": "prev_view" },
+   { "keys": ["super+2"], "command": "next_view" },
    { "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
    { "keys": ["ctrl+1"], "command": "toggle_bookmark" },
    { "keys": ["ctrl+2"], "command": "next_bookmark" },
