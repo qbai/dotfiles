@@ -428,7 +428,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; magit status
   git-magit-status-fullscreen t
-
  )
 
  ;; configure background and highligh same with sublime text
@@ -680,12 +679,13 @@ you should place your code here."
 ;; key exchange
 (define-key key-translation-map (kbd "C-w") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "C-w"))
-;;(define-key key-translation-map (kbd "ESC") (kbd "C-g"))
-;;(global-set-key [escape] 'keyboard-quit)
+;;define-key key-translation-map (kbd "ESC") (kbd "C-g"))
 
 ;; key unset
 (global-unset-key (kbd "C-x C-b"))
 (global-unset-key (kbd "C-x b"))
+(global-unset-key (kbd "M-f"))
+(global-unset-key (kbd "M-b"))
 (define-key winum-keymap (kbd "M-1") nil)
 (define-key winum-keymap (kbd "M-2") nil)
 
@@ -701,7 +701,6 @@ you should place your code here."
 
 ;; BUFFER
 ;;(global-set-key (kbd "C-x C-b") 'helm-buffers-list)   ;;same as C-x b
-
 ;; next/previous buffer
 ;;(global-set-key (kbd "C-b") 'next-buffer)
 ;;(global-set-key (kbd "M-b") 'previous-buffer)
@@ -907,6 +906,15 @@ you should place your code here."
 
 ;; enable auto-completion non-sensitive
 (setq ac-ignore-case t)
+
+;; config selection background color
+(set-face-attribute 'region nil :background "#F75000")
+
+;; enable superword to whole selectioin with _ and -
+(global-superword-mode t)
+;;(modify-syntax-entry ?_ "w")
+;;(modify-syntax-entry ?_ "w" c-mode-syntax-table)
+
 
 ;; hightlight symbol config
 (global-set-key (kbd "C-c C-c") 'highlight-symbol-at-point)
