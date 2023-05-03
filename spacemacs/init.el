@@ -909,6 +909,7 @@ you should place your code here."
 
 ;; config selection background color
 (set-face-attribute 'region nil :background "#F75000")
+;;(set-face-background 'hl-line "#4c4c4c")     ;;M-x customize-face
 
 ;; enable superword to whole selectioin with _ and -
 (global-superword-mode t)
@@ -918,7 +919,6 @@ you should place your code here."
 
 ;; hightlight symbol config
 (global-set-key (kbd "C-c C-c") 'highlight-symbol-at-point)
-;;(global-set-key [f4] (lambda () (interactive) (unhighlight-regexp t)))
 (global-set-key [f3] 'highlight-symbol-next)
 (global-set-key [f4] 'highlight-symbol-prev)
 (global-set-key (kbd "C-c c") 'highlight-symbol-remove-all)
@@ -927,13 +927,23 @@ you should place your code here."
             (define-key c-mode-map(kbd "C-c C-c") 'highlight-symbol-at-point)
             (define-key c-mode-map(kbd "C-c c") 'highlight-symbol-remove-all)))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c-mode))
+;; (global-highlight-thing-mode t)
+;; (setq highlight-thing-what-thing 'symbol)
+;; (setq highlight-thing-delay-seconds 1.5)
+;; (setq highlight-thing-limit-to-defun t)
+;; (setq highlight-thing-case-sensitive-p t)
+;;(global-auto-highlight-symbol-mode t)
+(defface hi-box
+  '((t (:box t )))
+  "Box face for hi-lock mode."
+  :group 'hi-lock-faces)
+(add-to-list 'hi-lock-faces "hi-box")
+
 
 
 ;;(global-set-key (kbd "C-c C-e") '(lambda () (interactive) (point-to-register "e")))
 
 
-
-;;(idle-highlight-mode)
 
 ;; Use company mode instead of auto-complete
 ;; (global-company-mode)
@@ -963,12 +973,6 @@ you should place your code here."
  ;; (setq sublimity-map-fraction 0.3)
  ;; (setq sublimity-map-text-scale -8)
 
-;; enable hightlight for all selected
-;; (global-highlight-thing-mode t)
-;; (setq highlight-thing-what-thing 'symbol)
-;; (setq highlight-thing-delay-seconds 1.5)
-;; (setq highlight-thing-limit-to-defun t)
-;; (setq highlight-thing-case-sensitive-p t)
 
 
 ;; beacon config
@@ -978,7 +982,6 @@ you should place your code here."
 ;;(require 'gas-mode)
 ;;(add-to-list 'auto-mode-alist '("\\.S\\'" . gas-mode))
 ;;(gas-mode 1)
-
 (add-to-list 'auto-mode-alist '("\\.S\\'" . asm-mode))
 
 ;; emacs scrollbar speed
