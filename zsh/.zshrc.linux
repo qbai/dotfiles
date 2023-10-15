@@ -99,6 +99,8 @@ alias -s pdf='evince'
 alias -s mkv='mpv'
 alias -s mp4='mpv'
 
+alias -s torrent='aria2c'
+
 # linux for autojump
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 [[ -s /usr/local/etc/profile.d/autojump.sh ]] && source /usr/local/etc/profile.d/autojump.sh
