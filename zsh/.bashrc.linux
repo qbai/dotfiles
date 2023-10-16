@@ -90,8 +90,9 @@ alias ff2='find_in_file(){find . -iname "$1"|xargs grep -i -n -E --color=always 
 
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
+alias fdisk="sudo fdisk -l"
 #alias dl="df -lha"
-alias dff='df -lhT'
+alias dff='df -lhTa'
 alias duu="sudo du -sh"
 #alias dum="du -ah --max-depth=1"
 alias dul='sudo du -ah --max-depth=1 |sort -rn'
