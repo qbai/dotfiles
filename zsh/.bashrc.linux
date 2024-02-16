@@ -231,6 +231,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias pacin='sudo pacman -Sy --noconfirm'
 	alias pacre='sudo pacman -Rs --noconfirm'
 	alias pacupg='sudo pacman -Syu --noconfirm'
+	alias pacclean='sudo rm -rf /var/cache/pacman/pkg/*'
 
 	# alias aremove2='sudo pacman -Rdd --noconfirm'
 	# pacman -Qs    query installed package
