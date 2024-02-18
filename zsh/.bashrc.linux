@@ -228,7 +228,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias hibernate='sudo systemctl hibernate'
 
 	alias packey='sudo pacman -Sy archlinux-keyring --noconfirm'
-	alias pacin='sudo pacman -Sy --noconfirm'
+	alias pacin='sudo pacman -Sy --noconfirm --needed'
 	alias pacre='sudo pacman -Rs --noconfirm'
 	alias pacupg='sudo pacman -Syu --noconfirm'
 	alias pacclean='yes|sudo pacman -Scc'
