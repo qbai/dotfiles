@@ -239,6 +239,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 
 	alias yayin='yay -S --noconfirm --needed'
 	alias yayre='yay -R --noconfirm'
+	alias yayupg='yay -Sua'
 
 	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
