@@ -8,3 +8,9 @@
 
 !-> exchange ~ ` for filco keyboard
 keycode 49 = asciitilde grave asciitilde grave
+
+!-> Exchange left Alt and left Win for filco keyboard
+remove mod1 = Alt_L
+remove mod4 = Super_L
+add mod1 = Super_L
+add mod4 = Alt_L
