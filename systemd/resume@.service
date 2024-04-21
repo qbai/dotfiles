@@ -1,0 +1,11 @@
+[Unit]
+Description=User resume actions
+After=suspend.target
+
+[Service]
+User=%I
+Type=simple
+ExecStart=/home/mav/dotfiles/systemd/resume.sh
+
+[Install]
+WantedBy=suspend.target

@@ -59,7 +59,7 @@ hc spawn nitrogen --restore
 
 
 hc keybind $Mod-Shift-q close
-hc keybind $Mod-Shift-r reload
+#hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c quit
 hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
 #hc keybind $Mod-Shift-l spawn screenoff
