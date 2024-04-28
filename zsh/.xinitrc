@@ -139,8 +139,8 @@ xset dpms 0 0 1200 # shutdown screen after 20min
 ################################################
 
 # enable ss-local
-sudo systemctl start shadowsocks-libev@jp.service
-#ss-local -c /etc/shadowsocks/jp.json &
+#sudo systemctl start shadowsocks-libev@jp.service
+##ss-local -c /etc/shadowsocks/jp.json &
 
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
