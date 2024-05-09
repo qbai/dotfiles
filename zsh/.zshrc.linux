@@ -92,8 +92,8 @@ alias -s s='emacsclient -t'
 alias -s asm='emacsclient -t'
 alias -s el='emacsclient -t'
 
-alias -s png='feh'
-alias -s jpg='feh'
+alias -s png='eog'
+alias -s jpg='eog'
 alias -s pdf='evince'
 
 alias -s mkv='mpv'
