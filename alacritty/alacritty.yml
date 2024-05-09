@@ -29,6 +29,18 @@ window:
 scrolling:
   multiplier: 1
 
+hints:
+  #alphabet: "jfkdls;ahgurieowpq"
+  enabled:
+   - regex: "((ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+)|(([\\w\\.\\-_/]+/)*[\\w\\-_\\.]+\\.[\\w]+(:\\d+)?)"
+   # - regex: "([\\w\\./]+/)*[\\w]+\\.[\\w]+(:\\d+)?"
+     hyperlinks: true
+     command: xdg-open
+     post_processing: true
+     mouse:
+       enabled: true
+       mods: "Control"
+
 # Font configurations
 font:
   normal:
@@ -53,18 +65,18 @@ font:
     x: 0
     y: 0
 
-  scale_with_dpi: true
+  #scale_with_dpi: true
 
   #use_thin_strokes: true
-  AppleFontSmoothing: true
+  #AppleFontSmoothing: true
 
 draw_bold_text_with_bright_colors: true
 
 # ...
 
 colors:
-  name: Monokai (dark)
-  author: Chris Kempson
+  #name: Monokai (dark)
+  #author: Chris Kempson
   primary:
       background: "#272822"
       foreground: "#f8f8f2"
@@ -122,7 +134,7 @@ colors:
 # Visual Bell
 # ...
 
-window.opacity: 1.0
+#window.opacity: 1.0
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -132,9 +144,9 @@ mouse_bindings:
   - { mouse: Right, action: PasteSelection }
 
 mouse:
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
-  faux_scrolling_lines: 1
+  #double_click: { threshold: 300 }
+  #triple_click: { threshold: 300 }
+  #faux_scrolling_lines: 1
   hide_when_typing: false
 
 cursor:
