@@ -39,7 +39,7 @@ umask 022
 #alias chall='chmod -R 777'
 
 #alias pg="pmset -g"
-alias rf='sudo rm -rf'
+#alias rf='sudo rm -rf'
 alias cp='sudo cp -r'
 #alias pgr='ps -ef|grep -v grep|grep --color=always'
 
