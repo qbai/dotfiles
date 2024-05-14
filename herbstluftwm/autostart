@@ -58,7 +58,8 @@ hc spawn nitrogen --restore
 #hc spawn xfce4-panel
 
 
-hc keybind $Mod-Shift-q close
+#hc keybind $Mod-Shift-q close
+hc keybind $Mod-q close
 #hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c quit
 hc keybind $Mod-Alt-l spawn lock -gpf Source-Code-Pro
