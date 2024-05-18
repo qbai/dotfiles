@@ -112,7 +112,7 @@ alias pstree='pstree -apnuh'
 alias curl='curl -O'
 
 #cl() { cd "$@" && pwd ; ls -ltrahF; }
-cl() { cd "$@" && ls -ltrahF; }
+cl() { cd "$@" && ls -l -t -r -a -h -F; }
 #alias ..="cl .."
 
 #alias llock="light-locker --lock-on-suspend&"
@@ -333,6 +333,11 @@ function gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 alias herb-config="less -i -M -R -j20 -J ~/dotfiles/herbstluftwm/autostart"
 alias herb-keys="herbstclient list_keybinds"
 
+
+
+#function cd() {
+#    builtin cd "$@" && ls -l -t -r -a -h -F
+#}
 
 ######################### new append at tail ################################
 #alias os="lsb_release -a"

@@ -52,7 +52,7 @@ ZSH_THEME="bira"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git tmux autojump osx sudo cp)
-plugins=(git autojump sudo cp pip last-working-dir thefuck)
+plugins=(git autojump sudo cp pip last-working-dir thefuck cd-ls)
 
 
 # User configuration
@@ -106,6 +106,12 @@ alias -s torrent='aria2c'
 [[ -s /usr/local/etc/profile.d/autojump.sh ]] && source /usr/local/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
+# automatically ls after cd
+#autoload -U add-zsh-hook
+#ls_after_cd() {
+#	ls -l -t -r -a -h -F;
+#}
+#add-zsh-hook chpwd ls_after_cd
 
 #export PATH="/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -149,3 +155,4 @@ bindkey "\e\e" sudo-command-line
 alias l='ls -l -t -r -a -h -F'
 alias grep='grep -i -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias ls='ls --color=always -a'
+export CD_LS_COMMAND="ls -l -t -r -a -h -F"
