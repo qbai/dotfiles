@@ -13,7 +13,7 @@ alias l='ls -l -t -r -a -h -F'
 alias le='exa -bghHliSa -s modified'
 alias lsd='lsd -l --header -a'
 #alias lt='ls -l -t -r -a -h'
-alias ldir='ls -dltrh */'
+#alias ldir='ls -dltrh */'
 alias lf="ls -l -F"
 alias c='clear'
 alias s='source ~/.zshrc'
@@ -71,6 +71,7 @@ alias lg="lsof -i|grep"
 #alias lgd='lsof +D'
 
 #alias e='emacs -nw'
+alias emacs='emacs -nw'
 alias edn="emacs --daemon"
 alias edk="emacsclient -e '(kill-emacs)'"
 alias edr="emacsclient -e '(kill-emacs)' && emacs --daemon"
@@ -112,7 +113,7 @@ alias pstree='pstree -apnuh'
 alias curl='curl -O'
 
 #cl() { cd "$@" && pwd ; ls -ltrahF; }
-cl() { cd "$@" && ls -l -t -r -a -h -F; }
+#cl() { cd "$@" && ls -l -t -r -a -h -F; }
 #alias ..="cl .."
 
 #alias llock="light-locker --lock-on-suspend&"
@@ -272,13 +273,13 @@ fi
 ############# git #######################
 # git config --global icdiff.options '--highlight --line-numbers'
 #alias gdd='git icdiff | less -i -M -R -j20 -J'
-alias gshow='git showtool'
-alias gcmm='git commit -m'
-alias gde='git difftool --tool=ediffclient --no-prompt'
+#alias gshow='git showtool'
+#alias gcmm='git commit -m'
+#alias gde='git difftool --tool=ediffclient --no-prompt'
 #alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
-alias gme='git mergetool --tool=ediffclient --no-prompt'
+#alias gme='git mergetool --tool=ediffclient --no-prompt'
 alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
-alias gst2='git status -uno'
+#alias gst2='git status -uno'
 #alias greset='git reset --hard HEAD^'
 #########################################
 
@@ -333,12 +334,6 @@ function gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 alias herb-config="less -i -M -R -j20 -J ~/dotfiles/herbstluftwm/autostart"
 alias herb-keys="herbstclient list_keybinds"
 
-
-
-#function cd() {
-#    builtin cd "$@" && ls -l -t -r -a -h -F
-#}
-
 ######################### new append at tail ################################
 #alias os="lsb_release -a"
 
@@ -350,7 +345,6 @@ alias herb-keys="herbstclient list_keybinds"
 alias croc="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
 #alias rg='rg -i -e'
 alias rg='rg_with_colors(){rg -i -e "$1" --color always -C 2};rg_with_colors'
-alias emacs='emacs -nw'
 alias screenoff='sudo xset dpms force off'
 
 pc4() {

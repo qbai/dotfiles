@@ -17,7 +17,7 @@ ZSH_THEME="bira"
  HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
- DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
  export UPDATE_ZSH_DAYS=30
@@ -105,13 +105,6 @@ alias -s torrent='aria2c'
 #[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
 [[ -s /usr/local/etc/profile.d/autojump.sh ]] && source /usr/local/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
-
-# automatically ls after cd
-#autoload -U add-zsh-hook
-#ls_after_cd() {
-#	ls -l -t -r -a -h -F;
-#}
-#add-zsh-hook chpwd ls_after_cd
 
 #export PATH="/usr/local/sbin:/usr/local/bin:.:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
