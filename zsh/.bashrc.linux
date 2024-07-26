@@ -18,7 +18,7 @@ alias lf="ls -l -F"
 alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
-alias m='sudo less -i -M -R -j20 -J'
+alias m='less -i -M -R -j20 -J'
 alias bat='sudo bat'
 
 ## linenum & no wrap
@@ -354,3 +354,5 @@ pc4() {
 alias procs='procs --sortd cpu -W 1'
 alias gdb='gdb -q'
 alias dmesg='sudo dmesg --color=always'
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
+#export LESS=" -R "
