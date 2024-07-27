@@ -138,6 +138,7 @@ tmux_init()
 # more colorful less
 # export LESS='-F -i -J -M -R -W -x4 -X -z-4'
 # export LESS='-i -M -R -j20 -J'
+export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS='-i -M -R -j20'
 export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
 export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
@@ -355,5 +356,3 @@ pc4() {
 alias procs='procs --sortd cpu -W 1'
 alias gdb='gdb -q'
 alias dmesg='sudo dmesg --color=always'
-export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
-#export LESS=" -R "
