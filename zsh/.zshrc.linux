@@ -78,7 +78,7 @@ alias -s xz='xz -d'
 #alias -s csv='less'
 #alias -s csv='sudo bat'
 #alias -s yml='sudo bat'
-alias -s {txt,log,rtf,conf,properties,csv,yml}='moar -style monokai -wrap'
+alias -s {txt,log,rtf,conf,properties,csv,yml}='moar'
 
 #alias -s md='glow -p'
 #alias -s rst='glow -p'
