@@ -113,6 +113,29 @@ CPU_LOOP_UNROLL_4X(
                    w);
 
 
+// duff unrolling
+void copy (char *to, char *from, int count)
+{
+        if (count <= 0)
+                return;
+        int n = (count + 7) / 8;
+        switch (count % 8)
+                {
+                        do {
+                                case 0: *to++ = *from++;
+                                case 7: *to++ = *from++;
+                                case 6: *to++ = *from++;
+                                case 5: *to++ = *from++;
+                                case 4: *to++ = *from++;
+                                case 3: *to++ = *from++;
+                                case 2: *to++ = *from++;
+                                case 1: *to++ = *from++;
+                        } while (--n > 0);
+                }
+}
+
+
+
 // assert in the compiling time
 #define BUILD_BUG_ON(condition) ((void)sizeof(char[1 - 2*!!(condition)]))
 
@@ -204,3 +227,117 @@ case 1 ... 3:
         dynamic_pr_debug(fmt, ##__VA_ARGS__)
 
 
+
+//Removing pointless variables with anonymous arrays
+/* int yes=1;
+   setsockopt(yourSocket, SOL_SOCKET, SO_REUSEADDR, &yes, sizeof(int));
+ */
+setsockopt(yourSocket, SOL_SOCKET, SO_REUSEADDR, (int[]){1}, sizeof(int));
+
+void func(type* values) {
+        while(*values) {
+                x = *values++;
+                /* do whatever with x */
+        }
+}
+
+func((type[]){val1,val2,val3,val4,0});
+
+
+// header structure
+struct X {
+        int len;
+        char str[10];
+};
+
+//simplify stupid  printf
+#define print_dec(var)  printf("%s=%d\n",#var,var);
+print_dec(counter);
+
+
+// func point array for state machine
+int (* fsm[])(void) = { ... }
+
+
+// compiler warning, or using #warning
+#if TESTMODE == 1    
+        debug=1;
+        while(0);     // Get attention
+#endif
+
+//debug or release
+#ifndef RELEASE
+#  define D(x) do { x; } while (0)
+#else
+#  define D(x)
+#endif
+
+D(printf("Test statement\n"));
+
+
+//0 bitfields
+struct {
+        int    a:3;
+        int    b:2;
+        int     :0;
+        int    c:4;
+        int    d:3;
+};
+
+/* layout is 000aaabb 0ccccddd, instead without :0 as
+             0000aaab bccccddd
+   The 0 width field tells that the following bitfields should be set
+           on the next atomic entity (char)
+ */
+
+
+// initial by include
+double normals[][] = {
+#include "normals.txt"
+};
+
+{0, 0, 1},
+{0, 1, 0},
+{1, 0, 0}
+
+//c99 arr initial
+int arr[10] = {[1... 5] = 5};
+
+
+//is_power_of_two
+#define is_power_of_2(n) ((n) != 0 && ((n) & ((n) - 1)) == 0)
+
+
+//static list
+struct mylist {
+        int a;
+        struct mylist* next;
+};
+#define cons(x, y) (struct mylist[]){{x, y}}
+struct mylist *list = cons(1, cons(2, cons(3, NULL)));
+
+
+//0 as strlen
+int len=10;
+char a[len + 1];
+a[0] = len;
+for (int i = 1; i <= a[0]; i++) {
+}
+
+
+//enbeded sentence, gcc only
+int sum = (
+             {
+                     int s = 0;        
+                     for( int i = 0; i < 10; i++)
+                             s = s + i;
+                     s;
+             }
+          );
+
+
+
+// check params, gcc only
+#define CHECK_FMT(a, b)	__attribute__((format(printf, a, b)))
+void TRACE(const char *fmt, ...) CHECK_FMT(1, 2);
+void TRACE(const char *fmt, ...) CHECK_FMT(2, 3); // for c++, 1 is this

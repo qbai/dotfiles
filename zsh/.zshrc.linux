@@ -152,7 +152,7 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey "\e\e" sudo-command-line
 
-alias l='ls -l -t -r -a -h -F'
+alias l='ls -l -t -r -a -h'
 alias grep='grep -i -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias ls='ls --color=always -a'
 alias fd='fd --glob'
