@@ -31,3 +31,5 @@ sudo extundelete  /dev/sda4 --inode 2
 # show hex value 0x8000
 echo $((16#8000))
 
+#rm excluding specfied folder
+sudo find . -mindepth 1 -path ./pacman -prune -o -exec rm -rf {} +

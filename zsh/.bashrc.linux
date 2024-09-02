@@ -239,6 +239,11 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias pacre='sudo pacman -Rs --noconfirm'
 	alias pacupg='sudo pacman -Syu --noconfirm'
 	alias pacclean='yes|sudo pacman -Scc'
+	# paccache -rk1 or paccache -r
+	# pacman -Qo			#one file belongs to which package
+	# pacman -Si			# show remote or local package info
+	# pacman -Fl			# show package file list
+
 
 	# alias aremove2='sudo pacman -Rdd --noconfirm'
 	# pacman -Qs    query installed package
@@ -255,8 +260,9 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 
 	##export {http, ftp, https, rsync}_proxy='http://127.0.0.1:8118'
 	##export {HTTP, FTP, HTTPS, RSYNC}_PROXY=$http_proxy
-	#export http_proxy="http://127.0.0.1:8118/"
+	#export http_proxy="http://127.0.0.1:8118"
 	#export https_proxy=$http_proxy
+	#export all_proxy="socks5://127.0.0.1:7591"
 	#export ftp_proxy=$http_proxy
 	#export rsync_proxy=$http_proxy
 	#export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"

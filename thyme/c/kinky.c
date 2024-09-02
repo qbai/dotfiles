@@ -188,6 +188,13 @@ while (x --> 0) {
         printf("%d ", x);
 } // 9 8 7 6 5 4 3 2 1 0
 
+int x = 10;
+while (0 <---- x) {
+        printf("%d ", x);
+ } // 8 6 4 2
+return 0;
+
+
 
 // typeof, gnu c only
 #define max(a, b) ({                            \
@@ -341,3 +348,79 @@ int sum = (
 #define CHECK_FMT(a, b)	__attribute__((format(printf, a, b)))
 void TRACE(const char *fmt, ...) CHECK_FMT(1, 2);
 void TRACE(const char *fmt, ...) CHECK_FMT(2, 3); // for c++, 1 is this
+
+
+// round up
+#define ROUNDUP(a, size) (((a) & ((size)-1)) ? (1+((a) | ((size)-1))) : (a))
+#define VAL_ROUNDUP(size, val_size)     (((size)+val_size-1)/val_size*val_size)
+
+
+// sizeof
+struct
+{
+}a;
+    
+sizeof(void); // 1
+sizeof(a);    // 0
+
+
+//preposseor messages
+#pragma message("message contents")
+
+
+// ??! is |
+!ErrorHasOccured() ??!??! HandleError();
+
+
+// ignore param
+void func(int n, int m) {
+        (void)m; // ignore m
+        printf("%d\n", n);
+}
+
+
+//array initial, gcc only
+int array[] = { [0 ... 9] = 1, [10 ... 20] = 2, [30 ... 40] = 3};
+
+
+// ?:
+(x==0)?a:b = someValue;
+(y>0)?(doSomething();):(doSomethingElse(););
+int result = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+
+
+// removing pointless variables, anonymous struct
+int yes=1;
+int[]{1}; // &yes
+
+void myFunction(type* values) {
+        while(*values) x=*values++;
+}
+myFunction((type[]){val1,val2,val3,val4,0});
+
+
+// printf version
+printf("counter=%d\n",counter);
+
+#define print_dec(var)  printf("%s=%d\n",#var,var);
+print_dec(counter);
+
+
+// func pointer array
+int (* fsm[])(void) = {}
+
+// Get attesion, no effect but issue a warning by compiler
+while(0);
+
+
+// release or debug
+#ifndef RELEASE
+#  define D(x) do { x; } while (0)
+#else
+#  define D(x)
+#endif
+
+D(printf("Test statement\n"));
+
+
+
