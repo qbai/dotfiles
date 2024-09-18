@@ -779,6 +779,7 @@ you should place your code here."
 (global-set-key [(mouse-4)] '(lambda () (interactive) (scroll-down-line 2)))
 ;;(global-set-key [mouse-4] 'good-scroll-down)
 ;;(global-set-key [mouse-5] 'good-scroll-up)
+(global-set-key [mouse-3] 'yank)
 ;;(pixel-scroll-mode 1)
 (good-scroll-mode 1)
 

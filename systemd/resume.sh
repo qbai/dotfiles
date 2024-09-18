@@ -2,4 +2,5 @@
 
 #reset keymap while wakeup
 export DISPLAY=:0
-/usr/bin/xmodmap /home/mav/.Xmodmap
+echo "hello"
+sudo /usr/bin/xmodmap /home/mav/.Xmodmap

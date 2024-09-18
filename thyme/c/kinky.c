@@ -424,3 +424,14 @@ D(printf("Test statement\n"));
 
 
 
+// string array initianlize
+#define EINVAL 1
+#define ENOMEM 2
+#define EFAULT 3
+
+char *err_strings[] = {
+        err_strings[0] = "Success",
+        err_strings [EINVAL] = "Invalid argument",
+        err_strings[ENOMEM] = "Not enough memory",
+        err_strings[EFAULT] = "Bad address"
+}

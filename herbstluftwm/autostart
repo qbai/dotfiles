@@ -81,7 +81,9 @@ hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -wi
 
 # start google chrome
 #hc keybind $Mod-x spawn google-chrome-stable
-hc keybind $Mod-x spawn google-chrome-stable --proxy-server="socks5://127.0.0.1:7591" #--proxy-pac-url="file://~/dotfiles/privoxy/autoproxy.pac"
+#hc keybind $Mod-x spawn google-chrome-stable --proxy-server="socks5://127.0.0.1:7591" #--proxy-pac-url="file://~/dotfiles/privoxy/autoproxy.pac"
+																					   #--force-device-scale-factor=1.3
+hc keybind $Mod-x spawn google-chrome-stable --proxy-pac-url="http://127.0.0.1:8080/proxy.js"
 
 hc keybind $Mod-Alt-g spawn gpick --pick
 #hc keybind $Mod-Shift-x spawn qutebrowser

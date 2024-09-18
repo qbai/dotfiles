@@ -142,5 +142,8 @@ xset dpms 0 0 1200 # shutdown screen after 20min
 #sudo systemctl start shadowsocks-libev@jp.service
 ##ss-local -c /etc/shadowsocks/jp.json &
 
+# enable pac http server temporarily
+(python -m http.server 8080 -b 127.0.0.1 -d /etc/v2ray >/dev/null 2>&1)&
+
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked

@@ -68,9 +68,11 @@ alias mem="free -h"
 #alias memp='mep(){grep Pss /proc/"$1"/smaps| awk "{total+=$2}; END {print total}"};mep'
 
 alias ng="sudo netstat -antp|grep 'listen'"
+#alias ng="sudo netstat -antp|grep 'listen'|paste -d \" \" - <(sudo netstat -antp|grep 'listen'|awk '{print $7}'|cut -d'/' -f1|xargs -I {} ps --no-headers -p {} -o cmd)"
 #alias ngk="netstat -an|grep $1|awk '{print $2}'|sudo xargs kill -9"
 alias lg="lsof -i|grep"
 #alias lgd='lsof +D'
+
 
 #alias e='emacs -nw'
 alias emacs='emacs -nw'
@@ -240,9 +242,9 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias pacupg='sudo pacman -Syu --noconfirm'
 	alias pacclean='yes|sudo pacman -Scc'
 	# paccache -rk1 or paccache -r
-	# pacman -Qo			#one file belongs to which package
-	# pacman -Si			# show remote or local package info
-	# pacman -Fl			# show package file list
+	alias pacqo='sudo pacman -Qo'			#one file belongs to which package
+	alias pacsi='sudo pacman -Si'			# show remote or local package info
+	alias pacfl='sudo pacman -Fl'			# show package file list
 
 
 	# alias aremove2='sudo pacman -Rdd --noconfirm'
@@ -252,7 +254,10 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias yayin='yay -S --noconfirm --needed'
 	alias yayre='yay -R --noconfirm'
 	alias yayupg='yay -Sua'
-
+	alias yayqo='yay -Qo'
+	alias yaysi='yay -Si'
+	alias yayfl='yay -Fl'
+	
 	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
 	# connect home's stereo manually
@@ -354,7 +359,9 @@ alias herb-keys="herbstclient list_keybinds"
 #        emacs --daemon >/dev/null 2>&1
 #fi
 
-alias croc="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
+alias croc_s="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
+alias croc_r="croc --yes hello"
+
 #alias rg='rg -i -e'
 alias rg='rg_with_colors(){rg -i -e "$1" --color always -C 2};rg_with_colors'
 alias screenoff='sudo xset dpms force off'

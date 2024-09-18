@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEM=="power_supply", ENV{POWER_SUPPLY_ONLINE}=="1", RUN+="/home/mav/dotfiles/systemd/resume.sh"
