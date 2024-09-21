@@ -245,6 +245,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias pacqo='sudo pacman -Qo'			#one file belongs to which package
 	alias pacsi='sudo pacman -Si'			# show remote or local package info
 	alias pacfl='sudo pacman -Fl'			# show package file list
+	alias pacqu='sudo pacman -Qu'			# show all pkg needed to be upgrade
 
 
 	# alias aremove2='sudo pacman -Rdd --noconfirm'
@@ -257,6 +258,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias yayqo='yay -Qo'
 	alias yaysi='yay -Si'
 	alias yayfl='yay -Fl'
+	alias yayqu='yay -Qu'
 	
 	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
