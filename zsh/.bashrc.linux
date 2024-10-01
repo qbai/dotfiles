@@ -43,7 +43,7 @@ umask 022
 
 #alias pg="pmset -g"
 #alias rf='sudo rm -rf'
-alias cp='sudo cp -r'
+alias cp='cp -r'
 #alias pgr='ps -ef|grep -v grep|grep --color=always'
 
 alias p='ps -ef|grep -v grep|grep'
@@ -245,6 +245,7 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	alias pacqo='sudo pacman -Qo'			#one file belongs to which package
 	alias pacsi='sudo pacman -Si'			# show remote or local package info
 	alias pacfl='sudo pacman -Fl'			# show package file list
+	#alias pacf='sudo pacman -F'			  show file in which pkg remotely
 	alias pacqu='sudo pacman -Qu'			# show all pkg needed to be upgrade
 
 

@@ -99,7 +99,7 @@ alias -s {c,cpp,cxx,h,hpp,hxx,py,s,asm,el}='emacsclient -t'
 
 #alias -s png='eog'
 #alias -s jpg='eog'
-alias -s {png,jpg}='eog'
+alias -s {png,jpg,JPG}='eog'
 
 alias -s pdf='evince'
 

@@ -9,7 +9,7 @@ sudo chown -R mav arch-backup.tgz
 sudo chgrp -R users arch-backup.tgz
 
 # quickly tar big file
-sudo tar --use-compress-program=pigz --ignore-failed-read -cvpf /vm/arch-backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/mnt --exclude=/sys --exclude=/run/media --exclude=/media --exclude=/vm /
+sudo tar --use-compress-program=pigz --ignore-failed-read -cvpf /vm/arch-$(date +%Y%m%d_%H%M%S).backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/mnt --exclude=/sys --exclude=/run/media --exclude=/media --exclude=/vm /
 
 # extract one folder from .tgz file
 sudo tar xvf arch-backup.tgz home/mav/ --exclude=home/mav/repo --exclude=home/mav/Downloads --exclude=home/mav/.cache --exclude=home/mav/.cargo --exclude=home/mav/dotfiles --exclude=home/mav/Download
