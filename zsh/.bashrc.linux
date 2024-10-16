@@ -24,9 +24,10 @@ alias h='history'
 
 #alias bat='sudo bat'
 #alias m='less'
-#alias m='sudo bat'
-alias moar='moar -style monokai -wrap'
-alias m='moar'
+#alias b='sudo bat'
+#alias moar='moar -style monokai -wrap'
+#alias m='moar'
+alias m='sudo bat -p'
 #alias n='sudo nano -m -$'
 alias n='sudo micro'
 
@@ -225,7 +226,7 @@ export VISUAL='sudo micro'
 
 export GTAGSLABEL=pygments
 
-export PATH=/usr/local/sbin:/usr/local/bin:.:/usr/bin:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin:$PATH
+export PATH=$PATH:.:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin
 #export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
