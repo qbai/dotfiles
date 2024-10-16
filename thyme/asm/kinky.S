@@ -4,7 +4,9 @@
 .section .text
 .align 16
 
-
+/*
+ * mem cmp with avx
+ */
 .global mem_cmp_avx2
 mem_cmp_avx2:
 	mov $0, pos
