@@ -44,21 +44,17 @@ HEADERS = $(wildcard *.h)
 #	@echo building executtable
 #	@$(CC) $(OBJECTS) $(CFLAGS) $(LIBS) -o $(TARGET)
 
-#$(TARGET_LIST):$(OBJECTS)
-#	@echo $@
-#	$(CC) $@.o $(OBJECTS) $(CFLAGS) $(LIBS) -o $@
+#mem_cpy_avx_test: mem_cpy_avx_test.o $(OBJECTS)
+#	@echo building mem_cpy_avx_test
+#	@$(CC) $(CFLAGS) $(LIBS) -o $@ $^
 
-#%: %.o
-#	$(CC) $(CFLAGS) $(LIBS) -o $@ $^
+#mem_cmp_avx2_test: mem_cmp_avx2_test.o $(OBJECTS)
+#	@echo building mem_cmp_avx2_test
+#	@$(CC) $(CFLAGS) $(LIBS) -o $@ $^
 
-mem_cpy_avx_test: mem_cpy_avx_test.o $(OBJECTS)
-	@echo building mem_cpy_avx_test
+$(TARGET_LIST): %: %.o $(OBJECTS)
 	@$(CC) $(CFLAGS) $(LIBS) -o $@ $^
-
-mem_cmp_avx2_test: mem_cmp_avx2_test.o $(OBJECTS)
-	@echo building mem_cmp_avx2_test
-	@$(CC) $(CFLAGS) $(LIBS) -o $@ $^
-
+	
 clean:
 	@echo remove all files
 	@-rm -f *.o
