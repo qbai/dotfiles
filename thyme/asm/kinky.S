@@ -10,7 +10,7 @@
 .global mem_cmp_avx2
 mem_cmp_avx2:
 	mov $0, pos
-    sub $(4*32), len
+    sub $4*32, len
     jle .mem_cmp_small_block
 
 	.mem_cmp_loop:
@@ -31,7 +31,7 @@ mem_cmp_avx2:
     	vpor    %ymm0, %ymm4, %ymm1
     	vptest  %ymm1, %ymm1
     	jnz .return_fail
-    	add $(4*32), pos
+    	add $4*32, pos
     	cmp len, pos
     	jl  .mem_cmp_loop
 
@@ -59,8 +59,8 @@ mem_cmp_avx2:
 	    ret
 	    
 	.mem_cmp_small_block:
-	    add $(4*32), len
-	    cmp $(3*32), len
+	    add $4*32, len
+	    cmp $3*32, len
 	    jl  .mem_cmp_lt96
 	    vmovdqu (src), %ymm0
 	    vmovdqu 32(src), %ymm1
@@ -83,7 +83,7 @@ mem_cmp_avx2:
 	    jmp .return_pass1
 
 	.mem_cmp_lt96:
-	    cmp $(2*32), len
+	    cmp $2*32, len
 	    jl  .mem_cmp_lt64
 	    vmovdqu (src), %ymm0
 	    vmovdqu 32(src), %ymm1
@@ -167,7 +167,7 @@ mem_cmp_avx2:
 .global mem_cpy_avx
 mem_cpy_avx:
 	mov $0, %rax
-	sub $(8*32), %rdx
+	sub $8*32, %rdx
 	jle .mem_cpy_small_block
 
 	.mem_cpy_loop:
@@ -187,7 +187,7 @@ mem_cpy_avx:
 		vmovdqu %ymm5, 5*32(%rdi, %rax)
 		vmovdqu %ymm6, 6*32(%rdi, %rax)
 		vmovdqu %ymm7, 7*32(%rdi, %rax)
-		add $(8*32), %rax
+		add $8*32, %rax
 		cmp %rdx, %rax
 	 	jl  .mem_cpy_loop
 
@@ -214,8 +214,8 @@ mem_cpy_avx:
 	    ret
 
 	.mem_cpy_small_block:
-	    add     $(8*32), %rdx
-	    cmp     $(4*32), %rdx
+	    add     $8*32, %rdx
+	    cmp     $4*32, %rdx
 	    jl      .mem_cpy_lt128
 		vmovdqu (%rsi, %rax), %ymm0
 		vmovdqu 1*32(%rsi, %rax), %ymm1
@@ -225,18 +225,18 @@ mem_cpy_avx:
 	    vmovdqu %ymm1, 1*32(%rdi, %rax)
 	    vmovdqu %ymm2, 2*32(%rdi, %rax)
 	    vmovdqu %ymm3, 3*32(%rdi, %rax)  
-	  	sub     $(4*32), %rdx
-	    add     $(4*32), %rax
+	  	sub     $4*32, %rdx
+	    add     $4*32, %rax
 
 	.mem_cpy_lt128:
-	    cmp     $(2*32), %rdx
+	    cmp     $2*32, %rdx
 	    jl      .mem_cpy_lt64
 		vmovdqu (%rsi, %rax), %ymm0
 		vmovdqu 1*32(%rsi, %rax), %ymm1
 		vmovdqu %ymm0, (%rdi, %rax)
 		vmovdqu %ymm1, 1*32(%rdi, %rax)
-	    sub     $(2*32), %rdx
-	    add     $(2*32), %rax
+	    sub     $2*32, %rdx
+	    add     $2*32, %rax
 
 	.mem_cpy_lt64:
 	    cmp     $32, %rdx
