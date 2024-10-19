@@ -55,8 +55,10 @@ test:
 	lea (%rdx), p
 	*/							/* compile error */
 								/* lea only for register */
-
-
+	/*
+	lea p, %rax
+	lea 0x123, (%rax)
+	*/							/* compile error */
 
 
 
