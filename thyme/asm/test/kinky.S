@@ -100,7 +100,32 @@ test:
 	mov %rdx, (%rax)
 	*/							/* p value is 0x123 */
 
+	/*
+	lea 2f, %rax
+	jmp *%rax
+1:
+	lea p, %rax
+	jmp 3f
 
+2:
+	lea 0x345, %rax
 
+3:
+	*/							/* 0x345 */
+
+	
+	lea 2f, %rdx
+	mov %rdx, p
+	lea p, %rax
+	jmp *(%rax)
+1:
+	lea p, %rax
+	jmp 3f
+
+2:
+	lea 0x567, %rax
+
+3:
+								/* 0x567 */	/* jmp (%rax) illegal */
 	
 	ret
