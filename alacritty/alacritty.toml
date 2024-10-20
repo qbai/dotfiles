@@ -89,7 +89,7 @@ mods = "Control"
 
 [[keyboard.bindings]]
 action = "Paste"
-key = "Y"
+key = "V"
 mods = "Control"
 
 [[keyboard.bindings]]

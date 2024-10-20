@@ -29,7 +29,7 @@ alias h='history'
 #alias m='moar'
 alias m='sudo bat -p'
 #alias n='sudo nano -m -$'
-alias n='sudo micro'
+alias n='sudo micro -statusline=false'
 
 #alias grep='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
@@ -375,6 +375,6 @@ pc4() {
 }
 
 alias procs='procs --sortd cpu -W 1'
-alias gdb='gdb -q'
+#alias gdb='gdb -q'
 alias dmesg='sudo dmesg --color=always'
 #export PAGER='moar'
