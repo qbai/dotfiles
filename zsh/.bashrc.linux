@@ -1,4 +1,5 @@
 export PS1="[\u@\h \w]\$ "
+
 #PS1='\[\033[1;31;40m\]\u@\h:\w\$ '
 #PS1='[\[\e[32;40m\]\u@\h \w \t]$ '
 #export PS1="[\e[32;1m\u@\h \W]\\$"
@@ -13,10 +14,10 @@ export TERM=xterm-256color
 #alias ldir='ls -dltrh */'
 #alias lt='ls -l -t -r -a -h'
 #alias ldir='ls -dltrh */'
-alias l='ls -l -t -r -a -h -F'
+alias l='ls -ltrahF'
 alias le='exa -bghHliSa -s modified'
 alias lsd='lsd -l --header -a'
-alias lf="ls -l -F"
+alias lf="ls -lF"
 
 alias c='clear'
 alias s='source ~/.zshrc'
@@ -29,7 +30,7 @@ alias h='history'
 #alias m='moar'
 alias m='sudo bat -p'
 #alias n='sudo nano -m -$'
-alias n='sudo micro -statusline=false'
+alias n='micro -statusline=false --wordwrap=true'
 
 #alias grep='grep -i -E --color=always -n --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 #alias mdless='pandoc -s -f markdown -t man \!* | groff -T utf8 -man | less'
@@ -68,10 +69,10 @@ alias pm10="ps auxw|head -1;ps auxw|sort -rn -k4|head -10"
 alias mem="free -h"
 #alias memp='mep(){grep Pss /proc/"$1"/smaps| awk "{total+=$2}; END {print total}"};mep'
 
-alias ng="sudo netstat -antp|grep 'listen'"
+#alias ng="sudo netstat -antp|grep 'listen'"
 #alias ng="sudo netstat -antp|grep 'listen'|paste -d \" \" - <(sudo netstat -antp|grep 'listen'|awk '{print $7}'|cut -d'/' -f1|xargs -I {} ps --no-headers -p {} -o cmd)"
 #alias ngk="netstat -an|grep $1|awk '{print $2}'|sudo xargs kill -9"
-alias lg="lsof -i|grep"
+#alias lg="lsof -i|grep"
 #alias lgd='lsof +D'
 
 
@@ -83,16 +84,16 @@ alias edr="emacsclient -e '(kill-emacs)' && emacs --daemon"
 alias e='emacsclient -t'
 
 #alias soo="sudo !!"
-alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
-alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
+#alias cline="find . -name '*.c' | xargs wc -l | awk '{a+=$1}END{print a}'"
+#alias cline2="find . -name '*.c'|xargs wc -l|awk '{a+=$1}END{print a}'"
 
-alias ff="find . -iname"
-alias fff='ag_fzf_file(){ag -z -a -i "$1" |fzf > /tmp/fzf.log};ag_fzf_file'
-alias fff2='ag_fzf_file(){ag -z -a -i -C2 "$1" |fzf > /tmp/fzf.log};ag_fzf_file'
-alias fffw='ag_fzf_file(){ag -z -a -i -w "$1" |fzf > /tmp/fzf.log};ag_fzf_file'
+#alias ff="find . -iname"
+#alias fff='ag_fzf_file(){ag -z -a -i "$1" |fzf > /tmp/fzf.log};ag_fzf_file'
+#alias fff2='ag_fzf_file(){ag -z -a -i -C2 "$1" |fzf > /tmp/fzf.log};ag_fzf_file'
+#alias fffw='ag_fzf_file(){ag -z -a -i -w "$1" |fzf > /tmp/fzf.log};ag_fzf_file'
 
 #alias fng="find . -name '*'|xargs grep"
-alias ff2='find_in_file(){find . -iname "$1"|xargs grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn} "$2"};find_in_file'
+#alias ff2='find_in_file(){find . -iname "$1"|xargs grep -i -n -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn} "$2"};find_in_file'
 
 #alias kora="ps -ef|grep ora_|awk '{print $2}'|xargs kill -9"
 
@@ -107,7 +108,9 @@ alias gcg="gtags --gtagslabel ctags"
 alias txstart="tmux attach || tmux_init"
 alias wh="which"
 alias watch='watch -n 2 -d'
+
 alias xzz='xz -z -v --threads=0 -9 -e'
+alias ptar='pv_tar(){pv "$1"|tar -zxf -};pv_tar'
 
 alias pstree='pstree -apnuh'
 
@@ -267,14 +270,17 @@ if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-
 	# connect home's stereo manually
 	#alias mystereo = "bluetoothctl connect 04\:FE\:A1\:C7\:3C\:67"
 
-	##export {http, ftp, https, rsync}_proxy='http://127.0.0.1:8118'
-	##export {HTTP, FTP, HTTPS, RSYNC}_PROXY=$http_proxy
-	#export http_proxy="http://127.0.0.1:8118"
+	#export http_proxy="http://127.0.0.1:8080"
 	#export https_proxy=$http_proxy
-	#export all_proxy="socks5://127.0.0.1:7591"
 	#export ftp_proxy=$http_proxy
 	#export rsync_proxy=$http_proxy
+	#export all_proxy="socks5://127.0.0.1:7591"
 	#export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+
+	#export {http, ftp, https, rsync}_proxy="http://127.0.0.1:8080"
+	#export {HTTP, FTP, HTTPS, RSYNC}_PROXY=$http_proxy
+	
+	#export {http,ftp,https,rsync}{_proxy,_PROXY}="http://127.0.0.1:8080"
 
 	# if imwheel was installed
 	if [ -x "$(command -v imwheel)" ]; then
@@ -338,7 +344,7 @@ alias p_cs='pidstat -w 2'
 #eval $(thefuck --alias)
 
 
-function edf() {
+edf() {
 	if [ "X${2}" = "X" ]; then
 		echo "USAGE: ediff <FILE 1> <FILE 2>"
 	else
@@ -348,7 +354,7 @@ function edf() {
 	fi
 }
 
-function gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
+gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 
 
 ## herbstluftwm
@@ -363,8 +369,8 @@ alias herb-keys="herbstclient list_keybinds"
 #        emacs --daemon >/dev/null 2>&1
 #fi
 
-alias croc_s="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
-alias croc_r="croc --yes hello"
+#alias croc_s="croc --yes send --code 'hello'" # use (croc --yes hello) to recieve
+#alias croc_r="croc --yes hello"
 
 #alias rg='rg -i -e'
 alias rg='rg_with_colors(){rg -i -e "$1" --color always -C 2};rg_with_colors'
@@ -374,7 +380,13 @@ pc4() {
       proxychains4 "$@"
 }
 
-alias procs='procs --sortd cpu -W 1'
+alias procs='procs --sortd cpu -W 1 --thread'
 #alias gdb='gdb -q'
 alias dmesg='sudo dmesg --color=always'
 #export PAGER='moar'
+
+s2c() {scp "$@" ${SSH_CLIENT%% *}:~/; }
+c2s() {scp ${SSH_CLIENT%% *}:"$@" .; }
+
+
+alias tarthis='( ( D=`builtin pwd`; F=$(date +$HOME/`sed "s,[/ ],#,g" <<< ${D/${HOME}/}`#-%F.tgz); tar --ignore-failed-read --transform "s, ^${D%/*},`date +${D%/*}.%F`,S" -czPf "$F" "$D" &>/dev/null ) & )'

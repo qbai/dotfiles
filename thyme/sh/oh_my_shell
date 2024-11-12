@@ -1,0 +1,118 @@
+# compare 2 folders or files
+diff --brief /home/mav /mnt/udisk/bk/home/mav
+diff -y file1 file2 or colordiff -y file1 file2
+    
+# copy large file
+dd if=/vm/arch-backup.tgz of=/mnt/udisk/bk/arch-backup.tgz status=progress bs=4M
+
+# change user and group
+sudo chown -R mav arch-backup.tgz
+sudo chgrp -R users arch-backup.tgz
+
+# quickly tar big file
+sudo tar --use-compress-program=pigz --ignore-failed-read -cvpf /vm/$(uname -n)-$(date +%Y%m%d_%H%M%S).backup.tgz --exclude=/proc --exclude=/sys --exclude=/run --exclude=/etc/fstab --exclude=/boot --exclude=/vm --exclude=/tmp --exclude=/dev --exclude=/lost+found /
+
+#sudo restic -r /media/udisk/bk/restic/ultimate-lnx backup --compression=max --exclude=/proc --exclude=/lost+found --exclude=/sys --exclude=/run --exclude=/vm --exclude=/tmp --exclude=/dev /
+
+# extract one folder from .tgz file
+sudo tar xvf arch-backup.tgz home/mav/ --exclude=home/mav/repo --exclude=home/mav/Downloads --exclude=home/mav/.cache --exclude=home/mav/.cargo --exclude=home/mav/dotfiles --exclude=home/mav/Download
+
+#sudo restic -r /media/udisk/bk/restic/ultimate-lnx restore latest --target /media/udisk/bk/restore --host ultimate-lnx
+
+
+# change and set default opener for one file type
+xdg-mime query filetype refind.conf
+xdg-mime query default text/plain
+xdg-mime default nano.desktop text/plain
+
+
+# check deleted files
+sudo extundelete  /dev/sda4 --inode 2
+
+# show hex value 0x8000
+echo $((16#8000))
+
+#rm excluding specfied folder
+sudo find . -mindepth 1 -path ./pacman -prune -o -exec rm -rf {} +
+
+
+## tee tricks
+# exec one command on 2 hosts
+echo "uptime" | tee >(ssh -T root@server1) >(ssh -T root@server2) >/dev/null
+# map one console to another
+script /dev/null | tee /dev/pts/1
+# copy to multiply disks
+dd if=/dev/sdb bs=4M | tee >(dd of=dev/sdc  bs=4M) | dd of=/dev/sdd bs=4M
+# save remote log
+ssh root@server | tee ssh-$(data "+%F_%T").log
+# download and preview
+ssh root@server cat ~/demo.mp4|tee demo.mp4|mplay -zoom -geometry 800*600+1000+200 -
+
+# listen port
+ss -tlwn
+
+# create 3 folders
+mkdir -p /usr/{a,b,c}
+
+#quick create bk file
+cp f.sh{,.bk}
+
+# edit file 
+sed -i -E "s/HOST = [^()]*/HOST = abcd/' test.txt  
+
+# remote run command
+ssh root@server 'bash -s' < server.sh
+ssh root@server "sytemctl status nfs-server"
+
+# check all opened files and find the deleted
+find /proc/*/fd -ls 2>/dev/null|grep '(deleted)'
+
+# && || replace if else
+gzip  -t a.tar.gz && echo "good zip" || echo "bad zip"
+
+# 1 2 redirect by &> or >&
+ls file nofile &> /dev/null
+ls file nofile 2>&1 1>/dev/null
+
+
+# command test
+echo *1.txt
+
+# mk temp file
+trap 'rm -f "$TMPFILE"' EXIT
+TMPFILE=$(mktemp)|| exit 1
+TMPDIR=mktemp -p /home/ruanyf/ || exit 1
+echo "Our temp file is $TMPFILE"
+
+
+# read all params
+while [ $# != 0 ];do
+	echo "first param：$1, param number：$#"
+shift
+done
+
+
+# error message
+err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
+}
+
+if ! do_something; then
+  err "Unable to do_something"
+  exit 1
+fi
+
+
+# empty func
+omz_f() { :; }
+
+
+# try script with multi line
+eval "$(cat << EOF
+	...
+	EOF
+	)"
+	
+#Unset the ZSH variable when calling the installer:
+ZSH= sh install.sh
+

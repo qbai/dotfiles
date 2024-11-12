@@ -1,0 +1,10 @@
+ {
+    "Alt-/": "lua:comment.comment",
+    "Ctrl-a": "StartOfText",
+    "CtrlU": "Paste",
+    "CtrlUnderscore": "lua:comment.comment",
+    "CtrlV": "PageDown",
+    "CtrlW": "Find",
+    "CtrlX": "Quit",
+    "CtrlY": "PageUp"
+}

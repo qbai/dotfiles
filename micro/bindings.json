@@ -1,0 +1,10 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "CtrlUnderscore": "lua:comment.comment",
+    "buffer": {
+        "Ctrl-a": "StartOfText",
+        "Ctrl-e": "EndOfLine",
+        "Alt-a": "SelectAll",
+        "Ctrl-d": "Delete"
+    }
+}

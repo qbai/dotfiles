@@ -78,7 +78,7 @@ alias -s xz='xz -d'
 #alias -s csv='less'
 #alias -s csv='sudo bat'
 #alias -s yml='sudo bat'
-alias -s {txt,log,rtf,conf,properties,csv,yml}='moar'
+alias -s {txt,log,rtf,conf,properties,csv,yml,json}='moar'
 #alias -s {txt,log,rtf,conf,properties,csv,yml}='sudo bat'
 
 #alias -s md='glow -p'
@@ -153,8 +153,10 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey "\e\e" sudo-command-line
 
-alias l='ls -l -t -r -a -h'
+alias l='ls -ltrahF'
 alias grep='grep -i -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias ls='ls --color=always -a'
 alias fd='fd --glob'
 export CD_LS_COMMAND="ls -l -t -r -a -h -F"
+
+source ~/dotfiles/thyme/sh/f.sh
