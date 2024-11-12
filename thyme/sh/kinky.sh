@@ -146,7 +146,7 @@ install_remote() {
 	need_cmd emacs
 	need_cmd micro
 
-	cd ~/Downloads
+	cd ~
 	[ -d "./dotfiles.org" ] && rm -rf ./dotfiles.org
 	[ -d "./dotfiles" ] && mv ./dotfiles ./dotfiles.org 		
 	git clone "$DOT_FILES" 

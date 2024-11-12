@@ -19,7 +19,7 @@ alias le='exa -bghHliSa -s modified'
 alias lsd='lsd -l --header -a'
 alias lf="ls -lF"
 
-alias c='clear'
+#alias c='clear'
 alias s='source ~/.zshrc'
 alias h='history'
 
@@ -390,3 +390,5 @@ c2s() {scp ${SSH_CLIENT%% *}:"$@" .; }
 
 
 alias tarthis='( ( D=`builtin pwd`; F=$(date +$HOME/`sed "s,[/ ],#,g" <<< ${D/${HOME}/}`#-%F.tgz); tar --ignore-failed-read --transform "s, ^${D%/*},`date +${D%/*}.%F`,S" -czPf "$F" "$D" &>/dev/null ) & )'
+
+alias r_install='wget -qO- https://raw.githubusercontent.com/qbai/dotfiles/master/thyme/sh/kinky.sh | bash -s -- -r'
