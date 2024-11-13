@@ -66,7 +66,7 @@ install_cmd() {
 	elif grep -qi "ubuntu" /etc/issue; then
 	    :
 	elif grep -qi "arch" /etc/issue; then
-	    sudo pacman -Sy --noconfirm --needed "$1"
+	    sudo pacman -Sy --noconfirm --needed "$1" || yay -S --noconfirm --needed "$1"
 	elif grep -qi "centos" /etc/issue; then
 	    :
 	elif grep -qi "red hat" /etc/issue || grep -qi "redhat" /etc/issue; then
@@ -145,6 +145,8 @@ install_remote() {
 	need_cmd zsh
 	need_cmd emacs
 	need_cmd micro
+	need_cmd bat
+	need_cmd moar
 
 	cd ~
 	[ -d "./dotfiles.org" ] && rm -rf ./dotfiles.org
@@ -186,7 +188,7 @@ install_remote() {
 	# sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 	# wget -qO- "https://github.com/qbai/dotfiles/blob/master/thyme/sh/kinky.sh" | bash -s -- arg1 arg2
 	link_this .zshrc zsh/.zshrc.linux
-	
+
 # :<<!
 # ...
 # !
