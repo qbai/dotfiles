@@ -153,10 +153,10 @@ sudo-command-line() {
 zle -N sudo-command-line
 bindkey "\e\e" sudo-command-line
 
-alias l='ls -ltrahF'
+alias l='ls -ltrah'
 alias grep='grep -i -E --color=always --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias ls='ls --color=always -a'
 alias fd='fd --glob'
-export CD_LS_COMMAND="ls -l -t -r -a -h -F"
+export CD_LS_COMMAND="ls -l -t -r -a -h"
 
 source ~/dotfiles/thyme/sh/f.sh
