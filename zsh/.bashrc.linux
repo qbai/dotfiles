@@ -393,3 +393,6 @@ c2s() {scp ${SSH_CLIENT%% *}:"$@" .; }
 alias tarthis='( ( D=`builtin pwd`; F=$(date +$HOME/`sed "s,[/ ],#,g" <<< ${D/${HOME}/}`#-%F.tgz); tar --ignore-failed-read --transform "s, ^${D%/*},`date +${D%/*}.%F`,S" -czPf "$F" "$D" &>/dev/null ) & )'
 
 alias r_install='wget -qO- https://raw.githubusercontent.com/qbai/dotfiles/master/thyme/sh/kinky.sh | bash -s -- -r'
+
+# support mouse wheel
+alias journalctl='SYSTEMD_LESS=FRSMK journalctl'
