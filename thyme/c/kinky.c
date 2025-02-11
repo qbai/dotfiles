@@ -492,4 +492,17 @@ char *err_strings[] = {
 		}
 
 
-		
+
+
+// remove unused variable's warning and eliminate compiler optimization
+// and at the same time to initialize var
+// NOTES: 
+//	the following way is just to remove unused warning,but not 
+//		remove compiler optimization
+// 	#define UNUSED(x) (void)(x)
+#define	COMPQUIET(n, v)	do {					        \
+	(n) = (v);						        \
+	(n) = (n);						        \
+} while (0)
+
+COMPQUIET(lr, NULL);
