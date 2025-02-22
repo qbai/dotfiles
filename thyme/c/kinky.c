@@ -512,3 +512,9 @@ COMPQUIET(lr, NULL);
 state = bhp == NULL ?
 	(alloc_bhp == NULL ? FIRST_MISS : SECOND_MISS) :
 	(alloc_bhp == NULL ? FIRST_FOUND : SECOND_FOUND);
+
+
+// do not run anymore
+if (0) {
+
+}
