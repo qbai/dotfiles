@@ -510,5 +510,5 @@ COMPQUIET(lr, NULL);
 
 // if...if replaced by Ternary Operator
 state = bhp == NULL ?
-    (alloc_bhp == NULL ? FIRST_MISS : SECOND_MISS) :
-    (alloc_bhp == NULL ? FIRST_FOUND : SECOND_FOUND);
+	(alloc_bhp == NULL ? FIRST_MISS : SECOND_MISS) :
+	(alloc_bhp == NULL ? FIRST_FOUND : SECOND_FOUND);
