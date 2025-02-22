@@ -515,6 +515,8 @@ state = bhp == NULL ?
 
 
 // do not run anymore
+// differenc with #if 0 is that:
+// if (0) will do compilation,but #if 0 does not
 if (0) {
 
 }
