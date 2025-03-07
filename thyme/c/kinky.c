@@ -602,3 +602,28 @@ __db_tablesize(n_buckets)
 	HASH_SIZE(1073741824, 1073741827);	/* 2^30 */
 	return (1073741827);
 }
+
+
+// dup definition part for struct
+#define	__DBC_INTERNAL							\
+	DBC	 *opd;			/* Off-page duplicate cursor. */\
+	DBC	 *pdbc;			/* Pointer to parent cursor. */ \
+									\
+	void	 *page;			/* Referenced page. */		\
+	u_int32_t part;			/* Partition number. */		\
+	db_pgno_t root;			/* Tree root. */		\
+	db_pgno_t pgno;			/* Referenced page number. */	\
+	db_indx_t indx;			/* Referenced key item index. */\
+									\
+	/* Streaming -- cache last position. */				\
+	db_pgno_t stream_start_pgno;	/* Last start pgno. */		\
+	u_int32_t stream_off;		/* Current offset. */		\
+	db_pgno_t stream_curr_pgno;	/* Current overflow page. */	\
+									\
+	DB_LOCK		lock;		/* Cursor lock. */		\
+	db_lockmode_t	lock_mode;	/* Lock mode. */
+
+struct __dbc_internal {
+	__DBC_INTERNAL
+};
+
