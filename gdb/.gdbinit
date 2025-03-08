@@ -103,6 +103,8 @@ set $KDP64BITS = -1
 set $64BITS = 0
 
 set confirm off
+set debuginfod enabled off
+set startup-quietly off
 set print array-indexes on
 set print pretty on
 set verbose off
