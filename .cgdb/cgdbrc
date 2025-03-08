@@ -1,4 +1,4 @@
-set wso=vertical
+set wso=horizon
 set arrowstyle=highlight
 ## F9 to jump out from loop
 map <F9> :until<cr>
