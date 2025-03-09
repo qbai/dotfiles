@@ -1,7 +1,9 @@
 set wso=horizon
 set arrowstyle=highlight
-## F9 to jump out from loop
-map <F9> :until<cr>
+## adjust keybind
+##map <F7> :until<CR>
+map <F9> :step<CR>
+map <F10> :finish<CR>
 set autosourcereload
 set ignorecase
 set tabstop=4
