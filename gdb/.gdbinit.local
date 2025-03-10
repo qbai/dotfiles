@@ -1,0 +1,8 @@
+set confirm off
+set debuginfod enabled off
+set startup-quietly off
+set print array-indexes on
+set print pretty on
+set verbose off
+set history filename ~/.gdb_history
+set history save
