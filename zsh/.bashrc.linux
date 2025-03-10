@@ -355,8 +355,8 @@ edf() {
 	fi
 }
 
+alias gdb='gdb -q --silent --tui --args'
 gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
-
 
 ## herbstluftwm
 alias herb-config="moar ~/dotfiles/herbstluftwm/autostart"
@@ -382,7 +382,6 @@ pc4() {
 }
 
 alias procs='procs --sortd cpu -W 1 --thread'
-#alias gdb='gdb -q'
 alias dmesg='sudo dmesg --color=always'
 #export PAGER='moar'
 
