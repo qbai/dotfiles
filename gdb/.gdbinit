@@ -214,7 +214,7 @@ end
 # this way anyone can have their custom prompt - argp's idea :-)
 # can also be used to redefine anything else in particular the colors aka theming
 # just remap the color variables defined above
-source ~/.gdbinit.local
+#source ~/.gdbinit.local
 
 # can't use the color functions because we are using the set command
 if $COLOREDPROMPT == 1
@@ -2926,7 +2926,7 @@ define step_to_call
  
     set logging file /dev/null
     set logging redirect on
-    set logging on
+    set logging enabled on
  
     set $_cont = 1
     while ($_cont > 0)
@@ -2937,7 +2937,7 @@ define step_to_call
         end
     end
 
-    set logging off
+    set logging enabled off
 
     if ($_saved_ctx > 0)
         context
@@ -2948,12 +2948,12 @@ define step_to_call
  
     set logging file ~/gdb.txt
     set logging redirect off
-    set logging on
+    set logging enabled on
  
     printf "step_to_call command stopped at:\n  "
     x/i $pc
     printf "\n"
-    set logging off
+    set logging enabled off
 
 end
 document step_to_call
@@ -2976,8 +2976,8 @@ define trace_calls
   
     set logging overwrite on
     set logging file ~/gdb_trace_calls.txt
-    set logging on
-    set logging off
+    set logging enabled on
+    set logging enabled off
     set logging overwrite off
 
     while ($_nest > 0)
@@ -2994,7 +2994,7 @@ define trace_calls
         if ($INSN_TYPE == 3)
             set logging file ~/gdb_trace_calls.txt
             set logging redirect off
-            set logging on
+            set logging enabled on
 
             set $x = $_nest - 2
             while ($x > 0)
@@ -3004,13 +3004,13 @@ define trace_calls
             x/i $pc
         end
 
-        set logging off
+        set logging enable off
         set logging file /dev/null
         set logging redirect on
-        set logging on
+        set logging enabled on
         stepi
         set logging redirect off
-        set logging off
+        set logging enabled off
     end
 
     set $SHOW_CONTEXT = $_saved_ctx
@@ -3035,7 +3035,7 @@ define trace_run
     set logging overwrite on
     set logging file ~/gdb_trace_run.txt
     set logging redirect on
-    set logging on
+    set logging enabled on
     set $_nest = 1
 
     while ( $_nest > 0 )
@@ -3058,7 +3058,7 @@ define trace_run
     set $SHOW_CONTEXT = $_saved_ctx
     set $SHOW_NEST_INSN = 0
     set logging redirect off
-    set logging off
+    set logging enabled off
 
     # clean up trace file
     shell  grep -v ' at ' ~/gdb_trace_run.txt > ~/gdb_trace_run.1
@@ -3076,11 +3076,11 @@ define entry_point
 	
 	set logging redirect on
 	set logging file /tmp/gdb-entry_point
-	set logging on
+	set logging enabled on
 
 	info files
 
-	set logging off
+	set logging enabled off
 
 	shell entry_point="$(/usr/bin/grep 'Entry point:' /tmp/gdb-entry_point | /usr/bin/awk '{ print $3 }')"; echo "$entry_point"; echo 'set $entry_point_address = '"$entry_point" > /tmp/gdb-entry_point
 	source /tmp/gdb-entry_point
@@ -3104,17 +3104,17 @@ define objc_symbols
 
 	set logging redirect on
 	set logging file /tmp/gdb-objc_symbols
-	set logging on
+	set logging enabled on
 
 	info target
 
-	set logging off
+	set logging enabled off
     # XXX: define paths for objc-symbols and SymTabCreator
 	shell target="$(/usr/bin/head -1 /tmp/gdb-objc_symbols | /usr/bin/head -1 | /usr/bin/awk -F '"' '{ print $2 }')"; objc-symbols "$target" | SymTabCreator -o /tmp/gdb-symtab
 
-	set logging on
+	set logging enabled on
 	add-symbol-file /tmp/gdb-symtab
-	set logging off
+	set logging enabled off
     shell /bin/rm -f /tmp/gdb-objc_symbols
 end
 document objc_symbols
