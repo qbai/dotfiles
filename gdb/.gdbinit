@@ -104,12 +104,12 @@ set $64BITS = 0
 
 set confirm off
 set debuginfod enabled off
-set startup-quietly off
 set print array-indexes on
 set print pretty on
 set verbose off
 set history filename ~/.gdb_history
 set history save
+set startup-quietly off
 
 set output-radix 0x10
 set input-radix 0x10
@@ -2169,6 +2169,7 @@ define context
         x /i
         set $context_i--
     end
+    
     color $COLOR_SEPARATOR
     printf "----------------------------------------"
     printf "----------------------------------------"
@@ -2177,6 +2178,8 @@ define context
 	else
 	    printf "\n"
 	end
+    printf "[frame]\n"
+    frame
     color_reset
 end
 document context
