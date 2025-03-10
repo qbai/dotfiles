@@ -356,6 +356,7 @@ edf() {
 }
 
 alias gdb='gdb -q --silent --tui --args'
+alias cgdb='cgdb --silent'
 gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 
 ## herbstluftwm

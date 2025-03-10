@@ -7,3 +7,5 @@ map <F10> :finish<CR>
 set autosourcereload
 set ignorecase
 set tabstop=4
+## top_full top_big even bottom_big bottom_full
+set winsplit=top_big
