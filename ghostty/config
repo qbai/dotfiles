@@ -52,3 +52,6 @@ theme = Monokai Pro
 window-theme = ghostty
 
 gtk-titlebar = false
+
+copy-on-select = clipboard
+
