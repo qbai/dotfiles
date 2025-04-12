@@ -120,7 +120,7 @@ fi
 ################################################
 ### config screen lock, off, suspend or hibernate
 
-xset dpms 0 0 1800 # shutdown screen after 30min
+xset dpms 0 0 1200 # shutdown screen after 20min
 
 #xset s 7200 600
 #(xss-lock -n hibernate -- lock -n >/dev/null 2>&1)& # lock screen after 10 min 
