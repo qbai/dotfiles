@@ -377,6 +377,7 @@ alias herb-keys="herbstclient list_keybinds"
 #alias rg='rg -i -e'
 alias rg='rg_with_colors(){rg -i -e "$1" --color always -C 2};rg_with_colors'
 alias screenoff='sudo xset dpms force off'
+alias cat_xsel='cat_all_sel(){cat "$1" | xsel --clipboard};cat_all_sel'
 
 pc4() {
       proxychains4 "$@"
