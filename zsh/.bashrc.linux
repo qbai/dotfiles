@@ -230,7 +230,7 @@ export VISUAL='sudo micro'
 
 export GTAGSLABEL=pygments
 
-export PATH=$PATH:.:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin
+export PATH=$PATH:.:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin:~/.venv/bin
 #export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
