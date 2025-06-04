@@ -99,8 +99,8 @@ compton --backend glx &
 ## rotate monitor as long direction
 #xrandr --output DP-2 --rotate left
 
-# setup LG dualup monitor
-xrandr -s 2560x2880
+# setup LG dualup monitor at home
+#[ "$(uname -n)" = "ultimate-lnx" ] && xrandr -s 2560x2880
 
 # sogou pinyin configuration
 export GTK_IM_MODULE=fcitx

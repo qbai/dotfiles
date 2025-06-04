@@ -35,7 +35,7 @@ ng() {
 }
 
 net_speed() {
-	sudo tcpdump -i $(ip route get 1.2.3.4 | awk '{print $5}') -w -|pv -bert >/dev/null
+	sudo tcpdump -i $(ip route get 1.2.3.4 | grep -v "cache" | awk '{print $5}') -w -|pv -bert >/dev/null
 }
 
 user_cpu() {

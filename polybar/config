@@ -78,7 +78,7 @@ format-prefix            = " "
 format-prefix-foreground = ${colors.red}
 format-background        = ${colors.modb}
 format-padding           = 2
-label-foreground = ${colors.magenta}
+label-foreground = #FFFF00
 
 [module/powermenu]
 type = custom/menu
@@ -125,7 +125,7 @@ format-prefix            = " "
 format-prefix-foreground = ${colors.red}
 format-background        = ${colors.modb}
 format-padding           = 1
-label-foreground = ${colors.magenta}
+label-foreground = #FFFF00
 
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
@@ -150,7 +150,8 @@ bar-used-foreground-3 = #ff5555
 bar-used-fill = ▐
 bar-used-empty = ▐
 bar-used-empty-foreground = #444444
-label-foreground = ${colors.magenta}
+label-foreground = #FFFF00
+format-padding   = 1
 
 [module/filesystem]
 type                    = internal/fs
@@ -238,7 +239,7 @@ format-connected-background=${colors.modb}
 [module/wired]
 type=internal/network
 ;iwconfig to check
-interface=ens9
+interface=enp1s0
 interval=3.0
 udspeed-minwidth = 5
 accumulate-stats=true
@@ -248,7 +249,7 @@ format-connected = <ramp-signal> <label-connected>
 format-disconnected = <label-disconnected>
 format-packetloss = <animation-packetloss> <label-connected>
 label-connected = NET%downspeed:9%
-label-connected-foreground = ${colors.magenta}
+label-connected-foreground = #FFFF00
 label-disconnected = not connected
 label-disconnected-foreground = #66ffffff
 
