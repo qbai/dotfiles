@@ -2,11 +2,22 @@
     "Alt-/": "lua:comment.comment",
     "CtrlUnderscore": "lua:comment.comment",
     "buffer": {
+    	/*
+    	"Ctrl-f": "Find"
+    	"Ctrl-s": "Save"
+    	"Ctrl-c": "Copy"
+    	"Ctrl-v": "Paste"
+    	"Ctrl-q": "Quit"
+    	*/
         "Ctrl-a": "StartOfText",
         "Ctrl-e": "EndOfLine",
         "Alt-a": "SelectAll",
         "Ctrl-d": "Delete",
         "Alt-d": "DeleteWordRight",
+        "Ctrl-Down": "CursorPageDown",
+        "Ctrl-Up": "CursorPageUp",
+        "Alt-Down": "CursorEnd",
+        "Alt-Up": "CursorStart",
         "MouseRight": "PastePrimary"
     }
 }

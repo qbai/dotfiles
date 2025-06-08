@@ -81,3 +81,5 @@ ssh_login() {
 	EOF
 }
 
+#make -j$(cat /proc/cpuinfo| grep "processor"| wc -l)
+#make -j$(nproc)
