@@ -29,7 +29,7 @@ alias h='history'
 #alias b='sudo bat'
 #alias moar='moar -style monokai -wrap'
 #alias m='moar'
-alias m='sudo bat -p'
+alias m='bat -p'
 #alias n='sudo nano -m -$'
 alias n='micro -statusline=false --wordwrap=true'
 
@@ -56,6 +56,8 @@ alias pt2='print_all_thr(){ps mp "$1" -o THREAD,tid};print_all_thr'
 #show all child process
 alias pp='pgrep -P'
 alias pp2='ps --ppid'
+# show all user process
+#alias pp3="ps -ef | awk '$8 !~ /^\[.*\]$/'"
 alias ptree='pstree -p|grep'
 
 #alias tail='tail -f'
@@ -67,7 +69,8 @@ alias pg10="ps auxw|head -1;ps auxw|sort -rn -k3|head -10"
 # Top 10 consumed memory linux
 alias pm10="ps auxw|head -1;ps auxw|sort -rn -k4|head -10"
 
-alias mem="free -h"
+#alias mem="free -h"
+alias lsmem="free -h && echo '' && lsmem && echo '' && sudo dmidecode --type memory | grep -A 19 'Memory Device'"
 #alias memp='mep(){grep Pss /proc/"$1"/smaps| awk "{total+=$2}; END {print total}"};mep'
 
 #alias ng="sudo netstat -antp|grep 'listen'"

@@ -21,10 +21,11 @@ fi
 # merge custom x resources
 xrdb -merge "${HOME}/.Xdefaults" &
 
-# custom keymappings
-if [ -f $HOME/.Xmodmap ]; then
-	xmodmap $HOME/.Xmodmap
-fi
+# custom keymappings by xmodmap
+#if [ -f $HOME/.Xmodmap ]; then
+#	xmodmap $HOME/.Xmodmap
+#fi
+
 
 #sogou pinyin
 #export LC_ALL=zh_CN.UTF-8
@@ -144,6 +145,12 @@ xset dpms 0 0 1200 # shutdown screen after 20min
 
 # enable pac http server temporarily
 (python -m http.server 8080 -b 127.0.0.1 -d /etc/v2ray >/dev/null 2>&1)&
+
+
+
+# custom keymapping by xkb for filco keyboard
+## (Super_L <-> Alt_L) (~ <-> `)
+#setxkbmap -option "altwin:swap_lalt_lwin,tilde:grave"
 
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked

@@ -83,3 +83,4 @@ ssh_login() {
 
 #make -j$(cat /proc/cpuinfo| grep "processor"| wc -l)
 #make -j$(nproc)
+#ps -ef | awk '$8 !~ /^\[.*\]$/'	## show all user process

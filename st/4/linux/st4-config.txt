@@ -1,0 +1,229 @@
+1. pacman安装4 并crack
+
+2. 拷贝配置文件Preferences.sublime-settings内容 到sublime text4 -> Preferences -> Settings
+
+3. 安装package control
+	Shift+Ctrl+P
+	Install Package Control,等待安装
+
+4. 安装theme soda
+	 打开command pallette
+	 输入install package    Theme - Soda
+	 选择theme :  soda-dark
+	 选择color theme : monakai   
+	 
+5. 修改快捷键 
+	
+	拷贝下列到 Preferences > Key Binding
+	add the fowlling line into []
+	
+   { "keys": ["alt+1"], "command": "prev_view" },
+   { "keys": ["alt+2"], "command": "next_view" },
+   { "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+   { "keys": ["ctrl+1"], "command": "toggle_bookmark" },
+   { "keys": ["ctrl+2"], "command": "next_bookmark" },
+   { "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
+            "extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
+            "paths": ["../", "../include/linux"]
+        } },
+   {
+          "command": "gtags_navigate_to_definition",
+          "context": [],
+          "keys": ["ctrl+t", "ctrl+t"]
+          },
+          {
+          "command": "gtags_jump_back",
+          "keys": ["ctrl+t", "ctrl+b"]
+          },
+                    {
+          "command": "gtags_rebuild_tags",
+          "context": [],
+          "keys": ["ctrl+t", "ctrl+r"]
+                    },
+                    {
+        "command": "gtags_find_references",
+          "keys": ["alt+."]
+                    }
+
+6. 更改配色
+	ctrl+shift+p, 输入 install package,输入 packageresourceview 
+	安装完packageresourceview后，ctrl + shift + p, 输入 packageresourceview : open resource 
+	输入color schema -default, 选择monokai 
+	查找 selection, 更新为 "selection": "var(orange)"
+
+7. 代理设置
+	选择菜单 Preferences -> Package Settings -> package control -> settings - user 打开配置文件， 加入
+		"http_proxy": "http://127.0.0.1:8118",
+    		"https_proxy": "https://127.0.0.1:8118",
+		
+8. package channel 设置
+	选择菜单 Preferences -> Package Settings -> package control -> settings - user 打开配置文件， 加入
+		"channels": [
+			"/home/mav/dotfiles/st/4/channel_v3.json"
+		],
+
+
+插件配置 (删除已安装的插件 ctrl+shift+p，removepackage，选择要删除的package)
+
+		       ********************
+		       *  关于C/C++部分插件 *
+		       ********************
+[[
+1> 安装ctags
+	package control 输入ctags安装
+	install ctags 在系统上
+	到源代码目录下运行ctags -R -f .tags --exclude=some/path, 生成索引文件
+
+	打开 Preferences -> Package Settings -> CTags -> Settings - Users, 加入以下
+		{
+			"command": "/usr/local/bin/ctags"
+		}
+	打开Preferences -> Package Settings -> CTags -> Key Binding - User，修改如下部分为下列内容
+		    {
+    			"command": "navigate_to_definition",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+t"]
+  		    },
+  		    {
+    			"command": "jump_prev",
+    			"keys": ["ctrl+t", "ctrl+b"]
+  		    },
+                    {
+    			"command": "rebuild_tags",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+r"]
+                    }
+
+]]
+
+1> 手工安装SublimeGtags
+	git clone https://github.com/qbai/SublimeGtags.git
+	cd SublimeGtags/
+	zip -r SublimeGtags.zip *	## 打包文件一定要直接包含所有文件，不能带文件夹，否则插件disable
+	mv SublimeGtags.zip SublimeGtags.sublime-package
+	copy SublimeGtags.sublime-package into Installed Packages folder 
+       （linux下package folder是 ~/.config/sublime-text-3/Installed Packages/ 
+            or /opt/sublime_text/Packages）
+	reboot sublimetext3
+	
+	下载gtags from http://www.gnu.org/software/global/,并加入到path里 
+	    (win http://adoxa.altervista.org/global/)
+	{
+	source build by following command :
+		./configure --with-exuberant-ctags --prefix=[path]
+		当然前提是安装 ctags (Exuberant Ctags 5.8)
+	}
+	
+	到源代码目录下运行gtags -v , 生成GPATH,GRTAGS,GTAGS
+
+	打开 Main menu -> Preferences -> Package Settings -> SublimeGtags -> Settings - Users,修改extra_tag_paths为刚才生成GTAGS的目录
+		{
+			"extra_tag_paths": "/home/ghost/repo/linux"
+		}
+	打开browse package, 找到gtags文件夹下边的Default.sublime-keymap文件，修改如下部分为下列内容
+	(在linux下browse package路径是 ~/.config/sublime-text-3）
+	
+		    {
+    			"command": "gtags_navigate_to_definition",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+t"]
+  		    },
+  		    {
+    			"command": "gtags_jump_back",
+    			"keys": ["ctrl+t", "ctrl+b"]
+  		    },
+                    {
+    			"command": "gtags_rebuild_tags",
+    			"context": [],
+    			"keys": ["ctrl+t", "ctrl+r"]
+                    },
+                    {
+   	 		"command": "gtags_find_references",
+    			"keys": ["alt+."]
+                    }
+[
+ 	使用gtags的方法：
+ 		alt+.	gtags_navigate_to_definition
+ 		alt+,	gtags_jump_back
+ 		ctrl+t, ctrl+t  	gtags_find_references
+]
+
+   NOTES:
+   	a> gtags 与 ctags发生冲突，不能同时在st2里边使用
+   	b> 可以参考 https://github.com/koko1000ban/SublimeGtags
+   	c> 完全可以用gtags插件替代ctags和cscope
+
+
+2> 安装Cscope
+		package control 安装 cscope
+		下载cscope,並加入到path里边,https://code.google.com/archive/p/cscope-win32/downloads
+			(源码下载从http://cscope.sourceforge.net/)
+		进入代码目录，运行 cscope -Rbkv  (-Rbkq)，生成cscope.out等三个文件
+		进入preferences->browse packages->cscope->CscopeSublime.sublime-settings,修改以下项目
+				{
+					"executable": "C:\\qbai\\cscope15.8a\\cscope.exe",
+					"database_location": "C:\\emc\\unity\\cscope.out"
+				}
+		选中函数名，右键菜单选择cscope，查询所有调用此函数的文件 或者以下快捷命令
+
+		Ctrl/Super + \ 		      - Show Cscope options
+		Ctrl/Super + L Ctrl/Super + S - Look up symbol under cursor
+		Ctrl/Super + L Ctrl/Super + D - Look up definition under cursor
+		Ctrl/Super + L Ctrl/Super + E - Look up functions called by 				    the function under the cursor
+		Ctrl/Super + L Ctrl/Super + R - Look up functions calling the 				      function under the cursor
+		Ctrl/Super + Shift + [        - Jump back
+
+]
+
+3> 安装 Bracket Highlighter
+	package control 安装 Bracket Highlighter
+	preferences-->package settings-->Bracket highlighter-->Bracket settings-Default, 加入以下
+	    (将"bracket_styles"中的style改为hightlight 其中hightlight为高亮显示，outline是外面有框，underline是有颜色的下划线）
+	
+	"bracket_styles": {
+                "default": {
+                        "style": "highlight"
+                }
+        }
+
+
+4> 安装 Function Name Display 显示当前光标在哪个函数, 打开配置，修改
+	{
+		"display_class": true
+	}
+
+5> 安装tabnine
+
+6> 安装 SublimeLinter + cppcheck	(语法检查错误，cppcheck比编译器更严)
+
+7> 安装SublimeCodeIntel (自动补全，智能代码提示)
+	package control 安装
+8> 安装 alignment
+	package control 安装
+	打开key binding - users, 添加如下
+		[
+		{ "keys": ["super+alt+]"], "command": "alignment" }
+		]
+	按command+alt+], 对选中文本进行对齐
+
+
+9> 安装docblockr
+	package control安装；
+	输入/**，然后按Tab或者回车键就自动补全注释
+
+10> 安装coolformat
+	package control安装；
+	Ctrl+Shift+Alt+Q: Quick Format.
+	Ctrl+Shift+Alt+S: Selected Format.
+	or Open the command palette, input as CoolFormat: Quick Format
+
+11> 安装GBK Encoding Support
+
+
+12> 安装SublimeGDB
+	http://pythonic.zoomquiet.io/data/20121112224949/index.html
+
+13> 安装markdown preview
+
+
+
