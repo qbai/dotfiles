@@ -142,7 +142,7 @@ hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # horizontal or vertical split by default ( version > 0.9.3)
-hc attr settings.default_frame_layout vertical
+[ "$(uname -n)" = "ultimate-lnx" ] && hc attr settings.default_frame_layout vertical || hc attr settings.default_frame_layout horizontal
 
 # tags
 #tag_names=("  " "  " "  " "  " "  " "   " "   " "  " "  " "  " )

@@ -150,7 +150,8 @@ xset dpms 0 0 1200 # shutdown screen after 20min
 
 # custom keymapping by xkb for filco keyboard
 ## (Super_L <-> Alt_L) (~ <-> `)
-#setxkbmap -option "altwin:swap_lalt_lwin,tilde:grave"
+##setxkbmap -option "altwin:swap_lalt_lwin,tilde:grave"
+#setxkbmap -option "altwin:swap_lalt_lwin,(another option)"
 
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
