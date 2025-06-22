@@ -363,7 +363,7 @@ alias cgdb='cgdb --silent'
 gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 
 ## herbstluftwm
-alias herb-config="moar ~/dotfiles/herbstluftwm/autostart"
+alias herb-config="bat -p ~/dotfiles/herbstluftwm/autostart"
 alias herb-keys="herbstclient list_keybinds"
 
 ######################### new append at tail ################################

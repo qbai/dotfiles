@@ -79,7 +79,7 @@ alias -s xz='xz -d'
 #alias -s csv='sudo bat'
 #alias -s yml='sudo bat'
 #alias -s {txt,log,rtf,conf,properties,csv,yml,json}='moar'
-alias -s {txt,log,rtf,conf,properties,csv,yml,json}='bat -p'
+alias -s {txt,log,rtf,conf,properties,csv,yml,json,xml}='bat -p'
 
 #alias -s md='glow -p'
 #alias -s rst='glow -p'

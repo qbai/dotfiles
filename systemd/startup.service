@@ -1,0 +1,13 @@
+[Unit]
+Description=Run own script after full system startup
+After=graphical-session.target
+Requires=graphical-session.target
+
+[Service]
+Type=oneshot
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/mav/.Xauthority
+ExecStart=/home/mav/dotfiles/systemd/startup.sh
+
+[Install]
+WantedBy=default.target
