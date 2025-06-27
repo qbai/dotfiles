@@ -1,6 +1,7 @@
 1. pacman安装4 并crack
 
 2. 拷贝配置文件Preferences.sublime-settings内容 到sublime text4 -> Preferences -> Settings
+	适度调整ui_scale和font_size
 
 3. 安装package control
 	Shift+Ctrl+P
@@ -17,33 +18,35 @@
 	拷贝下列到 Preferences > Key Binding
 	add the fowlling line into []
 	
-   { "keys": ["alt+1"], "command": "prev_view" },
-   { "keys": ["alt+2"], "command": "next_view" },
-   { "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
-   { "keys": ["ctrl+1"], "command": "toggle_bookmark" },
-   { "keys": ["ctrl+2"], "command": "next_bookmark" },
-   { "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
-            "extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
-            "paths": ["../", "../include/linux"]
-        } },
-   {
-          "command": "gtags_navigate_to_definition",
-          "context": [],
-          "keys": ["ctrl+t", "ctrl+t"]
-          },
-          {
-          "command": "gtags_jump_back",
-          "keys": ["ctrl+t", "ctrl+b"]
-          },
-                    {
-          "command": "gtags_rebuild_tags",
-          "context": [],
-          "keys": ["ctrl+t", "ctrl+r"]
-                    },
-                    {
-        "command": "gtags_find_references",
-          "keys": ["alt+."]
-                    }
+      { "keys": ["alt+1"], "command": "prev_view" },
+      { "keys": ["alt+2"], "command": "next_view" },
+      { "keys": ["alt+f"], "command": "show_panel", "args": {"panel": "find_in_files"} },
+      { "keys": ["ctrl+1"], "command": "toggle_bookmark" },
+      { "keys": ["ctrl+2"], "command": "next_bookmark" },
+      { "keys": ["ctrl+3"], "command": "goto_definition" },
+      { "keys": ["ctrl+4"], "command": "jump_back" },
+      { "keys": ["alt+o"], "command": "switch_file_deluxe", "args": {
+               "extensions": [".cpp", ".cxx", ".cc", ".c", "Qt.cpp", "Qt.h", ".hpp", ".hxx", ".h", "_p.h", "_p_p.h", ".ipp", ".inl", ".m", ".mm"],
+               "paths": ["../", "../include/linux"]
+           } },
+      {
+             "command": "gtags_navigate_to_definition",
+             "context": [],
+             "keys": ["ctrl+t", "ctrl+t"]
+             },
+             {
+             "command": "gtags_jump_back",
+             "keys": ["ctrl+t", "ctrl+b"]
+             },
+                       {
+             "command": "gtags_rebuild_tags",
+             "context": [],
+             "keys": ["ctrl+t", "ctrl+r"]
+                       },
+                       {
+           "command": "gtags_find_references",
+             "keys": ["alt+."]
+      }
 
 6. 更改配色
 	ctrl+shift+p, 输入 install package,输入 packageresourceview 
@@ -68,7 +71,8 @@
 		       ********************
 		       *  关于C/C++部分插件 *
 		       ********************
-[[
+		       
+[[********************************************** REMOVED ******************************************
 1> 安装ctags
 	package control 输入ctags安装
 	install ctags 在系统上
@@ -94,7 +98,7 @@
     			"keys": ["ctrl+t", "ctrl+r"]
                     }
 
-]]
+********************************************** REMOVED ******************************************]]
 
 1> 手工安装SublimeGtags
 	git clone https://github.com/qbai/SublimeGtags.git
@@ -102,9 +106,9 @@
 	zip -r SublimeGtags.zip *	## 打包文件一定要直接包含所有文件，不能带文件夹，否则插件disable
 	mv SublimeGtags.zip SublimeGtags.sublime-package
 	copy SublimeGtags.sublime-package into Installed Packages folder 
-       （linux下package folder是 ~/.config/sublime-text-3/Installed Packages/ 
+       （linux下package folder是 ~/.config/sublime-text/Installed Packages/ 
             or /opt/sublime_text/Packages）
-	reboot sublimetext3
+	reboot subl
 	
 	下载gtags from http://www.gnu.org/software/global/,并加入到path里 
 	    (win http://adoxa.altervista.org/global/)
@@ -118,10 +122,10 @@
 
 	打开 Main menu -> Preferences -> Package Settings -> SublimeGtags -> Settings - Users,修改extra_tag_paths为刚才生成GTAGS的目录
 		{
-			"extra_tag_paths": "/home/ghost/repo/linux"
+			"extra_tag_paths": "/home/mav/repo/linux"
 		}
 	打开browse package, 找到gtags文件夹下边的Default.sublime-keymap文件，修改如下部分为下列内容
-	(在linux下browse package路径是 ~/.config/sublime-text-3）
+	(在linux下browse package路径是 ~/.config/sublime-text-）
 	
 		    {
     			"command": "gtags_navigate_to_definition",
@@ -153,7 +157,7 @@
    	b> 可以参考 https://github.com/koko1000ban/SublimeGtags
    	c> 完全可以用gtags插件替代ctags和cscope
 
-
+[[
 2> 安装Cscope
 		package control 安装 cscope
 		下载cscope,並加入到path里边,https://code.google.com/archive/p/cscope-win32/downloads
@@ -174,6 +178,8 @@
 		Ctrl/Super + Shift + [        - Jump back
 
 ]
+
+]]
 
 3> 安装 Bracket Highlighter
 	package control 安装 Bracket Highlighter
