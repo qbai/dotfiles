@@ -65,6 +65,11 @@ values."
     syntax-checking
     ;;spell-checking
 
+    gtags
+    ;; (gtags :variables
+    ;;        gtags-enabled-for (c-mode c++-mode asm-mode)
+    ;;        gtags-enable-by-default t)
+    
     asm
     shell-scripts
     ;;sql
@@ -76,10 +81,6 @@ values."
         python-sort-imports-on-save t)      ;; sort package when saving
     rust
 
-    gtags
-    ;; (gtags :variables
-    ;;        gtags-enabled-for (c-mode c++-mode asm-mode)
-    ;;        gtags-enable-by-default t)
     cscope
     ;;ycmd
     ;;semantic
@@ -508,9 +509,18 @@ you should place your code here."
 
 
   ;;(linum-relative-on)
-  (with-eval-after-load 'linum
-    (linum-relative-toggle))
-  (global-hungry-delete-mode t)
+  ;(use-package linum-relative
+  ;  :ensure t
+  ;  :config
+  ;  (linum-relative-toggle))
+  ;(with-eval-after-load 'linum
+  ;  (linum-relative-toggle))
+(global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+  
+(global-hungry-delete-mode t)
+
+(setq custom-safe-themes t)
 
   ;; setting minor mode
   ;; (spacemacs|add-company-backends :modes text-mode)
@@ -775,13 +785,20 @@ you should place your code here."
 ;; MOUSE
 ;;(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
 ;;(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
-(global-set-key [(mouse-5)] '(lambda () (interactive) (scroll-up-line 2)))
-(global-set-key [(mouse-4)] '(lambda () (interactive) (scroll-down-line 2)))
+;(global-set-key [(mouse-5)] '(lambda () (interactive) (scroll-up-line 2)))
+;(global-set-key [(mouse-4)] '(lambda () (interactive) (scroll-down-line 2)))
 ;;(global-set-key [mouse-4] 'good-scroll-down)
 ;;(global-set-key [mouse-5] 'good-scroll-up)
-(global-set-key [mouse-3] 'yank)
+;(global-set-key [mouse-3] 'yank)
 ;;(pixel-scroll-mode 1)
-(good-scroll-mode 1)
+;(good-scroll-mode 1)
+;(global-set-key [wheel-up]   'scroll-down-line)
+;(global-set-key [wheel-down] 'scroll-up-line)
+(global-set-key [wheel-down] (lambda () (interactive) (scroll-up-line 2)))
+(global-set-key [wheel-up]   (lambda () (interactive) (scroll-down-line 2)))
+(global-set-key [mouse-3] 'yank)
+(pixel-scroll-mode 1)  ;; Emacs 29+
+(good-scroll-mode 1)   ;; install package good-scroll
 
 
 ;; OTHER CONFIG
@@ -934,11 +951,21 @@ you should place your code here."
 ;; (setq highlight-thing-limit-to-defun t)
 ;; (setq highlight-thing-case-sensitive-p t)
 ;;(global-auto-highlight-symbol-mode t)
+
+;(defface hi-box
+;  '((t (:box t )))
+;  "Box face for hi-lock mode."
+;  :group 'hi-lock-faces)
+;(add-to-list 'hi-lock-faces "hi-box")
+
+
+
+(defvar hi-lock-faces nil "List of additional faces for hi-lock mode.")
 (defface hi-box
-  '((t (:box t )))
+  '((t (:box t)))
   "Box face for hi-lock mode."
   :group 'hi-lock-faces)
-(add-to-list 'hi-lock-faces "hi-box")
+(add-to-list 'hi-lock-faces 'hi-box)
 
 
 
@@ -1026,7 +1053,11 @@ you should place your code here."
 (setq projectile-globally-ignored-directories (append '(".git") projectile-globally-ignored-directories))
 
 ;; gtags
-(spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
+(with-eval-after-load 'helm-gtags
+  (spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
+  (spacemacs/helm-gtags-define-keys-for-mode 'c++-mode))
+;;(spacemacs/helm-gtags-define-keys-for-mode 'c-mode)
+
 (add-hook 'c-mode-common-hook
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode)
