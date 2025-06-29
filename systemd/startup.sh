@@ -13,6 +13,6 @@
 #export XAUTHORITY=/home/mav/.Xauthority
 
 #DISPLAY=:0 XAUTHORITY=/home/mav/.Xauthority setxkbmap -layout us
-sleep 13
+sleep 16
 setxkbmap -layout us
 #xmodmap /home/mav/.Xmodmap

@@ -49,7 +49,7 @@ redshift -O 5500K
 #Mod=Mod1    # Use alt as the main modifier
 Mod=Mod4   # Use the super key as the main modifier
 
-# autostart
+## autostart
 #hc spawn compton
 hc spawn nitrogen --restore
 #hc spawn dunst
@@ -144,7 +144,7 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 # horizontal or vertical split by default ( version > 0.9.3)
 [ "$(uname -n)" = "ultimate-lnx" ] && hc attr settings.default_frame_layout vertical || hc attr settings.default_frame_layout horizontal
 
-# tags
+## tags
 #tag_names=("  " "  " "  " "  " "  " "   " "   " "  " "  " "  " )
 #tag_names=("WEB" "TERM" "FILE" "MEDIA" "GIMP": "MISC" "CODE" "RRENT" "REDDIT" "CHAT")
 #tag_names=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X")
@@ -188,7 +188,7 @@ hc keybind $Mod-space                                                           
                      . cycle_layout +1 vertical horizontal max vertical grid    \
                , cycle_layout +1
 
-# mouse
+## mouse
 hc mouseunbind --all
 hc mousebind $Mod-Button1 move
 hc mousebind $Mod-Button2 zoom
@@ -206,10 +206,7 @@ hc keybind $Mod-c cycle
 hc keybind $Mod-Shift-u jumpto last-minimized
 #hc jumpto longest-minimized
 
-# for emacs unbind C-M-p
-#hc keyunbind Control-Alt-p
-
-# theme
+## theme
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 hc set frame_border_active_color '#151515'
@@ -249,7 +246,7 @@ hc set smart_frame_surroundings 1
 hc set focus_follows_mouse 1
 hc set mouse_recenter_gap 0
 
-# rules
+## rules
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
 hc rule focus=on # normally focus new clients
