@@ -182,7 +182,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 28
+                               :size 30
                                :weight bold
                                :width normal
                                :powerline-scale 1.1)
@@ -740,6 +740,9 @@ you should place your code here."
   ;; move window 5 lines up/down
   (global-set-key (kbd "C-M-n") (kbd "C-u 15 C-v"))
   (global-set-key (kbd "C-M-p") (kbd "C-u 15 M-v"))
+
+
+
   ;;show in center
   (global-set-key (kbd "C-M-l") 'recenter-top-bottom)
   ;; locate begin or end of file
