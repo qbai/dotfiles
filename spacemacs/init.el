@@ -1084,12 +1084,13 @@ you should place your code here."
                 ;;(define-key asm-mode-map(kbd "C-t C-e") 'helm-projectile-rg))))
                 (define-key asm-mode-map(kbd "M-f") 'deadgrep))))
 
-  ;; gud-gdb
-  ;; GDB layout
-                                        ;(defadvice gdb-setup-windows (after activate)
-                                        ;  (gdb-setup-my-windows))
-  (define-advice gdb-setup-windows (:after activate)
+
+  ;; GDB layout: gud-gdb
+  ;(defadvice gdb-setup-windows (after activate)
+  ;  (gdb-setup-my-windows))
+  (defun my/gdb-setup-windows-advice (&rest _args)
     (gdb-setup-my-windows))
+  (advice-add 'gdb-setup-windows :after #'my/gdb-setup-windows-advice)
 
 
   (defun gdb-setup-my-windows ()
