@@ -783,13 +783,13 @@ you should place your code here."
 
 
   ;; MOUSE
-                                        ;(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
-                                        ;(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
-                                        ;(global-set-key [mouse-4] 'good-scroll-down)
-                                        ;(global-set-key [mouse-5] 'good-scroll-up)
-                                        ;wheel-up
+  ;(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
+  ;(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
+  ;(global-set-key [mouse-4] 'good-scroll-down)
+  ;(global-set-key [mouse-5] 'good-scroll-up)
+  ;wheel-up
   (global-set-key [mouse-4] (lambda () (interactive) (scroll-down-line 2)))
-                                        ;wheel-down
+  ;wheel-down
   (global-set-key [mouse-5] (lambda () (interactive) (scroll-up-line 2)))
   (global-set-key [mouse-3] 'yank)
   (pixel-scroll-mode 1)  ;; Emacs 29+
@@ -808,7 +808,7 @@ you should place your code here."
 
 
   ;; shell-pop for M-'
-  (global-set-key (kbd "M-'") 'dotspacemacs/shell-pop-ansi-term)
+  (global-set-key (kbd "M-'") 'spacemacs/shell-pop-ansi-term)
   ;;(define-key key-translation-map (kbd "M-'") (kbd "M-m '"))
 
   ;;(global-set-key (kbd "C-c o") 'occur-selection)
