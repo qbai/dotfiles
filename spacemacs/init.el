@@ -509,12 +509,12 @@ you should place your code here."
 
 
   ;;(linum-relative-on)
-                                        ;(use-package linum-relative
-                                        ;  :ensure t
-                                        ;  :config
-                                        ;  (linum-relative-toggle))
-                                        ;(with-eval-after-load 'linum
-                                        ;  (linum-relative-toggle))
+  ;;(use-package linum-relative
+  ;;  :ensure t
+  ;;  :config
+  ;;  (linum-relative-toggle))
+  ;;(with-eval-after-load 'linum
+  ;;  (linum-relative-toggle))
   (global-display-line-numbers-mode 1)
   (setq display-line-numbers-type 'relative)
 
@@ -720,7 +720,7 @@ you should place your code here."
 
   (global-set-key (kbd "C-M-k") 'ido-kill-buffer)
   ;; kill all buffers
-;;;(global-set-key (kbd "C-M-a-k") 'nuke-all-buffers)
+  ;;(global-set-key (kbd "C-M-a-k") 'nuke-all-buffers)
   ;;(global-set-key (kbd "C-c k") 'kill-some-buffers)
   (global-set-key (kbd "C-c k") 'kill-all-buffer)
 
@@ -786,13 +786,13 @@ you should place your code here."
 
 
   ;; MOUSE
-  ;(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
-  ;(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
-  ;(global-set-key [mouse-4] 'good-scroll-down)
-  ;(global-set-key [mouse-5] 'good-scroll-up)
-  ;wheel-up
+  ;;(global-set-key [(mouse-5)] '(lambda () (interactive) (smooth-scroll 1)))
+  ;;(global-set-key [(mouse-4)] '(lambda () (interactive) (smooth-scroll -1)))
+  ;;(global-set-key [mouse-4] 'good-scroll-down)
+  ;;(global-set-key [mouse-5] 'good-scroll-up)
+  ;;wheel-up
   (global-set-key [mouse-4] (lambda () (interactive) (scroll-down-line 2)))
-  ;wheel-down
+  ;;wheel-down
   (global-set-key [mouse-5] (lambda () (interactive) (scroll-up-line 2)))
   (global-set-key [mouse-3] 'yank)
   (pixel-scroll-mode 1)  ;; Emacs 29+
@@ -949,11 +949,11 @@ you should place your code here."
   ;; (setq highlight-thing-case-sensitive-p t)
   ;;(global-auto-highlight-symbol-mode t)
 
-                                        ;(defface hi-box
-                                        ;  '((t (:box t )))
-                                        ;  "Box face for hi-lock mode."
-                                        ;  :group 'hi-lock-faces)
-                                        ;(add-to-list 'hi-lock-faces "hi-box")
+  ;;(defface hi-box
+  ;;  '((t (:box t )))
+  ;;  "Box face for hi-lock mode."
+  ;;  :group 'hi-lock-faces)
+  ;;(add-to-list 'hi-lock-faces "hi-box")
 
   (defvar hi-lock-faces nil "List of additional faces for hi-lock mode.")
   (defface hi-box
@@ -1089,8 +1089,8 @@ you should place your code here."
 
 
   ;; GDB layout: gud-gdb
-  ;(defadvice gdb-setup-windows (after activate)
-  ;  (gdb-setup-my-windows))
+  ;;(defadvice gdb-setup-windows (after activate)
+  ;;  (gdb-setup-my-windows))
   (defun my/gdb-setup-windows-advice (&rest _args)
     (gdb-setup-my-windows))
   (advice-add 'gdb-setup-windows :after #'my/gdb-setup-windows-advice)
@@ -1114,7 +1114,7 @@ you should place your code here."
                 (floor (* 0.6 (window-body-height))))) ; stack
          )
       (select-window win1)
-                                        ; configurating right window
+      ;; configurating right window
       (let
           ((winSrc (selected-window)) ; source
            (winIO (split-window-vertically (floor (* 0.9 (window-body-height))))) ; I/O
