@@ -173,6 +173,11 @@ key = "End"
 mode = "~Alt"
 mods = "Shift"
 
+#[[keyboard.bindings]]
+#mods = "Control|Alt"
+#key = "P"
+#action = "ReceiveChar"
+
 [mouse]
 hide_when_typing = false
 

@@ -666,3 +666,12 @@ __ham_func5(dbp, key, len)
 	}
 	return (h);
 }
+
+
+
+/* execute and determin value at the same time */
+if (!XGetWindowAttributes(X_.display(), win, &wa)
+    || wa.override_redirect) {
+    continue;
+}
+
