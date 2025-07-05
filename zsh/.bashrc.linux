@@ -312,7 +312,7 @@ fi
 alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
 #alias gst2='git status -uno'
 
-# 'git reset --mixed origin/master' roll back but has changes
+alias greset='git reset --mixed origin/master' #roll back but has changes
 # 'git reset --hard HEAD^'          roll back locally one time
 # 'git reset --hard origin/master'  roll back as remote status
 #########################################
