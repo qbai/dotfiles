@@ -739,7 +739,8 @@ you should place your code here."
   (global-set-key (kbd "M-p") (kbd "C-u 5 C-p"))
   ;; move window 5 lines up/down
   (global-set-key (kbd "C-M-n") (kbd "C-u 15 C-v"))
-  (global-set-key (kbd "C-M-p") (kbd "C-u 15 M-v")) ; could be alt+shift+p
+  ;; work for ghostty, not alacritty; maybe alt+shift+p
+  (global-set-key (kbd "C-M-p") (kbd "C-u 15 M-v"))
 
 
   ;;show in center
