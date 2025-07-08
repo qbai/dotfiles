@@ -391,7 +391,7 @@ pc4() {
 
 alias procs='procs --sortd cpu -W 1 --thread'
 alias dmesg='sudo dmesg --color=always'
-alias bbcp='bbcp -s 12 -w 64M -N -v'
+alias bbcp='bbcp -s 12 -w 64M -N -P 2'
 #export PAGER='moar'
 
 s2c() {scp "$@" ${SSH_CLIENT%% *}:~/; }
