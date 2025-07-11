@@ -7,12 +7,14 @@
 #  fi
 #  sleep 1
 #done
+
 #while [ -z "$(xrandr --listmonitors 2>/dev/null)" ]; do sleep 1; done
 
 #export DISPLAY=:0
 #export XAUTHORITY=/home/mav/.Xauthority
 
 #DISPLAY=:0 XAUTHORITY=/home/mav/.Xauthority setxkbmap -layout us
+
 sleep 16
 setxkbmap -layout us
 #xmodmap /home/mav/.Xmodmap

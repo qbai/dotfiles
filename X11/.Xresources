@@ -42,6 +42,7 @@
 *.color14 : base0F
 *.color15 : base07
 
+
 URxvt.cursorBlink  :0
 URxvt.url-launcher :usr/bin/chromium
 URxvt.font         :xft:scientifica:size=9
@@ -80,7 +81,7 @@ rofi.fullscreen        : false
 rofi.width             : 350
 rofi.lines             : 6
 
-Xft.dpi       : 96
+Xft.dpi       : 120
 Xft.antialias : true
 Xft.rgba      : rgb
 Xft.hinting   : true

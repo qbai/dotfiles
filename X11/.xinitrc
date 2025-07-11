@@ -19,7 +19,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # merge custom x resources
-xrdb -merge "${HOME}/.Xdefaults" &
+#if [ -f $HOME/.Xdefaults ]; then
+#	xrdb -merge "${HOME}/.Xdefaults" &
+#fi
+[ -f $HOME/.Xresources ] && xrdb -merge "$HOME/.Xresources" &
 
 # custom keymappings by xmodmap
 #if [ -f $HOME/.Xmodmap ]; then
@@ -27,12 +30,7 @@ xrdb -merge "${HOME}/.Xdefaults" &
 #fi
 
 
-#sogou pinyin
 #export LC_ALL=zh_CN.UTF-8
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-
 #export LANG=zh_CN.UTF-8
 #export LANGUAGE=zh_CN:en_US
 #export LC_CTYPE=en_US.UTF-8
@@ -75,7 +73,7 @@ nitrogen --restore &
 #(sleep 3s && clipit) &
 
 # keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
-xset r rate 250 25 &
+#xset r rate 250 25 &
 
 # disable system beep
 #xset b off &

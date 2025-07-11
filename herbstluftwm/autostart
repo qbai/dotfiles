@@ -21,7 +21,8 @@ hc() {
 hc emit_hook reload
 
 #xsetroot -solid '#5A8E3A'
-xsetroot -solid '#222222'
+xsetroot -solid '#222222'		# background color
+redshift -x && redshift -O 5500K	# reset && color temp
 
 hc pad 0 23 0 0
 # remove all existing keybindings
@@ -41,8 +42,8 @@ compton &
 dunst -conf ~/.config/dunst/dunstrc &
 feh --bg-fill ~/dotfiles/wallpaper/herbst.jpg &
 
-xrdb .Xresources
-redshift -O 5500K
+#xrdb .Xresources
+
 
 # keybindings
 # if you have a super key you will be much happier with Mod set to Mod4
@@ -80,10 +81,10 @@ hc keybind $Mod-d spawn rofi -modi "run,window" -show run -lines 10 -eh 1.5  -wi
 #hc keybind $Mod-x spawn firefox
 
 # start google chrome
+hc keybind $Mod-x spawn google-chrome-stable --proxy-pac-url="http://127.0.0.1:8080/proxy.js" #--force-device-scale-factor=1.3
 #hc keybind $Mod-x spawn google-chrome-stable
 #hc keybind $Mod-x spawn google-chrome-stable --proxy-server="socks5://127.0.0.1:7591" #--proxy-pac-url="file://~/dotfiles/privoxy/autoproxy.pac"
-																					   #--force-device-scale-factor=1.3
-hc keybind $Mod-x spawn google-chrome-stable --proxy-pac-url="http://127.0.0.1:8080/proxy.js"
+													
 
 hc keybind $Mod-Alt-g spawn gpick --pick
 #hc keybind $Mod-Shift-x spawn qutebrowser
@@ -102,7 +103,7 @@ hc keybind Print spawn ~/.config/herbstluftwm/screenshot.sh
 #hc keybind XF86AudioLowerVolume spawn pulsemixer --id 2 --change-volume -5
 #hc keybind XF86AudioMute        spawn pulsemixer --id 2 --toggle-mute
 
-# basic movement
+## basic movement
 # focusing clients
 hc keybind $Mod-Left  focus left
 hc keybind $Mod-Down  focus down
@@ -144,95 +145,98 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 # horizontal or vertical split by default ( version > 0.9.3)
 [ "$(uname -n)" = "ultimate-lnx" ] && hc attr settings.default_frame_layout vertical || hc attr settings.default_frame_layout horizontal
 
+monitor_count=$(hc list_monitors | wc -l)
 ## tags
-if true; then	# single monitor
-#tag_names=("  " "  " "  " "  " "  " "   " "   " "  " "  " "  " )
-#tag_names=("WEB" "TERM" "FILE" "MEDIA" "GIMP": "MISC" "CODE" "RRENT" "REDDIT" "CHAT")
-#tag_names=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X")
-#tag_names=( {1..9} 0 )
-tag_names=( {1..9} )
-tag_keys=( {1..9} 0 )
 
-hc rename default "${tag_names[0]}" || true
-for i in ${!tag_names[@]} ; do
-    hc add "${tag_names[$i]}"
-    key="${tag_keys[$i]}"
-    if ! [ -z "$key" ] ; then
-        hc keybind "$Mod-$key" use_index "$i"
-        hc keybind "$Mod-Shift-$key" move_index "$i"
-    fi
-done
+##if true; then
+if [ "$monitor_count" -lt 2 ]; then # single monitor
 
-# horizontal or vertical split by default ( version > 0.9.3)
-hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr ATTR vertical
+	#tag_names=("  " "  " "  " "  " "  " "   " "   " "  " "  " "  " )
+	#tag_names=("WEB" "TERM" "FILE" "MEDIA" "GIMP": "MISC" "CODE" "RRENT" "REDDIT" "CHAT")
+	#tag_names=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X")
+	tag_names=( {1..9} )
+	tag_keys=( {1..9} 0 )
 
-# start all windows in floating mode
-#for attr in $(herbstclient complete 1 attr tags.by-name); do
-#	    herbstclient attr "$attr.floating" true
-#done
+	hc rename default "${tag_names[0]}" || true
+	for i in ${!tag_names[@]} ; do
+    		hc add "${tag_names[$i]}"
+    		key="${tag_keys[$i]}"
+    		if ! [ -z "$key" ] ; then
+        		hc keybind "$Mod-$key" use_index "$i"
+        		hc keybind "$Mod-Shift-$key" move_index "$i"
+    		fi
+	done
+
+	# horizontal or vertical split by default ( version > 0.9.3)
+	hc foreach T tags.by-name. sprintf ATTR '%c.tiling.root.algorithm' T set_attr ATTR vertical
+
+	# start all windows in floating mode
+	#for attr in $(herbstclient complete 1 attr tags.by-name); do
+	#	    herbstclient attr "$attr.floating" true
+	#done
 
 
-# cycle through tags
-hc keybind $Mod-period use_index +1 --skip-visible
-hc keybind $Mod-comma  use_index -1 --skip-visible
+	# cycle through tags
+	hc keybind $Mod-period use_index +1 --skip-visible
+	hc keybind $Mod-comma  use_index -1 --skip-visible
 
 else	# multi monitors
 
-mon1_names=( 1_{1..5} ) # tag names for monitor 1
-mon2_names=( 2_{1..5} ) # tag names for monitor 2
-fallback_names=( {1..5} ) # tag names for all other monitors
-tag_keys=( {1..9} 0 )
+	mon1_names=( 1_{1..5} ) # tag names for monitor 1
+	mon2_names=( 2_{1..5} ) # tag names for monitor 2
+	fallback_names=( {1..5} ) # tag names for all other monitors
+	tag_keys=( {1..9} 0 )
 
-hc rename default "${mon1_names[0]}" || true
-for tag in "${mon1_names[@]}" "${mon2_names[@]}" "${fallback_names[@]}" ; do
-    hc try silent add "$tag"
-done
+	hc rename default "${mon1_names[0]}" || true
+	for tag in "${mon1_names[@]}" "${mon2_names[@]}" "${fallback_names[@]}" ; do
+    		hc try silent add "$tag"
+	done
 
-for i in ${!tag_keys[@]} ; do
-    key="${tag_keys[$i]}"
-    # the keybinding works as follows: the or executes the commands separated by
-    # CASE and stops executing them after the first of those succeeds.
-    # the first command is: check that we are on monitor 3 and can switch to tag "${mon1_names[$i]}"
-    # if only one of these two steps fail, try the second one (and so one).
-    # The setup for two monitors is as follows:
-    hc keybind "$Mod-$key" \
-        or CASE and . compare monitors.focus.index = 0 . use "${mon1_names[$i]}" \
-           CASE and . compare monitors.focus.index = 1 . use "${mon2_names[$i]}" \
-           CASE use "${fallback_names[$i]}"
-    hc keybind "$Mod-Shift-$key" \
-        or CASE and . compare monitors.focus.index = 0 . move "${mon1_names[$i]}" \
-           CASE and . compare monitors.focus.index = 1 . move "${mon2_names[$i]}" \
-           CASE move "${fallback_names[$i]}"
-done
+	for i in ${!tag_keys[@]} ; do
+    		key="${tag_keys[$i]}"
+    		# the keybinding works as follows: the or executes the commands separated by
+    		# CASE and stops executing them after the first of those succeeds.
+    		# the first command is: check that we are on monitor 3 and can switch to tag "${mon1_names[$i]}"
+    		# if only one of these two steps fail, try the second one (and so one).
+    		# The setup for two monitors is as follows:
+    		hc keybind "$Mod-$key" \
+        		or CASE and . compare monitors.focus.index = 0 . use "${mon1_names[$i]}" \
+           		   CASE and . compare monitors.focus.index = 1 . use "${mon2_names[$i]}" \
+           		   CASE use "${fallback_names[$i]}"
+    		hc keybind "$Mod-Shift-$key" \
+        		or CASE and . compare monitors.focus.index = 0 . move "${mon1_names[$i]}" \
+           		   CASE and . compare monitors.focus.index = 1 . move "${mon2_names[$i]}" \
+           		   CASE move "${fallback_names[$i]}"
+	done
 
-# cycle through tags
-# add additional information in order to cycle only through a monitor's tags
-# and not through all tags
-define-tag-cycle() {
-    local n=$#
-    local tags=( "$@" )
-    for i in "${!tags[@]}" ; do
-        local t="${tags[$i]}"
-        hc chain , new_attr string tags.by-name."$t".my_previous_tag \
-                 , set_attr tags.by-name."$t".my_previous_tag "${tags[$(((i - 1 + n) % n))]}" \
-                 , new_attr string tags.by-name."$t".my_next_tag \
-                 , set_attr tags.by-name."$t".my_next_tag "${tags[$(((i + 1) % n))]}"
-    done
-}
+	# cycle through tags
+	# add additional information in order to cycle only through a monitor's tags
+	# and not through all tags
+	define-tag-cycle() {
+    		local n=$#
+    		local tags=( "$@" )
+    		for i in "${!tags[@]}" ; do
+        		local t="${tags[$i]}"
+        		hc chain , new_attr string tags.by-name."$t".my_previous_tag \
+                 		, set_attr tags.by-name."$t".my_previous_tag "${tags[$(((i - 1 + n) % n))]}" \
+                 		, new_attr string tags.by-name."$t".my_next_tag \
+                 		, set_attr tags.by-name."$t".my_next_tag "${tags[$(((i + 1) % n))]}"
+    		done
+	}
 
-define-tag-cycle "${mon1_names[@]}"
-define-tag-cycle "${mon2_names[@]}"
-define-tag-cycle "${fallback_names[@]}"
+	define-tag-cycle "${mon1_names[@]}"
+	define-tag-cycle "${mon2_names[@]}"
+	define-tag-cycle "${fallback_names[@]}"
 
-# cycle through tags
-# check whether the current tag as a custom "next tag" configured
-# if yes, jump to that one, otherwise fall back to ordinary use_index +1
-hc keybind $Mod-period or , substitute NEXT tags.focus.my_next_tag use NEXT  \
+	# cycle through tags
+	# check whether the current tag as a custom "next tag" configured
+	# if yes, jump to that one, otherwise fall back to ordinary use_index +1
+	hc keybind $Mod-period or , substitute NEXT tags.focus.my_next_tag use NEXT  \
                           , use_index +1 --skip-visible
-hc keybind $Mod-comma  or , substitute PREV tags.focus.my_previous_tag use PREV  \
+	hc keybind $Mod-comma  or , substitute PREV tags.focus.my_previous_tag use PREV  \
                           , use_index +1 --skip-visible
 
-fi      # end of single monitor
+fi      # end of multi monitors
                    
 
 hc keybind $Mod-r remove
@@ -309,6 +313,7 @@ hc set mouse_recenter_gap 0
 hc unrule -F
 #hc rule class=XTerm tag=3 # move all xterms to tag 3
 hc rule focus=on # normally focus new clients
+#hc rule floatplacement=smart
 #hc rule focus=off # normally do not focus new clients
 # give focus to most common terminalsy
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
@@ -316,6 +321,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule class 'alacritty --name ncmpcpp -e ncmpcpp' focus=on
+#hc rule fixedsize floating=on
 hc rule instance=ncmpcpp tag=4 pseudotile=on  # move all ncmpcpp to tag 4
 # unlock, just to be sure
 hc unlock
@@ -327,9 +333,18 @@ herbstclient set tree_style '╾│ ├└╼─┐'
 # config manually
 #hc set_monitors 2560x1600+0+0 3440x1440+2560+0
 # or simply:
-hc detect_monitors
+if [ "$monitor_count" -lt 2 ]; then # single monitor
+	hc detect_monitors
+else	# multi monitors
 
-#herbstclient set_monitors 2560x2880+0+0 3840x2160+2560+0
+	xrandr --output DP-1 --primary --mode 2560x2880 --pos 0x0 --output DP-3 --mode 3840x2160 --pos 2560x0
+	sleep 1
+
+	hc add_monitor 2560x2880+0+0 "${mon1_names[0]}"
+	hc add_monitor 3840x2160+2560+0 "${mon2_names[0]}"
+	#hc set_monitors 2560x2880+0+0 3840x2160+2560+720
+fi      # end of multi monitors
+
 
 # find the panel
 #panel=~/.config/herbstluftwm/panel.sh
