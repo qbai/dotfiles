@@ -23,7 +23,7 @@ override-redirect = true
 [bar/top]
 monitor = ${env:MONITOR:}
 width    = 100%
-height   = 33
+height   = ${env:PANEL_HEIGHT:}
 offset-x = 0
 offset-y = 0
 separator = |
@@ -37,6 +37,8 @@ font-1 = Wuncon Siji:size=13:;-1
 
 modules-right   = cpu memory wired wifi battery date1
 modules-left = ewmh
+;modules-left = tags_per_mon
+;modules-left = ${env:M_TAGS:}
 modules-center  = xtitle
 
 tray-position    = off
@@ -50,6 +52,21 @@ padding-left        = 0
 padding-right       = 0
 module-margin-left  = 0
 module-margin-right = 0
+
+[module/tags_per_mon]
+type = custom/script
+exec = ~/.config/polybar/modules/tags_mon.sh
+interval = 1
+format-padding = 2
+format-foreground = #FFFF00
+format-background = ${colors.modb}
+label-active = %icon%%index%
+label-active-background = #3f3f3f
+label-active-padding = 2
+label-occupied = "  %index%"
+label-occupied-underline = ${colors.green}
+label-urgent = "  %index%"
+label-empty = "  %index%"
 
 [module/volume]
 type = internal/volume

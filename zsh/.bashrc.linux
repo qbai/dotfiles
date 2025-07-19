@@ -368,6 +368,7 @@ gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 ## herbstluftwm
 alias herb-config="bat -p ~/dotfiles/herbstluftwm/autostart"
 alias herb-keys="herbstclient list_keybinds"
+alias hc="herbstclient"
 
 ######################### new append at tail ################################
 #alias os="lsb_release -a"
@@ -391,7 +392,7 @@ pc4() {
 
 alias procs='procs --sortd cpu -W 1 --thread'
 alias dmesg='sudo dmesg --color=always'
-alias bbcp='bbcp -s 12 -w 64M -N -P 2'
+alias bbcp='bbcp -s 12 -w 64M -P 2'
 #export PAGER='moar'
 
 s2c() {scp "$@" ${SSH_CLIENT%% *}:~/; }
