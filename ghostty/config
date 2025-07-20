@@ -47,11 +47,10 @@ font-style = Regular
 font-size = 22
 font-thicken = true
 
-theme = Monokai Pro
+theme = Monokai Classic
 
 window-theme = ghostty
 
 gtk-titlebar = false
 
 copy-on-select = clipboard
-
