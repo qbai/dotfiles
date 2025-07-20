@@ -256,7 +256,7 @@ format-connected-background=${colors.modb}
 [module/wired]
 type=internal/network
 ;iwconfig to check
-interface=enp1s0
+interface=${env:ETH_IF:}
 interval=3.0
 udspeed-minwidth = 5
 accumulate-stats=true

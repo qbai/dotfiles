@@ -384,11 +384,15 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
 	#hc rename_monitor $monitor Mon$((i+1))			
 done
 
-[ "$monitor_count" -ge 2 ] && m_tags="tags_per_mon" || m_tags="ewmh"
+
+
+#[ "$monitor_count" -ge 2 ] && m_tags="tags_per_mon" || m_tags="ewmh"
+eth_if=$(ip route get 1.2.3.4 | grep -v "cache" | awk '{print $5}')
 
 for monitor in $(polybar --list-monitors |cut -d: -f1); do	
 #for monitor in $(xrandr --query | grep " connected" |cut -d" " -f1); do
-      MONITOR=$monitor  M_TAGS=$m_tags PANEL_HEIGHT=$panel_height polybar top &
+      #MONITOR=$monitor  M_TAGS=$m_tags PANEL_HEIGHT=$panel_height polybar top &
+      MONITOR=$monitor  PANEL_HEIGHT=$panel_height ETH_IF=$eth_if polybar top &
 done
 
 #herbstclient chain $cmds&
