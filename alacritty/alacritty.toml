@@ -196,7 +196,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 program = "/usr/bin/zsh"
 
 [window]
-decorations = "full"
+decorations = "none"
 dynamic_title = true
 
 [window.dimensions]
