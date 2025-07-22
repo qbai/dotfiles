@@ -144,6 +144,8 @@ xset dpms 0 0 1200 # shutdown screen after 20min
 # enable pac http server temporarily
 (python -m http.server 8080 -b 127.0.0.1 -d /etc/v2ray >/dev/null 2>&1)&
 
+# auto mount udisk
+udiskie -n -t -a &
 
 
 # custom keymapping by xkb for filco keyboard
