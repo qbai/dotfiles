@@ -116,14 +116,20 @@ fi
 #xset dpms force off
 
 
-################################################
-### config screen lock, off, suspend or hibernate
+###### config screen lock, off, suspend or hibernate ######
 
-xset dpms 0 0 1200 # shutdown screen after 20min
+if [ "$(uname -n)" = "ultimate-lnx" ]; then
+    xset s 3600 0  # hibernate after 1hour 
+    xset +dpms
+    xset dpms 0 0 1200 # shutdown screen after 20min
+    #xautolock -time 30 -locker "systemctl hibernate" & # hibernate after 30min
+    xss-lock -- bash -c 'systemctl hibernate' &
+else
+    xset s 3600 1200
+   (xss-lock -n suspend -- lock -n >/dev/null 2>&1)&  # lock screen after 20 min 
+    						      # suspend after 1 hours
+fi
 
-#xset s 7200 600
-#(xss-lock -n hibernate -- lock -n >/dev/null 2>&1)& # lock screen after 10 min 
-						     # hibernate after 2 hours
 #xset s 1800
 #(xss-lock -- hibernate >/dev/null 2>&1)& # hibernate after half hour
 
@@ -135,7 +141,8 @@ xset dpms 0 0 1200 # shutdown screen after 20min
 ####xset s 600
 ####(xss-lock -- xset dpms force off >/dev/null 2>&1)&
 ####(xss-lock -- xlock -mode blank >/dev/null 2>&1)&
-################################################
+
+##########################################################
 
 # enable ss-local
 #sudo systemctl start shadowsocks-libev@jp.service

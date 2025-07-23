@@ -35,9 +35,10 @@ foreground = ${colors.foreground}
 font-0 = scientifica:size=13:antialias=true;-1
 font-1 = Wuncon Siji:size=13:;-1
 
-modules-right   = cpu memory wired wifi battery date1
+;modules-right   = cpu memory wired wifi battery date1
+modules-right   = cpu memory wired wifi battery disk-io date1
 modules-left = ewmh
-;modules-left = tags_per_mon
+;modules-left = info-hlwm-workspaces
 ;modules-left = ${env:M_TAGS:}
 modules-center  = xtitle
 
@@ -371,3 +372,22 @@ ramp-volume-foreground = ${colors.magenta}
 ; Right and Middle click (unreleased)
 click-right = pavucontrol &
 ; click-middle =
+
+
+[module/info-hlwm-workspaces]
+type = custom/script
+exec = ~/.config/polybar/polybar-scripts/info-hlwm-workspaces.sh
+tail = true
+scroll-up = herbstclient use_index -1 --skip-visible &
+scroll-down = herbstclient use_index +1 --skip-visible &
+
+[module/disk-io]
+type = custom/script
+exec = ~/.config/polybar/polybar-scripts/disk-io.sh
+;exec = ~/.config/polybar/polybar-scripts/disk-io.sh ${env:DISK_NAME:}
+interval = 2
+format-prefix            = " "
+format-prefix-foreground = ${colors.red}
+format-background        = ${colors.modb}
+format-padding           = 1
+label-foreground = #FFFF00

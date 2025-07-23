@@ -237,69 +237,9 @@ export PATH=$PATH:.:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin:~/.venv/bin
 #export LD_LIBRARY_PATH=/Users/qbai/Project/opensource/db-6.1.19/opt/bdb/lib:$LD_LIBRARY_PATH
 
 
-########### oh-my-linux ######################
-if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-release > /dev/null; then
-	alias reboot='sudo systemctl reboot'
-	alias poweroff='sudo systemctl poweroff'
-	alias suspend='sudo systemctl suspend'
-	alias hibernate='sudo systemctl hibernate'
-
-	alias packey='sudo pacman -Sy archlinux-keyring --noconfirm'
-	alias pacin='sudo pacman -Sy --noconfirm --needed'
-	alias pacre='sudo pacman -Rs --noconfirm'
-	alias pacupg='sudo pacman -Syu --noconfirm'
-	alias pacclean='yes|sudo pacman -Scc'
-	# paccache -rk1 or paccache -r
-	alias pacqo='sudo pacman -Qo'			#one file belongs to which package
-	alias pacsi='sudo pacman -Si'			# show remote or local package info
-	alias pacfl='sudo pacman -Fl'			# show package file list
-	#alias pacf='sudo pacman -F'			  show file in which pkg remotely
-	alias pacqu='sudo pacman -Qu'			# show all pkg needed to be upgrade
-
-
-	# alias aremove2='sudo pacman -Rdd --noconfirm'
-	# pacman -Qs    query installed package
-	# pacman -Qu    query available upgrade package' 
-
-	alias yayin='yay -S --noconfirm --needed'
-	alias yayre='yay -R --noconfirm'
-	alias yayupg='yay -Sua'
-	alias yayqo='yay -Qo'
-	alias yaysi='yay -Si'
-	alias yayfl='yay -Fl'
-	alias yayqu='yay -Qu'
-	
-	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
-
-	# connect home's stereo manually
-	#alias mystereo = "bluetoothctl connect 04\:FE\:A1\:C7\:3C\:67"
-
-	#export http_proxy="http://127.0.0.1:8080"
-	#export https_proxy=$http_proxy
-	#export ftp_proxy=$http_proxy
-	#export rsync_proxy=$http_proxy
-	#export all_proxy="socks5://127.0.0.1:7591"
-	#export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-
-	#export {http, ftp, https, rsync}_proxy="http://127.0.0.1:8080"
-	#export {HTTP, FTP, HTTPS, RSYNC}_PROXY=$http_proxy
-	
-	#export {http,ftp,https,rsync}{_proxy,_PROXY}="http://127.0.0.1:8080"
-
-	# if imwheel was installed
-	if [ -x "$(command -v imwheel)" ]; then
-		imwheel >/dev/null 2>&1
-	fi	
-	
-	# start up ss manually
-	alias start-ss='sudo systemctl start shadowsocks-libev@jp.service'
-	#alias start-ss='(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&'
-
-	#alias start-wifi='sudo netctl start wlan0-NewLan'
-fi
-	## xmodmap -pke  => print current keymapping table
-	# exchange tilde and grave for my filco keyboard
-	#xmodmap -e "keycode 49 = asciitilde grave"
+## xmodmap -pke  => print current keymapping table
+# exchange tilde and grave for my filco keyboard
+#xmodmap -e "keycode 49 = asciitilde grave"
 
 ############# git #######################
 # git config --global icdiff.options '--highlight --line-numbers'
@@ -405,3 +345,86 @@ alias r_install='wget -qO- https://raw.githubusercontent.com/qbai/dotfiles/maste
 
 # support mouse wheel
 alias journalctl='SYSTEMD_LESS=FRSMK journalctl'
+
+
+########### oh-my-linux ######################
+if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-release > /dev/null; then
+	alias reboot='sudo systemctl reboot'
+	alias poweroff='sudo systemctl poweroff'
+	alias suspend='sudo systemctl suspend'
+	alias hibernate='sudo systemctl hibernate'
+
+	alias packey='sudo pacman -Sy archlinux-keyring --noconfirm'
+	alias pacin='sudo pacman -Sy --noconfirm --needed'
+	alias pacre='sudo pacman -Rs --noconfirm'
+	alias pacupg='sudo pacman -Syu --noconfirm'
+	alias pacclean='yes|sudo pacman -Scc'
+	# paccache -rk1 or paccache -r
+	alias pacqo='sudo pacman -Qo'			#one file belongs to which package
+	alias pacsi='sudo pacman -Si'			# show remote or local package info
+	alias pacfl='sudo pacman -Fl'			# show package file list
+	#alias pacf='sudo pacman -F'			  show file in which pkg remotely
+	alias pacqu='sudo pacman -Qu'			# show all pkg needed to be upgrade
+
+
+	# alias aremove2='sudo pacman -Rdd --noconfirm'
+	# pacman -Qs    query installed package
+	# pacman -Qu    query available upgrade package' 
+
+	alias yayin='yay -S --noconfirm --needed'
+	alias yayre='yay -R --noconfirm'
+	alias yayupg='yay -Sua'
+	alias yayqo='yay -Qo'
+	alias yaysi='yay -Si'
+	alias yayfl='yay -Fl'
+	alias yayqu='yay -Qu'
+	
+	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
+
+	# connect home's stereo manually
+	#alias mystereo = "bluetoothctl connect 04\:FE\:A1\:C7\:3C\:67"
+
+	#export http_proxy="http://127.0.0.1:8080"
+	#export https_proxy=$http_proxy
+	#export ftp_proxy=$http_proxy
+	#export rsync_proxy=$http_proxy
+	#export all_proxy="socks5://127.0.0.1:7591"
+	#export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+
+	#export {http, ftp, https, rsync}_proxy="http://127.0.0.1:8080"
+	#export {HTTP, FTP, HTTPS, RSYNC}_PROXY=$http_proxy
+	
+	#export {http,ftp,https,rsync}{_proxy,_PROXY}="http://127.0.0.1:8080"
+
+	# if imwheel was installed
+	if [ -x "$(command -v imwheel)" ]; then
+		imwheel >/dev/null 2>&1
+	fi	
+	
+	# start up ss manually
+	alias start-ss='sudo systemctl start shadowsocks-libev@jp.service'
+	#alias start-ss='(ss-local -c /etc/shadowsocks/jp.json > /dev/null 2>&1)&'
+
+	#alias start-wifi='sudo netctl start wlan0-NewLan'
+
+	
+	if [ "$(uname -n)" = "ultimate-lnx" ]; then # at home
+	    :
+	elif [ "$(uname -n)" = "ultimate-ws" ]; then # at work
+	    :
+	fi
+fi
+
+#if [ "$(uname -n)" = "ultimate-lnx" ]; then
+#    :
+#elif [ "$(uname -n)" = "ultimate-ws" ]; then
+#    :
+#else
+#    :
+#fi
+
+if [ "$(uname -n)" = "ultimate" ]; then # macos
+     :
+fi
+
+
