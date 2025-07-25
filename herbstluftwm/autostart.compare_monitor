@@ -331,9 +331,25 @@ hc rule focus=on # normally focus new clients
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
-hc rule class 'alacritty --name ncmpcpp -e ncmpcpp' focus=on
+
+# xprop | grep WM_CLASS, click window to check class name
+if [ "$(uname -n)" = "ultimate-lnx" ]; then
+    #hc rule class="Google-chrome" tag=1 floating=on
+    #hc rule class="Sublime_text" tag=1 floating=on
+    #hc rule class="Alacritty" tag=2 floating=off
+    #google-chrome-stable &
+    #sublime_text &
+    #subl &
+    :
+else
+    :
+fi
+
+#hc rule class 'alacritty --name ncmpcpp -e ncmpcpp' focus=on
 #hc rule fixedsize floating=on
-hc rule instance=ncmpcpp tag=4 pseudotile=on  # move all ncmpcpp to tag 4
+
+#hc rule instance=ncmpcpp tag=4 pseudotile=on  # move all ncmpcpp to tag 4
+
 # unlock, just to be sure
 hc unlock
 
