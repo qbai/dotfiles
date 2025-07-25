@@ -125,9 +125,11 @@ if [ "$(uname -n)" = "ultimate-lnx" ]; then
     #xautolock -time 30 -locker "systemctl hibernate" & # hibernate after 30min
     xss-lock -- bash -c 'systemctl hibernate' &
 else
-    xset s 3600 1200
-   (xss-lock -n suspend -- lock -n >/dev/null 2>&1)&  # lock screen after 20 min 
-    						      # suspend after 1 hours
+    xset s 1200 0
+   (xss-lock -- lock -n >/dev/null 2>&1)& # lock screen after 20 min
+    xset dpms 0 0 3600 	# suspend after 1 hours
+    #xset s 3600 1200
+   #(xss-lock -n suspend -- lock -n >/dev/null 2>&1)&		      
 fi
 
 #xset s 1800
