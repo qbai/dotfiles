@@ -249,11 +249,15 @@ export PATH=$PATH:.:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin:~/.venv/bin
 #alias gde='git difftool --tool=ediffclient --no-prompt'
 #alias gde='git difftool --tool=ediff --diff-filter=M --no-promt'
 #alias gme='git mergetool --tool=ediffclient --no-prompt'
-alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
-#alias gst2='git status -uno'
 
-#alias greset='git reset --mixed origin/master' #roll back but has changes
+
+alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
+alias gcommit='gcommit_push(){git commit -m "$1" && git push};gcommit_push'
 alias greset='greset_last(){git reset --mixed HEAD~1 && git push -f};greset_last' #roll back last commit
+
+
+#alias gst2='git status -uno'
+#alias greset='git reset --mixed origin/master' #roll back but has changes
 # 'git reset --hard HEAD^'          roll back locally one time
 # 'git reset --hard origin/master'  roll back as remote status
 #########################################
