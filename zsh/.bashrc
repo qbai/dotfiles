@@ -252,7 +252,8 @@ export PATH=$PATH:.:/bin:/usr/sbin:~/.cargo/bin:~/.local/bin:~/.venv/bin
 alias gall='gall_push(){git commit -a -m "$1" && git push};gall_push'
 #alias gst2='git status -uno'
 
-alias greset='git reset --mixed origin/master' #roll back but has changes
+#alias greset='git reset --mixed origin/master' #roll back but has changes
+alias greset='greset_last(){git reset --mixed HEAD~1 && git push -f};greset_last' #roll back last commit
 # 'git reset --hard HEAD^'          roll back locally one time
 # 'git reset --hard origin/master'  roll back as remote status
 #########################################
