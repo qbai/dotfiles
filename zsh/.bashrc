@@ -385,6 +385,40 @@ if { [[ -f /etc/issue ]] && grep -Ei "Arch Linux" /etc/issue > /dev/null; } || \
 	alias yaysi='yay -Si'
 	alias yayfl='yay -Fl'
 	alias yayqu='yay -Qu'
+
+	archin() {
+		pkg="$1"
+		
+		if pacman -Si "$pkg" &>/dev/null; then
+		    sudo pacman -Sy --noconfirm --needed "$pkg"
+		    return $?
+		fi
+		
+		if yay -Si "$pkg" &>/dev/null; then
+		    yay -S --noconfirm --needed "$pkg"
+		    return $?
+		else
+		    echo "❌ not found  $pkg"
+		    return 1
+		fi
+	}
+
+	archre() {
+		pkg="$1"
+		
+		if pacman -Si "$pkg" &>/dev/null; then
+		    sudo pacman -Rs --noconfirm --needed "$pkg"
+		    return $?
+		fi
+		
+		if yay -Si "$pkg" &>/dev/null; then
+		    yay -R --noconfirm "$pkg"
+		    return $?
+		else
+		    echo "❌ not found  $pkg"
+		    return 1
+		fi
+	}
 	
 	#alias grub-update='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 
