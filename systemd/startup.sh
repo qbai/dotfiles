@@ -15,6 +15,6 @@
 
 #DISPLAY=:0 XAUTHORITY=/home/mav/.Xauthority setxkbmap -layout us
 
-sleep 16
+sleep 1
 setxkbmap -layout us
 #xmodmap /home/mav/.Xmodmap

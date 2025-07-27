@@ -161,6 +161,8 @@ udiskie -n -t -a &
 ## (Super_L <-> Alt_L) (~ <-> `)
 ##setxkbmap -option "altwin:swap_lalt_lwin,tilde:grave"
 #setxkbmap -option "altwin:swap_lalt_lwin,(another option)"
+#systemctl --user start startup.service
+(. ~/dotfiles/systemd/startup.sh)&
 
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
