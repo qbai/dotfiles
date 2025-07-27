@@ -354,7 +354,7 @@ alias journalctl='SYSTEMD_LESS=FRSMK journalctl'
 
 ########### oh-my-linux ######################
 #if grep -Ei "Arch Linux" /etc/issue > /dev/null || grep -Ei "Arch Linux" /etc/*-release > /dev/null; then
-if { [[ -f /etc/issue ]] && grep -Ei "Arch Linux" /etc/issue > /dev/null; } || \
+if { [[ -f /etc/lsb-release ]] && grep -Ei "Arch Linux" /etc/lsb-release > /dev/null; } || \
    { [[ -f /etc/os-release ]] && grep -Ei "Arch Linux" /etc/os-release > /dev/null; }; then
 	alias reboot='sudo systemctl reboot'
 	alias poweroff='sudo systemctl poweroff'
