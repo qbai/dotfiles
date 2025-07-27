@@ -47,8 +47,8 @@
 
 [filter "lfs"]
 	process = git-lfs filter-process
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
 [http]
 	postBuffer = 114288000

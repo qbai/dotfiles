@@ -1,0 +1,2 @@
+wallpaper/* filter=lfs diff=lfs merge=lfs -text
+deprecated/* filter=lfs diff=lfs merge=lfs -text
