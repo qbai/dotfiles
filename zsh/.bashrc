@@ -367,10 +367,10 @@ if { [[ -f /etc/lsb-release ]] && grep -Ei "Arch Linux" /etc/lsb-release > /dev/
 	alias pacupg='sudo pacman -Syu --noconfirm'
 	alias pacclean='yes|sudo pacman -Scc'
 	# paccache -rk1 or paccache -r
-	alias pacqo='sudo pacman -Qo'			#one file belongs to which package
+	alias pacqo='sudo pacman -Qo'			# show file belonging to which package
 	alias pacsi='sudo pacman -Si'			# show remote or local package info
-	alias pacfl='sudo pacman -Fl'			# show package file list
-	#alias pacf='sudo pacman -F'			  show file in which pkg remotely
+	alias pacfl='sudo pacman -Fl'			# show package file list in remote repo
+	alias pacql='sudo pacman -Ql'			# show installed package file list
 	alias pacqu='sudo pacman -Qu'			# show all pkg needed to be upgrade
 
 
