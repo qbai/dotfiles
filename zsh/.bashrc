@@ -29,7 +29,7 @@ alias h='history'
 #alias b='sudo bat'
 alias moar='moar -style monokai -wrap'
 #alias m='moar'
-alias m='bat -p'
+alias m='sudo bat -p'
 #alias n='sudo nano -m -$'
 alias n='micro -statusline=false --wordwrap=true'
 
