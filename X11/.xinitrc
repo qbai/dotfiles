@@ -119,17 +119,21 @@ fi
 ###### config screen lock, off, suspend or hibernate ######
 
 if [ "$(uname -n)" = "ultimate-lnx" ]; then
-    xset s 3600 0  # hibernate after 1hour 
+    #xset s 3600 0
+    #xss-lock -- bash -c 'systemctl hibernate' & # hibernate after 1hour 
+    
+    xset s off
     xset +dpms
     xset dpms 0 0 1200 # shutdown screen after 20min
-    #xautolock -time 30 -locker "systemctl hibernate" & # hibernate after 30min
-    xss-lock -- bash -c 'systemctl hibernate' &
+    xautolock -time 60 -locker "systemctl hibernate" & # hibernate after 1hour
+    
 else
     xset s 1200 0
-   (xss-lock -- lock -n >/dev/null 2>&1)& # lock screen after 20 min
-    xset dpms 0 0 3600 	# suspend after 1 hours
-    #xset s 3600 1200
-   #(xss-lock -n suspend -- lock -n >/dev/null 2>&1)&		      
+   (xss-lock -- lock -n >/dev/null 2>&1)& # lock screen after 20min
+   #(xss-lock -n suspend -- lock -n >/dev/null 2>&1)&
+   	
+    xautolock -time 60 -locker "systemctl suspend" & # suspend after 1hour
+   #xautolock -time 60 -locker "i3lock && systemctl suspend" &	      
 fi
 
 #xset s 1800
