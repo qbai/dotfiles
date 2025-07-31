@@ -2,7 +2,7 @@
 	"ignored_packages":
 	[
 		"Vintage",
-  ],
+  	],
 	"index_files": true,
 	"theme": "Soda Dark.sublime-theme",
 	"color_scheme": "Monokai.sublime-color-scheme",
