@@ -1,48 +1,56 @@
 {
-	"auto_match_enabled": true,
-	"bold_folder_labels": true,
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-	"file_exclude_patterns":
-	[
-		".DS_Store",
-		"*.pid",
-		"*.pyc"
-	],
-	"find_selected_text": true,
-	"folder_exclude_patterns":
-	[
-		".git",
-		"__pycache__",
-		"env",
-		"env3"
-	],
-	"font_face": "Source Code Pro",
-	"font_size": 18.0,
-	"highlight_line": true,
 	"ignored_packages":
 	[
-		"SublimeCodeIntel",
-		"Vintage"
-	],
-	"indent_to_bracket": true,
-	"match_selection": true,
-	"remember_open_files": true,
-	"show_full_path": true,
-	"smart_indent": false,
-	"soda_classic_tabs": true,
-	"tab_size": 8,
-	"translate_tabs_to_spaces": true,
+		"Vintage",
+  ],
+	"index_files": true,
 	"theme": "Soda Dark.sublime-theme",
-	"tree_animation_enabled": true,
-	"word_wrap": "true",
-	"wrap_width": 80,
-	"rulers": [80],
-	"trim_trailing_white_space_on_save": true,
-	"highlight_modified_tabs": true,
-	"update_check": false,
-	"fold_buttons": true,
-	"always_show_minimap_viewport": true,
-	"show_encoding" : true,
-	"fade_fold_buttons": false,
-	"ui_scale": 1.5,
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"font_size": 17,
+	"auto_match_enabled": true,
+      "bold_folder_labels": true,
+      "file_exclude_patterns":
+      [
+          ".DS_Store",
+          "GTAGS",
+          "GRTAGS",
+          "GPATH",
+          "*.pid",
+          "*.pyc"
+      ],
+      "find_selected_text": true,
+      "folder_exclude_patterns":
+      [
+          ".git",
+          "__pycache__",
+          "env",
+          "env3"
+      ],
+      "font_face": "Source Code Pro",
+      "highlight_line": true,
+      /*"ignored_packages":
+      [
+          "SublimeCodeIntel",
+          "Vintage"
+      ],*/
+      "indent_to_bracket": true,
+      "match_selection": true,
+      "remember_open_files": true,
+      "show_full_path": true,
+      "smart_indent": false,
+      "soda_classic_tabs": true,
+      "tab_size": 8,
+      "translate_tabs_to_spaces": true,
+      "tree_animation_enabled": true,
+      "word_wrap": "true",
+      "wrap_width": 80,
+      "rulers": [80],
+      "trim_trailing_white_space_on_save": true,
+      "highlight_modified_tabs": true,
+      "update_check": false,
+      "fold_buttons": true,
+      "always_show_minimap_viewport": true,
+      "show_encoding" : true,
+      "fade_fold_buttons": false,
+      "ui_scale": 1.6,
 }
