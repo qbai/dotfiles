@@ -310,10 +310,6 @@ alias gdb='gdb -q --silent --tui --args'
 alias cgdb='cgdb --silent'
 gdb2() { emacsclient -t --eval "(gdb \"gdb -i=mi -q --args $*\")";}
 
-## herbstluftwm
-alias herb-config="bat -p ~/dotfiles/herbstluftwm/autostart"
-alias herb-keys="herbstclient list_keybinds"
-alias hc="herbstclient"
 
 ######################### new append at tail ################################
 #alias os="lsb_release -a"
@@ -448,6 +444,11 @@ if { [[ -f /etc/lsb-release ]] && grep -Ei "Arch Linux" /etc/lsb-release > /dev/
 
 	#alias start-wifi='sudo netctl start wlan0-NewLan'
 
+	## herbstluftwm
+	alias herb-config="bat -p ~/dotfiles/herbstluftwm/autostart"
+	alias herb-keys="herbstclient list_keybinds"
+	alias hc="herbstclient"
+	
 	
 	if [ "$(uname -n)" = "ultimate-lnx" ]; then # at home
 	    :
