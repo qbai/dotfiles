@@ -168,5 +168,10 @@ udiskie -n -t -a &
 #systemctl --user start startup.service
 (. ~/dotfiles/systemd/startup.sh)&
 
+
+# start firewall rules
+(sudo nft -f /etc/nftables.conf)&
+
+
 # ░▒▓█ herbstluft █▓▒░
 exec herbstluftwm --locked
