@@ -466,7 +466,27 @@ fi
 #fi
 
 if [ "$(uname -n)" = "ultimate" ]; then # macos
-     :
+
+	alias brewin='brew install'
+	alias brewre='brew uninstall'
+	alias brewupg='brew upgrade'
+		
+    alias nmap="nmap -A -p- -sV --open -T4"
+
+	login_ssh() {
+	    local ip="$1"
+	
+	    if [ -z "$ip" ]; then
+	        echo "Usage: login_arch <ip_address>"
+	        return 1
+	    fi
+
+		# knock door
+	    gtimeout 1 nc -z "$ip" 11220
+	
+	    ssh mav@"$ip" -p 65173
+	}
+	
 fi
 
 
