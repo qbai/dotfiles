@@ -6,14 +6,11 @@
 
 3. 安装theme soda
 	 打开command pallette
-	 输入install package    Theme - Soda
-	 选择theme :  soda-dark
-	 选择color theme : monakai   
+	 输入Package Control: Install Package
+	 选择theme :  soda
 
-4. 拷贝配置文件Preferences.sublime-settings内容 到sublime text4 -> Preferences -> Settings
-	适度调整ui_scale和font_size
-
-
+4. 拷贝配置文件Preferences.sublime-settings内容 到sublime text4 -> Preferences -> Settings, 适度调整ui_scale和font_size
+	 
 5. 修改快捷键 
 	
 	拷贝下列到 Preferences > Key Binding
@@ -56,14 +53,14 @@
 	查找 selection, 更新为 "selection": "var(orange)"
 
 7. 代理设置
-	选择菜单 Preferences -> Package Settings -> package control -> settings - user 打开配置文件， 加入
+	选择菜单 Preferences -> Package Settings -> package control -> settings 打开配置文件， 加入
 		"http_proxy": "http://127.0.0.1:8118",
-    		"https_proxy": "https://127.0.0.1:8118",
+    	"https_proxy": "https://127.0.0.1:8118",
 		
-8. package channel 设置
-	选择菜单 Preferences -> Package Settings -> package control -> settings - user 打开配置文件， 加入
+8. package channel 设置 (在mac上有问题，先不加入这个文件)
+	选择菜单 Preferences -> Package Settings -> package control -> settings 打开配置文件， 加入
 		"channels": [
-			"/home/mav/dotfiles/st/4/channel_v3.json"
+				"file:///Users/qbai/dotfiles/st/4/channel_v3.json"
 		],
 
 
@@ -106,9 +103,10 @@
 	cd SublimeGtags/
 	zip -r SublimeGtags.zip *	## 打包文件一定要直接包含所有文件，不能带文件夹，否则插件disable
 	mv SublimeGtags.zip SublimeGtags.sublime-package
+
 	copy SublimeGtags.sublime-package into Installed Packages folder 
-       （linux下package folder是 ~/.config/sublime-text/Installed Packages/ 
-            or /opt/sublime_text/Packages）
+   （mac下package folder是 ~/Library/Application Support/Sublime Text/Installed Packages）
+
 	reboot subl
 	
 	下载gtags from http://www.gnu.org/software/global/,并加入到path里 
@@ -123,7 +121,7 @@
 
 	打开 Main menu -> Preferences -> Package Settings -> SublimeGtags -> Settings - Users,修改extra_tag_paths为刚才生成GTAGS的目录
 		{
-			"extra_tag_paths": "/home/mav/repo/linux"
+			"extra_tag_paths": ["/Users/qbai/repo/herbstluftwm"]
 		}
 	打开browse package, 找到gtags文件夹下边的Default.sublime-keymap文件，修改如下部分为下列内容
 	(在linux下browse package路径是 ~/.config/sublime-text-）
@@ -183,8 +181,8 @@
 ]]
 
 3> 安装 Bracket Highlighter
-	package control 安装 Bracket Highlighter
-	preferences-->package settings-->Bracket highlighter-->Bracket settings-Default, 加入以下
+	package control 安装 BracketHighlighter
+	preferences-->package settings-->Bracket highlighter-->Bracket settings, 加入以下
 	    (将"bracket_styles"中的style改为hightlight 其中hightlight为高亮显示，outline是外面有框，underline是有颜色的下划线）
 	
 	"bracket_styles": {
@@ -225,7 +223,6 @@
 	or Open the command palette, input as CoolFormat: Quick Format
 
 11> 安装GBK Encoding Support
-
 
 12> 安装SublimeGDB
 	http://pythonic.zoomquiet.io/data/20121112224949/index.html
