@@ -131,8 +131,12 @@ else
     xset s 1200 0
    (xss-lock -- lock -n >/dev/null 2>&1)& # lock screen after 20min
    #(xss-lock -n suspend -- lock -n >/dev/null 2>&1)&
-   	
-    xautolock -time 60 -locker "systemctl suspend" & # suspend after 1hour
+
+   ## cancel suspend due to that wake-on-lan may not succeed ##	
+   #xautolock -time 60 -locker "systemctl suspend" & # suspend after 1hour
+   
+   xset dpms 0 0 1800 # shutdown screen after 30min
+    
    #xautolock -time 60 -locker "i3lock && systemctl suspend" &	      
 fi
 
