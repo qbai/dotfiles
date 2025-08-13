@@ -448,6 +448,10 @@ if { [[ -f /etc/lsb-release ]] && grep -Ei "Arch Linux" /etc/lsb-release > /dev/
 	alias herb-config="bat -p ~/dotfiles/herbstluftwm/autostart"
 	alias herb-keys="herbstclient list_keybinds"
 	alias hc="herbstclient"
+
+	ng() {
+		sudo netstat -antp|grep 'listen'|paste -d " " - <(sudo netstat -antp|grep 'listen'|awk '{print $7}'|cut -d'/' -f1|xargs -I {} ps --no-headers -p {} -o cmd)
+	}
 	
 	
 	if [ "$(uname -n)" = "ultimate-lnx" ]; then # at home
@@ -472,6 +476,10 @@ if [ "$(uname -n)" = "ultimate" ]; then # macos
 	alias brewupg='brew upgrade'
 		
     alias nmap="nmap -A -p- -sV --open -T4"
+
+    ng() {
+    	sudo lsof -nP -iTCP -sTCP:LISTEN
+    }
 
 	login_ssh() {
 	    local ip="$1"

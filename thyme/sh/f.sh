@@ -30,9 +30,6 @@ watch_console() {
 	watch -d -n0.5 sudo fold -w 160 $1|tr -cd '\11\12\15\40-\176'|awk 'NE'
 }
 
-ng() {
-	sudo netstat -antp|grep 'listen'|paste -d " " - <(sudo netstat -antp|grep 'listen'|awk '{print $7}'|cut -d'/' -f1|xargs -I {} ps --no-headers -p {} -o cmd)
-}
 
 net_speed() {
 	sudo tcpdump -i $(ip route get 1.2.3.4 | grep -v "cache" | awk '{print $5}') -w -|pv -bert >/dev/null
