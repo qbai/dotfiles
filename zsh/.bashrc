@@ -471,6 +471,9 @@ fi
 
 if [ "$(uname -n)" = "ultimate" ]; then # macos
 
+	export HOMEBREW_NO_ENV_HINTS=1
+	#export HOMEBREW_NO_AUTO_UPDATE=1
+
 	alias brewin='brew install'
 	alias brewre='brew uninstall'
 	alias brewupg='brew upgrade'
