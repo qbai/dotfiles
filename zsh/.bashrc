@@ -480,20 +480,20 @@ if [ "$(uname -n)" = "ultimate" ]; then # macos
 		
     alias nmap="nmap -A -p- -sV --open -T4"
 
-    ng() {
-    	sudo lsof -nP -iTCP -sTCP:LISTEN
-    }
-
-	ng2() {
-		sudo lsof -nP -iTCP -sTCP:LISTEN \
-		| awk 'NR>1 {print $2}' \
-		| sort -u \
-		| while read pid; do
-		    exe=$(ps -p $pid -o comm=)
-		    if [[ "$exe" != /System/* && "$exe" != /usr/libexec/* && "$exe" != /usr/sbin/* && "$exe" != /sbin/* && "$exe" != /usr/bin/* ]]; then
-		        echo "$pid  $exe"
-		    fi
-		done
+	ng() {
+	    sudo lsof -nP -iTCP -sTCP:LISTEN
+	
+	    printf "\n"
+	
+	    sudo lsof -nP -iTCP -sTCP:LISTEN \
+	    | awk 'NR>1 {print $2}' \
+	    | sort -u \
+	    | while read pid; do
+	        exe=$(ps -p $pid -o comm=)
+	        if [[ "$exe" != /System/* && "$exe" != /usr/libexec/* && "$exe" != /usr/sbin/* && "$exe" != /sbin/* && "$exe" != /usr/bin/* ]]; then
+	            echo "$pid  $exe"
+	        fi
+	    done
 	}
 
 	login_ssh() {
