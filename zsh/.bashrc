@@ -476,7 +476,7 @@ if [ "$(uname -n)" = "ultimate" ]; then # macos
 
 	alias brewin='brew install'
 	alias brewre='brew uninstall'
-	alias brewupg='brew upgrade'
+	alias brewupg='brew update && brew upgrade && brew autoremove && brew cleanup -s'
 		
     alias nmap="nmap -A -p- -sV --open -T4"
 
