@@ -475,8 +475,8 @@ if [ "$(uname -n)" = "ultimate" ]; then # macos
 	#export HOMEBREW_NO_AUTO_UPDATE=1
 
 	alias brewin='brew install'
-	alias brewre='brew uninstall'
-	alias brewupg='brew update && brew upgrade && brew autoremove && brew cleanup -s'
+	alias brewrm='brew uninstall'
+	alias brewup='brew update && brew upgrade && brew autoremove && brew cleanup -s'
 		
     alias nmap="nmap -A -p- -sV --open -T4"
 
