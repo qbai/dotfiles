@@ -98,7 +98,7 @@
 
 ********************************************** REMOVED ******************************************]]
 
-1> 手工安装SublimeGtags
+1> 手工安装SublimeGtags		✅
 	git clone https://github.com/qbai/SublimeGtags.git
 	cd SublimeGtags/
 	zip -r SublimeGtags.zip *	## 打包文件一定要直接包含所有文件，不能带文件夹，否则插件disable
@@ -180,7 +180,7 @@
 
 ]]
 
-3> 安装 Bracket Highlighter
+3> 安装Bracket Highlighter		✅
 	package control 安装 BracketHighlighter
 	preferences-->package settings-->Bracket highlighter-->Bracket settings, 加入以下
 	    (将"bracket_styles"中的style改为hightlight 其中hightlight为高亮显示，outline是外面有框，underline是有颜色的下划线）
@@ -192,7 +192,8 @@
         }
 
 
-4> 安装 Function Name Display 显示当前光标在哪个函数, 打开配置，修改
+4> 安装Function Name Display	✅ 
+	显示当前光标在哪个函数, 打开配置，修改
 	{
 		"display_class": true
 	}
@@ -224,10 +225,10 @@
 
 11> 安装GBK Encoding Support
 
-12> 安装SublimeGDB
+12> 安装SublimeGDB		✅
 	http://pythonic.zoomquiet.io/data/20121112224949/index.html
 
 13> 安装markdown preview
 
-
+14> 安装sftp		✅
 
