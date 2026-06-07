@@ -469,7 +469,7 @@ fi
 #    :
 #fi
 
-if [ "$(uname -n)" = "ultimate" ]; then # macos
+if [ "$(uname -n)" = "sublime" ]; then # macos
 
 	export HOMEBREW_NO_ENV_HINTS=1
 	#export HOMEBREW_NO_AUTO_UPDATE=1
