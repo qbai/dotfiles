@@ -1,4 +1,4 @@
-1. pacman安装4 并crack
+1. 安装sublime text 4 并crack
 
 2. 安装package control
 	Shift+Ctrl+P
