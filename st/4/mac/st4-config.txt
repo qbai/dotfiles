@@ -47,15 +47,15 @@
       }
 
 6. 更改配色
-	ctrl+shift+p, 输入 install package,输入 packageresourceview 
-	安装完packageresourceview后，ctrl + shift + p, 输入 packageresourceview : open resource 
+	ctrl+shift+p, 输入 install package,输入 packageresourceviewer 
+	安装完packageresourceviewer后，ctrl + shift + p, 输入 packageresourceviewer : open resource 
 	输入color schema -default, 选择monokai 
 	查找 selection, 更新为 "selection": "var(orange)"
 
 7. 代理设置
 	选择菜单 Preferences -> Package Settings -> package control -> settings 打开配置文件， 加入
 		"http_proxy": "http://127.0.0.1:8118",
-    		"https_proxy": "https://127.0.0.1:8118",
+    	"https_proxy": "https://127.0.0.1:8118",
 		
 8. package channel 设置 (在mac上有问题，先不加入这个)
 	选择菜单 Preferences -> Package Settings -> package control -> settings 打开配置文件， 加入
@@ -63,7 +63,13 @@
 				"file:///Users/qbai/dotfiles/st/4/channel_v3.json"
 		],
 
+9. 关闭package control的自动更新
+	选择菜单 Preferences -> Package Settings -> package control -> settings 打开配置文件， 加入
+		"auto_upgrade": false,
+		"auto_upgrade_ignore": [],
 
+
+		
 插件配置 (删除已安装的插件 ctrl+shift+p，removepackage，选择要删除的package)
 
 		       ********************
@@ -204,7 +210,7 @@
 
 7> 安装SublimeCodeIntel (自动补全，智能代码提示)
 	package control 安装
-8> 安装 alignment
+8> 安装 alignment	✅
 	package control 安装
 	打开key binding - users, 添加如下
 		[
