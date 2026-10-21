@@ -160,4 +160,6 @@ alias ls='ls --color=always -a'
 alias fd='fd --glob'
 export CD_LS_COMMAND="ls -l -t -r -a -h"
 
+unalias pip 2>/dev/null
+
 source ~/dotfiles/thyme/sh/f.sh
