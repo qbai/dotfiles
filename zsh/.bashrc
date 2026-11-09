@@ -122,8 +122,6 @@ alias pstree='pstree -apnuh'
 #rsync -avzr --progress --delete cyc@10.207.140.18:/home/cyc/cyc_core ./cyc_core
 #rsync -avzr --progress cyc@10.207.140.18:/home/cyc/cyc_core ./cyc_core
 
-alias curl='curl -O'
-
 #cl() { cd "$@" && pwd ; ls -ltrahF; }
 #cl() { cd "$@" && ls -l -t -r -a -h -F; }
 #alias ..="cl .."
@@ -453,10 +451,11 @@ if { [[ -f /etc/lsb-release ]] && grep -Ei "Arch Linux" /etc/lsb-release > /dev/
 		sudo netstat -antp|grep 'listen'|paste -d " " - <(sudo netstat -antp|grep 'listen'|awk '{print $7}'|cut -d'/' -f1|xargs -I {} ps --no-headers -p {} -o cmd)
 	}
 	
+	alias curl='curl -O'
 	
-	if [ "$(uname -n)" = "ultimate-lnx" ]; then # at home
+	if [ "$(uname -n)" = "oh-my-linux" ]; then # at home
 	    :
-	elif [ "$(uname -n)" = "ultimate-ws" ]; then # at work
+	elif [ "$(uname -n)" = "ultimate" ]; then # at work
 	    :
 	fi
 fi
@@ -509,6 +508,10 @@ if [ "$(uname -n)" = "sublime" ]; then # macos
 	
 	    ssh mav@"$ip" -p 65173
 	}
+
+	# download web video from youtube & b
+	# 	yt-dlp "https://www.bilibili.com/video/BV1fZx96pEZL?t=1.8&p=2"
+	# 	yt-dlp --proxy http://127.0.0.1:8118 --cookies-from-browser chrome "https://x.com/wyybaby1995/status/2119567780446167529/video/1"
 	
 fi
 
