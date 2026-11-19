@@ -452,6 +452,7 @@ if { [[ -f /etc/lsb-release ]] && grep -Ei "Arch Linux" /etc/lsb-release > /dev/
 	}
 	
 	alias curl='curl -O'
+
 	
 	if [ "$(uname -n)" = "oh-my-linux" ]; then # at home
 	    :
