@@ -162,7 +162,10 @@ export CD_LS_COMMAND="ls -l -t -r -a -h"
 
 unalias pip 2>/dev/null
 
-# config uv
+# first create pip venv
+#	cd ~ && python3 -m venv .venv
+
+# second config uv
 alias pip='uv pip'
 alias pip3='uv pip'
 
